@@ -1,0 +1,72 @@
+<html>
+<head>
+    <script src="js/lib/createjs-2013.12.12.min.js"></script>
+    <script src="js/lib/jquery-1.11.1.min.js"></script>
+    <script src="js/lib/jquery-ui.js"></script>
+    <script src="js/data/Manifest.js"></script>
+    <script src="js/model/Preloader.js"></script>
+    <script src="js/data/CaptchaJson.js"></script>
+    <script src="js/model/SmbLoadQueue.js"></script>
+    <script src="js/model/GameState.js"></script>
+    <script src="js/model/Bamboo.js"></script>
+    <script src="js/model/Leaf.js"></script>
+    <script src="js/model/Seed.js"></script>
+    <script src="js/model/Background.js"></script>
+    <script src="js/model/CaptchaProcessor.js"></script>
+    <script src="js/controller/MenuController.js"></script>
+    <script src="js/controller/StageController.js"></script>
+    <script src="js/controller/GameController.js"></script>
+    <script src="js/EventBus.js"></script>
+    <link rel="stylesheet" href="css/jquery-ui.css">
+    <link rel="stylesheet" href="css/game.css">
+    <script>
+        function init() {
+
+            var popupCanvas = document.getElementById("loaderCanvas");
+            popupCanvas.width = window.innerWidth - 150;
+            popupCanvas.height = window.innerHeight- 150;
+
+            gc = new GameController();
+            gc.init();
+        }
+
+    </script>
+</head>
+<body onload="init()" style="background:#ccc" >
+
+<canvas id="myCanvas" ></canvas>
+
+<div style="position: absolute; top: 0%; left: 0%; width: 90%; height: 90%; ">
+    <canvas id="loaderCanvas"></canvas>
+</div>
+
+<div id="dialog-shop" style="display: none;">
+    <canvas id="popupCanvas"></canvas>
+</div>
+
+<div id="dialog-message" style="display:none; text-align:center">
+    <p>
+        <button onClick="EventBus.dispatch(&quot;exitMenu&quot;);EventBus.dispatch(&quot;newGame&quot;)">New Game</button>
+    </p>
+    <p>
+        <button id="resumeButton" onClick="EventBus.dispatch(&quot;resumeGame&quot;)">Resume Game</button>
+    </p>
+    <p>
+        <!--<button onClick="EventBus.dispatch(&quot;exitMenu&quot;);EventBus.dispatch(&quot;showShop&quot;)">Shop</button>-->
+    </p>
+    <p>
+        <button onClick="EventBus.dispatch(&quot;exitMenu&quot;)">Exit</button>
+    </p>
+    <p>
+        <button>Help</button>
+    </p>
+</div>
+
+<div id="canvasHolder" style="padding-top: 10px; padding-bottom: 20px">
+    <input id="passButton" type="button" value="Pass" onclick="EventBus.dispatch(&quot;passText&quot;)" ></input>
+    <input id="inputText" type="text" placeholder="Enter captcha" onkeydown="if(event.keyCode == 13){EventBus.dispatch(&quot;compareCaptcha&quot;)}"></input>
+    <input id="submitButton" type="button" value="Submit" onclick="EventBus.dispatch(&quot;compareCaptcha&quot;)"></input>
+</div>
+
+</body>
+</html>

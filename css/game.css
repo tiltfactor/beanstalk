@@ -1,0 +1,9 @@
+.no-close .ui-dialog-titlebar-close, .ui-widget-header{
+    display: none;
+}
+.ui-button{
+    width: 100%;
+}
+#canvasHolder{
+    display: none;
+}
