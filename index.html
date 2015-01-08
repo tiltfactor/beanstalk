@@ -64,7 +64,7 @@
 
 <div id="canvasHolder" style="padding-top: 10px; padding-bottom: 20px">
     <input id="passButton" type="button" value="Pass" onclick="EventBus.dispatch(&quot;passText&quot;)" ></input>
-    <input id="inputText" type="text" placeholder="Enter captcha" onkeydown="if(event.keyCode == 13){EventBus.dispatch(&quot;compareCaptcha&quot;)}"></input>
+    <input id="inputText" type="text" placeholder="Enter captcha" onkeydown="if(event.keyCode == 13){EventBus.dispatch(&quot;compareCaptcha&quot;)}" autofocus></input>
     <input id="submitButton" type="button" value="Submit" onclick="EventBus.dispatch(&quot;compareCaptcha&quot;)"></input>
 </div>
 

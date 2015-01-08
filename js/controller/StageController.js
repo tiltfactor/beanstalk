@@ -44,6 +44,7 @@ function StageController(config) {
     }
 
     var newGame = function (me) {
+        $("#inputText").val("");
         reset(me);
         setBackground(me);
         initScoreHolders(me);

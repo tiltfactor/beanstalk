@@ -19,6 +19,7 @@
         $("#canvasHolder").css({top: me.config.canvasHeight, left: me.config.canvasWidth/2- $("#canvasHolder").width()/2, position:'absolute'});
         document.getElementById('canvasHolder').style.display = "block";
         document.getElementById(me.captchaPassButton).value = 'Pass('+ me.maxPass + ')';
+        $('#inputText').focus();
         disablePassButton(me,false);
 
     }
