@@ -13,9 +13,12 @@ function GameController(config) {
         var _doInit= function(me){ doInit(me)}
         me.config.smbLoadQueue = new SmbLoadQueue({"stage" : me.config.stage});
         me.config.smbLoadQueue.loadQueue(Manifest.game, _doInit, me);
+       //me.config.smbLoadQueue.loadManifest({id:"sound", src:"http://news.qburst.com/wp-content/uploads/2015/01/Main-Img-_QPL.jpg",
+          // type:createjs.AbstractLoader.IMAGE });
     }
 
     var doInit = function(me){
+        me.config.localStore = new LocalStorageController();
         me.config.gameState = new GameState();
         me.config.gameState.init();
         me.config.menuController = new MenuController({"gameState": me.config.gameState, "loader" :me.config.smbLoadQueue });
@@ -41,6 +44,7 @@ function GameController(config) {
     const ARROW_KEY_DOWN = 40;
     const SPACE_KEY_DOWN = 32;
     const ESC_KEY = 27;
+    const ONE = 49;
 
     var onKeyBoardEvents = function(e){
         switch (e.keyCode){
@@ -63,6 +67,13 @@ function GameController(config) {
             case ESC_KEY:
                 EventBus.dispatch("pauseGame");
                 break;
+            case ONE:
+                if (e.shiftKey) {
+                    console.log("1");
+                    EventBus.dispatch("assistText");
+                }
+                break;
+
         }
     }
 

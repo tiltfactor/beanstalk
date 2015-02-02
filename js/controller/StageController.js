@@ -7,6 +7,7 @@ function StageController(config) {
         createjs.Ticker.setFPS(30);
         createjs.Ticker.setPaused(true);
         loadEvents(this);
+
     };
     var loadEvents = function (me) {
 
@@ -33,11 +34,29 @@ function StageController(config) {
 
         var rg = function(){resumeGame(me)};
         EventBus.addEventListener("resumeGame",rg);
+
+        var so = function(){showOutput(me)};
+        EventBus.addEventListener("showOutput",so);
+    }
+
+    var setOutputText = function(me){
+        me.outputText = new createjs.Text();
+        me.outputText.font = "bold 50px Arial";
+        me.outputText.color = "#000";
+        me.outputText.ox = me.config.stage.canvas.width/2;
+        me.outputText.y = me.config.stage.canvas.height/2 - 50; //height of text
+        me.outputText.alpha = 0;
+        me.config.stage.addChild(me.outputText);
+    }
+    var showOutput = function(me){
+        me.outputText.text = me.captchaProcessor.captcha.outputText;
+        me.outputText.x = me.outputText.ox - me.outputText.getMeasuredWidth()/2;
+        createjs.Tween.get(me.outputText).to({alpha:0.4},1000).wait(1000).to({alpha:0},1000);
     }
 
     var setCanvasAttributes = function(me){
         me.freeBottomAreaY = $("#canvasHolder").outerHeight();
-        me.capthaHeight = 50;
+        me.capthaHeight = 75;
         var canvas = document.getElementById("myCanvas");
         me.width  = canvas.width =  window.innerWidth-20;
         me.height = canvas.height =  window.innerHeight-20-me.freeBottomAreaY;
@@ -47,17 +66,29 @@ function StageController(config) {
         $("#inputText").val("");
         reset(me);
         setBackground(me);
+        me.captchaProcessor = new CaptchaProcessor({"loader": me.config.loader, "canvasWidth": me.width, "canvasHeight": me.height});
+        loadImages(me);
+    }
+    var loadImages = function(me){
+        var _onImagesLoad= function(me){ onImagesLoad(me)};
+        var manifest = [];
+        var image = me.captchaProcessor.getCaptchaImageData();
+        if(image != null) manifest.push(image);
+
+        me.config.loader.loadQueue(manifest, _onImagesLoad, me);
+    }
+    var onImagesLoad = function(me){
         initScoreHolders(me);
         EventBus.dispatch("alterTickerStatus");
         growNewTrunk(me);
-
-        me.captchaProcessor = new CaptchaProcessor({"loader": me.config.loader, "canvasWidth": me.width, "canvasHeight": me.height});
         loadCaptchaPlaceHolder(me);
         setGameMessageHolder(me);
+        setOutputText(me);
     }
     var reset = function(me){
         me.config.trunks = [];
         me.config.trees = 0;
+        //me.captchaProcessor.clearCaptchaArray();
         me.config.stage.removeAllChildren();
     }
     var setBackground = function(me){
@@ -86,7 +117,7 @@ function StageController(config) {
         return currentTrunk;
     }
     var growNextLevel = function(me){
-        var level = 1;//me.background.grow();
+        var level = me.background.grow();
         removeCurrentTrunk(me);
         if(level <= me.background.maxLevel){
             growNewTrunk(me);
@@ -144,7 +175,7 @@ function StageController(config) {
         showMessage(me,output.message);
     }
     var loadCaptchaPlaceHolder = function(me){
-        var holder = me.captchaProcessor.getCaptchaPlaceHolder({"x":me.config.stage.canvas.width/2,"y":me.config.stage.canvas.height - me.capthaHeight})
+        var holder = me.captchaProcessor.getCaptchaPlaceHolder({"width":me.config.stage.canvas.width,"height":me.config.stage.canvas.height - me.capthaHeight,"maxHeight":me.capthaHeight})
         me.config.stage.addChild(holder);
     }
     //ticker
@@ -180,8 +211,8 @@ function StageController(config) {
         }
     }
     var initScoreHolders = function(me){
-        me.trees = new createjs.Text("Trees grown : "+me.config.trees, "20px Arial", "#007700");
-        me.trees.setTransform(me.width-me.trees.getMeasuredWidth(),me.trees.getMeasuredHeight(),1,1);
+        me.trees = new createjs.Text("Trees grown : "+me.config.trees, "20px Arial", "#000000");
+        me.trees.setTransform(me.width-me.trees.getMeasuredWidth()-10,me.trees.getMeasuredHeight(),1,1);
         me.config.stage.addChild(me.trees);
     }
     var updateScore = function(me){

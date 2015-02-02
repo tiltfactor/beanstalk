@@ -7,3 +7,5 @@
 #canvasHolder{
     display: none;
 }
+@font-face { font-family: 'Boogaloo'; src: url('fonts/Boogaloo-Regular.otf'); }
+@font-face { font-family: 'Scoreboard'; src: url('fonts/scoreboard.ttf'); }
