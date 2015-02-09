@@ -15,20 +15,14 @@ function MenuController(config) {
     MenuController.prototype.showMenu = function (me) {
         checkStatus(me);
         me.config.gameState.gs.currentState = me.config.gameState.gs.States.MAIN_MENU;
-        $( "#dialog-message" ).dialog("open");
+        $("#menu-wrapper").css("display","table");
     }
     MenuController.prototype.hideMenu = function () {
-        $( "#dialog-message" ).dialog("close")
+        $("#menu-wrapper").css("display","none");
     }
 
     var createDialog = function(){
-        $( "#dialog-message" ).dialog(
-            {
-                dialogClass: "no-close",
-                modal: true,
-                closeOnEscape: false
-            });
-        $("#dialog-message Button" ).button();
+        $("#menu-wrapper").css("display","table");
     }
     var checkStatus = function(me){
         var state = me.config.gameState.gs.States;

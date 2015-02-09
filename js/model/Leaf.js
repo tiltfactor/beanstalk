@@ -21,6 +21,7 @@
     };
     var addEvents = function(me){
         me.myAnimationEnd = function(){ onAnimationEnd(me)};
+        me.bottomThreeLeafAnimationEnd = function(){ bottomThreeLeafAnimationEnd(me)};
     }
     var setDirection = function(me){
         var dir = [1, -1];
@@ -40,6 +41,9 @@
         this.bottomLeaf.gotoAndPlay("grow");
         if(this.config.id == 0){
             this.bottomLeaf.addEventListener("animationend",this.myAnimationEnd);
+        }
+        else{
+            this.bottomLeaf.addEventListener("animationend",this.bottomThreeLeafAnimationEnd);
         }
     }
 
@@ -76,5 +80,11 @@
         me.bottomLeaf.removeEventListener("animationend",me.myAnimationEnd);
         EventBus.dispatch("growNextLevel");
     }
+    
+    var bottomThreeLeafAnimationEnd = function(me){
+        me.bottomLeaf.removeEventListener("animationend",me.bottomThreeLeafAnimationEnd);
+        EventBus.dispatch("showLeafAnimation");
+    }
+    
     window.sprites.Leaf = Leaf;
 }());

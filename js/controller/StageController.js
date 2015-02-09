@@ -4,6 +4,7 @@ function StageController(config) {
     StageController.prototype.init = function () {
         setCanvasAttributes(this);
         this.config.stage = new createjs.Stage("myCanvas");
+        this.config.animateToTrunksGrown = false;
         createjs.Ticker.setFPS(30);
         createjs.Ticker.setPaused(true);
         loadEvents(this);
@@ -16,6 +17,9 @@ function StageController(config) {
 
         var ng = function(){newGame(me)};
         EventBus.addEventListener("newGame", ng);
+        
+        var cg = function(){continueGame(me)};
+        EventBus.addEventListener("continueGame", cg);
 
         var at = function(){alterTickerStatus()};
         EventBus.addEventListener("alterTickerStatus",at);
@@ -37,6 +41,9 @@ function StageController(config) {
 
         var so = function(){showOutput(me)};
         EventBus.addEventListener("showOutput",so);
+        
+        var te = function(){me.showLeafAnimation()};
+        EventBus.addEventListener("showLeafAnimation",te);
     }
 
     var setOutputText = function(me){
@@ -69,6 +76,18 @@ function StageController(config) {
         me.captchaProcessor = new CaptchaProcessor({"loader": me.config.loader, "canvasWidth": me.width, "canvasHeight": me.height});
         loadImages(me);
     }
+    
+    var continueGame = function (me) {
+        if(gc.API.metersGrown > 0) {
+            me.config.animateToTrunksGrown = true;
+        }
+        $("#inputText").val("");
+        setUserScores(me);
+        setBackground(me);
+        me.captchaProcessor = new CaptchaProcessor({"loader": me.config.loader, "canvasWidth": me.width, "canvasHeight": me.height});
+        loadImages(me);
+    }
+    
     var loadImages = function(me){
         var _onImagesLoad= function(me){ onImagesLoad(me)};
         var manifest = [];
@@ -80,8 +99,14 @@ function StageController(config) {
     var onImagesLoad = function(me){
         initScoreHolders(me);
         EventBus.dispatch("alterTickerStatus");
-        growNewTrunk(me);
-        loadCaptchaPlaceHolder(me);
+        if(me.config.animateToTrunksGrown) {
+             createjs.Ticker.setFPS(150);
+             preGameTrunkAnimation(me);
+        }
+        else {
+             growNewTrunk(me);
+             loadCaptchaPlaceHolder(me);
+        }
         setGameMessageHolder(me);
         setOutputText(me);
     }
@@ -89,6 +114,11 @@ function StageController(config) {
         me.config.trunks = [];
         me.config.trees = 0;
         //me.captchaProcessor.clearCaptchaArray();
+        me.config.stage.removeAllChildren();
+    }
+    var setUserScores = function(me){
+        me.config.trunks = [];
+        me.config.trees = gc.API.treesCount;
         me.config.stage.removeAllChildren();
     }
     var setBackground = function(me){
@@ -99,6 +129,24 @@ function StageController(config) {
         me.config.stage.addChild(me.background);
 
     }
+    
+    var preGameTrunkAnimation = function(me) {
+        growNewTrunk(me);
+        var currentTrunk = me.config.trunks[me.config.trunks.length-1];
+        var ae = function(){
+            me.showLeafAnimation();
+            currentTrunk.sprite.removeEventListener("animationend", ae);
+        };
+        currentTrunk.sprite.addEventListener("animationend", ae);
+    }
+    
+    StageController.prototype.showLeafAnimation = function() {
+        if(this.config.animateToTrunksGrown) {
+            var currentTrunk = this.config.trunks[this.config.trunks.length-1];
+                currentTrunk.growLeaf();
+        }
+    }
+    
     //tree grow process
     var growNewTrunk = function(me){
         var trunk = new sprites.Bamboo({"loader": me.config.loader, "scale" : me.scale});
@@ -120,7 +168,22 @@ function StageController(config) {
         var level = me.background.grow();
         removeCurrentTrunk(me);
         if(level <= me.background.maxLevel){
-            growNewTrunk(me);
+            if(!me.config.animateToTrunksGrown) {
+                EventBus.dispatch("updateBeanProgress", {"trees":me.config.trees, "trunks":me.config.trunks.length});
+                growNewTrunk(me);
+            }
+            else{
+               if(gc.API.metersGrown/20 > me.config.trunks.length) {
+                     preGameTrunkAnimation(me);
+                }
+                else{
+                    createjs.Ticker.setFPS(30);
+                    me.config.animateToTrunksGrown = false;
+                    growNewTrunk(me);
+                    loadCaptchaPlaceHolder(me);
+                    
+                }
+            }
         }else{
             fallSeed(me);
             me.config.trunks = [];
@@ -217,6 +280,7 @@ function StageController(config) {
     }
     var updateScore = function(me){
         me.trees.text = "Trees grown : "+me.config.trees;
+        EventBus.dispatch("updateBeanProgress", {"trees":me.config.trees, "trunks":me.config.trunks.length});
     }
 
 
