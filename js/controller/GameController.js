@@ -192,7 +192,7 @@ function GameController(config) {
     }            
 
     var getProgress = function(me) {
-        var params = 'where='+ JSON.stringify({"user":{"__type":"Pointer","className":"_User","objectId":getCookie("objectId")}});       
+        var params = 'where='+ JSON.stringify({"player":{"__type":"Pointer","className":"_User","objectId":getCookie("objectId")}});       
         params = encodeURI(params);
         $.ajax({
             url: me.API.baseUrl+"/1/classes/highscore/?" + params,
@@ -207,7 +207,7 @@ function GameController(config) {
                 me.API.beanProgress = params.results[0];
                 me.API.beanProgress.treesCount = parseInt(params.results[0].meters /160);
                 me.API.beanProgress.trunksGroupCompleted = (params.results[0].meters % 160) / 20;
-                if(me.API.beanProgress.trunksGroupCompleted > 0) {
+                if(me.API.beanProgress.meters > 0) {
                     $("#continueButton").show(1);
                     $("#new-game").hide(1);
                 }
@@ -232,14 +232,15 @@ function GameController(config) {
             type: "POST",
             data: JSON.stringify({
                 "meters":metersGrown,
-                "user":{
+                "player":{
                     "__type": "Pointer",
                     "className": "_User",
                     "objectId": getCookie("objectId")
                 },
                 "weeklyMeters": 0
             }),
-            success: function() { 
+            success: function(params) { 
+                me.API.beanProgress = {"weeklyMeters":0, "meters" :0, "objectId": params.objectId};
                 gameInit(me);
             },
                     error: function() {
@@ -263,7 +264,7 @@ function GameController(config) {
                 type: "PUT",
                 data: JSON.stringify({
                     "meters":metersGrown,
-                    "user":{
+                    "player":{
                         "__type": "Pointer",
                         "className": "_User",
                         "objectId": getCookie("objectId")
