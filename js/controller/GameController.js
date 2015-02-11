@@ -122,6 +122,7 @@ function GameController(config) {
                     setPlayerRole(me);
                 },
                         error: function() {
+                    $(".msg").hide(1);
                     $(".error-msg").show(1);
                 }
             });             
@@ -194,7 +195,7 @@ function GameController(config) {
         var params = 'where='+ JSON.stringify({"user":{"__type":"Pointer","className":"_User","objectId":getCookie("objectId")}});       
         params = encodeURI(params);
         $.ajax({
-            url: me.API.baseUrl+"/1/classes/BeanProgress/?" + params,
+            url: me.API.baseUrl+"/1/classes/highscore/?" + params,
             headers: {
                 'Content-Type': 'application/json',
                 'X-Parse-Application-Id' : me.API.parseApplicationId,
@@ -203,10 +204,10 @@ function GameController(config) {
             },
             type: "GET",
             success: function(params) { 
-                me.API.progressId = params.results[0].objectId;
-                me.API.treesCount = params.results[0].tree;
-                me.API.metersGrown = params.results[0].meters;
-                if((me.API.metersGrown > 0) || (me.API.treesCount > 0)) {
+                me.API.beanProgress = params.results[0];
+                me.API.beanProgress.treesCount = parseInt(params.results[0].meters /160);
+                me.API.beanProgress.trunksGroupCompleted = (params.results[0].meters % 160) / 20;
+                if(me.API.beanProgress.trunksGroupCompleted > 0) {
                     $("#continueButton").show(1);
                     $("#new-game").hide(1);
                 }
@@ -219,10 +220,9 @@ function GameController(config) {
     }
 
     var setProgress = function(me) {
-        var trees = 0;
         var metersGrown = 0;
         $.ajax({
-            url: me.API.baseUrl+"/1/classes/BeanProgress/",
+            url: me.API.baseUrl+"/1/classes/highscore",
             headers: {
                 'Content-Type': 'application/json',
                 'X-Parse-Application-Id' : me.API.parseApplicationId,
@@ -232,12 +232,13 @@ function GameController(config) {
             type: "POST",
             data: JSON.stringify({
                 "meters":metersGrown,
-                "tree":trees,
                 "user":{
                     "__type": "Pointer",
                     "className": "_User",
                     "objectId": getCookie("objectId")
-                }}),
+                },
+                "weeklyMeters": 0
+            }),
             success: function() { 
                 gameInit(me);
             },
@@ -249,9 +250,10 @@ function GameController(config) {
     
     GameController.prototype.updateBeanProgress = function(trees) {
         if( getCookie("username")) {
-            var metersGrown = trees.target.trunks * 20;
+            var metersGrown = trees.target.trees * 160 + trees.target.trunks * 20;
+            var weeklyMeters = this.API.beanProgress.weeklyMeters + metersGrown - this.API.beanProgress.meters;
             $.ajax({
-                url: this.API.baseUrl+"/1/classes/BeanProgress/"+this.API.progressId,
+                url: this.API.baseUrl+"/1/classes/highscore/"+this.API.beanProgress.objectId,
                 headers: {
                     'Content-Type': 'application/json',
                     'X-Parse-Application-Id' : this.API.parseApplicationId,
@@ -261,12 +263,13 @@ function GameController(config) {
                 type: "PUT",
                 data: JSON.stringify({
                     "meters":metersGrown,
-                    "tree":trees.target.trees,
                     "user":{
                         "__type": "Pointer",
                         "className": "_User",
                         "objectId": getCookie("objectId")
-                    }}),
+                    },
+                    "weeklyMeters": weeklyMeters
+                }),
                 success: function() { 
                     console.log(arguments);
                 },
@@ -276,7 +279,7 @@ function GameController(config) {
             });   
         }
     }    
-
+        
     var gameInit = function(me) {
         me.config.stage = new createjs.Stage("loaderCanvas");
         me.config.popupStage = new createjs.Stage("popupCanvas");

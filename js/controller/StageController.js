@@ -78,7 +78,7 @@ function StageController(config) {
     }
     
     var continueGame = function (me) {
-        if(gc.API.metersGrown > 0) {
+        if(gc.API.beanProgress.trunksGroupCompleted > 0) {
             me.config.animateToTrunksGrown = true;
         }
         $("#inputText").val("");
@@ -118,7 +118,7 @@ function StageController(config) {
     }
     var setUserScores = function(me){
         me.config.trunks = [];
-        me.config.trees = gc.API.treesCount;
+        me.config.trees = gc.API.beanProgress.treesCount;
         me.config.stage.removeAllChildren();
     }
     var setBackground = function(me){
@@ -173,7 +173,7 @@ function StageController(config) {
                 growNewTrunk(me);
             }
             else{
-               if(gc.API.metersGrown/20 > me.config.trunks.length) {
+               if(gc.API.beanProgress.trunksGroupCompleted > me.config.trunks.length) {
                      preGameTrunkAnimation(me);
                 }
                 else{
