@@ -1,41 +1,117 @@
 function GameController(config) {
     this.config = config || {};
     GameController.prototype.init = function(){
-        this.API = {};
-        this.API.baseUrl = "https://api.parse.com";
-        this.API.parseApplicationId = "1GtX8QZUiToSo4uMitz964PZRj9epEWREyKelFg5";
-        this.API.parseRestAPIKey = "DhRAPRaHunZo6CRxPfPoGG5I1qdsRwfakBTpk88C";
-        checkLogin(this);
+        this.config.gameState = new GameState();
+        this.config.gameState.init();
+        this.config.stage = new createjs.Stage("loaderCanvas");
+        this.config.popupStage = new createjs.Stage("popupCanvas");
+        this.config.smbLoadQueue = new SmbLoadQueue({"stage" : this.config.stage});
+
+
+        window.onkeydown = onKeyBoardEvents;
+
+        var config = {"gameState" : this.config.gameState,"stage":this.config.stage};
+        var stageConfig = {"gameState" : this.config.gameState,"loader":this.config.loader};
+
+
+        this.config.menuController = new MenuController({"gameState": this.config.gameState, "loader" :this.config.smbLoadQueue });
+        this.config.menuController.init();
+        this.config.stageController = new StageController({"gameState": this.config.gameState, "loader" :this.config.smbLoadQueue});
+        this.config.stageController.init();
+
+        this.config.serverAPIController = new ServerAPIController(config);
+        this.config.serverAPIController.init();
+        EventBus.dispatch("exitMenu");
+
+        loginFromCookie(this);
+
+//        this.API = {};
+//        this.API.baseUrl = "https://api.parse.com";
+//        this.API.parseApplicationId = "1GtX8QZUiToSo4uMitz964PZRj9epEWREyKelFg5";
+//        this.API.parseRestAPIKey = "DhRAPRaHunZo6CRxPfPoGG5I1qdsRwfakBTpk88C";
+//        checkLogin(this);
         loadEvents(this);
     }
 
-    var checkLogin = function(me) {
-        var isLoggedIn = getCookie("username");
-        if(isLoggedIn) {
-             getProgress(me);
+    var loginFromCookie = function(me){
+        var myCookie = new Cookie();
+        var data = myCookie.getFromCookie();
+        if(data.objectId != ""){
+            $("#login-wrapper").css("display","none");
+            me.config.gameState.saveCookieDetails(data);
+            me.config.serverAPIController.getProgress();
+            EventBus.dispatch("showMenu");
         }
-        else {
+        else{
+            //show login screen
             $("#login-wrapper").css("display","table");
         }
-    }
-    
-    var getCookie = function(cookieName) {
-	var nameEQ = cookieName + "=";
-	var ca = document.cookie.split(';');
-	for(var i=0;i < ca.length;i++) {
-		var c = ca[i];
-		while (c.charAt(0)==' ') c = c.substring(1,c.length);
-		if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
-	}
-	return null;        
+
     }
 
+    var login = function(me,data){
+            var username = $("#user-name").val();
+            var password = $("#password").val();
+            var data = {"username": username, "password" : password};
+            me.config.serverAPIController.login(data);
+
+    }
+
+    var onLoginSuccess = function(me,response){
+        //hide loginscreen
+        me.config.gameState.saveLoginDetails(response);
+        showMainMenu();
+
+    }
+
+    var showMainMenu = function(){
+
+    }
+
+    //var getDataFromCookie = function(){
+    //    var myCookie = new Cookie();
+    //    var data = myCookie.getFromCookie();
+    //    if(data.userId == null || data.userId == "") return null;
+    //    return data;
+    //}
+    //
+    //
+    //
+    //
+    //
+    //
+    //
+    //var checkLogin = function(me) {
+    //    var isLoggedIn = getCookie("username");
+    //    if(isLoggedIn) {
+    //         getProgress(me);
+    //    }
+    //    else {
+    //        $("#login-wrapper").css("display","table");
+    //    }
+    //}
+    
+    //var getCookie = function(cookieName) {
+    //var nameEQ = cookieName + "=";
+    //var ca = document.cookie.split(';');
+    //for(var i=0;i < ca.length;i++) {
+		//var c = ca[i];
+		//while (c.charAt(0)==' ') c = c.substring(1,c.length);
+		//if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+    //}
+    //return null;
+    //}
+
     var loadEvents = function(me) {
-        var up = function(trees){me.updateBeanProgress(trees)};
+        var up = function(trees){updateBeanProgress(me,trees.target)};
         EventBus.addEventListener("updateBeanProgress", up);       
         
         var pg = function(){playAsGuest(me)};
         EventBus.addEventListener("playAsGuest", pg);
+
+        var gi = function(data){setGameState(me,data.target)};
+        EventBus.addEventListener("setGameState", gi);
+
         
         var rg = function(){showRegisterScreen()};
         EventBus.addEventListener("showRegisterScreen", rg);  
@@ -48,11 +124,22 @@ function GameController(config) {
     
         var fp = function(){resetPassword(me)};
         EventBus.addEventListener("resetPassword", fp);
-    }
 
+        var lg = function(){logOut(me)};
+        EventBus.addEventListener("logOut",lg);
+    }
+    var logOut = function(){
+        var myCookie = new Cookie();
+        myCookie.clear();
+        $("#login-wrapper").css("display","table");
+    }
+    var setGameState = function(me,data){
+        me.config.gameState.setGameStatus(data)
+    }
     var playAsGuest = function(me) {
-        $("#login-wrapper").css("display","none");  
-        gameInit(me);
+        $("#login-wrapper").css("display","none");
+        $("#logOut-btn").hide();
+        EventBus.dispatch("showMenu");
     }
     
     var showRegisterScreen = function() {
@@ -65,28 +152,10 @@ function GameController(config) {
         var username = $("#user-name").val();
         var password = $("#password").val();
         if((username != "") && (password != "") && validateEmail(username)) {
-            $(".msg").hide(1);
-            $(".login-msg").show(1);
-            var params = encodeURI(username +"&password=" + password);
-            $.ajax({
-                url: me.API.baseUrl+"/1/login?username=" + params,
-                headers: {
-                    'X-Parse-Application-Id' : me.API.parseApplicationId,
-                    'X-Parse-REST-API-Key': me.API.parseRestAPIKey
-                },
-                type: "GET",
-                success: function(params) { 
-                    document.cookie="username=" + username + ";expires= -1";
-                    document.cookie="sessionTocken="+params.sessionToken+";expires= -1";
-                    document.cookie="objectId="+params.objectId+";expires= -1";
-                    $("#login-wrapper").css("display","none");
-                    getProgress(me);
-                },
-                        error: function() {
-                    $(".msg").hide(1);
-                    $(".error-msg").show(1);
-                }
-          });
+            var data = {};
+            data.username = username;
+            data.password = password;
+            me.config.serverAPIController.login(data);
       }
       else {
           $(".error-msg").show(1);
@@ -104,28 +173,11 @@ function GameController(config) {
         var confirmPassword = $("#confirm-password").val();
         if((username != "") && (password != "") && (confirmPassword != "") && (password == confirmPassword) && validateEmail(username)) {
             $(".msg").hide(1);
-            $(".register-msg").show(1);    
-            $.ajax({
-                url: me.API.baseUrl+"/1/users",
-                headers: {
-                    'Content-Type': 'application/json',
-                    'X-Parse-Application-Id' : me.API.parseApplicationId,
-                    'X-Parse-REST-API-Key': me.API.parseRestAPIKey
-                },
-                data: JSON.stringify({ "username": username, "password": password }),
-                type: "POST",
-                success: function(params) { 
-                    $("#register-wrapper").css("display","none");
-                    document.cookie="username=" + username + ";expires= -1";
-                    document.cookie="sessionTocken="+params.sessionToken+";expires= -1";
-                    document.cookie="objectId="+params.objectId+";expires= -1";
-                    setPlayerRole(me);
-                },
-                        error: function() {
-                    $(".msg").hide(1);
-                    $(".error-msg").show(1);
-                }
-            });             
+            $(".register-msg").show(1);
+            var data = {};
+            data.username  = username;
+            data.password = password;
+            me.config.serverAPIController.register(data);
         }
         else{
             $(".error-msg").show(1);
@@ -191,96 +243,73 @@ function GameController(config) {
          }
     }            
 
-    var getProgress = function(me) {
-        var params = 'where='+ JSON.stringify({"player":{"__type":"Pointer","className":"_User","objectId":getCookie("objectId")}});       
-        params = encodeURI(params);
-        $.ajax({
-            url: me.API.baseUrl+"/1/classes/highscore/?" + params,
-            headers: {
-                'Content-Type': 'application/json',
-                'X-Parse-Application-Id' : me.API.parseApplicationId,
-                'X-Parse-REST-API-Key': me.API.parseRestAPIKey,
-                'X-Parse-Session-Token': getCookie("sessionTocken")
-            },
-            type: "GET",
-            success: function(params) { 
-                me.API.beanProgress = params.results[0];
-                me.API.beanProgress.treesCount = parseInt(params.results[0].meters /160);
-                me.API.beanProgress.trunksGroupCompleted = (params.results[0].meters % 160) / 20;
-                if(me.API.beanProgress.meters > 0) {
-                    $("#continueButton").show(1);
-                    $("#new-game").hide(1);
-                }
-                gameInit(me);
-            },
-                    error: function() {
-
-                    }
-        });    
-    }
-
-    var setProgress = function(me) {
-        var metersGrown = 0;
-        $.ajax({
-            url: me.API.baseUrl+"/1/classes/highscore",
-            headers: {
-                'Content-Type': 'application/json',
-                'X-Parse-Application-Id' : me.API.parseApplicationId,
-                'X-Parse-REST-API-Key': me.API.parseRestAPIKey,
-                'X-Parse-Session-Token': getCookie("sessionTocken")
-            },
-            type: "POST",
-            data: JSON.stringify({
-                "meters":metersGrown,
-                "player":{
-                    "__type": "Pointer",
-                    "className": "_User",
-                    "objectId": getCookie("objectId")
-                },
-                "weeklyMeters": 0
-            }),
-            success: function(params) { 
-                me.API.beanProgress = {"weeklyMeters":0, "meters" :0, "objectId": params.objectId};
-                gameInit(me);
-            },
-                    error: function() {
-
-                    }
-        });     
-    }
+    //var getProgress = function(me) {
+    //    var params = 'where='+ JSON.stringify({"user":{"__type":"Pointer","className":"_User","objectId":getCookie("objectId")}});
+    //    params = encodeURI(params);
+    //    $.ajax({
+    //        url: me.API.baseUrl+"/1/classes/BeanProgress/?" + params,
+    //        headers: {
+    //            'Content-Type': 'application/json',
+    //            'X-Parse-Application-Id' : me.API.parseApplicationId,
+    //            'X-Parse-REST-API-Key': me.API.parseRestAPIKey,
+    //            'X-Parse-Session-Token': getCookie("sessionTocken")
+    //        },
+    //        type: "GET",
+    //        success: function(params) {
+    //            me.API.progressId = params.results[0].objectId;
+    //            me.API.treesCount = params.results[0].tree;
+    //            me.API.metersGrown = params.results[0].meters;
+    //            if((me.API.metersGrown > 0) || (me.API.treesCount > 0)) {
+    //                $("#continueButton").show(1);
+    //                $("#new-game").hide(1);
+    //            }
+    //            gameInit(me);
+    //        },
+    //                error: function() {
+    //
+    //                }
+    //    });
+    //}
+    //
+    //var setProgress = function(me) {
+    //    var trees = 0;
+    //    var metersGrown = 0;
+    //    $.ajax({
+    //        url: me.API.baseUrl+"/1/classes/BeanProgress/",
+    //        headers: {
+    //            'Content-Type': 'application/json',
+    //            'X-Parse-Application-Id' : me.API.parseApplicationId,
+    //            'X-Parse-REST-API-Key': me.API.parseRestAPIKey,
+    //            'X-Parse-Session-Token': getCookie("sessionTocken")
+    //        },
+    //        type: "POST",
+    //        data: JSON.stringify({
+    //            "meters":metersGrown,
+    //            "tree":trees,
+    //            "user":{
+    //                "__type": "Pointer",
+    //                "className": "_User",
+    //                "objectId": getCookie("objectId")
+    //            }}),
+    //        success: function() {
+    //            gameInit(me);
+    //        },
+    //                error: function() {
+    //
+    //                }
+    //    });
+    //}
     
-    GameController.prototype.updateBeanProgress = function(trees) {
-        if( getCookie("username")) {
-            var metersGrown = trees.target.trees * 160 + trees.target.trunks * 20;
-            var weeklyMeters = this.API.beanProgress.weeklyMeters + metersGrown - this.API.beanProgress.meters;
-            $.ajax({
-                url: this.API.baseUrl+"/1/classes/highscore/"+this.API.beanProgress.objectId,
-                headers: {
-                    'Content-Type': 'application/json',
-                    'X-Parse-Application-Id' : this.API.parseApplicationId,
-                    'X-Parse-REST-API-Key': this.API.parseRestAPIKey,
-                    'X-Parse-Session-Token': getCookie("sessionTocken")
-                },
-                type: "PUT",
-                data: JSON.stringify({
-                    "meters":metersGrown,
-                    "player":{
-                        "__type": "Pointer",
-                        "className": "_User",
-                        "objectId": getCookie("objectId")
-                    },
-                    "weeklyMeters": weeklyMeters
-                }),
-                success: function() { 
-                    console.log(arguments);
-                },
-                        error: function() {
-
-                        }
-            });   
+    var updateBeanProgress = function(me,trees) {
+        var myCookie = new Cookie();
+        var data = myCookie.getFromCookie();
+        if(data.username) {
+            //var metersGrown = trees.target.trunks * 20;
+            console.log("updateBean");
+            me.config.serverAPIController.save(trees);
         }
     }    
-        
+
     var gameInit = function(me) {
         me.config.stage = new createjs.Stage("loaderCanvas");
         me.config.popupStage = new createjs.Stage("popupCanvas");

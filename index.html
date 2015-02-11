@@ -4,6 +4,10 @@
     <script src="js/lib/jquery-1.11.1.min.js"></script>
     <script src="js/lib/jquery-ui.js"></script>
     <script src="js/data/Manifest.js"></script>
+    <script src="js/lib/lodash.min.js"></script>
+    <script src="js/lib/underscore.js"></script>
+    <script src="js/lib/levenshtein.js"></script>
+    <script src="js/lib/wordCompare.js"></script>
     <script src="js/model/Preloader.js"></script>
     <script src="js/data/CaptchaJson.js"></script>
     <script src="js/model/SmbLoadQueue.js"></script>
@@ -13,6 +17,9 @@
     <script src="js/model/Seed.js"></script>
     <script src="js/model/Background.js"></script>
     <script src="js/model/CaptchaProcessor.js"></script>
+    <script src="js/model/Cookie.js"></script>
+    <script src="js/model/LocalStorage.js"></script>
+    <script src="js/controller/ServerAPIController.js"></script>
     <script src="js/controller/LocalStorageController.js"></script>
     <script src="js/controller/MenuController.js"></script>
     <script src="js/controller/StageController.js"></script>
@@ -50,12 +57,14 @@
         <div class="center-container">
             <div class="title">WELCOME</div>
             <div class="menu-input-wrapper">
+
                 <div>
                     <button id="new-game" class="menu-btns" onClick="EventBus.dispatch(&quot;exitMenu&quot;);EventBus.dispatch(&quot;newGame&quot;)">NEW GAME</button>
                     <button id="resumeButton" class="menu-btns" onClick="EventBus.dispatch(&quot;resumeGame&quot;)">RESUME GAME</button>
                     <!--<button onClick="EventBus.dispatch(&quot;exitMenu&quot;);EventBus.dispatch(&quot;showShop&quot;)">Shop</button>-->
                     <button id="continueButton" class="menu-btns" onClick="EventBus.dispatch(&quot;exitMenu&quot;);EventBus.dispatch(&quot;continueGame&quot;)">CONTINUE</button>
                     <button class="menu-btns" onClick="EventBus.dispatch(&quot;exitMenu&quot;)">EXIT</button>
+                    <button id="logOut-btn" class="menu-btns" onClick="EventBus.dispatch(&quot;logOut&quot;)">Logout</button>
                     <button class="menu-btns">HELP</button>
                     <div>
                     <button class="volume-btns"></button>

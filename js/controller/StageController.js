@@ -8,6 +8,7 @@ function StageController(config) {
         createjs.Ticker.setFPS(30);
         createjs.Ticker.setPaused(true);
         loadEvents(this);
+        this.config.trunks = [];
 
     };
     var loadEvents = function (me) {
@@ -72,53 +73,53 @@ function StageController(config) {
     var newGame = function (me) {
         $("#inputText").val("");
         reset(me);
-        setBackground(me);
-        me.captchaProcessor = new CaptchaProcessor({"loader": me.config.loader, "canvasWidth": me.width, "canvasHeight": me.height});
         loadImages(me);
     }
     
     var continueGame = function (me) {
-        if(gc.API.beanProgress.trunksGroupCompleted > 0) {
+        if((me.config.gameState.meters %160) > 0) {
             me.config.animateToTrunksGrown = true;
         }
         $("#inputText").val("");
-        setUserScores(me);
-        setBackground(me);
-        me.captchaProcessor = new CaptchaProcessor({"loader": me.config.loader, "canvasWidth": me.width, "canvasHeight": me.height});
+        //setUserScores(me);
+
         loadImages(me);
     }
     
     var loadImages = function(me){
         var _onImagesLoad= function(me){ onImagesLoad(me)};
-        var manifest = [];
-        var image = me.captchaProcessor.getCaptchaImageData();
-        if(image != null) manifest.push(image);
+        var manifest = Manifest.game;
+        //var image = me.captchaProcessor.getCaptchaImageData();
+        //if(image != null) manifest.push(image);
 
         me.config.loader.loadQueue(manifest, _onImagesLoad, me);
     }
     var onImagesLoad = function(me){
+        setBackground(me);
+        me.captchaProcessor = new CaptchaProcessor({"loader": me.config.loader, "canvasWidth": me.width, "canvasHeight": me.height,"gameState":me.config.gameState});
         initScoreHolders(me);
         EventBus.dispatch("alterTickerStatus");
-        if(me.config.animateToTrunksGrown) {
-             createjs.Ticker.setFPS(150);
-             preGameTrunkAnimation(me);
-        }
-        else {
+        //if(me.config.animateToTrunksGrown) {
+        //     createjs.Ticker.setFPS(150);
+        //     //preGameTrunkAnimation(me);
+        //}
+        //else {
              growNewTrunk(me);
              loadCaptchaPlaceHolder(me);
-        }
+        //}
         setGameMessageHolder(me);
         setOutputText(me);
     }
     var reset = function(me){
         me.config.trunks = [];
         me.config.trees = 0;
+        me.config.gameState.beanProgress.treesCount=0;
         //me.captchaProcessor.clearCaptchaArray();
         me.config.stage.removeAllChildren();
     }
     var setUserScores = function(me){
         me.config.trunks = [];
-        me.config.trees = gc.API.beanProgress.treesCount;
+       // me.config.trees = me.config.gameState.beanProgress.treesCount;
         me.config.stage.removeAllChildren();
     }
     var setBackground = function(me){
@@ -169,7 +170,8 @@ function StageController(config) {
         removeCurrentTrunk(me);
         if(level <= me.background.maxLevel){
             if(!me.config.animateToTrunksGrown) {
-                EventBus.dispatch("updateBeanProgress", {"trees":me.config.trees, "trunks":me.config.trunks.length});
+                EventBus.dispatch("updateBeanProgress", {"trees":me.config.gameState.beanProgress.treesCount, "trunks":me.config.trunks.length});
+
                 growNewTrunk(me);
             }
             else{
@@ -187,7 +189,7 @@ function StageController(config) {
         }else{
             fallSeed(me);
             me.config.trunks = [];
-            me.config.trees++;
+            me.config.gameState.beanProgress.treesCount++;
             updateScore(me);
         }
 
@@ -263,6 +265,7 @@ function StageController(config) {
     var resumeGame = function (me) {
         EventBus.dispatch("exitMenu");
         EventBus.dispatch("alterTickerStatus");
+        $("#canvasHolder").css("display","block");
         //createjs.Ticker.addEventListener("tick", me.events.tick);
     }
 
@@ -271,16 +274,17 @@ function StageController(config) {
             me.config.gameState.gs.currentState = me.config.gameState.gs.States.RUN;
             EventBus.dispatch("alterTickerStatus");
             EventBus.dispatch("showMenu");
+            $("#canvasHolder").css("display","none");
         }
     }
     var initScoreHolders = function(me){
-        me.trees = new createjs.Text("Trees grown : "+me.config.trees, "20px Arial", "#000000");
+        me.trees = new createjs.Text("Trees grown : "+me.config.gameState.beanProgress.treesCount, "20px Arial", "#000000");
         me.trees.setTransform(me.width-me.trees.getMeasuredWidth()-10,me.trees.getMeasuredHeight(),1,1);
         me.config.stage.addChild(me.trees);
     }
     var updateScore = function(me){
-        me.trees.text = "Trees grown : "+me.config.trees;
-        EventBus.dispatch("updateBeanProgress", {"trees":me.config.trees, "trunks":me.config.trunks.length});
+        me.trees.text = "Trees grown : "+me.config.gameState.beanProgress.treesCount;
+        EventBus.dispatch("updateBeanProgress", {"trees":me.config.gameState.beanProgress.treesCount, "trunks":me.config.trunks.length});
     }
 
 

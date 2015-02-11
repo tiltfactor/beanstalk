@@ -13,7 +13,9 @@ function MenuController(config) {
     }
 
     MenuController.prototype.showMenu = function (me) {
+        $("#login-wrapper").css("display","none");
         checkStatus(me);
+
         me.config.gameState.gs.currentState = me.config.gameState.gs.States.MAIN_MENU;
         $("#menu-wrapper").css("display","table");
     }

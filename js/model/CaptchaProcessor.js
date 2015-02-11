@@ -7,15 +7,19 @@
         this.config = config;
         this.currentPass = 0;
         this.maxPass = 1;
+        this.captchaOnScreen={};
         this.captchaTextBoxId = "inputText";
         this.captchaPassButton = "passButton";
         this.init();
         cp = this;
     }
     CaptchaProcessor.prototype.init = function(){
-        this.captchaDatasArray = [jsonData];
+        //this.captchaDatasArray = [jsonData];
         this.currentIndex = 0;
-        this.callCaptchaFromServer();
+        if(this.config.gameState.captchaDatasArray.length == 1){
+            this.callCaptchaFromServer();
+        }
+        activateCaptchaSet(this);
         loadEvents(this);
     }
     var activateUI = function(me){
@@ -38,33 +42,91 @@
 
     CaptchaProcessor.prototype.getCaptchaPlaceHolder = function(coordinateData){
         activateUI(this);
-        this.captchaHolder = new createjs.Bitmap(this.config.loader.getResult("test"));
-        this.captchaHolder.ox = coordinateData.width/2;
+        this.captchaHolder = new createjs.Bitmap();
+        this.captchaHolder.x = coordinateData.width/2;
         this.captchaHolder.y = coordinateData.height;
         this.captchaHolder.maxHeight = coordinateData.maxHeight;
         this.captchaHolder.maxWidth = coordinateData.width;
-        activateCaptchaSet(this);
-        this.load();
+        //activateCaptchaSet(this);
+        this.load(this.captchaHolder);
 
         return this.captchaHolder;
     }
-    CaptchaProcessor.prototype.load = function(){
-        checkCaptchaSetting(this);
-        this.captcha = this.captchaDatas.differences[this.currentIndex];
-        var myCords = getCaptchaCoordinates(this.captcha.coords);
-        this.captchaHolder.image = this.config.loader.getResult(this.captchaDatas._id);
-        this.captchaHolder.sourceRect = new createjs.Rectangle(myCords.sPoint.x,myCords.sPoint.y,myCords.width,myCords.height);
-        setScale(this.captchaHolder, myCords.width, myCords.height);
-        this.captchaHolder.x = this.captchaHolder.ox - this.captchaHolder.getTransformedBounds().width/2;
-        //this.captchaHolder.y = this.captchaHolder.oy - this.captchaHolder.getTransformedBounds().height *this.scaleY;
+   
+    CaptchaProcessor.prototype.load = function(captcha){
+        var captchaData = getCaptchaData(this);
+        var message = "";
+        console.log(captchaData);
+        captcha.image = captchaData.url;
+        if(this.captchaDatas.local){
+            setScale(captcha,captcha.image.width, captcha.image.height);
+            captcha.texts = [captchaData.ocr1, captchaData.ocr2];
+            EventBus.dispatch("showCommentary", captchaData.message);
+
+        }else{
+            var myCords = getCaptchaCoordinates(captchaData.coords);
+            captcha.sourceRect = new createjs.Rectangle(myCords.sPoint.x,myCords.sPoint.y,myCords.width,myCords.height);
+            setScale(captcha, myCords.width, myCords.height);
+            captcha.texts  =captchaData.texts;
+        }
+
+        if(captcha.sourceRect){
+            captcha.x = this.config.canvasWidth/2 - captcha.sourceRect.width/2;
+        }
+        else{
+            captcha.x = this.config.canvasWidth/2 - captcha.image.width/2;
+        }
+        
+       //captcha.y = captcha.y;//this.config.canvasHeight - captcha.maxHeight;//(captcha.getTransformedBounds().height/2);
+
+              // captcha.datas = captchaData;
+
+        this.captchaOnScreen = captcha;
         ++this.currentIndex;
 
+    };
+
+
+    var getCaptchaData = function(me){
+        checkCaptchaSetting(me);
+        var captchaData = me.captchaDatas.differences[me.currentIndex];
+        var imageId = null;
+        var myText = null;
+        if(me.captchaDatas.local){
+            imageId = captchaData.image.split(".")[0];
+            myText = captchaData.ocr1;
+        }else{
+            imageId = me.captchaDatas._id;
+            myText = captchaData.texts[0];
+        }
+        captchaData.url  =  me.config.loader.getResult(imageId);
+        if(captchaData.url == null){
+            me.currentIndex++;
+            captchaData = getCaptchaData(me);
+        }
+        /*if(getCaptcha(me,myText) != null){
+            me.currentIndex++;
+            captchaData = getCaptchaData(me);
+        }*/
+
+        return captchaData;
     }
+    /*var getCaptcha = function(me,input){
+            var captcha = me.captchaOnScreen;
+            if(captcha.texts && (input == captcha.texts[0]||input==captcha.texts[1])){
+                return captcha;
+            }
+        return null;
+    }*/
     var checkCaptchaSetting = function(me){
         console.log("index : " + me.currentIndex);
         if(me.currentIndex == Math.floor(me.captchaDatas.differences.length/2)){
             console.log("next load");
             me.callCaptchaFromServer();
+        }
+        if(me.captchaDatas.local && me.config.loader.localCapthcaSize <= me.currentIndex){
+           // console.log(me.config.loader.localCapthcaSize +" entering into loop..")
+            activateCaptchaSet(me);
         }
         if(me.currentIndex >= me.captchaDatas.differences.length){
             console.log("change");
@@ -90,7 +152,11 @@
             output.message = "Enter text";
             return output;
         }
-        if(matchText(this.captcha.texts,input)){
+        /*var cw = new closestWord(input,this.captchaDatasArray);
+        console.log(cw);*/
+        //if(cw.match){
+
+        /*if(matchText(this.captchaOnScreen.texts,input)){
             output.pass = true;
             output.message = "Correct";
             this.load();
@@ -98,6 +164,27 @@
             output.pass = false;
             output.message = "Incorrect";
             this.load();
+        }
+        clearText(this);
+        return output;*/
+
+        this.captchasOnScreen = [];
+        this.captchasOnScreen.push(this.captchaOnScreen);
+        var cw = new closestWord(input,this.captchasOnScreen);
+        if(matchText(this.captchaOnScreen.texts,input)){
+            output.pass = true;
+            output.message = "correct";
+            var captcha = cw.closestOcr;
+            this.captchaOnScreen = {};
+            output.laneId = captcha.id;
+            this.load(captcha);
+        }else{
+            output.pass = false;
+            output.message = "Incorrect";
+            var captcha = cw.closestOcr;
+            this.captchasOnScreen = {};
+            output.laneId = captcha.id;
+            this.load(captcha);
         }
         clearText(this);
         return output;
@@ -186,21 +273,20 @@
        // setTimeout(function(){
             console.log("call from server");
             $.ajax({
-                dataType: 'jsonp',
-                url: url,
-                beforeSend : function(xhr){
-                    xhr.setRequestHeader('x-access-token', 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJHYW1lIiwiaWF0IjoxNDE1MzQxNjMxMjY4LCJpc3MiOiJCSExTZXJ2ZXIifQ.bwRps5G6lAd8tGZKK7nExzhxFrZmAwud0C2RW26sdRM');
-                },
-                error: function(XMLHttpRequest, textStatus, errorThrown){
-                    console.log("error: "+ textStatus);
-                },
-                success: function(data){
-                    console.log(data);
-                    if(data != null)
-                        processCaptchaData(data, me);
-
-                }
-            });
+            dataType: 'json',
+            url: url,
+            beforeSend : function(xhr){
+                xhr.setRequestHeader('x-access-token', 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJHYW1lIiwiaWF0IjoxNDE1MzQxNjMxMjY4LCJpc3MiOiJCSExTZXJ2ZXIifQ.bwRps5G6lAd8tGZKK7nExzhxFrZmAwud0C2RW26sdRM');
+            },
+            error: function(XMLHttpRequest, textStatus, errorThrown){
+                console.log("error: "+ textStatus);
+            },
+            success: function(data){
+                console.log(data);
+                if(data != null)
+                    processCaptchaData(data, me);
+            }
+        });
       //  }, 1);
     }
 
@@ -208,7 +294,7 @@
         var myData = {"url" : data.url, "differences" : data.differences, "_id": data._id, "local": false };
         var _onImageLoad = function(me){
             console.log("after image load");
-            me.captchaDatasArray.push(myData);
+            me.config.gameState.captchaDatasArray.push(myData);
             if(me.captchaDatas == undefined ||  me.captchaDatas.local){
                 activateCaptchaSet(me);
             }
@@ -217,22 +303,23 @@
 
     }
     var activateCaptchaSet = function(me){
-        me.captchaDatas = me.captchaDatasArray[me.captchaDatasArray.length-1];
+        me.captchaDatas = me.config.gameState.captchaDatasArray[me.config.gameState.captchaDatasArray.length-1];
         if(!me.captchaDatas.local){
-            me.captchaDatasArray.pop();
+            me.config.gameState.captchaDatasArray.pop();
         }
         me.currentIndex = 0;
-        console.log(me.captchaDatas.differences.length);
     }
-    CaptchaProcessor.prototype.getCaptchaImageData = function(){
+    /*CaptchaProcessor.prototype.getCaptchaImageData = function(){
         if(this.captchaDatasArray.length == 1){
             var data = this.captchaDatasArray[0];
             var url = data.url + ".jpg";
+            //var image = data.differences[0].image;
             return {"src" : url, "id": data._id };
+            return image;
             
         }
         return null;
-    }
+    }*/
     CaptchaProcessor.prototype.clearCaptchaArray = function(){
         var data = this.captchaDatasArray[this.captchaDatasArray.length-1];
         this.captchaDatasArray = [];
@@ -240,7 +327,7 @@
         this.captchaDatasArray.push(data);
     }
     var assistText = function(me){
-        document.getElementById(me.captchaTextBoxId).value=me.captcha.texts[0];
+        document.getElementById(me.captchaTextBoxId).value=me.captchaOnScreen.texts[0];
     }
 
 

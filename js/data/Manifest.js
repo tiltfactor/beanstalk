@@ -8,7 +8,18 @@ Manifest.game = [
     {src: "shapes/leaf_down.png", id: "down"},
     {src: "shapes/background.png", id: "bg"},
     {src: "shapes/seed.png", id: "seed"},
-    {src: "shapes/captcha/captcha.jpg", id: "54abd675528c33fa2e97eab5"},
+
+    {src: "shapes/captcha/000.png", id: "000"},
+    {src: "shapes/captcha/001.png", id: "001"},
+    {src: "shapes/captcha/002.png", id: "002"},
+    {src: "shapes/captcha/003.png", id: "003"},
+    {src: "shapes/captcha/004.png", id: "004"},
+    {src: "shapes/captcha/005.png", id: "005"},
+    {src: "shapes/captcha/006.png", id: "006"},
+    {src: "shapes/captcha/007.png", id: "007"},
+    {src: "shapes/captcha/008.png", id: "008"}
+
+
 
 
 ];
