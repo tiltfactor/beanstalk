@@ -55,9 +55,9 @@ body {
 @font-face { font-family: 'Boogaloo'; src: url('fonts/Boogaloo-Regular.otf'); }
 @font-face { font-family: 'Scoreboard'; src: url('fonts/scoreboard.ttf'); }
 
-#continueButton {
+/*#continueButton {
     display: none;
-}
+}*/
 
 .outer-wrapper {
     display: none;
@@ -169,6 +169,8 @@ body {
     background-color: transparent;
     border: none;
     outline: none;
+    font-family: 'Boogaloo';
+    font-size: .6em;
 }
 
 .login-input-wrapper .input-container,
@@ -295,7 +297,87 @@ body {
         width: 70%;
         font-size: .8em;
     }
-        #canvasHolder input {
+    #canvasHolder input {
         width: auto !important;
     }
+
+    #score-wrapper .center-container {
+        width: 90%;
+        font-size: .8em;
+    }
+}
+
+.score-output-wrapper>div {
+    margin-top: 0;
+    padding: 1% 3% 1% 3%;
+}
+
+#score-wrapper #back-button {
+    background-image: url("../shapes/back_btn.png");
+    background-size: 100% 100%;
+    background-color: transparent;
+    border: none;
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    top: 10%;
+    left: 2%;
+    outline: none;
+    cursor: pointer;
+}
+
+#score-wrapper .title {
+    width: 58%;
+    left: 21%;
+}
+
+.score-output-wrapper .input-container {
+    border-radius: 30px;
+    width: 100%;
+    margin: 0%;
+    background-image: url("../shapes/hs_table_light.png");
+    background-size: 100% 100%;
+    padding: 2% 5%;
+    font-size: 0.7em;
+}
+
+.score-output-wrapper .input-container.user {
+    background-image: url("../shapes/hs_table_green.png");
+    color: white;
+}
+
+.score-output-wrapper .input-container span {
+    display: block;
+}
+
+.score-output-wrapper .input-container .position {
+    min-width: 19%;
+    margin-left: 1%;
+    float: left;
+}
+
+.score-output-wrapper .input-container .name {
+    max-width: 59%;
+    float: left;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    margin-left: 1%;
+}
+
+.score-output-wrapper .input-container .meters {
+    text-align: right;
+    max-width: 100%;
+}
+
+#share-button {
+    background-image: url("../shapes/btn_bg.png");
+    background-size: 100% 100%;
+    background-color: transparent;
+    border: none;
+    font-size: 1.3em;
+    font-family: 'Boogaloo';
+    color: white;
+    padding: 3% 6% 3% 6%;
+    outline: none;
+    margin-top: -6%;
 }

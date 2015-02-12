@@ -15,8 +15,10 @@ function MenuController(config) {
     MenuController.prototype.showMenu = function (me) {
         $("#login-wrapper").css("display","none");
         checkStatus(me);
-
         me.config.gameState.gs.currentState = me.config.gameState.gs.States.MAIN_MENU;
+        if(me.config.gameState.currentHeight == 0 && me.config.gameState.treesGrown == 0){
+            $("#continueButton").css("display","none");
+        }
         $("#menu-wrapper").css("display","table");
     }
     MenuController.prototype.hideMenu = function () {

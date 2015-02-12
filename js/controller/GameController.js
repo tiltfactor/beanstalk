@@ -7,38 +7,45 @@ function GameController(config) {
         this.config.popupStage = new createjs.Stage("popupCanvas");
         this.config.smbLoadQueue = new SmbLoadQueue({"stage" : this.config.stage});
 
-
         window.onkeydown = onKeyBoardEvents;
-
-        var config = {"gameState" : this.config.gameState,"stage":this.config.stage};
-        var stageConfig = {"gameState" : this.config.gameState,"loader":this.config.loader};
-
-
-        this.config.menuController = new MenuController({"gameState": this.config.gameState, "loader" :this.config.smbLoadQueue });
-        this.config.menuController.init();
-        this.config.stageController = new StageController({"gameState": this.config.gameState, "loader" :this.config.smbLoadQueue});
-        this.config.stageController.init();
-
-        this.config.serverAPIController = new ServerAPIController(config);
-        this.config.serverAPIController.init();
-        EventBus.dispatch("exitMenu");
-
-        loginFromCookie(this);
-
-//        this.API = {};
-//        this.API.baseUrl = "https://api.parse.com";
-//        this.API.parseApplicationId = "1GtX8QZUiToSo4uMitz964PZRj9epEWREyKelFg5";
-//        this.API.parseRestAPIKey = "DhRAPRaHunZo6CRxPfPoGG5I1qdsRwfakBTpk88C";
-//        checkLogin(this);
         loadEvents(this);
+        loadImages(this);
+
+    }
+    var loadImages = function(me){
+        var _doInit= function(me){ doInit(me)}
+       // me.config.smbLoadQueue = new SmbLoadQueue({"stage" : me.config.stage});
+       // me.config.smbLoadQueue.loadQueue(Manifest.game, _doInit, me);
+        var manifest = [];
+        me.config.smbLoadQueue.loadQueue(manifest, _doInit, me);
     }
 
-    var loginFromCookie = function(me){
+    var doInit = function(me){
+        var config = {"gameState" : me.config.gameState,"stage":me.config.stage};
+        var stageConfig = {"gameState" : me.config.gameState,"loader":me.config.loader};
+
+        me.config.serverAPIController = new ServerAPIController(config);
+        me.config.serverAPIController.init();
+
+        me.config.menuController = new MenuController({"gameState": me.config.gameState, "loader" :me.config.smbLoadQueue });
+        me.config.menuController.init();
+        me.config.stageController = new StageController({"gameState": me.config.gameState, "loader" :me.config.smbLoadQueue,
+            "serverAPIController":me.config.serverAPIController});
+        me.config.stageController.init();
+        EventBus.dispatch("exitMenu");
+
+        loginFromCookie(me);
+    }
+    var getDataFromCookie = function(){
         var myCookie = new Cookie();
         var data = myCookie.getFromCookie();
-        if(data.objectId != ""){
-            $("#login-wrapper").css("display","none");
-            me.config.gameState.saveCookieDetails(data);
+        if(data.objectId == null || data.objectId == "") return null;
+        return data;
+    }
+    var loginFromCookie = function(me){
+        var data = getDataFromCookie();
+        if(data != null){
+            me.config.gameState.savePlayerDetails(data);
             me.config.serverAPIController.getProgress();
             EventBus.dispatch("showMenu");
         }
@@ -49,63 +56,8 @@ function GameController(config) {
 
     }
 
-    var login = function(me,data){
-            var username = $("#user-name").val();
-            var password = $("#password").val();
-            var data = {"username": username, "password" : password};
-            me.config.serverAPIController.login(data);
-
-    }
-
-    var onLoginSuccess = function(me,response){
-        //hide loginscreen
-        me.config.gameState.saveLoginDetails(response);
-        showMainMenu();
-
-    }
-
-    var showMainMenu = function(){
-
-    }
-
-    //var getDataFromCookie = function(){
-    //    var myCookie = new Cookie();
-    //    var data = myCookie.getFromCookie();
-    //    if(data.userId == null || data.userId == "") return null;
-    //    return data;
-    //}
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //var checkLogin = function(me) {
-    //    var isLoggedIn = getCookie("username");
-    //    if(isLoggedIn) {
-    //         getProgress(me);
-    //    }
-    //    else {
-    //        $("#login-wrapper").css("display","table");
-    //    }
-    //}
-    
-    //var getCookie = function(cookieName) {
-    //var nameEQ = cookieName + "=";
-    //var ca = document.cookie.split(';');
-    //for(var i=0;i < ca.length;i++) {
-		//var c = ca[i];
-		//while (c.charAt(0)==' ') c = c.substring(1,c.length);
-		//if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
-    //}
-    //return null;
-    //}
-
     var loadEvents = function(me) {
-        var up = function(trees){updateBeanProgress(me,trees.target)};
-        EventBus.addEventListener("updateBeanProgress", up);       
-        
+
         var pg = function(){playAsGuest(me)};
         EventBus.addEventListener("playAsGuest", pg);
 
@@ -127,14 +79,36 @@ function GameController(config) {
 
         var lg = function(){logOut(me)};
         EventBus.addEventListener("logOut",lg);
+
+        var hs = function(){highScore(me)};
+        EventBus.addEventListener("highScore", hs);
     }
     var logOut = function(){
         var myCookie = new Cookie();
         myCookie.clear();
         $("#login-wrapper").css("display","table");
+        $("#menu-wrapper").css("display","none");
+
     }
+    var highScore = function(me){
+        $("#score-wrapper").css("display","table");
+        $("#menu-wrapper").css("display","none");
+        me.config.serverAPIController.getHighScores(1);
+        me.config.serverAPIController.getHighScores(2);
+    }
+
     var setGameState = function(me,data){
-        me.config.gameState.setGameStatus(data)
+        var result = {};
+        var height = data.meters;
+        var weekly = data.weeklyMeters;
+
+
+        result.treesGrown = Math.floor(height/(me.config.gameState.levels * me.config.gameState.trunkHeight));
+        result.currentHeight = height%(me.config.gameState.levels * me.config.gameState.trunkHeight);
+        result.id = data.objectId;
+
+        me.config.gameState.setGameStatus(result);
+        EventBus.dispatch("showMenu");
     }
     var playAsGuest = function(me) {
         $("#login-wrapper").css("display","none");
@@ -158,7 +132,8 @@ function GameController(config) {
             me.config.serverAPIController.login(data);
       }
       else {
-          $(".error-msg").show(1);
+          //nitha updated error msg
+          $(".error-msg").html("invalid login parameters").show(1);
       }    
     }
 
@@ -180,167 +155,22 @@ function GameController(config) {
             me.config.serverAPIController.register(data);
         }
         else{
-            $(".error-msg").show(1);
+             //nitha updated error msg
+            $(".error-msg").html("Invalid register details").show(1);
         }   
     }
 
-    var setPlayerRole = function(me) {
-        $.ajax({
-            url: me.API.baseUrl+"/1/roles/9a6z1gOMX1",
-            headers: {
-                'Content-Type': 'application/json',
-                'X-Parse-Application-Id' : me.API.parseApplicationId,
-                'X-Parse-REST-API-Key': me.API.parseRestAPIKey
-            },
-            type: "PUT",
-            data: 
-                    JSON.stringify({ 
-                "users":{
-                    "__op": "AddRelation",
-                    "objects": [
-                        {
-                            "__type": "Pointer",
-                            "className": "_User",
-                            "objectId": getCookie("objectId")
-                        }
-                    ]
-                }}),
-            success: function() { 
-                setProgress(me);
-            },
-                    error: function() {
-
-                    }
-        });  
-    }
 
     var resetPassword = function(me) {
-         $(".msg").hide(1);
-         var username = $("#user-name").val();
-         if(validateEmail(username)) {
-            $.ajax({
-                url: me.API.baseUrl+"/1/requestPasswordReset",
-                headers: {
-                    'Content-Type': 'application/json',
-                    'X-Parse-Application-Id' : me.API.parseApplicationId,
-                    'X-Parse-REST-API-Key': me.API.parseRestAPIKey
-                },
-                type: "POST",
-                data: 
-                        JSON.stringify({ 
-                    "email": username
-                    }),
-                success: function() { 
-                    $(".reset-password-msg").show(1);
-                },
-                        error: function() {
-                    $(".error-msg").show(1);
-                }
-            });              
-         } 
-         else{
-             $(".error-msg").show(1);
-         }
-    }            
-
-    //var getProgress = function(me) {
-    //    var params = 'where='+ JSON.stringify({"user":{"__type":"Pointer","className":"_User","objectId":getCookie("objectId")}});
-    //    params = encodeURI(params);
-    //    $.ajax({
-    //        url: me.API.baseUrl+"/1/classes/BeanProgress/?" + params,
-    //        headers: {
-    //            'Content-Type': 'application/json',
-    //            'X-Parse-Application-Id' : me.API.parseApplicationId,
-    //            'X-Parse-REST-API-Key': me.API.parseRestAPIKey,
-    //            'X-Parse-Session-Token': getCookie("sessionTocken")
-    //        },
-    //        type: "GET",
-    //        success: function(params) {
-    //            me.API.progressId = params.results[0].objectId;
-    //            me.API.treesCount = params.results[0].tree;
-    //            me.API.metersGrown = params.results[0].meters;
-    //            if((me.API.metersGrown > 0) || (me.API.treesCount > 0)) {
-    //                $("#continueButton").show(1);
-    //                $("#new-game").hide(1);
-    //            }
-    //            gameInit(me);
-    //        },
-    //                error: function() {
-    //
-    //                }
-    //    });
-    //}
-    //
-    //var setProgress = function(me) {
-    //    var trees = 0;
-    //    var metersGrown = 0;
-    //    $.ajax({
-    //        url: me.API.baseUrl+"/1/classes/BeanProgress/",
-    //        headers: {
-    //            'Content-Type': 'application/json',
-    //            'X-Parse-Application-Id' : me.API.parseApplicationId,
-    //            'X-Parse-REST-API-Key': me.API.parseRestAPIKey,
-    //            'X-Parse-Session-Token': getCookie("sessionTocken")
-    //        },
-    //        type: "POST",
-    //        data: JSON.stringify({
-    //            "meters":metersGrown,
-    //            "tree":trees,
-    //            "user":{
-    //                "__type": "Pointer",
-    //                "className": "_User",
-    //                "objectId": getCookie("objectId")
-    //            }}),
-    //        success: function() {
-    //            gameInit(me);
-    //        },
-    //                error: function() {
-    //
-    //                }
-    //    });
-    //}
-    
-    var updateBeanProgress = function(me,trees) {
-        var myCookie = new Cookie();
-        var data = myCookie.getFromCookie();
-        if(data.username) {
-            //var metersGrown = trees.target.trunks * 20;
-            console.log("updateBean");
-            me.config.serverAPIController.save(trees);
+        $(".msg").hide(1);
+        var email = $("#user-name").val();
+        if(validateEmail(email)){
+            me.config.serverAPIController.resetPassword(email);
+        }else{
+            // nitha updated error msg
+            $(".error-msg").html("Enter a valid email Id").show(1);
         }
-    }    
-
-    var gameInit = function(me) {
-        me.config.stage = new createjs.Stage("loaderCanvas");
-        me.config.popupStage = new createjs.Stage("popupCanvas");
-        //this.config.stage.canvas.width = window.innerWidth - 150;//TODO make this better
-        //this.config.stage.canvas.height = window.innerHeight - 150;//TODO make this better
-        loadImages(me);
-        window.onkeydown = onKeyBoardEvents;
     }
-
-    var loadImages = function(me){
-        var _doInit= function(me){ doInit(me)}
-        me.config.smbLoadQueue = new SmbLoadQueue({"stage" : me.config.stage});
-        me.config.smbLoadQueue.loadQueue(Manifest.game, _doInit, me);
-       //me.config.smbLoadQueue.loadManifest({id:"sound", src:"http://news.qburst.com/wp-content/uploads/2015/01/Main-Img-_QPL.jpg",
-          // type:createjs.AbstractLoader.IMAGE });
-    }
-
-    var doInit = function(me){
-        me.config.localStore = new LocalStorageController();
-        me.config.gameState = new GameState();
-        me.config.gameState.init();
-        me.config.menuController = new MenuController({"gameState": me.config.gameState, "loader" :me.config.smbLoadQueue });
-        me.config.menuController.init();
-        me.config.stageController = new StageController({"gameState": me.config.gameState, "loader" :me.config.smbLoadQueue})
-        me.config.stageController.init();
-
-        EventBus.dispatch("exitShop");
-       // EventBus.dispatch("exitMenu");
-    }
-
-
 
     var clearStage = function(stage){
         stage.removeAllChildren();

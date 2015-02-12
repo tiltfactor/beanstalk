@@ -10,19 +10,19 @@
     Cookie.prototype.saveToCookie = function(data){
         document.cookie = "bs_username="+data.username+";expires= -1";
         document.cookie = "bs_sessionToken="+data.sessionToken+";expires= -1";
-        document.cookie = "bs_objectId="+data.objectId+";expires= -1";
+        document.cookie = "bs_userId="+data.objectId+";expires= -1";
     }
     Cookie.prototype.getFromCookie = function(){
         var data = {};
         data.username = getCookie("bs_username");
         data.sessionToken = getCookie("bs_sessionToken");
-        data.objectId = getCookie("bs_objectId");
+        data.objectId = getCookie("bs_userId");
         return data;
     }
     Cookie.prototype.clear = function(){
         document.cookie = "bs_username=;";
         document.cookie = "bs_sessionToken=;";
-        document.cookie = "bs_objectId=;";
+        document.cookie = "bs_userId=;";
     }
 
     Cookie.prototype.reset = function(){

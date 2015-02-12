@@ -65,6 +65,7 @@
                     <button id="continueButton" class="menu-btns" onClick="EventBus.dispatch(&quot;exitMenu&quot;);EventBus.dispatch(&quot;continueGame&quot;)">CONTINUE</button>
                     <button class="menu-btns" onClick="EventBus.dispatch(&quot;exitMenu&quot;)">EXIT</button>
                     <button id="logOut-btn" class="menu-btns" onClick="EventBus.dispatch(&quot;logOut&quot;)">Logout</button>
+                    <button id="highScore-btn" class="menu-btns" onClick="EventBus.dispatch(&quot;highScore&quot;)">HighScores</button>
                     <button class="menu-btns">HELP</button>
                     <div>
                     <button class="volume-btns"></button>
@@ -103,7 +104,7 @@
                     <div style="clear:both"></div>
                     <p class="error-msg msg" style="color: red; display: none;">Error</p>
                     <p class="login-msg msg" style="color: #177F00; display: none;">Logging....</p>
-                    <p class="reset-password-msg msg" style="color: #177F00; display: none;">Reset password link is send to your email</p>
+                    <p class="reset-password-msg msg" style="color: #177F00; display: none;">Link to password reset page has been emailed to you</p>
                 </div>
             </div>
             <button id="play-as-guest" onClick="EventBus.dispatch(&quot;playAsGuest&quot;)">PLAY AS GUEST</button>
@@ -135,7 +136,7 @@
                     </div>
                     <div style="clear:both"></div>
                     <p class="error-msg msg" style="color: red; display: none;">Error</p>
-                    <p class="register-msg msg" style="color: blue; display: none;">Registering.......</p>
+                    <p class="register-msg msg" style="color: #197206; display: none;">Registering.......</p>
                 </div>
             </div>
         </div>
@@ -144,22 +145,53 @@
 
 <div id="score-wrapper" class="outer-wrapper">
     <div class="inner-wrapper">
+        <button id="back-button" onClick="EventBus.dispatch(&quot;backButtonClick&quot;)"></button>
         <div class="center-container">
             <div class="title">HIGHSCORES</div>
             <div class="score-output-wrapper">
                 <h4>ALL TIME</h4>
-                <div>
-                    <div class="input-container"></div>
+                <div class="total-scores">
+
                 </div>
-                 <h4>WEEKLY</h4>
-                <div>
-                    <div class="input-container"></div>
+                <h4>WEEKLY</h4>
+                <div class="weekly-scores">
+
                 </div>
             </div>
+            <button id="share-button">SHARE</button>
         </div>
     </div>
 </div>
 
+<script type="text/template" id="scoreComponents">
+    <% _.each(items, function(item) { 
+        function ordinalSuffixOf(i) {
+        var j = i % 10,
+            k = i % 100;
+        if (j == 1 && k != 11) {
+            return i + "st";
+        }
+        if (j == 2 && k != 12) {
+            return i + "nd";
+        }
+        if (j == 3 && k != 13) {
+            return i + "rd";
+        }
+        return i + "th";
+    }
+    if (user == item.email ) { %>
+                        <div class="input-container user">
+                    <% }
+                    else { %>
+                        <div class="input-container">     
+                    <%}
+                %>  
+        <span class="position"><%=ordinalSuffixOf(item.position + 1)%></span>
+        <span class="name"><%=item.email%></span>
+        <span class="meters"><%=item.meters == null ? item.weeklyMeters: item.meters%>m</span>
+    </div>
+    <% }); %>
+</script>
 
 <div id="canvasHolder" style="padding-top: 10px; padding-bottom: 20px">
     <input id="passButton" type="button" value="Pass" onclick="EventBus.dispatch(&quot;passText&quot;)" ></input>

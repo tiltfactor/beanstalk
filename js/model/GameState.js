@@ -8,8 +8,11 @@ function GameState(config){
         this.json = json || {};
         this.gs = {};
         this.cookie = {};
+        gst = this;
 
         this.totalLevels = 20;
+        this.trunkHeight = 20;
+        this.levels = 8;
 
         this.gs.currentLevel = this.json.currentLevel || 1;
         this.gs.points = this.json.points || 0;
@@ -18,28 +21,26 @@ function GameState(config){
         }
         this.gs.currentState = this.gs.States.MAIN_MENU;
         this.captchaDatasArray = [localData];
-        this.beanProgress ={};
-        this.beanProgress.treesCount = 0;
-        this.beanProgress.trunksGroupCompleted = 0;
+
+
+
 
     }
-
-    GameState.prototype.saveCookieDetails = function(data){
+    GameState.prototype.savePlayerDetails = function(data){
         this.username = data.username;
-        this.objectId  =data.objectId;
+        this.userId  =data.objectId;
         this.sessionToken = data.sessionToken;
     }
-    GameState.prototype.saveLoginDetails = function(data){
-        this.sessionToken = data.sessionToken;
-        this.objectId = data.objectId;
-        this.username = data.username;
-    };
+//    GameState.prototype.saveLoginDetails = function(data){
+//        this.sessionToken = data.sessionToken;
+//        this.objectId = data.objectId;
+//    };
     GameState.prototype.setGameStatus = function(data){
-        this.beanProgress = data.results[0];
-        this.beanProgress.treesCount = parseInt(this.beanProgress.meters /160);
-        this.beanProgress.trunksGroupCompleted = (this.beanProgress.meters % 160) / 20;
+        this.currentHeight = data.currentHeight;
+        this.treesGrown = data.treesGrown;
+        this.highScoreId = data.id;
+        console.log(data);
 
-        EventBus.dispatch("showMenu");
     }
 
 

@@ -39,6 +39,10 @@
         this.scaleX = scale.sx;
         this.scaleY = scale.sy;
     }
+    Background.prototype.setLevelHeight = function(level){
+        this.currentLevel = level;
+        this.bitmap.sourceRect.y = this.maxHeight -this.currentLevel*this.height;
+    }
     Background.prototype.getSeedTravelTime = function(){
         var time = (this.maxHeight-this.height)/(this.speed*createjs.Ticker.getFPS());
         return time;

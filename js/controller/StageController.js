@@ -8,13 +8,15 @@ function StageController(config) {
         createjs.Ticker.setFPS(30);
         createjs.Ticker.setPaused(true);
         loadEvents(this);
-        this.config.trunks = [];
 
     };
     var loadEvents = function (me) {
 
         me.events.tick = function(){tick(me);}
         createjs.Ticker.addEventListener("tick", me.events.tick);
+
+        var sg = function(){startGame(me)};
+        EventBus.addEventListener("startGame", sg);
 
         var ng = function(){newGame(me)};
         EventBus.addEventListener("newGame", ng);
@@ -42,9 +44,10 @@ function StageController(config) {
 
         var so = function(){showOutput(me)};
         EventBus.addEventListener("showOutput",so);
+
+        var bb = function(){backButtonClick(me)};
+        EventBus.addEventListener("backButtonClick",bb);
         
-        var te = function(){me.showLeafAnimation()};
-        EventBus.addEventListener("showLeafAnimation",te);
     }
 
     var setOutputText = function(me){
@@ -70,56 +73,49 @@ function StageController(config) {
         me.height = canvas.height =  window.innerHeight-20-me.freeBottomAreaY;
     }
 
-    var newGame = function (me) {
+    var startGame = function (me) {
+        
         $("#inputText").val("");
         reset(me);
         loadImages(me);
     }
-    
-    var continueGame = function (me) {
-        if((me.config.gameState.meters %160) > 0) {
-            me.config.animateToTrunksGrown = true;
-        }
-        $("#inputText").val("");
-        //setUserScores(me);
-
-        loadImages(me);
+    var continueGame = function(me){    
+        EventBus.dispatch("startGame");
     }
-    
+    var newGame = function(me){
+        me.config.gameState.currentHeight = 0;
+        me.config.gameState.treesGrown = 0;
+        EventBus.dispatch("startGame");
+    }
+    var backButtonClick = function(me){
+        $("#score-wrapper").css("display","none");
+        $("#menu-wrapper").css("display","table");
+    }
     var loadImages = function(me){
         var _onImagesLoad= function(me){ onImagesLoad(me)};
         var manifest = Manifest.game;
-        //var image = me.captchaProcessor.getCaptchaImageData();
-        //if(image != null) manifest.push(image);
-
         me.config.loader.loadQueue(manifest, _onImagesLoad, me);
     }
     var onImagesLoad = function(me){
+
         setBackground(me);
         me.captchaProcessor = new CaptchaProcessor({"loader": me.config.loader, "canvasWidth": me.width, "canvasHeight": me.height,"gameState":me.config.gameState});
         initScoreHolders(me);
         EventBus.dispatch("alterTickerStatus");
-        //if(me.config.animateToTrunksGrown) {
-        //     createjs.Ticker.setFPS(150);
-        //     //preGameTrunkAnimation(me);
-        //}
-        //else {
-             growNewTrunk(me);
-             loadCaptchaPlaceHolder(me);
-        //}
+        
+        var preloadTrunk = me.config.gameState.currentHeight/me.config.gameState.trunkHeight;
+        if(preloadTrunk!=0){
+            me.background.setLevelHeight(preloadTrunk+1);
+        }
+        growNewTrunk(me);
+        loadCaptchaPlaceHolder(me);
         setGameMessageHolder(me);
         setOutputText(me);
     }
     var reset = function(me){
         me.config.trunks = [];
-        me.config.trees = 0;
-        me.config.gameState.beanProgress.treesCount=0;
+        //me.config.trees = 0;
         //me.captchaProcessor.clearCaptchaArray();
-        me.config.stage.removeAllChildren();
-    }
-    var setUserScores = function(me){
-        me.config.trunks = [];
-       // me.config.trees = me.config.gameState.beanProgress.treesCount;
         me.config.stage.removeAllChildren();
     }
     var setBackground = function(me){
@@ -131,7 +127,7 @@ function StageController(config) {
 
     }
     
-    var preGameTrunkAnimation = function(me) {
+    /*var preGameTrunkAnimation = function(me) {
         growNewTrunk(me);
         var currentTrunk = me.config.trunks[me.config.trunks.length-1];
         var ae = function(){
@@ -139,14 +135,14 @@ function StageController(config) {
             currentTrunk.sprite.removeEventListener("animationend", ae);
         };
         currentTrunk.sprite.addEventListener("animationend", ae);
-    }
+    }*/
     
-    StageController.prototype.showLeafAnimation = function() {
+    /*StageController.prototype.showLeafAnimation = function() {
         if(this.config.animateToTrunksGrown) {
             var currentTrunk = this.config.trunks[this.config.trunks.length-1];
                 currentTrunk.growLeaf();
         }
-    }
+    }*/
     
     //tree grow process
     var growNewTrunk = function(me){
@@ -167,31 +163,24 @@ function StageController(config) {
     }
     var growNextLevel = function(me){
         var level = me.background.grow();
+
+        //me.config.serverAPIController.save();
+       // var level = 1;//me.background.grow();
         removeCurrentTrunk(me);
         if(level <= me.background.maxLevel){
-            if(!me.config.animateToTrunksGrown) {
-                EventBus.dispatch("updateBeanProgress", {"trees":me.config.gameState.beanProgress.treesCount, "trunks":me.config.trunks.length});
-
-                growNewTrunk(me);
-            }
-            else{
-               if(gc.API.beanProgress.trunksGroupCompleted > me.config.trunks.length) {
-                     preGameTrunkAnimation(me);
-                }
-                else{
-                    createjs.Ticker.setFPS(30);
-                    me.config.animateToTrunksGrown = false;
-                    growNewTrunk(me);
-                    loadCaptchaPlaceHolder(me);
-                    
-                }
-            }
+            growNewTrunk(me);
+            me.config.gameState.currentHeight+= me.config.gameState.trunkHeight;
         }else{
+            me.config.gameState.currentHeight = 0;
+            me.config.gameState.treesGrown++;
             fallSeed(me);
             me.config.trunks = [];
-            me.config.gameState.beanProgress.treesCount++;
+            me.config.trees++;
             updateScore(me);
         }
+        me.config.gameState.weeklyMeters += me.config.gameState.trunkHeight;
+        me.config.serverAPIController.save();
+
 
     }
     var newTreeGrowFromSeed = function(me,seed){
@@ -278,13 +267,13 @@ function StageController(config) {
         }
     }
     var initScoreHolders = function(me){
-        me.trees = new createjs.Text("Trees grown : "+me.config.gameState.beanProgress.treesCount, "20px Arial", "#000000");
+        me.trees = new createjs.Text("Trees grown : "+me.config.gameState.treesGrown, "20px Arial", "#000000");
         me.trees.setTransform(me.width-me.trees.getMeasuredWidth()-10,me.trees.getMeasuredHeight(),1,1);
         me.config.stage.addChild(me.trees);
     }
     var updateScore = function(me){
-        me.trees.text = "Trees grown : "+me.config.gameState.beanProgress.treesCount;
-        EventBus.dispatch("updateBeanProgress", {"trees":me.config.gameState.beanProgress.treesCount, "trunks":me.config.trunks.length});
+        me.trees.text = "Trees grown : "+me.config.gameState.treesGrown;
+        EventBus.dispatch("updateBeanProgress", {"trees":me.config.trees, "trunks":me.config.trunks.length});
     }
 
 

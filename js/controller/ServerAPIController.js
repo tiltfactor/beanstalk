@@ -10,6 +10,7 @@ function ServerAPIController(config){
         this.API.parseApplicationId = "1GtX8QZUiToSo4uMitz964PZRj9epEWREyKelFg5";
         this.API.parseRestAPIKey = "DhRAPRaHunZo6CRxPfPoGG5I1qdsRwfakBTpk88C";
     }
+    
     ServerAPIController.prototype.login = function(data){
         var me = this;
         var url = "/1/login?";
@@ -17,6 +18,8 @@ function ServerAPIController(config){
         $.ajax({
             url: this.API.baseUrl+url+ params,
             headers: {
+                   //nitha added 'Content-type': 'application/json',
+                'Content-type': 'application/json',
                 'X-Parse-Application-Id' : this.API.parseApplicationId,
                 'X-Parse-REST-API-Key': this.API.parseRestAPIKey
             },
@@ -26,21 +29,26 @@ function ServerAPIController(config){
                 if(data != null){
                     var cookie = new Cookie();
                     cookie.saveToCookie(data);
-                    me.config.gameState.saveLoginDetails(data);
+                   // var myData = {"username":data.username ,"userId": data.objectId, "sessionToken": data.sessionToken};
+                    me.config.gameState.savePlayerDetails(data);
                     me.getProgress();
                 }else{
                     EventBus.dispatch("showLoginSceen", "login fails");
                 }
             },
             beforeSend: function () {
+         //nitha added $(".error-msg").hide();
+                $(".error-msg").hide();
                 $('.login-msg').show();
             },
             complete: function () {
                 $('.login-msg').hide();
             },
-            error: function() {
+                    //nitha updated error msg
+            error: function(jqXHR) {
+                var errorText = JSON.parse(jqXHR.responseText);
                 $(".msg").hide(1);
-                $(".error-msg").show(1);
+                $(".error-msg").html(errorText.error).show(1);
             }
         });
 
@@ -48,28 +56,33 @@ function ServerAPIController(config){
 
     ServerAPIController.prototype.getProgress = function(){
         var me = this;
-        var params = 'where='+ JSON.stringify({"player":{"__type":"Pointer","className":"_User","objectId":me.config.gameState.objectId}});
+        var params = 'where='+ JSON.stringify({"player":{"__type":"Pointer","className":"_User","objectId":this.config.gameState.userId}});
         params = encodeURI(params);
         $.ajax({
-            url: me.API.baseUrl+"/1/classes/highscore/?" + params,
+            url: this.API.baseUrl+"/1/classes/highscore?" + params,
             headers: {
                 'Content-Type': 'application/json',
-                'X-Parse-Application-Id' : me.API.parseApplicationId,
-                'X-Parse-REST-API-Key': me.API.parseRestAPIKey,
-                'X-Parse-Session-Token': me.config.gameState.sessionToken
+                'X-Parse-Application-Id' : this.API.parseApplicationId,
+                'X-Parse-REST-API-Key': this.API.parseRestAPIKey,
+                'X-Parse-Session-Token': this.config.gameState.sessionToken
             },
             type: "GET",
             success: function(data) {
                 if(data != null){
-                    EventBus.dispatch("setGameState", data);
-                    if(me.config.gameState.beanProgress.meters > 0) {
-                        $("#continueButton").show(1);
-                    }
+                    EventBus.dispatch("setGameState", data.results[0]);
                 }
-                EventBus.dispatch("showLoginSceen", "login fails");
+                EventBus.dispatch("showLoginScreen", "login fails");
+//                me.API.progressId = params.results[0].objectId;
+//                me.API.treesCount = params.results[0].tree;
+//                me.API.metersGrown = params.results[0].meters;
+//                if((me.API.metersGrown > 0) || (me.API.treesCount > 0)) {
+//                    $("#continueButton").show(1);
+//                    $("#new-game").hide(1);
+//                }
+//                gameInit(me);
             },
             error: function() {
-
+                console.log("error")
             }
         });
     }
@@ -88,7 +101,8 @@ function ServerAPIController(config){
             success: function(data) {
                 var cookie = new Cookie();
                 cookie.saveToCookie(data);
-                me.config.gameState.saveLoginDetails(data);
+               // var myData = {"username":data.username ,"userId": data.objectId, "sessionToken": data.sessionToken};
+                me.config.gameState.savePlayerDetails(data);
                 setPlayerRole(me);
 //                $("#register-wrapper").css("display","none");
 //                document.cookie="username=" + username + ";expires= -1";
@@ -96,44 +110,91 @@ function ServerAPIController(config){
 //                document.cookie="objectId="+params.objectId+";expires= -1";
 //                setPlayerRole(me);
             },
-            error: function() {
+           //nitha updated error msg
+         error: function(jqXHR) {
+                var errorText = JSON.parse(jqXHR.responseText);
                 $(".msg").hide(1);
-                $(".error-msg").show(1);
+                $(".error-msg").html(errorText.error).show(1);
             }
         });
     }
     ServerAPIController.prototype.logout = function(){
 
     }
-    ServerAPIController.prototype.save = function(wm){
-        console.log("updateBeanSve API");
+    ServerAPIController.prototype.save = function(){
         var me = this;
-        var weeklyMeters = me.config.gameState.beanProgress.weeklyMeters + ((wm.trees * 160 + wm.trunks * 20) - me.config.gameState.beanProgress.meters);
-        var meters = (wm.trees * 160 + wm.trunks * 20);
         $.ajax({
-            url: me.API.baseUrl+"/1/classes/highscore/"+me.config.gameState.beanProgress.objectId,
+            url: this.API.baseUrl+"/1/classes/highscore/"+ this.config.gameState.highScoreId,
             headers: {
                 'Content-Type': 'application/json',
                 'X-Parse-Application-Id' : this.API.parseApplicationId,
                 'X-Parse-REST-API-Key': this.API.parseRestAPIKey,
-                'X-Parse-Session-Token': me.config.gameState.sessionToken
+                'X-Parse-Session-Token': this.config.gameState.sessionToken
             },
             type: "PUT",
             data: JSON.stringify({
-                "meters":meters,
-                "weeklyMeters":weeklyMeters,
-                "objectId": me.config.gameState.beanProgress.objectId,
-                "player":{
-                    "__type": "Pointer",
-                    "className": "_User",
-                    "objectId": me.config.gameState.objectId
-                },
-                "weeklyMeters": weeklyMeters}),
-            success: function() {
-
+                "meters":((this.config.gameState.treesGrown * this.config.gameState.trunkHeight*this.config.gameState.levels)+ this.config.gameState.currentHeight),
+                "weeklyMeters":this.config.gameState.weeklyMeters
+                }),
+            success: function(data) {
+                console.log(data);
             },
             error: function() {
 
+            }
+        });
+    }
+    //nitha added highscore API
+    ServerAPIController.prototype.getHighScores = function(scoreType){
+        var me = this;
+        $.ajax({
+            url: this.API.baseUrl+"/1/functions/highscores",
+            headers: {
+                'Content-Type': 'application/json',
+                'X-Parse-Application-Id' : this.API.parseApplicationId,
+                'X-Parse-REST-API-Key': this.API.parseRestAPIKey,
+                'X-Parse-Session-Token': this.config.gameState.sessionToken
+            },
+            type: "POST",
+            data: JSON.stringify({
+                "scoreType": scoreType
+            }),
+            success: function(params) {
+                    var template = $("#scoreComponents").html();
+                    var compile = _.template(template);
+                    var data =  compile({items:params.result, user: me.config.gameState.username});
+                    if(scoreType == 1){
+                        $(".total-scores").append(data);
+                    }else{
+                        $(".weekly-scores").append(data);
+                    }
+            },
+            error: function() {
+
+            }
+        });
+    }
+    
+    //nitha added reset password API
+    ServerAPIController.prototype.resetPassword = function(email){
+        $.ajax({
+            url: this.API.baseUrl+"/1/requestPasswordReset",
+            headers: {
+                'Content-Type': 'application/json',
+                'X-Parse-Application-Id' : this.API.parseApplicationId,
+                'X-Parse-REST-API-Key': this.API.parseRestAPIKey
+            },
+            type: "POST",
+            data:
+                JSON.stringify({
+                    "email": email
+                }),
+            success: function() {
+                $(".reset-password-msg").show(1);
+            },
+            error: function(jqXHR) {
+                var errorText = JSON.parse(jqXHR.responseText);
+                $(".error-msg").html(errorText.error).show(1);
             }
         });
     }
@@ -149,18 +210,20 @@ function ServerAPIController(config){
             type: "POST",
             data: JSON.stringify({
                 "meters":0,
+                "weeklyMeters":0,
                 "player":{
                     "__type": "Pointer",
                     "className": "_User",
-                    "objectId": me.config.gameState.objectId
-                },
-                "weeklyMeters": 0}),
+                    "objectId": me.config.gameState.userId
+                }}),
             success: function(response) {
+                var data = {"treesGrown" : 0, "currentHeight" : 0, "id" : response.objectId };
+                me.config.gameState.setGameStatus(data);
+
                 // eventbus to dispatch main menu with login details
                 $("#login-wrapper").css("display","none");
                 $(".msg").hide(1);
                 $("#register-wrapper").css("display","none");
-                me.config.gameState.beanProgress.objectId = response.objectId;
                 EventBus.dispatch("showMenu");
             },
             error: function() {
@@ -175,17 +238,18 @@ function ServerAPIController(config){
                 'Content-Type': 'application/json',
                 'X-Parse-Application-Id' : me.API.parseApplicationId,
                 'X-Parse-REST-API-Key': me.API.parseRestAPIKey
+                //'X-Parse-Session-Token': me.config.gameState.sessionToken
             },
             type: "PUT",
             data:
                 JSON.stringify({
-                    "player":{
+                    "users":{
                         "__op": "AddRelation",
                         "objects": [
                             {
                                 "__type": "Pointer",
                                 "className": "_User",
-                                "objectId": me.config.gameState.objectId
+                                "objectId": me.config.gameState.userId
                             }
                         ]
                     }}),
