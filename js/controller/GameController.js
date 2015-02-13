@@ -90,6 +90,7 @@ function GameController(config) {
         var myCookie = new Cookie();
         myCookie.clear();
         me.config.gameState.clear();
+        $("#resumeButton").css("display","none");
         EventBus.dispatch("hideAll");
         $("#login-wrapper").css("display","table");
         //$("#menu-wrapper").css("display","none");
@@ -170,7 +171,7 @@ function GameController(config) {
         else{
              //nitha updated error msg
             $(".error-msg").html("Invalid register details").show(1);
-        }   
+        }
     }
 
 

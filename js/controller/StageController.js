@@ -248,8 +248,6 @@ function StageController(config) {
     var alterTickerStatus = function(){
         createjs.Ticker.setPaused(!createjs.Ticker.getPaused());
     }
-
-
     var setScaleFactor = function(bgHeight, bgWidth, me){
        me.scale = {"sx":1,"sy" : 1};
        var availableHeight = me.height - me.capthaHeight;
@@ -257,20 +255,19 @@ function StageController(config) {
        me.scale.sy = availableHeight/bgHeight;
        me.scale.sx = availableWidth/bgWidth;
     }
-
     var resumeGame = function (me) {
         EventBus.dispatch("exitMenu");
         EventBus.dispatch("alterTickerStatus");
         $("#canvasHolder").css("display","block");
         //createjs.Ticker.addEventListener("tick", me.events.tick);
     }
-
     var pauseGame = function (me) {
         if(!createjs.Ticker.getPaused()){
             me.config.gameState.gs.currentState = me.config.gameState.gs.States.RUN;
             EventBus.dispatch("alterTickerStatus");
             EventBus.dispatch("showMenu");
             $("#canvasHolder").css("display","none");
+            $("#continueButton").css("display","none");
         }
     }
     var initScoreHolders = function(me){
@@ -282,6 +279,4 @@ function StageController(config) {
         me.trees.text = "Trees grown : "+me.config.gameState.treesGrown;
         EventBus.dispatch("updateBeanProgress", {"trees":me.config.trees, "trunks":me.config.trunks.length});
     }
-
-
 }
