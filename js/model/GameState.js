@@ -42,6 +42,14 @@ function GameState(config){
         console.log(data);
 
     }
+    GameState.prototype.clear = function(){
+        this.username = null;
+        this.userId  = null;
+        this.sessionToken = null;
+        this.currentHeight = 0;
+        this.treesGrown = 0;
+        this.highScoreId = 0;
+    }
 
 
 

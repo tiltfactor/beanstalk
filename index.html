@@ -54,6 +54,7 @@
 
 <div id="menu-wrapper" class="outer-wrapper">
     <div class="inner-wrapper">
+        <button id="back-button" onClick="EventBus.dispatch(&quot;backToLogin&quot;)"></button>
         <div class="center-container">
             <div class="title">WELCOME</div>
             <div class="menu-input-wrapper">
@@ -63,10 +64,10 @@
                     <button id="resumeButton" class="menu-btns" onClick="EventBus.dispatch(&quot;resumeGame&quot;)">RESUME GAME</button>
                     <!--<button onClick="EventBus.dispatch(&quot;exitMenu&quot;);EventBus.dispatch(&quot;showShop&quot;)">Shop</button>-->
                     <button id="continueButton" class="menu-btns" onClick="EventBus.dispatch(&quot;exitMenu&quot;);EventBus.dispatch(&quot;continueGame&quot;)">CONTINUE</button>
-                    <button class="menu-btns" onClick="EventBus.dispatch(&quot;exitMenu&quot;)">EXIT</button>
-                    <button id="logOut-btn" class="menu-btns" onClick="EventBus.dispatch(&quot;logOut&quot;)">Logout</button>
                     <button id="highScore-btn" class="menu-btns" onClick="EventBus.dispatch(&quot;highScore&quot;)">HighScores</button>
+                    <button id="logOut-btn" class="menu-btns" onClick="EventBus.dispatch(&quot;logOut&quot;)">Logout</button>
                     <button class="menu-btns">HELP</button>
+                    <button class="menu-btns" onClick="EventBus.dispatch(&quot;exitMenu&quot;)">EXIT</button>
                     <div>
                     <button class="volume-btns"></button>
                     <button class="volume-btns"></button>
@@ -86,11 +87,11 @@
                 <div>
                     <p>EMAIL ADDRESS</p>
                      <div class="input-container">
-                    <input type="text" id="user-name" />
+                    <input type="text" id="user-name" placeholder="User name" />
                     </div>
                     <p>PASSWORD</p>
                     <div class="input-container">
-                        <input type="password" id="password" />
+                        <input type="password" id="password" placeholder="Password"/>
                         <span class="forgot-password" onClick="EventBus.dispatch(&quot;resetPassword&quot;)">?</span>
                     </div>
                     <div class="login-buttons">
@@ -114,6 +115,7 @@
 
 <div id="register-wrapper" class="outer-wrapper">
     <div class="inner-wrapper">
+        <button id="back-button" onClick="EventBus.dispatch(&quot;backToLogin&quot;)"></button>
         <div class="center-container">
             <div class="title">LOGO</div>
             <div class="register-input-wrapper">
