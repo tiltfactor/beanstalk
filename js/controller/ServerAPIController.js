@@ -68,6 +68,7 @@ function ServerAPIController(config){
             },
             type: "GET",
             success: function(data) {
+                $("#password").val("");
                 if(data != null){
                     EventBus.dispatch("setGameState", data.results[0]);
                 }
@@ -159,14 +160,21 @@ function ServerAPIController(config){
             data: JSON.stringify({
                 "scoreType": scoreType
             }),
+            beforeSend: function () {
+                if(scoreType == 1){
+                    $(".total-scores").html("Fetching data from the server..");
+                }else{
+                    $(".weekly-scores").html("Fetching data from the server..");
+                }
+            },
             success: function(params) {
                     var template = $("#scoreComponents").html();
                     var compile = _.template(template);
                     var data =  compile({items:params.result, user: me.config.gameState.username});
                     if(scoreType == 1){
-                        $(".total-scores").append(data);
+                        $(".total-scores").html(data);
                     }else{
-                        $(".weekly-scores").append(data);
+                        $(".weekly-scores").html(data);
                     }
             },
             error: function() {

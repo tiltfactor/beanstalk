@@ -47,6 +47,9 @@ function StageController(config) {
 
         var bb = function(){backButtonClick(me)};
         EventBus.addEventListener("backButtonClick",bb);
+
+        var bl = function(){backToLogin()};
+        EventBus.addEventListener("backToLogin",bl);
         
     }
 
@@ -90,6 +93,10 @@ function StageController(config) {
     var backButtonClick = function(me){
         $("#score-wrapper").css("display","none");
         $("#menu-wrapper").css("display","table");
+    }
+    var backToLogin = function(){
+        EventBus.dispatch("hideAll");
+        $("#login-wrapper").css("display","table");
     }
     var loadImages = function(me){
         var _onImagesLoad= function(me){ onImagesLoad(me)};
@@ -267,8 +274,8 @@ function StageController(config) {
         }
     }
     var initScoreHolders = function(me){
-        me.trees = new createjs.Text("Trees grown : "+me.config.gameState.treesGrown, "20px Arial", "#000000");
-        me.trees.setTransform(me.width-me.trees.getMeasuredWidth()-10,me.trees.getMeasuredHeight(),1,1);
+        me.trees = new createjs.Text("Trees grown : "+me.config.gameState.treesGrown, "2em Boogaloo", "#000000");
+        me.trees.setTransform(me.width-me.trees.getMeasuredWidth()-70,me.trees.getMeasuredHeight(),1,1);
         me.config.stage.addChild(me.trees);
     }
     var updateScore = function(me){

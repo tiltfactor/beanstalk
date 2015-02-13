@@ -19,9 +19,15 @@ function MenuController(config) {
         if(me.config.gameState.currentHeight == 0 && me.config.gameState.treesGrown == 0){
             $("#continueButton").css("display","none");
         }
+        if(me.config.gameState.userId == null){
+            $("#back-button").show(1);
+            $("#continueButton").css("display","none");
+            $("#highScore-btn").css("display","none");
+        }
         $("#menu-wrapper").css("display","table");
     }
     MenuController.prototype.hideMenu = function () {
+       // window.close();
         $("#menu-wrapper").css("display","none");
     }
 

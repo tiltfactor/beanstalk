@@ -82,19 +82,32 @@ function GameController(config) {
 
         var hs = function(){highScore(me)};
         EventBus.addEventListener("highScore", hs);
+
+        var ha = function(){hideAll()};
+        EventBus.addEventListener("hideAll", ha);
     }
-    var logOut = function(){
+    var logOut = function(me){
         var myCookie = new Cookie();
         myCookie.clear();
+        me.config.gameState.clear();
+        EventBus.dispatch("hideAll");
         $("#login-wrapper").css("display","table");
-        $("#menu-wrapper").css("display","none");
+        //$("#menu-wrapper").css("display","none");
 
     }
     var highScore = function(me){
+        EventBus.dispatch("hideAll");
         $("#score-wrapper").css("display","table");
-        $("#menu-wrapper").css("display","none");
+        //$("#menu-wrapper").css("display","none");
         me.config.serverAPIController.getHighScores(1);
         me.config.serverAPIController.getHighScores(2);
+    }
+
+    var hideAll = function(me){
+        $("#register-wrapper").css("display","none");
+        $("#login-wrapper").css("display","none");
+        $("#menu-wrapper").css("display","none");
+        $("#score-wrapper").css("display","none");
     }
 
     var setGameState = function(me,data){
