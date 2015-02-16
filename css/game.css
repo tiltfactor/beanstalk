@@ -49,7 +49,12 @@ body {
     width: 100%;
     margin: 0;
     padding: 0;
-    background-image: url('../shapes/main_background.png');
+    text-align: center;
+    background: url('../shapes/main_background.png') no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }
 
 @font-face { font-family: 'Boogaloo'; src: url('fonts/Boogaloo-Regular.otf'); }
@@ -66,7 +71,11 @@ body {
     width: 100%;
     top: 0;
     left: 0;
-    background-image: url('../shapes/main_background.png');
+    background: url('../shapes/main_background.png') no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }
 
 .inner-wrapper {
@@ -254,13 +263,69 @@ body {
     padding: 0% 3%;
 }
 
-.volume-btns {
-    background-image: url("../shapes/sound_on_btn.png");
+.round-btns {
     background-size: 100% 100%;
     background-color: transparent;
     border: none;
     width: 50px;
     height: 50px;
+}
+
+.volume-btns {
+    background-image: url("../shapes/sound_on_btn.png");
+}
+
+#topButtonHolder {
+    display: none;
+    height: 46px;
+    width: 100%;
+    padding-top: 1%;
+    padding-bottom: 1%;
+}
+
+#topButtonHolder .volume-btns {
+    position: absolute;
+    left: 1%;
+    top: 1%;
+}
+
+.exit-btns {
+    background-image: url("../shapes/exit_btn.png");
+    position: absolute;
+    left: 90%; /* fallback if needed */
+    left: calc(100% - 50px);
+    top: 1%;
+}
+
+.info-btns {
+    background-image: url("../shapes/info_btn.png");
+    position: absolute;
+    left: 65px;
+    left: calc(1% + 50px);
+    top: 1%;
+}
+
+#trees-grown-bar {
+    background-image: url("../shapes/treesgrown_bar.png");
+    width: 20%;
+    background-repeat: no-repeat;
+    position: relative;
+    width: 190px;
+    height: 50px;
+    background-size: 100% 100%;
+    margin: 0px auto;
+}
+
+#trees-grown-bar label {
+    position: relative;
+    top: 10px;
+    width: 36px;
+    display: block;
+    left: 146px;
+    text-align: center;
+    font-size: 1.3em;
+    font-family: 'Boogaloo';
+    color: #125003;
 }
 
 @media screen and (max-width: 700px) { 
@@ -288,7 +353,7 @@ body {
     }
 
     .forgot-password {
-        font-size: 1em;
+        font-size: 1.3em;
     }
     #menu-wrapper .title {
         font-size: 1.5em;
@@ -321,8 +386,8 @@ body {
     width: 50px;
     height: 50px;
     position: absolute;
-    top: 10%;
-    left: 2%;
+    top: 1%;
+    left: 1%;
     outline: none;
     cursor: pointer;
 }

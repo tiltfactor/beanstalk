@@ -10,8 +10,8 @@ function StageController(config) {
         loadEvents(this);
 
     };
-    var loadEvents = function (me) {
-
+    var loadEvents = function (me) {        
+        
         me.events.tick = function(){tick(me);}
         createjs.Ticker.addEventListener("tick", me.events.tick);
 
@@ -69,11 +69,18 @@ function StageController(config) {
     }
 
     var setCanvasAttributes = function(me){
-        me.freeBottomAreaY = $("#canvasHolder").outerHeight();
+        me.freeBottomAreaY = $("#canvasHolder").outerHeight() +  $("#topButtonHolder").outerHeight();
         me.capthaHeight = 75;
+        me.freeLeftAreaX = 0;
         var canvas = document.getElementById("myCanvas");
-        me.width  = canvas.width =  window.innerWidth-20;
-        me.height = canvas.height =  window.innerHeight-20-me.freeBottomAreaY;
+        me.width  = canvas.width =  window.innerWidth;
+        var h = me.width * 3/4;
+        if (window.innerHeight-me.freeBottomAreaY < h){
+            h = window.innerHeight-me.freeBottomAreaY;
+            me.width  = canvas.width = (h * 4/3);
+        }
+        me.height = canvas.height =  h;
+        me.freeTopAreaY = me.height/2;
     }
 
     var startGame = function (me) {
@@ -258,7 +265,7 @@ function StageController(config) {
     var resumeGame = function (me) {
         EventBus.dispatch("exitMenu");
         EventBus.dispatch("alterTickerStatus");
-        $("#canvasHolder").css("display","block");
+        $(".buttonHolder").css("display","block");
         //createjs.Ticker.addEventListener("tick", me.events.tick);
     }
     var pauseGame = function (me) {
@@ -266,17 +273,15 @@ function StageController(config) {
             me.config.gameState.gs.currentState = me.config.gameState.gs.States.RUN;
             EventBus.dispatch("alterTickerStatus");
             EventBus.dispatch("showMenu");
-            $("#canvasHolder").css("display","none");
+            $(".buttonHolder").css("display","none");
             $("#continueButton").css("display","none");
         }
     }
     var initScoreHolders = function(me){
-        me.trees = new createjs.Text("Trees grown : "+me.config.gameState.treesGrown, "2em Boogaloo", "#000000");
-        me.trees.setTransform(me.width-me.trees.getMeasuredWidth()-70,me.trees.getMeasuredHeight(),1,1);
-        me.config.stage.addChild(me.trees);
+        $("#trees-grown-bar label").html(me.config.gameState.treesGrown);
     }
     var updateScore = function(me){
-        me.trees.text = "Trees grown : "+me.config.gameState.treesGrown;
+        $("#trees-grown-bar label").html(me.config.gameState.treesGrown);
         EventBus.dispatch("updateBeanProgress", {"trees":me.config.trees, "trunks":me.config.trunks.length});
     }
 }

@@ -41,7 +41,15 @@
     </script>
 </head>
 <body onload="init()">
-
+    <div id="topButtonHolder" class="buttonHolder">
+        <button class="volume-btns round-btns"></button>
+        <button class="info-btns round-btns"></button>
+        <div id="trees-grown-bar">
+            <label>0</label>
+        </div>
+        <button class="exit-btns round-btns"></button>
+    </div>
+    
 <canvas id="myCanvas" ></canvas>
 
 <div style="position: absolute; top: 0%; left: 0%; width: 90%; height: 90%; ">
@@ -69,8 +77,8 @@
                     <button class="menu-btns">HELP</button>
                     <button class="menu-btns" onClick="EventBus.dispatch(&quot;exitMenu&quot;)">EXIT</button>
                     <div>
-                    <button class="volume-btns"></button>
-                    <button class="volume-btns"></button>
+                        <button class="volume-btns round-btns"></button>
+                        <button class="volume-btns round-btns"></button>
                     </div>
                 </div>
             </div>
@@ -195,7 +203,7 @@
     <% }); %>
 </script>
 
-<div id="canvasHolder" style="padding-top: 10px; padding-bottom: 20px">
+<div id="canvasHolder" class="buttonHolder" style="padding-top: 10px;">
     <input id="passButton" type="button" value="Pass" onclick="EventBus.dispatch(&quot;passText&quot;)" ></input>
     <input id="inputText" type="text" placeholder="Enter captcha" onkeydown="if(event.keyCode == 13){EventBus.dispatch(&quot;compareCaptcha&quot;)}" autofocus></input>
     <input id="submitButton" type="button" value="Submit" onclick="EventBus.dispatch(&quot;compareCaptcha&quot;)"></input>

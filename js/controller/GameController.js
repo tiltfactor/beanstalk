@@ -146,7 +146,6 @@ function GameController(config) {
             me.config.serverAPIController.login(data);
       }
       else {
-          //nitha updated error msg
           $(".error-msg").html("invalid login parameters").show(1);
       }    
     }
@@ -169,7 +168,6 @@ function GameController(config) {
             me.config.serverAPIController.register(data);
         }
         else{
-             //nitha updated error msg
             $(".error-msg").html("Invalid register details").show(1);
         }
     }
@@ -181,7 +179,6 @@ function GameController(config) {
         if(validateEmail(email)){
             me.config.serverAPIController.resetPassword(email);
         }else{
-            // nitha updated error msg
             $(".error-msg").html("Enter a valid email Id").show(1);
         }
     }
