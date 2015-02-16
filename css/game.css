@@ -274,7 +274,9 @@ body {
 .volume-btns {
     background-image: url("../shapes/sound_on_btn.png");
 }
-
+.music-btns {
+    background-image: url("../shapes/music_btn_on.png");
+}
 #topButtonHolder {
     display: none;
     height: 46px;
