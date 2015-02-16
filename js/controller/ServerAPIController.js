@@ -18,7 +18,6 @@ function ServerAPIController(config){
         $.ajax({
             url: this.API.baseUrl+url+ params,
             headers: {
-                   //nitha added 'Content-type': 'application/json',
                 'Content-type': 'application/json',
                 'X-Parse-Application-Id' : this.API.parseApplicationId,
                 'X-Parse-REST-API-Key': this.API.parseRestAPIKey
@@ -37,14 +36,12 @@ function ServerAPIController(config){
                 }
             },
             beforeSend: function () {
-         //nitha added $(".error-msg").hide();
                 $(".error-msg").hide();
                 $('.login-msg').show();
             },
             complete: function () {
                 $('.login-msg').hide();
             },
-                    //nitha updated error msg
             error: function(jqXHR) {
                 var errorText = JSON.parse(jqXHR.responseText);
                 $(".msg").hide(1);
@@ -100,18 +97,22 @@ function ServerAPIController(config){
             data: JSON.stringify({ "username": data.username, "password": data.password }),
             type: "POST",
             success: function(data) {
+                $("#register-user-name").val("");
+                $("#register-password").val("");
+                $("#confirm-password").val("");
                 var cookie = new Cookie();
                 cookie.saveToCookie(data);
                // var myData = {"username":data.username ,"userId": data.objectId, "sessionToken": data.sessionToken};
                 me.config.gameState.savePlayerDetails(data);
                 setPlayerRole(me);
+
+
 //                $("#register-wrapper").css("display","none");
 //                document.cookie="username=" + username + ";expires= -1";
 //                document.cookie="sessionTocken="+params.sessionToken+";expires= -1";
 //                document.cookie="objectId="+params.objectId+";expires= -1";
 //                setPlayerRole(me);
             },
-           //nitha updated error msg
          error: function(jqXHR) {
                 var errorText = JSON.parse(jqXHR.responseText);
                 $(".msg").hide(1);
@@ -145,7 +146,6 @@ function ServerAPIController(config){
             }
         });
     }
-    //nitha added highscore API
     ServerAPIController.prototype.getHighScores = function(scoreType){
         var me = this;
         $.ajax({
@@ -182,8 +182,7 @@ function ServerAPIController(config){
             }
         });
     }
-    
-    //nitha added reset password API
+
     ServerAPIController.prototype.resetPassword = function(email){
         $.ajax({
             url: this.API.baseUrl+"/1/requestPasswordReset",

@@ -24,9 +24,10 @@
     }
     var activateUI = function(me){
        // $("#canvasHolder").parent().css({position: 'relative'});
-//        $("#canvasHolder").css({top: me.config.canvasHeight, left: me.config.canvasWidth/2- $("#canvasHolder").width()/2, position:'absolute'});
+       // $("#canvasHolder").css({top: me.config.canvasHeight, left: me.config.canvasWidth/2- $("#canvasHolder").width()/2, position:'absolute'});
         $(".buttonHolder").css("display","block");
-        document.getElementById(me.captchaPassButton).value = 'PASS('+ me.maxPass + ')';
+        //document.getElementById(me.captchaPassButton).value = 'PASS('+ me.maxPass + ')';
+
         $('#inputText').focus();
         disablePassButton(me,false);
 

@@ -456,3 +456,6 @@ body {
 .score-output-wrapper .weekly-scores{
     font-size: 1.3em;
 }
+#canvasHolder #inputText{
+    padding-left:30px;
+}
