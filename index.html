@@ -47,7 +47,7 @@
         <div id="trees-grown-bar">
             <label>0</label>
         </div>
-        <button class="exit-btns round-btns"></button>
+        <button class="exit-btns round-btns" onClick="EventBus.dispatch(&quot;showMenu&quot;);"></button>
     </div>
     
 <canvas id="myCanvas" ></canvas>
@@ -94,11 +94,11 @@
                 <div>
                     <p>EMAIL ADDRESS</p>
                      <div class="input-container">
-                    <input type="text" id="user-name" placeholder="User name" />
+                    <input type="text" id="user-name" placeholder="User name" onkeydown="if(event.keyCode == 13){EventBus.dispatch(&quot;userLogin&quot;)}"/>
                     </div>
                     <p>PASSWORD</p>
                     <div class="input-container">
-                        <input type="password" id="password" placeholder="Password"/>
+                        <input type="password" id="password" placeholder="Password" onkeydown="if(event.keyCode == 13){EventBus.dispatch(&quot;userLogin&quot;)}"/>
                         <span class="forgot-password" onClick="EventBus.dispatch(&quot;resetPassword&quot;)">?</span>
                     </div>
                     <div class="login-buttons">
@@ -167,7 +167,6 @@
 
                 </div>
             </div>
-            <button id="share-button">SHARE</button>
         </div>
     </div>
 </div>
