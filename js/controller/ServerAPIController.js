@@ -94,7 +94,7 @@ function ServerAPIController(config){
                 'X-Parse-Application-Id' : this.API.parseApplicationId,
                 'X-Parse-REST-API-Key': this.API.parseRestAPIKey
             },
-            data: JSON.stringify({ "username": data.username, "password": data.password }),
+            data: JSON.stringify({ "username": data.username, "password": data.password, "email": data.username }),
             type: "POST",
             success: function(data) {
                 $("#register-user-name").val("");
