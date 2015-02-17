@@ -42,11 +42,11 @@
 </head>
 <body onload="init()">
     <div id="topButtonHolder" class="buttonHolder">
-        <button class="volume-btns round-btns"></button>
-        <button class="info-btns round-btns"></button>
         <div id="trees-grown-bar">
             <label>0</label>
         </div>
+        <button class="volume-btns round-btns" onClick="$(this).toggleClass('off-state');"></button>
+        <button class="info-btns round-btns"></button>
         <button class="exit-btns round-btns" onClick="EventBus.dispatch(&quot;showMenu&quot;);"></button>
     </div>
     
@@ -76,8 +76,8 @@
                     <button id="logOut-btn" class="menu-btns" onClick="EventBus.dispatch(&quot;logOut&quot;)">LOG OUT</button>
                     <button class="menu-btns">HELP</button>
                     <div>
-                        <button class="volume-btns round-btns"></button>
-                        <button class="music-btns round-btns"></button>
+                        <button class="volume-btns round-btns" onClick="$(this).toggleClass('off-state');"></button>
+                        <button class="music-btns round-btns" onClick="$(this).toggleClass('off-state');"></button>
                     </div>
                 </div>
             </div>

@@ -265,14 +265,34 @@ body {
     border: none;
     width: 50px;
     height: 50px;
+    outline: none;
+    cursor: pointer;
+        
+        
+}
+
+.volume-btns ,
+.music-btns {
+    background-image: url("../shapes/audio_btns_sprite.png");
+    background-size: 200% 200%;
 }
 
 .volume-btns {
-    background-image: url("../shapes/sound_on_btn.png");
+    background-position: 0 0;
 }
+
+.volume-btns.off-state {
+    background-position: 100% 0;
+}
+
 .music-btns {
-    background-image: url("../shapes/music_btn_on.png");
+    background-position: 0 100%;
 }
+
+.music-btns.off-state {
+    background-position: 100% 100%;
+}
+
 #topButtonHolder {
     display: none;
     height: 46px;
