@@ -67,6 +67,7 @@ function ServerAPIController(config){
             success: function(data) {
                 $("#password").val("");
                 if(data != null){
+                    $("#continueButton").show();
                     EventBus.dispatch("setGameState", data.results[0]);
                 }
                 EventBus.dispatch("showLoginScreen", "login fails");
