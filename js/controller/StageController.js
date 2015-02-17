@@ -266,6 +266,7 @@ function StageController(config) {
         EventBus.dispatch("exitMenu");
         EventBus.dispatch("alterTickerStatus");
         $(".buttonHolder").css("display","block");
+        $("#inputText").val("");
         //createjs.Ticker.addEventListener("tick", me.events.tick);
     }
     var pauseGame = function (me) {
