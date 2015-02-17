@@ -137,6 +137,7 @@ function GameController(config) {
     }
 
     var userLogin = function(me) {
+        $(".msg").hide(1);
         var username = $("#user-name").val();
         var password = $("#password").val();
         if((username != "") && (password != "") && validateEmail(username)) {
