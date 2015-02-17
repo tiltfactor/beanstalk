@@ -28,6 +28,11 @@
         this.setScale(this.config.scale);
         reset(this);
         drawLeaf(this);
+        addEvents(this);
+        this.children[0].addEventListener("animationend",this.children[0].myAnimationEnd);
+    }
+    var addEvents = function(me){
+        me.children[0].myAnimationEnd = function(){ onAnimationEnd(me)};
     }
     Bamboo.prototype.setScale = function(scale){
         this.scaleX = scale.sx;
@@ -59,15 +64,19 @@
         //me.grownLeafs = 0;
     }
 
-    Bamboo.prototype.grow=function(){
+    /*Bamboo.prototype.grow=function(){
         this.children[0].gotoAndPlay("grow");
         this.leaves[0].alpha=this.leaves[1].alpha=this.leaves[2].alpha=this.leaves[3].alpha=0;
-    };
+        this.children[0].addEventListener("animationend",this.children[0].myAnimationEnd);
+    };*/
     Bamboo.prototype.setPosition = function(x,y){
         this.x = x ;
         this.y = y ;
     }
-
+    var onAnimationEnd = function(me){
+        me.children[0].removeEventListener("animationend",me.children[0].myAnimationEnd);
+        EventBus.dispatch("enableInputText");
+    }
     var drawLeaf = function(me){
         for(var i= me.totalLeaves-1;i>=0;i--){
             var leaf = new sprites.Leaf({"loader": me.config.loader, "id" : i});

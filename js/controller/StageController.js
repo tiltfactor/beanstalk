@@ -50,9 +50,22 @@ function StageController(config) {
 
         var bl = function(){backToLogin()};
         EventBus.addEventListener("backToLogin",bl);
+
+        var di = function(){disableInputText()};
+        EventBus.addEventListener("disableInputText",di);
+
+        var ei = function(){enableInputText()};
+        EventBus.addEventListener("enableInputText",ei);
         
     }
 
+    var disableInputText = function(){
+        $("#canvasHolder").hide(1);
+    }
+    var enableInputText = function(){
+        $("#canvasHolder").show(1);
+        $("#inputText").focus();
+    }
     var setOutputText = function(me){
         me.outputText = new createjs.Text();
         me.outputText.font = "bold 50px Arial";
@@ -107,8 +120,17 @@ function StageController(config) {
     }
     var loadImages = function(me){
         var _onImagesLoad= function(me){ onImagesLoad(me)};
-        var manifest = Manifest.game;
-        me.config.loader.loadQueue(manifest, _onImagesLoad, me);
+        var manifest = [];
+       /* var manifest = Manifest.game;
+        me.config.loader.loadQueue(manifest, _onImagesLoad, me);*/
+
+        if(!me.config.gameState.level){
+            me.config.gameState.level = true;
+            var manifest = Manifest.game;
+            me.config.loader.loadQueue(manifest, _onImagesLoad, me, me.config.gameState.currentLevel);
+        }else{
+            me.config.loader.loadQueue(manifest, _onImagesLoad, me, me.config.gameState.currentLevel);
+        }
     }
     var onImagesLoad = function(me){
 
@@ -235,12 +257,20 @@ function StageController(config) {
     var compareCaptcha = function(me){
         var currentTrunk = me.config.trunks[me.config.trunks.length-1];
         var output = me.captchaProcessor.compare();
+        if(currentTrunk.currentLeaf>=currentTrunk.totalLeaves-1){
+            EventBus.dispatch("disableInputText");
+        }
         if(output.pass){
             currentTrunk.growLeaf();
         }else{
-            currentTrunk.fallLeaves();
+            //if(currentTrunk.currentLeaf<4){
+                currentTrunk.fallLeaves();
+            //}
         }
+
+
         showMessage(me,output.message);
+        $('#inputText').focus();
     }
     var loadCaptchaPlaceHolder = function(me){
         var holder = me.captchaProcessor.getCaptchaPlaceHolder({"width":me.config.stage.canvas.width,"height":me.config.stage.canvas.height - me.capthaHeight,"maxHeight":me.capthaHeight})
@@ -266,6 +296,7 @@ function StageController(config) {
         EventBus.dispatch("exitMenu");
         EventBus.dispatch("alterTickerStatus");
         $(".buttonHolder").css("display","block");
+        $("#inputText").focus();
         $("#inputText").val("");
         //createjs.Ticker.addEventListener("tick", me.events.tick);
     }

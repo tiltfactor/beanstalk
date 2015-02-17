@@ -21,7 +21,7 @@ function GameState(config){
         }
         this.gs.currentState = this.gs.States.MAIN_MENU;
         this.captchaDatasArray = [localData];
-
+        this.level = false;
 
 
 
