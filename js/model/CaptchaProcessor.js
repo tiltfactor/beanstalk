@@ -29,7 +29,7 @@
         //document.getElementById(me.captchaPassButton).value = 'PASS('+ me.maxPass + ')';
 
         $('#inputText').focus();
-        disablePassButton(me,false);
+        //disablePassButton(me,false);
 
     }
     var loadEvents = function(me){
@@ -240,14 +240,15 @@
         if(++me.currentPass >= me.maxPass){
             disablePassButton(me,true);
         }
-        me.load();
+        me.load(me.captchaOnScreen);
     }
 
     var clearText = function(me){
         document.getElementById(me.captchaTextBoxId).value = "";
     }
     var disablePassButton = function(me,status){
-        document.getElementById(me.captchaPassButton).disabled = status;
+        //document.getElementById(me.captchaPassButton).disabled = status;
+        $("#passButton").css("display","none");
     }
 
     var getCaptchaCoordinates = function(cord){

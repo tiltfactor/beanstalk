@@ -85,7 +85,7 @@ function StageController(config) {
         var canvas = document.getElementById("myCanvas");
         me.width  = canvas.width =  window.innerWidth;
         var h = me.width * 3/4;
-        if (window.innerHeight-me.freeBottomAreaY < h){
+        if (window.innerHeight-me.freeBottomAreaY - me.capthaHeight < h){
             h = window.innerHeight-me.freeBottomAreaY;
             me.width  = canvas.width = (h * 4/3);
         }
