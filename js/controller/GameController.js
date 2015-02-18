@@ -47,7 +47,6 @@ function GameController(config) {
         if(data != null){
             me.config.gameState.savePlayerDetails(data);
             me.config.serverAPIController.getProgress();
-            EventBus.dispatch("showMenu");
         }
         else{
             //show login screen
@@ -137,6 +136,7 @@ function GameController(config) {
     }
 
     var userLogin = function(me) {
+        EventBus.dispatch("alterTickerStatus");
         $(".msg").hide(1);
         var username = $("#user-name").val();
         var password = $("#password").val();

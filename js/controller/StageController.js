@@ -15,9 +15,6 @@ function StageController(config) {
         me.events.tick = function(){tick(me);}
         createjs.Ticker.addEventListener("tick", me.events.tick);
 
-        var sg = function(){startGame(me)};
-        EventBus.addEventListener("startGame", sg);
-
         var ng = function(){newGame(me)};
         EventBus.addEventListener("newGame", ng);
         
@@ -97,20 +94,21 @@ function StageController(config) {
     }
 
     var startGame = function (me) {
-        
+
         $("#inputText").val("");
         reset(me);
         loadImages(me);
     }
-    var continueGame = function(me){    
-        EventBus.dispatch("startGame");
+    var continueGame = function(me){
+        startGame(me);
     }
     var newGame = function(me){
         me.config.gameState.currentHeight = 0;
         me.config.gameState.treesGrown = 0;
-        EventBus.dispatch("startGame");
+        startGame(me);
     }
     var backButtonClick = function(me){
+        EventBus.dispatch("alterTickerStatus");
         $("#score-wrapper").css("display","none");
         $("#menu-wrapper").css("display","table");
     }
@@ -153,6 +151,7 @@ function StageController(config) {
         //me.config.trees = 0;
         //me.captchaProcessor.clearCaptchaArray();
         me.config.stage.removeAllChildren();
+        me.config.stage.update();
     }
     var setBackground = function(me){
         me.background = new Background({"loader": me.config.loader});
@@ -198,10 +197,8 @@ function StageController(config) {
         return currentTrunk;
     }
     var growNextLevel = function(me){
+        EventBus.dispatch("disableInputText");
         var level = me.background.grow();
-
-        //me.config.serverAPIController.save();
-       // var level = 1;//me.background.grow();
         removeCurrentTrunk(me);
         if(level <= me.background.maxLevel){
             growNewTrunk(me);
@@ -257,18 +254,16 @@ function StageController(config) {
     var compareCaptcha = function(me){
         var currentTrunk = me.config.trunks[me.config.trunks.length-1];
         var output = me.captchaProcessor.compare();
-        if(currentTrunk.currentLeaf>=currentTrunk.totalLeaves-1){
+        /*if(currentTrunk.currentLeaf>=currentTrunk.totalLeaves-1){
             EventBus.dispatch("disableInputText");
-        }
+        }*/
         if(output.pass){
             currentTrunk.growLeaf();
         }else{
-            //if(currentTrunk.currentLeaf<4){
+            if(currentTrunk.currentLeaf<currentTrunk.totalLeaves){
                 currentTrunk.fallLeaves();
-            //}
+            }
         }
-
-
         showMessage(me,output.message);
         $('#inputText').focus();
     }
