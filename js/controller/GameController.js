@@ -139,7 +139,7 @@ function GameController(config) {
     var userLogin = function(me) {
         EventBus.dispatch("hideAll");
         $("#menu-wrapper").css("display","table");
-        EventBus.dispatch("alterTickerStatus");
+        //EventBus.dispatch("alterTickerStatus");
         $(".msg").hide(1);
         var username = $("#user-name").val();
         var password = $("#password").val();

@@ -45,6 +45,9 @@ function StageController(config) {
         var bb = function(){backButtonClick(me)};
         EventBus.addEventListener("backButtonClick",bb);
 
+        var cb = function(){closeButtonClick(me)};
+        EventBus.addEventListener("closeButtonClick",cb);
+
         var bl = function(){backToLogin()};
         EventBus.addEventListener("backToLogin",bl);
 
@@ -95,6 +98,7 @@ function StageController(config) {
     }
 
     var startGame = function (me) {
+        EventBus.dispatch("alterTickerStatus");
         $("#loaderCanvas").hide();
         $("#inputText").val("");
         reset(me);
@@ -108,9 +112,13 @@ function StageController(config) {
         me.config.gameState.treesGrown = 0;
         startGame(me);
     }
-    var backButtonClick = function(me){
+    var closeButtonClick = function(me){
         EventBus.dispatch("alterTickerStatus");
-        $("#score-wrapper").css("display","none");
+        EventBus.dispatch("backButtonClick");
+    }
+    var backButtonClick = function(me){
+        //EventBus.dispatch("alterTickerStatus");
+        EventBus.dispatch("hideAll");
         $("#menu-wrapper").css("display","table");
     }
     var backToLogin = function(){
@@ -136,7 +144,7 @@ function StageController(config) {
         setBackground(me);
         me.captchaProcessor = new CaptchaProcessor({"loader": me.config.loader, "canvasWidth": me.width, "canvasHeight": me.height,"gameState":me.config.gameState});
         initScoreHolders(me);
-        EventBus.dispatch("alterTickerStatus");
+        //EventBus.dispatch("alterTickerStatus");
 
         var preloadTrunk = me.config.gameState.currentHeight/me.config.gameState.trunkHeight;
         if(preloadTrunk!=0){
