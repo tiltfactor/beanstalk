@@ -77,20 +77,21 @@ function StageController(config) {
         me.outputText.x = me.outputText.ox - me.outputText.getMeasuredWidth()/2;
         createjs.Tween.get(me.outputText).to({alpha:0.4},1000).wait(1000).to({alpha:0},1000);
     }
-
+    
     var setCanvasAttributes = function(me){
-        me.freeBottomAreaY = $("#canvasHolder").outerHeight() +  $("#topButtonHolder").outerHeight();
+        me.freeBottomAreaY = $("#canvasHolder").outerHeight() + $("#topButtonHolder").outerHeight();
         me.capthaHeight = 75;
         me.freeLeftAreaX = 0;
         var canvas = document.getElementById("myCanvas");
-        me.width  = canvas.width =  window.innerWidth;
+        me.width = canvas.width = window.innerWidth;
         var h = me.width * 3/4;
         if (window.innerHeight-me.freeBottomAreaY - me.capthaHeight < h){
             h = window.innerHeight-me.freeBottomAreaY;
-            me.width  = canvas.width = (h * 4/3);
+            me.width = canvas.width = (h * 4/3);
         }
-        me.height = canvas.height =  h;
+        me.height = canvas.height = h;
         me.freeTopAreaY = me.height/2;
+        $("#canvasHolder").css({top: me.height+$("#topButtonHolder").outerHeight(), position:'absolute'});
     }
 
     var startGame = function (me) {
@@ -136,7 +137,7 @@ function StageController(config) {
         me.captchaProcessor = new CaptchaProcessor({"loader": me.config.loader, "canvasWidth": me.width, "canvasHeight": me.height,"gameState":me.config.gameState});
         initScoreHolders(me);
         EventBus.dispatch("alterTickerStatus");
-        
+
         var preloadTrunk = me.config.gameState.currentHeight/me.config.gameState.trunkHeight;
         if(preloadTrunk!=0){
             me.background.setLevelHeight(preloadTrunk+1);
