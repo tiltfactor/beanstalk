@@ -94,7 +94,7 @@ function StageController(config) {
     }
 
     var startGame = function (me) {
-
+        $("#loaderCanvas").hide();
         $("#inputText").val("");
         reset(me);
         loadImages(me);
