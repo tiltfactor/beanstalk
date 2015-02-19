@@ -108,6 +108,7 @@ function GameController(config) {
         $("#login-wrapper").css("display","none");
         $("#menu-wrapper").css("display","none");
         $("#score-wrapper").css("display","none");
+        $("#canvasHolder").css("display","none");
     }
 
     var setGameState = function(me,data){
@@ -136,6 +137,8 @@ function GameController(config) {
     }
 
     var userLogin = function(me) {
+        EventBus.dispatch("hideAll");
+        $("#menu-wrapper").css("display","table");
         EventBus.dispatch("alterTickerStatus");
         $(".msg").hide(1);
         var username = $("#user-name").val();
