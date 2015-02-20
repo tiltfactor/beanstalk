@@ -22,7 +22,6 @@ function MenuController(config) {
         if(me.config.gameState.userId == null){
             $("#back-button").show(1);
             $("#continueButton").css("display","none");
-            $("#highScore-btn").css("display","none");
         }
         $("#menu-wrapper").css("display","table");
     }

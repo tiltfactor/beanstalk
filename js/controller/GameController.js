@@ -99,8 +99,14 @@ function GameController(config) {
         EventBus.dispatch("hideAll");
         $("#score-wrapper").css("display","table");
         //$("#menu-wrapper").css("display","none");
-        me.config.serverAPIController.getHighScores(1);
-        me.config.serverAPIController.getHighScores(2);
+        if(me.config.gameState.userId != null){
+            me.config.serverAPIController.getHighScores(1);
+            me.config.serverAPIController.getHighScores(2);
+        }
+        else{
+            me.config.serverAPIController.getUserHighScores(1);
+            me.config.serverAPIController.getUserHighScores(2);            
+        }
     }
 
     var hideAll = function(me){
@@ -116,7 +122,7 @@ function GameController(config) {
         var height = data.meters;
         var weekly = data.weeklyMeters;
 
-
+        result.weeklyMeters = weekly;
         result.treesGrown = Math.floor(height/(me.config.gameState.levels * me.config.gameState.trunkHeight));
         result.currentHeight = height%(me.config.gameState.levels * me.config.gameState.trunkHeight);
         result.id = data.objectId;

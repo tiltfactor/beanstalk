@@ -39,6 +39,7 @@ function GameState(config){
         this.currentHeight = data.currentHeight;
         this.treesGrown = data.treesGrown;
         this.highScoreId = data.id;
+        this.weeklyMeters = data.weeklyMeters;
         console.log(data);
 
     }

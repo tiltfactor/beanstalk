@@ -183,6 +183,45 @@ function ServerAPIController(config){
             }
         });
     }
+    
+    ServerAPIController.prototype.getUserHighScores = function(scoreType){
+        var me = this;
+        var guestScore  = (this.config.gameState.treesGrown * this.config.gameState.trunkHeight*this.config.gameState.levels)+ this.config.gameState.currentHeight;
+        guestScore = guestScore || 0;
+        $.ajax({
+            url: this.API.baseUrl+"/1/functions/guestHighscores",
+            headers: {
+                'Content-Type': 'application/json',
+                'X-Parse-Application-Id' : this.API.parseApplicationId,
+                'X-Parse-REST-API-Key': this.API.parseRestAPIKey
+            },
+            type: "POST",
+            data: JSON.stringify({
+                "scoreType": scoreType,
+                "score": guestScore
+            }),
+            beforeSend: function () {
+                if(scoreType == 1){
+                    $(".total-scores").html("Fetching data from the server..");
+                }else{
+                    $(".weekly-scores").html("Fetching data from the server..");
+                }
+            },
+            success: function(params) {
+                    var template = $("#scoreComponents").html();
+                    var compile = _.template(template);
+                    var data =  compile({items:params.result, user: "guest"});
+                    if(scoreType == 1){
+                        $(".total-scores").html(data);
+                    }else{
+                        $(".weekly-scores").html(data);
+                    }
+            },
+            error: function() {
+
+            }
+        });
+    }
 
     ServerAPIController.prototype.resetPassword = function(email){
         $.ajax({
