@@ -97,14 +97,15 @@ function ServerAPIController(config){
             },
             data: JSON.stringify({ "username": data.username, "password": data.password, "email": data.username }),
             type: "POST",
-            success: function(data) {
+            success: function(userData) {
                 $("#register-user-name").val("");
                 $("#register-password").val("");
                 $("#confirm-password").val("");
                 var cookie = new Cookie();
-                cookie.saveToCookie(data);
                // var myData = {"username":data.username ,"userId": data.objectId, "sessionToken": data.sessionToken};
-                me.config.gameState.savePlayerDetails(data);
+                userData.username = data.username;
+                cookie.saveToCookie(userData);
+                me.config.gameState.savePlayerDetails(userData);
                 setPlayerRole(me);
 
 

@@ -10,6 +10,12 @@ function MenuController(config) {
         EventBus.addEventListener("exitMenu", me.hideMenu);
         var sm = function(){me.showMenu(me)};
         EventBus.addEventListener("showMenu",sm);
+        
+        var sh = function(){me.showHelp(me)};
+        EventBus.addEventListener("showHelp",sh);
+        
+        var hh = function(){me.hideHelp(me)};
+        EventBus.addEventListener("hideHelp",hh);        
     }
 
     MenuController.prototype.showMenu = function (me) {
@@ -29,6 +35,16 @@ function MenuController(config) {
        // window.close();
         $("#menu-wrapper").css("display","none");
     }
+    
+    MenuController.prototype.showHelp = function () {
+        $("#menu-wrapper").css("display","none");
+        $("#help-screen").css("display","table");
+    } 
+    
+    MenuController.prototype.hideHelp = function () {
+        $("#help-screen").css("display","none");
+        $("#menu-wrapper").css("display","table");
+    }  
 
     var createDialog = function(){
         $("#menu-wrapper").css("display","table");

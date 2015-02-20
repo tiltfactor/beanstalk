@@ -477,3 +477,64 @@ body {
 #canvasHolder #inputText{
     padding-left:2%;
 }
+
+/*Placeholder style for splash and help screen*/
+
+#help-screen {
+    background-color: white;
+    display: none;
+    position: absolute;
+    height: 70%;
+    width: 94%;
+    top: 15%;
+    left: 3%;
+}
+
+.help-screen-container,
+.splash-screen-container {
+    position: relative;
+    padding: 1%;
+    border-radius: 5px;
+    display: table-cell;
+    vertical-align: middle;   
+}
+
+#help-screen .main-title {
+    display: inline;
+    margin-bottom: 2%;
+    font-size: 3em;
+    font-family: arial;
+}
+
+#help-screen button {
+    position: absolute;
+    left: 3%;
+    top: 1%;
+}
+
+.help-screen-content {
+    height: calc(100% - 150px);
+    width: 94%;
+    margin: 0px auto;
+    overflow-y: scroll;
+    margin-top: 10px;
+}
+
+.help-back-button {
+    padding: 1% 2%;
+    border-radius: 6px;
+}
+
+#splash-screen {
+    background-color: white;
+    display: none;
+    position: absolute;
+    height: 94%;
+    width: 94%;
+    top: 3%;
+    left: 3%;
+}
+
+#splash-screen img {
+    width: 50%;
+}

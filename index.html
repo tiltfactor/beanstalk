@@ -74,7 +74,7 @@
                     <button id="continueButton" class="menu-btns" onClick="EventBus.dispatch(&quot;exitMenu&quot;);EventBus.dispatch(&quot;continueGame&quot;)">CONTINUE</button>
                     <button id="highScore-btn" class="menu-btns" onClick="EventBus.dispatch(&quot;highScore&quot;)">HIGH SCORES</button>
                     <button id="logOut-btn" class="menu-btns" onClick="EventBus.dispatch(&quot;logOut&quot;)">LOG OUT</button>
-                    <button class="menu-btns">HELP</button>
+                    <button class="menu-btns"  onClick="EventBus.dispatch(&quot;showHelp&quot;)">HELP</button>
                     <div>
                         <button class="volume-btns round-btns" onClick="$(this).toggleClass('off-state');"></button>
                         <button class="music-btns round-btns" onClick="$(this).toggleClass('off-state');"></button>
@@ -206,6 +206,21 @@
     <input id="inputText" type="text" placeholder="Enter captcha" onkeydown="if(event.keyCode == 13){EventBus.dispatch(&quot;compareCaptcha&quot;)}" autofocus></input>
     <input id="submitButton" type="button" value="Submit" onclick="EventBus.dispatch(&quot;compareCaptcha&quot;)"></input>
     <!--<input id="submitButton" type="button" value="Submit" onclick="EventBus.dispatch(&quot;compareCaptcha&quot;)"></input>-->
+</div>
+
+<div id="help-screen" class="main-wapper">
+    <button class="help-back-button" onClick="EventBus.dispatch(&quot;hideHelp&quot;)">Back</button>
+    <div class="main-title">INSTRUCTIONS</div>
+    <div class="help-screen-content">
+            Lorem ipsum dolor sit amet, ut fringilla. Sed nostrud, per purus elit leo, sem ut lobortis aliquam lacinia et, leo quisque nunc enim enim porttitor. Ut fringilla tempor in tincidunt, phasellus tortor convallis magna,
+            qui integer adipiscing, amet neque consectetuer.
+    </div>
+</div>
+
+<div id="splash-screen" class="main-wapper">
+    <div class="splash-screen-container">
+       <img class="BHL-logo" src="shapes/hs_table_inner_bg.png"/>
+    </div>
 </div>
 
 </body>
