@@ -37,7 +37,7 @@ function MenuController(config) {
     }
     
     MenuController.prototype.showHelp = function () {
-        $("#menu-wrapper").css("display","none");
+        EventBus.dispatch("hideAll");
         $("#help-screen").css("display","table");
     } 
     
