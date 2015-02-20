@@ -99,7 +99,7 @@ function StageController(config) {
 
     var startGame = function (me) {
         EventBus.dispatch("alterTickerStatus");
-        $("#loaderCanvas").hide();
+        $("#myCanvas").show();
         $("#inputText").val("");
         reset(me);
         loadImages(me);
@@ -299,6 +299,7 @@ function StageController(config) {
     var resumeGame = function (me) {
         EventBus.dispatch("exitMenu");
         EventBus.dispatch("alterTickerStatus");
+        $("#myCanvas").show();
         $(".buttonHolder").css("display","block");
         $("#inputText").focus();
         $("#inputText").val("");

@@ -115,6 +115,10 @@ function GameController(config) {
         $("#menu-wrapper").css("display","none");
         $("#score-wrapper").css("display","none");
         $("#canvasHolder").css("display","none");
+        $("#loaderCanvas").css("display","none");
+        $("#myCanvas").css("display","none");
+        $("#help-screen").css("display","none");
+
     }
 
     var setGameState = function(me,data){

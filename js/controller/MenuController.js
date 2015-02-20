@@ -38,11 +38,12 @@ function MenuController(config) {
     
     MenuController.prototype.showHelp = function () {
         EventBus.dispatch("hideAll");
+        $(".buttonHolder").css("display","none");
         $("#help-screen").css("display","table");
     } 
     
     MenuController.prototype.hideHelp = function () {
-        $("#help-screen").css("display","none");
+        EventBus.dispatch("hideAll");
         $("#menu-wrapper").css("display","table");
     }  
 
