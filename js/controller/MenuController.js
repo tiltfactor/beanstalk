@@ -19,11 +19,14 @@ function MenuController(config) {
     }
 
     MenuController.prototype.showMenu = function (me) {
-        $("#login-wrapper").css("display","none");
+        //$("#login-wrapper").css("display","none");
         checkStatus(me);
         me.config.gameState.gs.currentState = me.config.gameState.gs.States.MAIN_MENU;
         if(me.config.gameState.currentHeight == 0 && me.config.gameState.treesGrown == 0){
             $("#continueButton").css("display","none");
+        }
+        else{
+            $("#continueButton").show(1);
         }
         if(me.config.gameState.userId == null){
             $("#back-button").show(1);
@@ -44,7 +47,8 @@ function MenuController(config) {
     
     MenuController.prototype.hideHelp = function () {
         EventBus.dispatch("hideAll");
-        $("#menu-wrapper").css("display","table");
+        EventBus.dispatch("showMenu");
+        //$("#menu-wrapper").css("display","table");
     }  
 
     var createDialog = function(){

@@ -118,12 +118,14 @@ function StageController(config) {
     var closeButtonClick = function(me){
         EventBus.dispatch("alterTickerStatus");
         EventBus.dispatch("backButtonClick");
+        $("#resumeButton").hide(1);
     }
     var backButtonClick = function(me){
         //EventBus.dispatch("alterTickerStatus");
         EventBus.dispatch("hideAll");
-        $("#menu-wrapper").css("display","table");
-        }
+        EventBus.dispatch("showMenu");
+    }
+
     var backToLogin = function(){
         $(".msg").hide(1);
         EventBus.dispatch("hideAll");

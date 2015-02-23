@@ -265,7 +265,7 @@ function ServerAPIController(config){
                     "objectId": me.config.gameState.userId
                 }}),
             success: function(response) {
-                var data = {"treesGrown" : 0, "currentHeight" : 0, "id" : response.objectId };
+                var data = {"treesGrown" : 0, "currentHeight" : 0, "id" : response.objectId, "weeklyMeters" : 0};
                 me.config.gameState.setGameStatus(data);
 
                 // eventbus to dispatch main menu with login details

@@ -139,6 +139,7 @@ function GameController(config) {
         result.id = data.objectId;
 
         me.config.gameState.setGameStatus(result);
+        EventBus.dispatch("hideAll");
         EventBus.dispatch("showMenu");
     }
     var playAsGuest = function(me) {
