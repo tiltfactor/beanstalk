@@ -111,6 +111,9 @@ function StageController(config) {
         me.config.gameState.currentHeight = 0;
         me.config.gameState.treesGrown = 0;
         startGame(me);
+        if(me.config.gameState.userId != null){
+            me.config.serverAPIController.save();
+        }
     }
     var closeButtonClick = function(me){
         EventBus.dispatch("alterTickerStatus");
@@ -120,8 +123,9 @@ function StageController(config) {
         //EventBus.dispatch("alterTickerStatus");
         EventBus.dispatch("hideAll");
         $("#menu-wrapper").css("display","table");
-    }
+        }
     var backToLogin = function(){
+        $(".msg").hide(1);
         EventBus.dispatch("hideAll");
         $("#login-wrapper").css("display","table");
     }
