@@ -1,10 +1,10 @@
-.no-close .ui-dialog-titlebar-close, .ui-widget-header{
+.no-close .ui-dialog-titlebar-close, .ui-widget-header {
     display: none;
 }
-.ui-button{
+.ui-button {
     width: 100%;
 }
-#canvasHolder{
+#canvasHolder {
     display: none;
     height: 55px;
     width: 100%;
@@ -142,7 +142,7 @@ body {
 
 .login-input-wrapper h4,
 .register-input-wrapper h4,
-.score-output-wrapper h4{
+.score-output-wrapper h4 {
     text-align: center;
     font-size: 1.3em; 
     color: #60EA08;
@@ -152,7 +152,7 @@ body {
 .login-input-wrapper>div,
 .register-input-wrapper>div,
 .menu-input-wrapper>div,
-.score-output-wrapper>div{
+.score-output-wrapper>div {
     background-image: url("../shapes/hs_table_inner_bg.png");
     background-size: 100% 100%;
     padding: 4% 6% 3% 6%;
@@ -234,6 +234,7 @@ body {
 
 .register-buttons button {
     min-width: 50%;
+    padding: 5% 11% 6% 11%;
 }
 
 #play-as-guest {
@@ -267,8 +268,6 @@ body {
     height: 50px;
     outline: none;
     cursor: pointer;
-        
-        
 }
 
 .volume-btns ,
@@ -346,51 +345,6 @@ body {
     color: #125003;
 }
 
-@media screen and (max-width: 700px) { 
-    .center-container {
-        width: 75%;
-    }
-    .title {
-        font-size: 1.5em;
-    }
-    .login-input-wrapper h4,
-    .register-input-wrapper h4 {
-        font-size: 1em;
-    }
-    .login-input-wrapper>div,
-    .register-input-wrapper>div {
-        font-size: 1em;
-    }
-    .button-conatiner button,
-    .register-buttons button {
-        font-size: 1em;
-    }
-
-    #play-as-guest {
-        font-size: 1em;
-    }
-
-    .forgot-password {
-        font-size: 1.3em;
-    }
-    #menu-wrapper .title {
-        font-size: 1.5em;
-    }
-
-    #menu-wrapper .center-container {
-        width: 70%;
-        font-size: .8em;
-    }
-    #canvasHolder input {
-        width: auto !important;
-    }
-
-    #score-wrapper .center-container {
-        width: 90%;
-        font-size: .8em;
-    }
-}
-
 .score-output-wrapper>div {
     margin-top: 0;
     padding: 1% 3% 1% 3%;
@@ -410,7 +364,7 @@ body {
     cursor: pointer;
 }
 
-#menu-wrapper #back-button{
+#menu-wrapper #back-button {
     display:none;
 }
 #score-wrapper .title {
@@ -468,13 +422,13 @@ body {
     outline: none;
     margin-top: -6%;
 }
-.score-output-wrapper .total-scores{
+.score-output-wrapper .total-scores {
     font-size: 1.3em;
 }
-.score-output-wrapper .weekly-scores{
+.score-output-wrapper .weekly-scores {
     font-size: 1.3em;
 }
-#canvasHolder #inputText{
+#canvasHolder #inputText {
     padding-left:2%;
 }
 
@@ -525,7 +479,7 @@ body {
     border-radius: 6px;
 }
 
-#splash-screen {
+.splash-screen {
     background-color: white;
     display: none;
     position: absolute;
@@ -535,6 +489,172 @@ body {
     left: 3%;
 }
 
-#splash-screen img {
+.splash-screen img {
     width: 50%;
+    max-width: 300px;
+}
+
+@media screen and (max-width: 700px),
+screen and (max-height: 600px) { 
+    .center-container {
+        width: 75%;
+        max-width: 400px;
+    }
+    .title {
+        font-size: 1.5em;
+    }
+    .login-input-wrapper h4,
+    .register-input-wrapper h4 {
+        font-size: 1em;
+    }
+    .login-input-wrapper>div,
+    .register-input-wrapper>div {
+        font-size: 1em;
+    }
+    .button-conatiner button,
+    .register-buttons button {
+        font-size: 1em;
+    }
+
+    #play-as-guest {
+        font-size: 1em;
+    }
+
+    .forgot-password {
+        font-size: 1.3em;
+    }
+    #menu-wrapper .title {
+        font-size: 1.5em;
+    }
+
+    #menu-wrapper .center-container {
+        width: 70%;
+        font-size: .8em;
+    }
+    #canvasHolder input {
+        width: auto !important;
+    }
+
+    #score-wrapper .center-container {
+        width: 90%;
+        font-size: .8em;
+    }
+
+    #topButtonHolder {
+        height: 35px;
+    }
+
+    .info-btns {
+        left: 48px;
+    }
+
+    #trees-grown-bar {
+        width: 173px;
+        height: 40px;
+    }
+
+    #trees-grown-bar label {
+        top: 8px;
+        width: 30px;
+        left: 135px;
+        font-size: 1em;
+    }
+
+    .round-btns {
+        width: 40px;
+        height: 40px;
+    }
+    
+    #canvasHolder {
+        height: 45px;
+    }
+
+    #canvasHolder input {
+        height: 42px;
+        font-size: .8em;
+        padding: 0px 20px 3px 20px;
+    }
+
+    #canvasHolder input[type=button] {
+        width: 10%;
+
+    }
+
+    #canvasHolder input[type=text] {
+        width: 20%;
+    }
+}
+
+@media screen and (max-width: 500px),
+screen and (max-height: 500px) { 
+    .center-container {
+        max-width: 300px;
+    }
+    
+    .inner-wrapper {
+        padding: 0;
+    }
+    
+    .title {
+        font-size: 1.1em;
+    }
+    
+    .login-input-wrapper h4,
+    .register-input-wrapper h4 {
+        font-size: .9em;
+    }
+    
+    .login-input-wrapper>div,
+    .register-input-wrapper>div {
+        font-size: .9em !important;
+    }
+    
+    .button-conatiner button,
+    .register-buttons button {
+        font-size: .9em;
+    }
+
+    .login-input-wrapper input[type=text] {
+        font-size: .7em;
+    }
+
+    #play-as-guest {
+        font-size: .9em;
+    }
+
+    #password {
+        font-size: .7em;
+    }
+
+    .forgot-password {
+        font-size: 1.3em;
+    }
+    #menu-wrapper .title {
+        font-size: 1.3em;
+    }
+
+    #menu-wrapper .center-container {
+        width: 70%;
+        font-size: .8em;
+    }
+
+    #score-wrapper .center-container {
+        width: 90%;
+        font-size: .8em;
+    }
+    
+    .button-conatiner button,
+    .register-buttons button,
+    .menu-btns {
+        padding: 6% 11% 8% 11%;
+        font-size: .7em;
+    }
+    
+    .menu-input-wrapper {
+        padding: 14%;
+    }
+    
+    .menu-btns {
+        margin: 1% 0%;
+    }
 }
