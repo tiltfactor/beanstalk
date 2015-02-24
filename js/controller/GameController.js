@@ -238,7 +238,7 @@ function GameController(config) {
                 //currentActivePlayer.gotoAndPlay("jump")
                 break;
             case ESC_KEY:
-                EventBus.dispatch("pauseGame");
+                EventBus.dispatch("closeButtonClick");
                 break;
             case ONE:
                 if (e.shiftKey) {

@@ -8,6 +8,7 @@ function StageController(config) {
         createjs.Ticker.setFPS(30);
         createjs.Ticker.setPaused(true);
         loadEvents(this);
+        this.continue = false;
 
     };
     var loadEvents = function (me) {        
@@ -33,17 +34,8 @@ function StageController(config) {
         var nt = function(seed){newTreeGrowFromSeed(me,seed)};
         EventBus.addEventListener("newTreeGrowFromSeed", nt);
 
-        var pg = function(){pauseGame(me)};
-        EventBus.addEventListener("pauseGame",pg);
-
-        var rg = function(){resumeGame(me)};
-        EventBus.addEventListener("resumeGame",rg);
-
         var so = function(){showOutput(me)};
         EventBus.addEventListener("showOutput",so);
-
-        var bb = function(){backButtonClick(me)};
-        EventBus.addEventListener("backButtonClick",bb);
 
         var cb = function(){closeButtonClick(me)};
         EventBus.addEventListener("closeButtonClick",cb);
@@ -100,12 +92,24 @@ function StageController(config) {
     var startGame = function (me) {
         EventBus.dispatch("alterTickerStatus");
         $("#myCanvas").show();
+        $("#canvasHolder").show();
         $("#inputText").val("");
         reset(me);
         loadImages(me);
     }
     var continueGame = function(me){
-        startGame(me);
+        if(me.continue){
+            me.continue = false;
+            EventBus.dispatch("hideAll");
+            EventBus.dispatch("alterTickerStatus");
+            $("#canvasHolder").show();
+            $("#inputText").focus();
+
+            $("#myCanvas").show();
+        }else{
+            startGame(me);
+        }
+
     }
     var newGame = function(me){
         me.config.gameState.currentHeight = 0;
@@ -116,14 +120,12 @@ function StageController(config) {
         }
     }
     var closeButtonClick = function(me){
-        EventBus.dispatch("alterTickerStatus");
-        EventBus.dispatch("backButtonClick");
-        $("#resumeButton").hide(1);
-    }
-    var backButtonClick = function(me){
-        //EventBus.dispatch("alterTickerStatus");
-        EventBus.dispatch("hideAll");
-        EventBus.dispatch("showMenu");
+        if(!createjs.Ticker.getPaused()){
+            me.continue = true;
+            EventBus.dispatch("alterTickerStatus");
+            EventBus.dispatch("hideAll");
+            EventBus.dispatch("showMenu", true);
+        }
     }
 
     var backToLogin = function(){
@@ -176,24 +178,6 @@ function StageController(config) {
         me.config.stage.addChild(me.background);
 
     }
-    
-    /*var preGameTrunkAnimation = function(me) {
-        growNewTrunk(me);
-        var currentTrunk = me.config.trunks[me.config.trunks.length-1];
-        var ae = function(){
-            me.showLeafAnimation();
-            currentTrunk.sprite.removeEventListener("animationend", ae);
-        };
-        currentTrunk.sprite.addEventListener("animationend", ae);
-    }*/
-    
-    /*StageController.prototype.showLeafAnimation = function() {
-        if(this.config.animateToTrunksGrown) {
-            var currentTrunk = this.config.trunks[this.config.trunks.length-1];
-                currentTrunk.growLeaf();
-        }
-    }*/
-    
     //tree grow process
     var growNewTrunk = function(me){
         var trunk = new sprites.Bamboo({"loader": me.config.loader, "scale" : me.scale});
@@ -301,24 +285,6 @@ function StageController(config) {
        var availableWidth = me.width;
        me.scale.sy = availableHeight/bgHeight;
        me.scale.sx = availableWidth/bgWidth;
-    }
-    var resumeGame = function (me) {
-        EventBus.dispatch("exitMenu");
-        EventBus.dispatch("alterTickerStatus");
-        $("#myCanvas").show();
-        $(".buttonHolder").css("display","block");
-        $("#inputText").focus();
-        $("#inputText").val("");
-        //createjs.Ticker.addEventListener("tick", me.events.tick);
-    }
-    var pauseGame = function (me) {
-        if(!createjs.Ticker.getPaused()){
-            me.config.gameState.gs.currentState = me.config.gameState.gs.States.RUN;
-            EventBus.dispatch("alterTickerStatus");
-            EventBus.dispatch("showMenu");
-            $(".buttonHolder").css("display","none");
-            $("#continueButton").css("display","none");
-        }
     }
     var initScoreHolders = function(me){
         $("#trees-grown-bar label").html(me.config.gameState.treesGrown);

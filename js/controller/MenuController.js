@@ -2,35 +2,46 @@ function MenuController(config) {
     this.config = config || {};
     MenuController.prototype.init = function(){
         createDialog();
-        $("#resumeButton").hide();
+        //$("#resumeButton").hide();
         loadEvents(this);
     }
 
     var loadEvents = function (me) {
         EventBus.addEventListener("exitMenu", me.hideMenu);
-        var sm = function(){me.showMenu(me)};
+        
+        var sm = function(ob){me.showMenu(me,ob.target)};
         EventBus.addEventListener("showMenu",sm);
         
         var sh = function(){me.showHelp(me)};
         EventBus.addEventListener("showHelp",sh);
         
         var hh = function(){me.hideHelp(me)};
-        EventBus.addEventListener("hideHelp",hh);        
+        EventBus.addEventListener("hideHelp",hh);
+
+        var bb = function(){backButtonClick(me)};
+        EventBus.addEventListener("backButtonClick",bb);
+
     }
 
-    MenuController.prototype.showMenu = function (me) {
+    var backButtonClick = function(me){
+        EventBus.dispatch("hideAll");
+        //EventBus.dispatch("showMenu");
+        me.showMenu(me,true);
+    }
+
+    MenuController.prototype.showMenu = function (me, isContinue) {
         //$("#login-wrapper").css("display","none");
         checkStatus(me);
         me.config.gameState.gs.currentState = me.config.gameState.gs.States.MAIN_MENU;
-        if(me.config.gameState.currentHeight == 0 && me.config.gameState.treesGrown == 0){
+        if(me.config.gameState.currentHeight == 0 && me.config.gameState.treesGrown == 0 ){
             $("#continueButton").css("display","none");
-        }
-        else{
-            $("#continueButton").show(1);
         }
         if(me.config.gameState.userId == null){
             $("#back-button").show(1);
             $("#continueButton").css("display","none");
+        }
+        if(isContinue){
+            $("#continueButton").show();
         }
         $("#menu-wrapper").css("display","table");
     }
@@ -52,7 +63,7 @@ function MenuController(config) {
     }  
 
     var createDialog = function(){
-        $("#menu-wrapper").css("display","table");
+        EventBus.dispatch("showMenu");
     }
     var checkStatus = function(me){
         var state = me.config.gameState.gs.States;
