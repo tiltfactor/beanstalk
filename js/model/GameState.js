@@ -22,14 +22,20 @@ function GameState(config){
         this.gs.currentState = this.gs.States.MAIN_MENU;
         this.captchaDatasArray = [localData];
         this.level = false;
-
-
-
+        this.audioList = [];
+        this.soundType = {
+            MAIN : 0, EFFECTS : 1
+        };
+        this.gs.music = 50;
+        this.gs.soundEffects = 50;
     }
+
     GameState.prototype.savePlayerDetails = function(data){
         this.username = data.username;
         this.userId  =data.objectId;
         this.sessionToken = data.sessionToken;
+        this.gs.music = parseInt(data.music);
+        this.gs.soundEffects = parseInt(data.soundEffects);
     }
 //    GameState.prototype.saveLoginDetails = function(data){
 //        this.sessionToken = data.sessionToken;
@@ -51,7 +57,8 @@ function GameState(config){
         this.treesGrown = 0;
         this.highScoreId = 0;
     }
-
-
-
+    GameState.prototype.persist = function(){
+        var data = this.gs;
+        return data;
+    }
 }

@@ -11,14 +11,23 @@
         document.cookie = "bs_username="+data.username+";expires= -1";
         document.cookie = "bs_sessionToken="+data.sessionToken+";expires= -1";
         document.cookie = "bs_userId="+data.objectId+";expires= -1";
+       // document.cookie = "bs_mainVolume"+data.mainVolume+";expires= -1";
     }
     Cookie.prototype.getFromCookie = function(){
         var data = {};
         data.username = getCookie("bs_username");
         data.sessionToken = getCookie("bs_sessionToken");
         data.objectId = getCookie("bs_userId");
+        data.music = getCookie("bs_music");
+        data.soundEffects = getCookie("bs_sound");
         return data;
     }
+    Cookie.prototype.saveVolumeToCookie = function(music,soundEffects){
+        //var sound = "bs_music="+music+";expires= -1";
+        document.cookie = "bs_music="+music+";expires= -1";
+        document.cookie = "bs_sound="+soundEffects+";expires= -1";
+    }
+
     Cookie.prototype.clear = function(){
         document.cookie = "bs_username=;";
         document.cookie = "bs_sessionToken=;";

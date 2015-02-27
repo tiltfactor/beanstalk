@@ -3,6 +3,7 @@
     <script src="js/lib/createjs-2013.12.12.min.js"></script>
     <script src="js/lib/jquery-1.11.1.min.js"></script>
     <script src="js/lib/jquery-ui.js"></script>
+    <script src="js/lib/soundjs-0.5.2.min.js"></script>
     <script src="js/data/Manifest.js"></script>
     <script src="js/lib/lodash.min.js"></script>
     <script src="js/lib/underscore.js"></script>
@@ -12,6 +13,7 @@
     <script src="js/data/CaptchaJson.js"></script>
     <script src="js/model/SmbLoadQueue.js"></script>
     <script src="js/model/GameState.js"></script>
+    <script src="js/model/Sound.js"></script>
     <script src="js/model/Bamboo.js"></script>
     <script src="js/model/Leaf.js"></script>
     <script src="js/model/Seed.js"></script>
@@ -21,6 +23,7 @@
     <script src="js/model/LocalStorage.js"></script>
     <script src="js/controller/ServerAPIController.js"></script>
     <script src="js/controller/LocalStorageController.js"></script>
+    <script src="js/controller/SoundController.js"></script>
     <script src="js/controller/MenuController.js"></script>
     <script src="js/controller/StageController.js"></script>
     <script src="js/controller/GameController.js"></script>
@@ -46,13 +49,13 @@
             <label>0</label>
         </div>
         <button class="volume-btns round-btns" onClick="$(this).toggleClass('off-state');"></button>
-        <button class="info-btns round-btns"></button>
+        <button class="info-btns round-btns" onClick ="EventBus.dispatch(&quot;showHelp&quot;)"></button>
         <button class="exit-btns round-btns" onClick="EventBus.dispatch(&quot;closeButtonClick&quot;);"></button>
     </div>
     
 <canvas id="myCanvas" ></canvas>
 
-<div style="position: absolute; top: 0%; left: 0%; width: 90%; height: 90%; ">
+<div id="loaderDiv" style="position: absolute; top: 0%; left: 0%; width: 90%; height: 90%; ">
     <canvas id="loaderCanvas"></canvas>
 </div>
 
@@ -64,7 +67,7 @@
     <div class="inner-wrapper">
         <button id="back-button" onClick="EventBus.dispatch(&quot;backToLogin&quot;)"></button>
         <div class="center-container">
-            <div class="title">WELCOME</div>
+            <div class="title"></div>
             <div class="menu-input-wrapper">
 
                 <div>
@@ -73,22 +76,33 @@
                     <!--<button onClick="EventBus.dispatch(&quot;exitMenu&quot;);EventBus.dispatch(&quot;showShop&quot;)">Shop</button>-->
                     <button id="continueButton" class="menu-btns" onClick="EventBus.dispatch(&quot;exitMenu&quot;);EventBus.dispatch(&quot;continueGame&quot;)">CONTINUE</button>
                     <button id="highScore-btn" class="menu-btns" onClick="EventBus.dispatch(&quot;highScore&quot;)">HIGH SCORES</button>
+                    <button class="menu-btns" onClick="EventBus.dispatch(&quot;showOptions&quot;);">OPTIONS</button>
                     <button id="logOut-btn" class="menu-btns" onClick="EventBus.dispatch(&quot;logOut&quot;)">LOG OUT</button>
                     <button class="menu-btns"  onClick="EventBus.dispatch(&quot;showHelp&quot;)">HELP</button>
                     <div>
                         <button class="volume-btns round-btns" onClick="$(this).toggleClass('off-state');"></button>
-                        <button class="music-btns round-btns" onClick="$(this).toggleClass('off-state');"></button>
+                        <button class="music-btns round-btns" onClick="$(this).toggleClass('off-state');EventBus.dispatch('setMute');"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="right-container">
+            <div class="login-box-wrapper">
+                <div class="welcome-title">WELCOME</div>
+                <p id="login-box-text">HI</p>
+                <div class="login-buttons">
+                    <div class="button-conatiner">
+                        <button id="loginBtn" onclick="EventBus.dispatch('loginLogout')"></button>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-
 <div id="login-wrapper" class="outer-wrapper">
     <div class="inner-wrapper">
         <div class="center-container">
-            <div class="title">LOGO</div>
+            <div class="title"></div>
             <div class="login-input-wrapper">
                 <h4>LOGIN TO SAVE YOUR PROGRESS ONLINE</h4>
                 <div>
@@ -164,7 +178,6 @@
                 </div>
                 <h4>WEEKLY</h4>
                 <div class="weekly-scores">
-
                 </div>
             </div>
         </div>
@@ -216,7 +229,17 @@
             qui integer adipiscing, amet neque consectetuer.
     </div>
 </div>
-
+<div id="options-screen" class="main-wrapper">
+    <div class="option-screen-container">
+        <div id="slide-container">
+            <button class="options-back-button" onclick="EventBus.dispatch('hideOptions');">Back</button>
+            <p class="slider-text"><b>Music</b></p>
+            <div class="music-slider slider"></div>
+            <p class="slider-text"><b>Sounds</b></p>
+            <div class="effects-slider slider"></div>
+        </div>
+    </div>
+</div>
 <div id="bhl-splash-screen" class="splash-screen main-wapper">
     <div class="splash-screen-container">
        <img src="shapes/BHL_Logo.png"/>

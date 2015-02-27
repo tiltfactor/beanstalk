@@ -18,11 +18,12 @@ Manifest.game = [
     {src: "shapes/captcha/006.png", id: "006"},
     {src: "shapes/captcha/007.png", id: "007"},
     {src: "shapes/captcha/008.png", id: "008"}
-
-
-
-
 ];
+
+Manifest.audio = [
+    {src: "audio/main_theme.mp3", id: "mainTheme"}
+];
+
 
 Manifest.products = [{src: "shapes/blue-ball.png", id: "blue-ball"}, {src: "shapes/green-ball.png", id: "green-ball"},
     {src: "shapes/red-ball.png", id: "red-ball"}];
