@@ -40,9 +40,6 @@ function StageController(config) {
         var cb = function(){closeButtonClick(me)};
         EventBus.addEventListener("closeButtonClick",cb);
 
-        var bl = function(){backToLogin()};
-        EventBus.addEventListener("backToLogin",bl);
-
         var di = function(){disableInputText()};
         EventBus.addEventListener("disableInputText",di);
 
@@ -91,6 +88,7 @@ function StageController(config) {
 
     var startGame = function (me) {
         EventBus.dispatch("alterTickerStatus");
+        EventBus.dispatch("hideAll");
         $("#myCanvas").show();
         $("#canvasHolder").show();
         $("#inputText").val("");
@@ -128,11 +126,6 @@ function StageController(config) {
         }
     }
 
-    var backToLogin = function(){
-        $(".msg").hide(1);
-        EventBus.dispatch("hideAll");
-        $("#login-wrapper").css("display","table");
-    }
     var loadImages = function(me){
         var _onImagesLoad= function(me){ onImagesLoad(me)};
         var manifest = [];

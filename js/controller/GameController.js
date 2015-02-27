@@ -5,7 +5,7 @@ function GameController(config) {
         this.config.gameState.init();
         this.config.stage = new createjs.Stage("loaderCanvas");
         this.config.popupStage = new createjs.Stage("popupCanvas");
-        this.config.smbLoadQueue = new SmbLoadQueue({"stage" : this.config.stage});
+        this.config.smbLoadQueue = new SmbLoadQueue({"stage" : this.config.stage, "gameState":this.config.gameState});
 
         window.onkeydown = onKeyBoardEvents;
         loadEvents(this);
@@ -23,25 +23,39 @@ function GameController(config) {
         }
        // me.config.smbLoadQueue = new SmbLoadQueue({"stage" : me.config.stage});
        // me.config.smbLoadQueue.loadQueue(Manifest.game, _doInit, me);
-        var manifest = [];
+        var manifest = Manifest.audio;
         me.config.smbLoadQueue.loadQueue(manifest, _doInit, me);
     }
 
     var doInit = function(me){
         var config = {"gameState" : me.config.gameState,"stage":me.config.stage};
-        var stageConfig = {"gameState" : me.config.gameState,"loader":me.config.loader};
+        //var stageConfig = {"gameState" : me.config.gameState,"loader":me.config.loader};
 
         me.config.serverAPIController = new ServerAPIController(config);
         me.config.serverAPIController.init();
 
-        me.config.menuController = new MenuController({"gameState": me.config.gameState, "loader" :me.config.smbLoadQueue });
+        me.config.menuController = new MenuController({
+            "gameState": me.config.gameState,
+            "loader" :me.config.smbLoadQueue });
         me.config.menuController.init();
-        me.config.stageController = new StageController({"gameState": me.config.gameState, "loader" :me.config.smbLoadQueue,
-            "serverAPIController":me.config.serverAPIController});
+
+
+
+        me.config.stageController = new StageController({
+            "gameState": me.config.gameState,
+            "loader" :me.config.smbLoadQueue,
+            "serverAPIController":me.config.serverAPIController
+        });
         me.config.stageController.init();
+
         EventBus.dispatch("exitMenu");
 
         loginFromCookie(me);
+        me.config.soundController = new SoundController({
+            "gameState": me.config.gameState,
+            "loader": me.config.smbLoadQueue
+        });
+        me.config.soundController.init();
     }
     var getDataFromCookie = function(){
         var myCookie = new Cookie();
@@ -52,6 +66,8 @@ function GameController(config) {
     var loginFromCookie = function(me){
         var data = getDataFromCookie();
         if(data != null){
+            data.music = data.music ? data.music : me.config.gameState.gs.music;
+            data.soundEffects = data.soundEffects ? data.soundEffects : me.config.gameState.gs.soundEffects;
             me.config.gameState.savePlayerDetails(data);
             me.config.serverAPIController.getProgress();
         }
@@ -91,6 +107,9 @@ function GameController(config) {
 
         var ha = function(){hideAll()};
         EventBus.addEventListener("hideAll", ha);
+
+        var ss = function(){me.save()}
+        EventBus.addEventListener("saveToStore", ss);
     }
     var logOut = function(me){
         var myCookie = new Cookie();
@@ -244,13 +263,22 @@ function GameController(config) {
                 if (e.shiftKey) {
                     console.log("1");
                     EventBus.dispatch("assistText");
-        }
+                }
                 break;
 
-    }
+            }
     }
 
-
+    GameController.prototype.persist = function(){
+        var data = {};
+        data.gameState = this.config.gameState.persist();
+        var json = JSON.stringify(data);
+        return json;
+    }
+    GameController.prototype.save = function(){
+        var object = this.persist();
+        this.store.saveToStore(object);
+    }
 
 
 

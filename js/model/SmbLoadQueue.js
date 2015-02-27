@@ -8,7 +8,6 @@
         this.initialize();
     };
     createjs.LoadQueue.loadTimeout=2000000;
-    //SmbLoadQueue.prototype  = new createjs.LoadQueue(false,"",false);
     SmbLoadQueue.prototype._initialize = SmbLoadQueue.prototype.initialize;
     SmbLoadQueue.prototype.initialize = function(){
         //this.setUseXHR(true);
@@ -19,7 +18,7 @@
         this.active = false;
         this.captchaLoad = false;
         this.events = {};
-        this.loader = new createjs.LoadQueue(false,"",false);
+        //this.loader = new createjs.LoadQueue(false,"",false);
 
         var me = this;
         setTimeout(function(){loadLocalImages(me)}, 10000);
@@ -33,6 +32,20 @@
             me.config.stage.update();
         }
     };
+
+    SmbLoadQueue.prototype.loadQueue = function(manifest, callback, ob){
+        if(manifest.length != 0){
+            var me = this;
+            this.active = true;
+            showLoading(me);
+            this.fg_loader.loadManifest(manifest);
+            this.events.click = function(){ loadComplete(callback,ob,me); }
+            this.fg_loader.addEventListener("complete", this.events.click);
+        }else{
+            callback(ob);
+        }
+
+    }
 
     var showLoading = function(me){
         me.preLoader = new ui.Preloader({stage : me.config.stage});
@@ -97,24 +110,13 @@
 
     }
 
-    SmbLoadQueue.prototype.loadQueue = function(manifest, callback, ob){
-        if(manifest.length != 0){
-            var me = this;
-            this.active = true;
-            showLoading(me);
-            this.fg_loader.loadManifest(manifest);
-            this.events.click = function(){ loadComplete(callback,ob,me); }
-            this.fg_loader.addEventListener("complete", this.events.click);
-        }else{
-            callback(ob);
-        }
 
-    }
     var loadComplete = function(callback, ob, me){
         console.log("hii");
         me.fg_loader.removeEventListener("complete",me.events.click);
         me.fg_loader.removeEventListener("progress",  me.events.loaderEvent);
         callback(ob);
+        $("#loaderDiv").hide();
     }
     // creates number in format 000
     var zeroFill= function( number, width){

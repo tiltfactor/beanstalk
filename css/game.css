@@ -113,11 +113,12 @@ body {
 
 .title {
     text-align: center;
-    background-image: url("../shapes/hs_title.png");
+    background-image: url("../shapes/beanstalk_logo.png");
     background-size: 100% 100%;
     padding: 2% 3%;
     box-sizing: border-box;
     width: 46%;
+    height:165px;
     position: relative;
     left: 27%;
     color: #60EA08;
@@ -226,6 +227,7 @@ body {
     padding: 6% 11% 8% 11%;
     background-image: url("../shapes/btn_bg.png");
     background-size: 100% 100%;
+    outline:none;
 }
 
 .menu-btns {
@@ -275,23 +277,21 @@ body {
     background-image: url("../shapes/audio_btns_sprite.png");
     background-size: 200% 200%;
 }
-
-.volume-btns {
+.volume-btns.off-state {
     background-position: 0 0;
 }
 
-.volume-btns.off-state {
+.music-btns.off-state {
+    background-position: 0% 100%;
+}
+
+.volume-btns {
     background-position: 100% 0;
 }
 
 .music-btns {
-    background-position: 0 100%;
-}
-
-.music-btns.off-state {
     background-position: 100% 100%;
 }
-
 #topButtonHolder {
     display: none;
     height: 46px;
@@ -648,6 +648,7 @@ screen and (max-height: 500px) {
     .menu-btns {
         padding: 6% 11% 8% 11%;
         font-size: .7em;
+        outline:none;
     }
     
     .menu-input-wrapper {
@@ -657,4 +658,65 @@ screen and (max-height: 500px) {
     .menu-btns {
         margin: 1% 0%;
     }
+}
+#options-screen {
+    background-color: white;
+    display: none;
+    position: absolute;
+    height: 94%;
+    width: 94%;
+    top: 3%;
+    left: 3%;
+}
+
+#slide-container {
+    width: 50%;
+    max-width: 300px;
+    margin: 0px auto;
+}
+
+.options-screen .slider {
+    width: 200px;
+}
+
+.options-back-button {
+    position: absolute;
+    top: 10%;
+    left: 10%;
+}
+
+.login-box-wrapper {
+    background-image: url("../shapes/login_box.png");
+    background-size: 100% 100%;
+    position : absolute;
+    width: 135px;
+    height : 142px;
+    top: 10%;
+    right: 10%;
+}
+.welcome-title{
+    font-size: 1.3em;
+    font-family: 'Boogaloo';
+    color: #125003;
+}
+.login-box-wrapper .welcome-title{
+    position: relative;
+    text-align: center;
+    top:5%;
+}
+.login-box-wrapper .button-conatiner{
+    width:100%;
+    top:65%;
+    left:1%;
+    position:absolute;
+    outline:none;
+}
+.login-box-wrapper #login-box-text{
+    font-family: Boogaloo;
+    font-size: 1.4em;
+    color:white;
+}
+.center-container .logo{
+    background-image: url("../shapes/beanstalk_logo.png");
+    background-size: 100% 100%;
 }
