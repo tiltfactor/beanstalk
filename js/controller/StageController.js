@@ -201,8 +201,8 @@ function StageController(config) {
             fallSeed(me);
             me.config.trunks = [];
             me.config.trees++;
-            updateScore(me);
         }
+        updateScore(me);
         me.config.gameState.weeklyMeters += me.config.gameState.trunkHeight;
         me.config.serverAPIController.save();
 
@@ -280,10 +280,10 @@ function StageController(config) {
        me.scale.sx = availableWidth/bgWidth;
     }
     var initScoreHolders = function(me){
-        $("#trees-grown-bar label").html(me.config.gameState.treesGrown);
+        $("#current-height-bar label").html(me.config.gameState.currentHeight+" m");
     }
     var updateScore = function(me){
-        $("#trees-grown-bar label").html(me.config.gameState.treesGrown);
+        $("#current-height-bar label").html(me.config.gameState.currentHeight+" m");
         EventBus.dispatch("updateBeanProgress", {"trees":me.config.trees, "trunks":me.config.trunks.length});
     }
 }

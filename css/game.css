@@ -322,8 +322,8 @@ body {
     top: 1%;
 }
 
-#trees-grown-bar {
-    background-image: url("../shapes/treesgrown_bar.png");
+#current-height-bar {
+    background-image: url("../shapes/text_bar.png");
     width: 20%;
     background-repeat: no-repeat;
     position: relative;
@@ -332,13 +332,11 @@ body {
     background-size: 100% 100%;
     margin: 0px auto;
 }
-
-#trees-grown-bar label {
+#current-height-bar label {
     position: relative;
     top: 10px;
-    width: 36px;
+    width: 100%;
     display: block;
-    left: 146px;
     text-align: center;
     font-size: 1.3em;
     font-family: 'Boogaloo';
