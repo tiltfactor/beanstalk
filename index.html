@@ -64,19 +64,16 @@
 
 <div id="menu-wrapper" class="outer-wrapper">
     <div class="inner-wrapper">
-        <button id="back-button" onClick="EventBus.dispatch(&quot;backToLogin&quot;)"></button>
         <div class="center-container">
             <div class="title"></div>
             <div class="menu-input-wrapper">
-
                 <div>
                     <button id="new-game" class="menu-btns" onClick="EventBus.dispatch(&quot;exitMenu&quot;);EventBus.dispatch(&quot;newGame&quot;)">NEW GAME</button>
                     <!--<button id="resumeButton" class="menu-btns" onClick="EventBus.dispatch(&quot;resumeGame&quot;)">RESUME GAME</button>-->
                     <!--<button onClick="EventBus.dispatch(&quot;exitMenu&quot;);EventBus.dispatch(&quot;showShop&quot;)">Shop</button>-->
                     <button id="continueButton" class="menu-btns" onClick="EventBus.dispatch(&quot;exitMenu&quot;);EventBus.dispatch(&quot;continueGame&quot;)">CONTINUE</button>
                     <button id="highScore-btn" class="menu-btns" onClick="EventBus.dispatch(&quot;highScore&quot;)">HIGH SCORES</button>
-                    <button class="menu-btns" onClick="EventBus.dispatch(&quot;showOptions&quot;);">OPTIONS</button>
-                    <button id="logOut-btn" class="menu-btns" onClick="EventBus.dispatch(&quot;logOut&quot;)">LOG OUT</button>
+                    <!--<button class="menu-btns" onClick="EventBus.dispatch(&quot;showOptions&quot;);">OPTIONS</button>-->
                     <button class="menu-btns"  onClick="EventBus.dispatch(&quot;showHelp&quot;)">HELP</button>
                     <div>
                         <button class="volume-btns round-btns" onClick="$(this).toggleClass('off-state');"></button>
@@ -137,7 +134,7 @@
     <div class="inner-wrapper">
         <button id="back-button" onClick="EventBus.dispatch(&quot;backToLogin&quot;)"></button>
         <div class="center-container">
-            <div class="title">LOGO</div>
+            <div class="title"></div>
             <div class="register-input-wrapper">
                 <h4>REGISTER</h4>
                 <div>
@@ -228,7 +225,7 @@
             qui integer adipiscing, amet neque consectetuer.
     </div>
 </div>
-<div id="options-screen" class="main-wrapper">
+<!--<div id="options-screen" class="main-wrapper">
     <div class="option-screen-container">
         <div id="slide-container">
             <button class="options-back-button" onclick="EventBus.dispatch('hideOptions');">Back</button>
@@ -238,7 +235,7 @@
             <div class="effects-slider slider"></div>
         </div>
     </div>
-</div>
+</div>-->
 
 <div id="main-splash-screen" class="splash-screen main-wapper">
     <div class="splash-screen-container">

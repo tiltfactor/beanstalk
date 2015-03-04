@@ -42,7 +42,8 @@ function MenuController(config) {
     var backButtonClick = function(me){
         EventBus.dispatch("hideAll");
         //EventBus.dispatch("showMenu");
-        me.showMenu(me,true);
+        var isContinue = me.config.gameState.userId == null ? false : false
+        me.showMenu(me,isContinue);
     }
     var loginLogout = function(me){
         if(me.config.gameState.userId == null){

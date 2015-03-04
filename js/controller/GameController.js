@@ -70,8 +70,8 @@ function GameController(config) {
     var loginFromCookie = function(me){
         var data = getDataFromCookie();
         if(data != null){
-            data.music = data.music ? data.music : me.config.gameState.gs.music;
-            data.soundEffects = data.soundEffects ? data.soundEffects : me.config.gameState.gs.soundEffects;
+            data.music = (data.music == null || data.music == 'NaN')? me.config.gameState.gs.music : data.music;
+            data.soundEffects = (data.soundEffects == null || data.soundEffects == 'NaN') ? me.config.gameState.gs.soundEffects : data.soundEffects ;
             me.config.gameState.savePlayerDetails(data);
             me.config.serverAPIController.getProgress();
         }

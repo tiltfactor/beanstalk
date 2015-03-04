@@ -119,10 +119,10 @@ function StageController(config) {
     }
     var closeButtonClick = function(me){
         if(!createjs.Ticker.getPaused()){
-            me.continue = true;
+            me.continue = me.config.gameState.userId == null ? false : true;
             EventBus.dispatch("alterTickerStatus");
             EventBus.dispatch("hideAll");
-            EventBus.dispatch("showMenu", true);
+            EventBus.dispatch("showMenu", me.continue);
         }
     }
 
@@ -205,7 +205,7 @@ function StageController(config) {
         updateScore(me);
         me.config.gameState.weeklyMeters += me.config.gameState.trunkHeight;
         me.config.serverAPIController.save();
-
+        //me.config.serverAPIController.saveInputTexts()
 
     }
     var newTreeGrowFromSeed = function(me,seed){

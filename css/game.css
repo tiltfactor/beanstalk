@@ -113,8 +113,6 @@ body {
 
 .title {
     text-align: center;
-    background-image: url("../shapes/beanstalk_logo.png");
-    background-size: 100% 100%;
     padding: 2% 3%;
     box-sizing: border-box;
     width: 46%;
@@ -228,6 +226,7 @@ body {
     background-image: url("../shapes/btn_bg.png");
     background-size: 100% 100%;
     outline:none;
+    cursor: pointer;
 }
 
 .menu-btns {
@@ -720,7 +719,17 @@ screen and (max-height: 500px) {
     font-size: 1.4em;
     color:white;
 }
-.center-container .logo{
+
+#menu-wrapper .title{
     background-image: url("../shapes/beanstalk_logo.png");
     background-size: 100% 100%;
 }
+#login-wrapper .title{
+    background-image: url("../shapes/beanstalk_logo.png");
+    background-size: 100% 100%;
+}
+#register-wrapper .title{
+    background-image: url("../shapes/beanstalk_logo.png");
+    background-size: 100% 100%;
+}
+
