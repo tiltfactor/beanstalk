@@ -119,7 +119,7 @@ function StageController(config) {
     }
     var closeButtonClick = function(me){
         if(!createjs.Ticker.getPaused()){
-            me.continue = me.config.gameState.userId == null ? false : true;
+            me.continue = (me.config.gameState.userId == null && me.config.gameState.treesGrown == 0 && me.config.gameState.currentHeight == 0) ? false : true;
             EventBus.dispatch("alterTickerStatus");
             EventBus.dispatch("hideAll");
             EventBus.dispatch("showMenu", me.continue);
