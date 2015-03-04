@@ -14,10 +14,14 @@ function GameController(config) {
     }
     var loadImages = function(me){
         var _doInit= function(me){
-            $("#bhl-splash-screen").css("display", "table");
-            $("#bhl-splash-screen").delay(2000).fadeOut(1000, function() {
-                $("#tiltfactor-splash-screen").fadeIn(1000).css('display','table').delay(2000).fadeOut(1000, function() {
-                    doInit(me)
+            $("#main-splash-screen").css("display", "table");
+            $("#MBG-logo").delay(2000).fadeOut(1000, function() {
+                $("#BHL-logo").fadeIn(1000).delay(2000).fadeOut(1000, function() {
+                    $("#tiltfactor-logo").fadeIn(1000).delay(2000, function() {
+                        $("#main-splash-screen").fadeOut(1000, function() {
+                             doInit(me)
+                        })
+                    }); 
                 });
             });
         }
