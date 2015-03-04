@@ -280,10 +280,10 @@ function StageController(config) {
        me.scale.sx = availableWidth/bgWidth;
     }
     var initScoreHolders = function(me){
-        $("#current-height-bar label").html(me.config.gameState.currentHeight+" m");
+        $("#current-height-bar label").html(me.config.gameState.treesGrown * me.config.gameState.trunkHeight * me.config.gameState.levels + me.config.gameState.currentHeight+" m");
     }
     var updateScore = function(me){
-        $("#current-height-bar label").html(me.config.gameState.currentHeight+" m");
+        $("#current-height-bar label").html(me.config.gameState.treesGrown * me.config.gameState.trunkHeight * me.config.gameState.levels + me.config.gameState.currentHeight+" m");
         EventBus.dispatch("updateBeanProgress", {"trees":me.config.trees, "trunks":me.config.trunks.length});
     }
 }
