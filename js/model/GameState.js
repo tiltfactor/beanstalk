@@ -28,6 +28,7 @@ function GameState(config){
         };
         this.gs.music = 50;
         this.gs.soundEffects = 50;
+        this.inputTextArr = [];
     }
 
     GameState.prototype.savePlayerDetails = function(data){

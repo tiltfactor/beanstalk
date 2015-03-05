@@ -205,7 +205,7 @@ function StageController(config) {
         updateScore(me);
         me.config.gameState.weeklyMeters += me.config.gameState.trunkHeight;
         me.config.serverAPIController.save();
-        //me.config.serverAPIController.saveInputTexts()
+        me.config.serverAPIController.saveInputTexts();
 
     }
     var newTreeGrowFromSeed = function(me,seed){

@@ -69,6 +69,7 @@
             captcha.sourceRect = new createjs.Rectangle(myCords.sPoint.x,myCords.sPoint.y,myCords.width,myCords.height);
             setScale(captcha, myCords.width, myCords.height);
             captcha.texts  =captchaData.texts;
+            captcha._id = captchaData._id;
         }
 
         if(captcha.sourceRect){
@@ -186,6 +187,12 @@
             this.captchasOnScreen = {};
             output.laneId = captcha.id;
             this.load(captcha);
+        }
+        var ob = {};
+        ob._id = captcha._id;
+        ob.text = input;
+        if(ob._id){
+            this.config.gameState.inputTextArr.push(ob);
         }
         clearText(this);
         return output;

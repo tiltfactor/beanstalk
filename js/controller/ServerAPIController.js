@@ -50,7 +50,32 @@ function ServerAPIController(config){
         });
 
     }
+    ServerAPIController.prototype.saveInputTexts = function(){
 
+        var arr = this.config.gameState.inputTextArr;
+        $.ajax({
+            url: 'http://tiltfactor1.dartmouth.edu:8080/api/difference',
+            type: 'PUT',
+            dataType: 'json',
+            headers: {"x-access-token": 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJHYW1lIiwiaWF0IjoxNDE1MzQxNjMxMjY4LCJpc3MiOiJCSExTZXJ2ZXIifQ.bwRps5G6lAd8tGZKK7nExzhxFrZmAwud0C2RW26sdRM'},
+            processData: false,
+            contentType: 'application/json',
+            timeout: 10000,
+            data: JSON.stringify(arr), //this data will be in the format of a json object of user inputs and database IDs of the word they were going for (provided in the json that GET returns)
+            crossDomain: true,
+            error: function(err)
+            {
+                var errorText = JSON.parse(err.responseText);
+                console.log(errorText);
+                me.config.gameState.inputTextArr = [];
+            },
+            success: function(data)
+            {
+                me.config.gameState.inputTextArr = [];
+                console.log(data);
+            }
+        });
+    }
     ServerAPIController.prototype.getProgress = function(){
         var me = this;
         var params = 'where='+ JSON.stringify({"player":{"__type":"Pointer","className":"_User","objectId":this.config.gameState.userId}});
