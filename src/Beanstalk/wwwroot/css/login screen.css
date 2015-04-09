@@ -1,0 +1,28 @@
+﻿#loginScreen {
+	pointer-events: auto;
+}
+
+#loginScreen .logo {
+	position: absolute;
+	top: 14px;
+	left: 160px;
+	width: 550px;
+}
+
+#loginScreen .login-container {
+	background-image: url("../images/UI/login screen/BS_login_box.png");
+	background-size: 100% 100%;
+	width: 850px;
+	width: 670px;
+	position: absolute;
+	top: 260px;
+	left: 70px;
+	padding: 190px;
+}
+
+#loginScreen button {
+	width: 340px;
+	height: 130px;
+	margin-bottom: 10px;
+	font-size: 50px;
+}

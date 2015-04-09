@@ -1,0 +1,39 @@
+{
+  "version": "v4",
+  "repo": "borisyankov/DefinitelyTyped",
+  "ref": "1.3.0",
+  "path": "typings",
+  "bundle": "typings/tsd.d.ts",
+  "installed": {
+    "jquery/jquery.d.ts": {
+      "commit": "5c59a734fdee76e135fe8eb63299d27244499031"
+    },
+    "createjs-lib/createjs-lib.d.ts": {
+      "commit": "5c59a734fdee76e135fe8eb63299d27244499031"
+    },
+    "createjs/createjs.d.ts": {
+      "commit": "5c59a734fdee76e135fe8eb63299d27244499031"
+    },
+    "easeljs/easeljs.d.ts": {
+      "commit": "5c59a734fdee76e135fe8eb63299d27244499031"
+    },
+    "tweenjs/tweenjs.d.ts": {
+      "commit": "5c59a734fdee76e135fe8eb63299d27244499031"
+    },
+    "preloadjs/preloadjs.d.ts": {
+      "commit": "5c59a734fdee76e135fe8eb63299d27244499031"
+    },
+    "soundjs/soundjs.d.ts": {
+      "commit": "5c59a734fdee76e135fe8eb63299d27244499031"
+    },
+    "webaudioapi/waa.d.ts": {
+      "commit": "5c59a734fdee76e135fe8eb63299d27244499031"
+    },
+    "webrtc/MediaStream.d.ts": {
+      "commit": "5c59a734fdee76e135fe8eb63299d27244499031"
+    },
+    "underscore/underscore.d.ts": {
+      "commit": "5c59a734fdee76e135fe8eb63299d27244499031"
+    }
+  }
+}

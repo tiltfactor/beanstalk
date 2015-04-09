@@ -1,0 +1,78 @@
+﻿@font-face { font-family: 'Boogaloo'; src: url('../fonts/Boogaloo-Regular.otf'); }
+@font-face { font-family: 'Scoreboard'; src: url('../fonts/scoreboard.ttf'); }
+
+body {
+	text-align: center;
+	padding:0;
+	margin: 0;
+	font-family: Boogaloo;
+	text-transform: uppercase;
+	font-size: 50px;
+	color: white;
+	background-image: url("../images/UI/common/background.png");
+}
+
+#menusContainer {
+	position: absolute;
+	padding: 0;
+	margin: 0;
+	width: 870px;
+	height: 1160px;
+	pointer-events: none;
+}
+
+.beanstalk-screen {
+	padding: 0;
+	margin: 0;
+	text-align: center;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 870px;
+	height: 1160px;
+	pointer-events: none;	
+}
+
+/*canvas {
+	background-color: red;
+}*/
+
+button {
+	font: 42px Boogaloo;
+	color: white;
+	background: none;
+	border: 0;
+	background-image: url("../images/UI/common/BS_btn_up.png");
+	width: 242px;
+	height: 98px;
+	background-size: 100% 100%;
+	padding-bottom: 15px;
+	text-decoration: none;
+	cursor: pointer;
+	text-shadow: 0 2px 2px black;
+	vertical-align:top;
+}
+
+
+button:hover  {
+	background-image: url("../images/UI/common/BS_btn_over.png");
+}
+
+button:active  {
+	background-image: url("../images/UI/common/BS_btn_down.png");
+	padding-bottom: 0;
+}
+
+button.back {
+	width: 97px;
+	height: 97px;
+	position: absolute;
+	top: 10px;
+	left: 10px;
+	background-image: url("../images/UI/highscores/back_btn.png");
+}
+
+button:focus 
+{
+	outline:0;
+}

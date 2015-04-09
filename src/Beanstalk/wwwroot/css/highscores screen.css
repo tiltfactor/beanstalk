@@ -1,0 +1,52 @@
+﻿#highscoresScreen {
+	pointer-events: auto;
+	text-transform: none;
+}
+
+#highscoresScreen .title {
+	position: absolute;
+	top: 30px;
+	left: 160px;
+	width: 550px;
+}
+
+#highscoresScreen .menu-container {
+	background-image: url("../images/UI/highscores/hs_table.png");
+	background-size: 100% 100%;
+	width: 730px;
+	height: 870px;
+	position: absolute;
+	top: 220px;
+	left: 70px;
+	padding: 190px;
+}
+
+#highscoresScreen button.share {
+	position: absolute;
+	bottom: -37px;
+	left: 243px;
+}
+
+#highscoresScreen .alltime {
+	position:absolute;
+	top: 170px;
+	left: 100px;
+}
+
+
+#highscoresScreen .weekly {
+	position:absolute;
+	top: 515px;
+	left: 100px;
+}
+
+#highscoresScreen .score-row {
+	font-size: 40px;
+	color: #329c04;
+	width: 540px;
+	margin-bottom: 6px;
+}
+
+#highscoresScreen .score-row.row-3 {
+	color: white;
+}

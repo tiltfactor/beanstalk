@@ -1,0 +1,48 @@
+﻿#mainMenu {
+	pointer-events: auto;
+}
+
+#mainMenu .logo {
+	position: absolute;
+	top: 14px;
+	left: 160px;
+	width: 550px;
+}
+
+#mainMenu .menu-container {
+	background-image: url("../images/UI/main menu/buttons_bg.png");
+	background-size: 100% 100%;
+	width: 730px;
+	height: 870px;
+	position: absolute;
+	top: 260px;
+	left: 70px;
+	padding: 190px;
+}
+
+#mainMenu .menu-container button {
+	width: 340px;
+	height: 130px;
+	margin-bottom: 10px;
+	font-size: 50px;
+}
+
+#mainMenu button.music {
+	width: 98px;
+	height: 98px;
+	background-image: url("../images/UI/main menu/music_btn_on.png");
+}
+
+#mainMenu button.sound {
+	width: 98px;
+	height: 98px;
+	background-image: url("../images/UI/main menu/sound_btn_on.png");
+}
+
+#mainMenu button.sound.off {
+	background-image: url("../images/UI/main menu/sound_btn_off.png");
+}
+
+#mainMenu button.music.off {
+	background-image: url("../images/UI/main menu/music_btn_off.png");
+}
