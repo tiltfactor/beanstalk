@@ -20,29 +20,10 @@
 	padding: 190px;
 }
 
-#mainMenu .menu-container button {
+#mainMenu .menu-container button.text-button {
 	width: 340px;
 	height: 130px;
 	margin-bottom: 10px;
 	font-size: 50px;
 }
 
-#mainMenu button.music {
-	width: 98px;
-	height: 98px;
-	background-image: url("../images/UI/main menu/music_btn_on.png");
-}
-
-#mainMenu button.sound {
-	width: 98px;
-	height: 98px;
-	background-image: url("../images/UI/main menu/sound_btn_on.png");
-}
-
-#mainMenu button.sound.off {
-	background-image: url("../images/UI/main menu/sound_btn_off.png");
-}
-
-#mainMenu button.music.off {
-	background-image: url("../images/UI/main menu/music_btn_off.png");
-}

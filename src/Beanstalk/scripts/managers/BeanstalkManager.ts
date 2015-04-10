@@ -10,6 +10,8 @@ class BeanstalkManager {
 	screens: ScreensManager;
 	audio: AudioManager;
 	persistance: PersistanceManager;
+	backend: BackendManager;
+	user: UserManager;
 
 	constructor(config: BeanstalkConfig) {
 		this.config = config;
@@ -42,6 +44,8 @@ class BeanstalkManager {
 		this.loadingScreen = new LoadingScreen();
 		this.screens = new ScreensManager();
 		this.persistance = new PersistanceManager();
+		this.backend = new BackendManager();
+		this.user = new UserManager();
 
 		// Start off things invisible
 		this.loadingScreen.visible = false;
@@ -68,6 +72,8 @@ class BeanstalkManager {
 			console.log("initial resources loaded, showing loading screen and loading main game resources");
 
 			// Now the initial resources have been loaded we can init the loading screen's bits and show it			
+			this.backend.init();
+			this.user.init();
 			this.audio.init();
 			this.loadingScreen.init();			
 			this.loadingScreen.visible = true;

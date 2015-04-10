@@ -46,5 +46,12 @@ var Utils = (function () {
         seconds -= minutes * 60;
         return this.zeroPad(minutes, 2) + ":" + this.zeroPad(seconds, 2);
     };
+    Utils.getGetOrdinal = function (n) {
+        var s = ["th", "st", "nd", "rd"], v = n % 100;
+        return n + (s[(v - 20) % 10] || s[v] || s[0]);
+    };
+    Utils.getNameFromEmail = function (email) {
+        return email.split("@")[0];
+    };
     return Utils;
 })();

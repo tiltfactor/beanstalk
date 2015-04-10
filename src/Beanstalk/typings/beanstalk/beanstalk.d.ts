@@ -13,3 +13,8 @@ interface JQuery {
 	slider(options?: any): JQuery;
 	slider(property:string, value:any): JQuery;
 }
+
+interface UserBeanstalkData {
+	user: Parse.User;
+	height: number;
+}

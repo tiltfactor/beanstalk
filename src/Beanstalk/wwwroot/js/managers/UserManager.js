@@ -1,41 +1,23 @@
 var UserManager = (function () {
     function UserManager() {
-        this.levels = [{ isUnlocked: true, score: 0 }];
-        this.cash = 0;
-        this.bestSurvivalTime = 0;
+        this.height = 0;
     }
-    UserManager.prototype.newGame = function () {
-        this.levels = [{ isUnlocked: true, score: 0 }];
-        this.cash = 0;
+    UserManager.prototype.init = function () {
+        // If we are logged in then lets try to get the beanstalk data now
+        if (beanstalk.backend.isLoggedIn)
+            this.loadBeanstalkFromBackend();
     };
-    UserManager.prototype.hasSaveGame = function () {
-        return this.levels != null;
+    UserManager.prototype.loadBeanstalkFromBackend = function () {
+        var _this = this;
+        if (!beanstalk.backend.isLoggedIn)
+            return;
+        beanstalk.backend.loadBeanstalk().then(function (obj) { return _this.setBackendBeanstalk(obj); }).fail(function (err) { return console.log("Error trying to get backend beanstalk!", err); });
     };
-    UserManager.prototype.hasUnlockedLevel = function (level) {
-        if (this.levels == null || level >= this.levels.length)
-            return false;
-        else
-            return this.levels[level].isUnlocked;
-    };
-    UserManager.prototype.levelWon = function (level) {
-        var l = this.levels[level];
-        var score = smorball.game.getScore();
-        var diff = score - l.score;
-        l.score = Math.max(score - l.score);
-        // If this is the first level then we earn nothing!
-        if (level == 0)
-            diff = 0;
-        smorball.user.cash += diff;
-        if (this.levels[level + 1] == undefined)
-            this.levels.push({ isUnlocked: true, score: 0 });
-        smorball.persistance.persist();
-        return diff;
-    };
-    UserManager.prototype.getHighestUnlockedLevel = function () {
-        return this.levels.length - 1;
-    };
-    UserManager.prototype.isSurvivalUnlocked = function () {
-        return this.getHighestUnlockedLevel() >= 16;
+    UserManager.prototype.setBackendBeanstalk = function (beanstalk) {
+        console.log("Backend beanstalk set", beanstalk);
+        this.backendBeanstalk = beanstalk;
+        if (this.backendBeanstalk != null)
+            this.height = this.backendBeanstalk.get("height");
     };
     return UserManager;
 })();

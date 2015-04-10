@@ -2,6 +2,7 @@
 
 class InstructionsScreen extends ScreenBase
 {
+	backScreen: ScreenBase;
 
 	constructor() {
 		super("instructionsScreen", "instructions_screen_html");
@@ -11,7 +12,7 @@ class InstructionsScreen extends ScreenBase
 		super.init();		
 		
 		// Listen for clicks
-		$("#instructionsScreen button.back").click(() => beanstalk.screens.open(beanstalk.screens.main));	
+		$("#instructionsScreen button.back").click(() => beanstalk.screens.open(this.backScreen));	
 	}
 		
 }

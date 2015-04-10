@@ -12,7 +12,17 @@
 		{ "src": "images/UI/common/BS_btn_down.png", "id": "BS_btn_down" },
 		{ "src": "images/UI/common/BS_btn_over.png", "id": "BS_btn_over" },
 		{ "src": "images/UI/common/BS_btn_up.png", "id": "BS_btn_up" },
+		{ "src": "images/UI/common/BS_btn_disabled.png", "id": "BS_btn_disabled" },
 		{ "src": "images/UI/common/beanstalk_logo.png", "id": "beanstalk_logo" },
+
+		{ "src": "images/UI/login screen/blue_btn_disabled.png", "id": "blue_btn_disabled" },
+		{ "src": "images/UI/login screen/blue_btn_down.png", "id": "blue_btn_down" },
+		{ "src": "images/UI/login screen/blue_btn_over.png", "id": "blue_btn_over" },
+		{ "src": "images/UI/login screen/blue_btn_up.png", "id": "blue_btn_up" },
+		{ "src": "images/UI/login screen/login-screen-bg.png", "id": "login-screen-bg" },
+
+		{ "src": "images/Game/background middle.png", "id": "background_middle" },
+		{ "src": "images/Game/concrete overlay.png", "id": "concrete_overlay" },
 
 		{ "src": "images/Splash Screens/MBG-Logo.jpg", "id": "MBG_logo" },
 		{ "src": "images/Splash Screens/BHL Logo.png", "id": "BHL_logo" },

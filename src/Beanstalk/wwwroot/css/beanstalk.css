@@ -63,6 +63,10 @@ button:active  {
 	padding-bottom: 0;
 }
 
+button:disabled  {
+	background-image: url("../images/UI/common/BS_btn_disabled.png");
+}
+
 button.back {
 	width: 97px;
 	height: 97px;
@@ -72,7 +76,36 @@ button.back {
 	background-image: url("../images/UI/highscores/back_btn.png");
 }
 
-button:focus 
-{
+button:focus {
 	outline:0;
+}
+
+input:focus {
+	outline:0;
+}
+
+button.music {
+	width: 98px;
+	height: 98px;
+	background-image: url("../images/UI/main menu/music_btn_on.png");
+}
+
+button.sound {
+	width: 98px;
+	height: 98px;
+	background-image: url("../images/UI/main menu/sound_btn_on.png");
+}
+
+button.help {
+	width: 98px;
+	height: 98px;
+	background-image: url("../images/UI/hud/info_btn.png");
+}
+
+button.sound.off {
+	background-image: url("../images/UI/main menu/sound_btn_off.png");
+}
+
+button.music.off {
+	background-image: url("../images/UI/main menu/music_btn_off.png");
 }

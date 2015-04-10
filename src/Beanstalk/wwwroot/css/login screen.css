@@ -10,19 +10,85 @@
 }
 
 #loginScreen .login-container {
-	background-image: url("../images/UI/login screen/BS_login_box.png");
+	background-image: url("../images/UI/login screen/login-screen-bg.png");
 	background-size: 100% 100%;
 	width: 850px;
-	width: 670px;
+	height: 768px;
 	position: absolute;
 	top: 260px;
 	left: 70px;
-	padding: 190px;
+	padding: 105px;
 }
 
 #loginScreen button {
-	width: 340px;
-	height: 130px;
+	width: 260px;
+	height: 100px;
 	margin-bottom: 10px;
 	font-size: 50px;
+	font-size: 40px;
+	padding-bottom: 10px;
 }
+
+#loginScreen p {
+	font-size: 35px;
+}
+
+#loginScreen button:active {
+	padding-bottom: 3px;
+}
+
+#loginScreen .inputs {
+	margin-top: 120px;
+	margin-bottom: 20px;
+	color: black;
+	font-size: 40px;
+}
+
+#loginScreen button.play-as-guest {
+	background-image: url("../images/UI/login screen/blue_btn_up.png");
+	width: 400px;
+	position: absolute;
+	bottom: -130px;
+	left: 230px;
+	height: 110px;
+	font-size: 40px;
+}
+
+#loginScreen button.play-as-guest:hover  {
+	background-image: url("../images/UI/login screen/blue_btn_over.png");
+}
+
+#loginScreen button.play-as-guest:active  {
+	background-image: url("../images/UI/login screen/blue_btn_down.png");
+}
+
+#loginScreen button.play-as-guest:disabled  {
+	background-image: url("../images/UI/login screen/blue_btn_disabled.png");
+}
+
+#loginScreen .alert-danger {
+	position: absolute;
+	bottom: 118px;
+	left: 157px;
+	font-size: 30px;
+	width: 550px;
+}
+
+#loginScreen .logout-container {
+	background-image: url("../images/UI/login screen/login-screen-bg.png");
+	background-size: 100% 100%;
+	width: 850px;
+	height: 768px;
+	position: absolute;
+	top: 260px;
+	left: 70px;
+	padding: 110px;
+}
+
+#loginScreen .logout-container .buttons {
+	margin-top: 145px;
+	width: 400px;
+	margin-left: 100px;
+
+}
+

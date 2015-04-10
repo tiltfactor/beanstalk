@@ -1,1 +1,67 @@
-﻿
+﻿#gameScreen {
+	pointer-events: auto;
+	text-transform: none;
+}
+
+#gameScreen .top-hud {
+	width: 870px;
+}
+
+#gameScreen .top-hud .height {
+	position: absolute;
+	left: 270px;
+	top: 10px;
+	width: 368px;
+	height: 97px;
+	color: black;
+	padding-top: 7px;
+	background-image: url("../images/UI/hud/metresgrown_bar.png");
+}
+
+#gameScreen .top-hud .music {
+	position: absolute;
+	right: 10px;
+	top: 10px;
+}
+
+#gameScreen .top-hud .sound {
+	position: absolute;
+	right: 110px;
+	top: 10px;
+}
+
+#gameScreen .top-hud .help {
+	position: absolute;
+	left: 110px;
+	top: 10px;
+}
+
+#gameScreen .bottom-hud {
+	width: 870px;
+	position: absolute;
+	bottom: 10px;
+	left: 0;	
+}
+
+#gameScreen .bottom-hud button.pass-btn {
+	margin-right: -10px;
+}
+
+#gameScreen .bottom-hud button.submit {
+	margin-left: -10px;
+}
+
+#gameScreen .bottom-hud input {
+	background: none;
+	background-image: url("../images/UI/hud/text_bar.png");
+	border: 0;
+	padding-left: 40px;
+	padding-bottom: 10px;
+	width: 368px;
+	height: 97px;
+	color: black;
+	font-size: 40px;
+}
+
+
+

@@ -26,10 +26,19 @@ class MainMenu extends ScreenBase {
 		});
 
 		// Listen for clicks
+		$("#mainMenu button.play").click(() => beanstalk.screens.open(beanstalk.screens.game));
 		$("#mainMenu button.back").click(() => beanstalk.screens.open(beanstalk.screens.login));
 		$("#mainMenu button.highscores").click(() => beanstalk.screens.open(beanstalk.screens.highscores));
-		$("#mainMenu button.help").click(() => beanstalk.screens.open(beanstalk.screens.instructions));
-	
+		$("#mainMenu button.instructions").click(() => {
+			beanstalk.screens.instructions.backScreen = beanstalk.screens.main;
+			beanstalk.screens.open(beanstalk.screens.instructions);
+		});
+	}
+
+	show() {
+		super.show();
+		this.updateMusicButton();
+		this.updateSoundButton();
 	}
 
 	private updateMusicButton() {

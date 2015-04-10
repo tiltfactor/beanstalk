@@ -11,9 +11,10 @@ var InstructionsScreen = (function (_super) {
         _super.call(this, "instructionsScreen", "instructions_screen_html");
     }
     InstructionsScreen.prototype.init = function () {
+        var _this = this;
         _super.prototype.init.call(this);
         // Listen for clicks
-        $("#instructionsScreen button.back").click(function () { return beanstalk.screens.open(beanstalk.screens.main); });
+        $("#instructionsScreen button.back").click(function () { return beanstalk.screens.open(_this.backScreen); });
     };
     return InstructionsScreen;
 })(ScreenBase);

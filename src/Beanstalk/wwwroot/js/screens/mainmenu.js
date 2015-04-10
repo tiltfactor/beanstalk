@@ -24,9 +24,18 @@ var MainMenu = (function (_super) {
             _this.updateSoundButton();
         });
         // Listen for clicks
+        $("#mainMenu button.play").click(function () { return beanstalk.screens.open(beanstalk.screens.game); });
         $("#mainMenu button.back").click(function () { return beanstalk.screens.open(beanstalk.screens.login); });
         $("#mainMenu button.highscores").click(function () { return beanstalk.screens.open(beanstalk.screens.highscores); });
-        $("#mainMenu button.help").click(function () { return beanstalk.screens.open(beanstalk.screens.instructions); });
+        $("#mainMenu button.instructions").click(function () {
+            beanstalk.screens.instructions.backScreen = beanstalk.screens.main;
+            beanstalk.screens.open(beanstalk.screens.instructions);
+        });
+    };
+    MainMenu.prototype.show = function () {
+        _super.prototype.show.call(this);
+        this.updateMusicButton();
+        this.updateSoundButton();
     };
     MainMenu.prototype.updateMusicButton = function () {
         this.musicButton.removeClass("off");

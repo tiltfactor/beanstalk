@@ -11,7 +11,9 @@
 		"underscore": "1.8.2",
 		"bootstrap": "3.3.4",
 		"seiyria-bootstrap-slider": "4.5.7",
-		"malihu-custom-scrollbar-plugin": "3.0.8"
+		"malihu-custom-scrollbar-plugin": "3.0.8",
+		"parse": "1.4.0",
+		"moment": "2.10.2"
     },
     "exportsOverride": {       
     

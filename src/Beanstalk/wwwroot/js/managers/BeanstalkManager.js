@@ -27,6 +27,8 @@ var BeanstalkManager = (function () {
         this.loadingScreen = new LoadingScreen();
         this.screens = new ScreensManager();
         this.persistance = new PersistanceManager();
+        this.backend = new BackendManager();
+        this.user = new UserManager();
         // Start off things invisible
         this.loadingScreen.visible = false;
         // Load the last session (if there is one)
@@ -46,6 +48,8 @@ var BeanstalkManager = (function () {
         this.resources.loadInitialResources(function () {
             console.log("initial resources loaded, showing loading screen and loading main game resources");
             // Now the initial resources have been loaded we can init the loading screen's bits and show it			
+            _this.backend.init();
+            _this.user.init();
             _this.audio.init();
             _this.loadingScreen.init();
             _this.loadingScreen.visible = true;

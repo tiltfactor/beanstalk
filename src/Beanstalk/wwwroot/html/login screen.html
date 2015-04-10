@@ -3,13 +3,27 @@
 	<img class="logo" src="images/UI/common/beanstalk_logo.png" />
 
 	<div class="login-container">
-		<input type="text" placeholder="email" />
-		<input type="text" placeholder="password" />
-		<button>LOGIN</button>
-		<button>REGISTER</button>
-		<button>PLAY AS GUEST</button>
+		<p>Login to save your progress online</p>
+		<div class="inputs">
+			<input class="email" type="text" placeholder="email" />
+			<input class="password" type="password" placeholder="password" />
+		</div>		
+		<button class="login">LOGIN</button>
+		<button class="register">REGISTER</button>
+		<div class="alert alert-danger" role="alert">
+			<span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+			<span class="sr-only">Error:</span>
+			<span class="msg">Enter a valid email address</span>
+		</div>
+		<button class="play-as-guest">PLAY AS GUEST</button>
 	</div>
 
-
+	<div class="logout-container">
+		<p>Welcome <span class="email">dave@helloworld.com</span></p>
+		<div class="buttons">
+			<button class="logout">LOGOUT</button>
+			<button class="continue">CONTINUE</button>	
+		</div>
+	</div>
 
 </div>
