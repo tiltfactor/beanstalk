@@ -14,9 +14,12 @@ var SplashScreensManager = (function (_super) {
         var _this = this;
         this.logo = new createjs.Bitmap(null);
         this.addChild(this.logo);
+        var oldBodyBG = document.body.style.backgroundImage;
+        document.body.style.backgroundImage = "none";
         this.showLogo("MBG_logo", function () {
             _this.showLogo("BHL_logo", function () {
                 _this.showLogo("TiltFactor_logo", function () {
+                    document.body.style.backgroundImage = oldBodyBG;
                     completeCallback();
                 });
             });
@@ -24,7 +27,9 @@ var SplashScreensManager = (function (_super) {
     };
     SplashScreensManager.prototype.showLogo = function (name, completeCallback) {
         this.logo.image = beanstalk.resources.getResource(name);
-        this.logo.x = beanstalk.config.width / 2 - this.logo.getBounds().width / 2;
+        var r = beanstalk.config.width / this.logo.getBounds().width;
+        this.logo.scaleX = this.logo.scaleY = r;
+        this.logo.x = 0;
         this.logo.y = beanstalk.config.height / 2 - this.logo.getBounds().height / 2;
         // Start it off invisible, fade in then fade out
         this.logo.alpha = 0;

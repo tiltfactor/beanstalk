@@ -24,6 +24,13 @@
 		{ "src": "images/Game/background middle.png", "id": "background_middle" },
 		{ "src": "images/Game/concrete overlay.png", "id": "concrete_overlay" },
 
+		{ "src": "images/Plant Parts/BottomStalk.json", "id": "bottom_stalk_json" },
+		{ "src": "images/Plant Parts/BottomStalk.png", "id": "bottom_stalk_png" },
+		{ "src": "images/Plant Parts/BrightStalk.json", "id": "bright_stalk_json" },
+		{ "src": "images/Plant Parts/BrightStalk.png", "id": "bright_stalk_png" },
+		{ "src": "images/Plant Parts/DarkStalk.json", "id": "dark_stalk_json" },
+		{ "src": "images/Plant Parts/DarkStalk.png", "id": "dark_stalk_png" },
+
 		{ "src": "images/Splash Screens/MBG-Logo.jpg", "id": "MBG_logo" },
 		{ "src": "images/Splash Screens/BHL Logo.png", "id": "BHL_logo" },
 		{ "src": "images/Splash Screens/Tiltfacor on White.png", "id": "TiltFactor_logo" }

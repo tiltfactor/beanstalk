@@ -22,6 +22,10 @@
 			.first<Parse.Object>();
 	}
 
+	forgotPassword(email: string) {
+		return Parse.User.requestPasswordReset(email);
+	}
+
 	loadHighscores(count: number, from: Date, to: Date) {
 		return new Parse.Query("Beanstalk")
 			.greaterThan("updatedAt", from)

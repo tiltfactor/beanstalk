@@ -1,4 +1,26 @@
 ﻿{
 	"width": 870,
-	"height":  1160
+	"height": 1160,
+	"plant": {
+		"stalks": {
+			"bottom": {
+				"id": "bottom",
+				"regX": 218,
+				"regY": 588,
+				"scale":  2
+			},
+			"bright": {
+				"id": "bright",
+				"regX": 230,
+				"regY": 588,
+				"scale":  2
+			},
+			"dark": {
+				"id": "dark",
+				"regX": 213,
+				"regY": 588,
+				"scale":  2
+			}
+		}
+	}
 }

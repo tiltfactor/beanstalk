@@ -16,6 +16,9 @@ var BackendManager = (function () {
     BackendManager.prototype.loadBeanstalk = function () {
         return new Parse.Query("Beanstalk").equalTo("user", this.user).first();
     };
+    BackendManager.prototype.forgotPassword = function (email) {
+        return Parse.User.requestPasswordReset(email);
+    };
     BackendManager.prototype.loadHighscores = function (count, from, to) {
         return new Parse.Query("Beanstalk").greaterThan("updatedAt", from).lessThan("updatedAt", to).include("user").limit(count).descending("height").find();
     };

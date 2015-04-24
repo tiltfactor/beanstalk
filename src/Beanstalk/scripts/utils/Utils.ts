@@ -67,4 +67,10 @@
 		return email.split("@")[0];
 	}
 
+	static limitChange(val: number, target: number, change: number) : number {
+		if (val < target) val = Math.min(val + change, target);
+		else if (val > target) val = Math.max(val - change, target);
+		return val;
+	}
+
 }

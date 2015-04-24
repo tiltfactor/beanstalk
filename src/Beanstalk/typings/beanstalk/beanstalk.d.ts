@@ -4,6 +4,24 @@ interface BeanstalkConfig {
 	width: number;
 	height: number;
 	debug: boolean;
+	plant: PlantConfig;
+}
+
+interface PlantConfig {
+	stalks: PlantStalksConfig;
+}
+
+interface PlantStalksConfig extends _.Dictionary<PlantStalkConfig> {
+	bright: PlantStalkConfig;
+	dark: PlantStalkConfig;
+	bottom: PlantStalkConfig;
+}
+
+interface PlantStalkConfig {
+	id: string;
+	regX: number;
+	regY: number;
+	scale: number;
 }
 
 interface JQuery {

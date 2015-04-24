@@ -17,6 +17,8 @@ class LoginScreen extends ScreenBase {
 	continueBtn: HTMLButtonElement;
 	emailSpan: HTMLSpanElement;
 
+	forgotPasswordBtn: HTMLAnchorElement;
+
 	constructor() {
 		super("loginScreen", "login_screen_html");
 	}
@@ -37,6 +39,7 @@ class LoginScreen extends ScreenBase {
 		this.logoutBtn = <HTMLButtonElement>$("#loginScreen button.logout").get(0);
 		this.continueBtn = <HTMLButtonElement>$("#loginScreen button.continue").get(0);
 		this.emailSpan = <HTMLSpanElement>$("#loginScreen span.email").get(0);
+		this.forgotPasswordBtn = <HTMLAnchorElement>$("#loginScreen .forgot-password").get(0);
 
 		this.errorContainer.hidden = true;
 		this.loginBtn.onclick = () => this.login();
@@ -44,6 +47,7 @@ class LoginScreen extends ScreenBase {
 		this.logoutBtn.onclick = () => this.logout();
 		this.playAsGuestBtn.onclick = () => beanstalk.screens.open(beanstalk.screens.main);
 		this.continueBtn.onclick = () => beanstalk.screens.open(beanstalk.screens.main);
+		this.forgotPasswordBtn.onclick = () => this.forgotPassword();
 
 		this.updateState();
 	}
@@ -89,6 +93,16 @@ class LoginScreen extends ScreenBase {
 	logout() {
 		beanstalk.backend.logout();
 		this.updateState();
+	}
+
+	forgotPassword() {
+		this.disable();
+		beanstalk.backend.forgotPassword(this.emailInp.value)
+			.then(data => {
+				this.enable();
+				alert("Password reset instructions sent to: " + this.emailInp.value);
+			})
+			.fail(err => this.onBackendError(err));	
 	}
 
 	enable() {

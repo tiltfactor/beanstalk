@@ -9,9 +9,13 @@ class SplashScreensManager extends createjs.Container  {
 		this.logo = new createjs.Bitmap(null);
 		this.addChild(this.logo);
 
+		var oldBodyBG = document.body.style.backgroundImage;
+		document.body.style.backgroundImage = "none";
+
 		this.showLogo("MBG_logo",() => {
 			this.showLogo("BHL_logo",() => {
 				this.showLogo("TiltFactor_logo",() => {
+					document.body.style.backgroundImage = oldBodyBG;
 					completeCallback();
 				});
 			});
@@ -21,7 +25,10 @@ class SplashScreensManager extends createjs.Container  {
 	private showLogo(name: string, completeCallback: () => void) {
 		this.logo.image = beanstalk.resources.getResource(name);
 
-		this.logo.x = beanstalk.config.width / 2 - this.logo.getBounds().width / 2;
+		var r = beanstalk.config.width / this.logo.getBounds().width;
+		this.logo.scaleX = this.logo.scaleY = r;
+
+		this.logo.x = 0;
 		this.logo.y = beanstalk.config.height / 2 - this.logo.getBounds().height / 2;
 		
 		// Start it off invisible, fade in then fade out

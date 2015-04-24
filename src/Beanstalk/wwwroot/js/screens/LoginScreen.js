@@ -24,12 +24,14 @@ var LoginScreen = (function (_super) {
         this.logoutBtn = $("#loginScreen button.logout").get(0);
         this.continueBtn = $("#loginScreen button.continue").get(0);
         this.emailSpan = $("#loginScreen span.email").get(0);
+        this.forgotPasswordBtn = $("#loginScreen .forgot-password").get(0);
         this.errorContainer.hidden = true;
         this.loginBtn.onclick = function () { return _this.login(); };
         this.registerBtn.onclick = function () { return _this.register(); };
         this.logoutBtn.onclick = function () { return _this.logout(); };
         this.playAsGuestBtn.onclick = function () { return beanstalk.screens.open(beanstalk.screens.main); };
         this.continueBtn.onclick = function () { return beanstalk.screens.open(beanstalk.screens.main); };
+        this.forgotPasswordBtn.onclick = function () { return _this.forgotPassword(); };
         this.updateState();
     };
     LoginScreen.prototype.updateState = function () {
@@ -62,6 +64,14 @@ var LoginScreen = (function (_super) {
     LoginScreen.prototype.logout = function () {
         beanstalk.backend.logout();
         this.updateState();
+    };
+    LoginScreen.prototype.forgotPassword = function () {
+        var _this = this;
+        this.disable();
+        beanstalk.backend.forgotPassword(this.emailInp.value).then(function (data) {
+            _this.enable();
+            alert("Password reset instructions sent to: " + _this.emailInp.value);
+        }).fail(function (err) { return _this.onBackendError(err); });
     };
     LoginScreen.prototype.enable = function () {
         this.playAsGuestBtn.disabled = false;

@@ -53,5 +53,12 @@ var Utils = (function () {
     Utils.getNameFromEmail = function (email) {
         return email.split("@")[0];
     };
+    Utils.limitChange = function (val, target, change) {
+        if (val < target)
+            val = Math.min(val + change, target);
+        else if (val > target)
+            val = Math.max(val - change, target);
+        return val;
+    };
     return Utils;
 })();

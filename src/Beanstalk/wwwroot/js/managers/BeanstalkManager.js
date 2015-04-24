@@ -29,6 +29,7 @@ var BeanstalkManager = (function () {
         this.persistance = new PersistanceManager();
         this.backend = new BackendManager();
         this.user = new UserManager();
+        this.captchas = new CaptchaManager();
         // Start off things invisible
         this.loadingScreen.visible = false;
         // Load the last session (if there is one)
@@ -57,16 +58,19 @@ var BeanstalkManager = (function () {
                 console.log("main game resources loaded, showing splash screens.");
                 // Now the main resources have been loaded we can init a few things		
                 _this.screens.init();
+                _this.captchas.init();
                 // Dont need the loading screen any more
                 _this.loadingScreen.visible = false;
+                // First menu depends on if we are logged in or not
+                var firstMenu = _this.backend.isLoggedIn ? _this.screens.main : _this.screens.login;
                 // If we are using a skipIntro debug flag then skip it now
                 if (Utils.deparam(location.href).skipIntro == "true") {
-                    _this.screens.open(_this.screens.main);
+                    _this.screens.open(firstMenu);
                 }
                 else {
                     _this.splashScreens.showSplashScreens(function () {
                         console.log("spash screens done, showing main menu.");
-                        _this.screens.open(_this.screens.main);
+                        _this.screens.open(firstMenu);
                     });
                 }
             });

@@ -92,3 +92,25 @@
 
 }
 
+#loginScreen input {
+	background: none;
+	background-image: url('../images/UI/login screen/text_box.png');
+	background-size: 100% 100%;
+	width: 510px;
+	height: 63px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	padding: 23px;
+	border: none;
+}
+
+#loginScreen .forgot-password {
+	cursor: pointer;
+	position: absolute;
+	top: 373px;
+	right: 197px;
+}
+
+#loginScreen .forgot-password:hover {
+	text-decoration: none;
+}

@@ -12,6 +12,7 @@ class BeanstalkManager {
 	persistance: PersistanceManager;
 	backend: BackendManager;
 	user: UserManager;
+	captchas: CaptchaManager;
 
 	constructor(config: BeanstalkConfig) {
 		this.config = config;
@@ -46,6 +47,7 @@ class BeanstalkManager {
 		this.persistance = new PersistanceManager();
 		this.backend = new BackendManager();
 		this.user = new UserManager();
+		this.captchas = new CaptchaManager();
 
 		// Start off things invisible
 		this.loadingScreen.visible = false;
@@ -83,18 +85,22 @@ class BeanstalkManager {
 
 				// Now the main resources have been loaded we can init a few things		
 				this.screens.init();
+				this.captchas.init();
 
 				// Dont need the loading screen any more
 				this.loadingScreen.visible = false;
 
+				// First menu depends on if we are logged in or not
+				var firstMenu = this.backend.isLoggedIn ? this.screens.main : this.screens.login;
+
 				// If we are using a skipIntro debug flag then skip it now
 				if (Utils.deparam(location.href).skipIntro == "true") {
-					this.screens.open(this.screens.main);
+					this.screens.open(firstMenu);
 				}
 				else {
 					this.splashScreens.showSplashScreens(() => {
 						console.log("spash screens done, showing main menu.");
-						this.screens.open(this.screens.main);
+						this.screens.open(firstMenu);
 					});
 				}		
 			});
