@@ -1,3 +1,69 @@
 ﻿#instructionsScreen {
 	pointer-events: auto;
 }
+
+#instructionsScreen .logo {
+	position: absolute;
+	top: 14px;
+	left: 160px;
+	width: 550px;
+}
+
+#instructionsScreen .menu-container {
+	background-image: url("../images/UI/instructions/instructions_box.png");
+	background-size: 100% 100%;
+	width: 730px;
+	height: 636px;
+	position: absolute;
+	top: 315px;
+	left: 70px;
+	padding: 90px;
+	padding-top: 80px;
+}
+
+#instructionsScreen .menu-container p {
+	font-size: 26px;
+	text-transform: none;
+	top: 10px;
+	left: 10px;
+}
+
+#instructionsScreen .paging {
+	position: absolute;
+	left: 195px;
+	bottom: 115px;
+}
+
+#instructionsScreen button.left-arrow {
+	background-image: url("../images/UI/instructions/page_arrow.png");
+	width: 44px;
+	height: 129px;
+	position: absolute;
+	top: 315px;
+	left: 110px;
+}
+
+#instructionsScreen .menu-container img {
+	position: absolute;
+	top: 216px;
+	left: 92px;
+	width: 548px;
+}
+
+#instructionsScreen button.left-arrow:active {
+	background-image: url("../images/UI/instructions/page_arrow_pressed.png");
+}
+
+#instructionsScreen button.right-arrow {
+	background-image: url("../images/UI/instructions/page_arrow.png");
+	width: 44px;
+	height: 129px;
+	transform: scaleX(-1);
+	position: absolute;
+	top: 315px;
+	left: 583px;
+}
+
+#instructionsScreen button.right-arrow:active {
+	background-image: url("../images/UI/instructions/page_arrow_pressed.png");
+}

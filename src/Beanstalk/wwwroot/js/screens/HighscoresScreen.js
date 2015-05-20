@@ -11,11 +11,16 @@ var HighscoresScreen = (function (_super) {
         _super.call(this, "highscoresScreen", "highscores_screen_html");
     }
     HighscoresScreen.prototype.init = function () {
+        var _this = this;
         _super.prototype.init.call(this);
         this.allTimeRows = $("#highscoresScreen .alltime .row");
         this.weeklyRows = $("#highscoresScreen .weekly .row");
         // Listen for clicks
         $("#highscoresScreen button.back").click(function () { return beanstalk.screens.open(beanstalk.screens.main); });
+        $("#highscoresScreen button.share").click(function () { return _this.share(); });
+    };
+    HighscoresScreen.prototype.share = function () {
+        beanstalk.social.shareProgressToFB();
     };
     HighscoresScreen.prototype.show = function () {
         var _this = this;
@@ -56,8 +61,10 @@ var HighscoresScreen = (function (_super) {
     HighscoresScreen.prototype.setRowsFromBeanstalks = function (rows, beanstalks) {
         rows.each(function (i, e) {
             if (i < beanstalks.length) {
+                var name = Utils.getNameFromEmail(beanstalks[i].get("user").getUsername());
+                name = Utils.truncate(name, 13);
                 $(e).find(".position").text(Utils.getGetOrdinal(i + 1));
-                $(e).find(".name").text(Utils.getNameFromEmail(beanstalks[i].get("user").getUsername()));
+                $(e).find(".name").text(name);
                 $(e).find(".height").text("" + beanstalks[i].get("height"));
             }
             else {
@@ -68,11 +75,14 @@ var HighscoresScreen = (function (_super) {
         });
     };
     HighscoresScreen.prototype.setPlayerRow = function (row, obj, rank) {
+        var name = Utils.getNameFromEmail(beanstalk.backend.user.getUsername());
+        name = Utils.truncate(name, 13);
         $(row).find(".position").text(Utils.getGetOrdinal(rank));
-        $(row).find(".name").text(Utils.getNameFromEmail(beanstalk.backend.user.getUsername()));
+        $(row).find(".name").text(name);
         $(row).find(".height").text(obj.get("height"));
     };
     HighscoresScreen.prototype.setRow = function (row, position, name, height) {
+        name = Utils.truncate(name, 13);
         $(row).find(".position").text(position);
         $(row).find(".name").text(name);
         $(row).find(".height").text(height);

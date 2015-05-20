@@ -14,17 +14,17 @@ var MainMenu = (function (_super) {
         var _this = this;
         _super.prototype.init.call(this);
         // Listen for toggle on the music button
-        this.musicButton = $("#mainMenu button.music").click(function () {
-            beanstalk.audio.setMusicVolume(beanstalk.audio.musicVolume == 0 ? 1 : 0);
-            _this.updateMusicButton();
-        });
+        //this.musicButton = $("#mainMenu button.music").click(() => {
+        //	beanstalk.audio.setMusicVolume(beanstalk.audio.musicVolume == 0 ? 1 : 0);
+        //	this.updateMusicButton();
+        //});
         // Listen for toggle on the sound button
         this.soundButton = $("#mainMenu button.sound").click(function () {
             beanstalk.audio.setSoundVolume(beanstalk.audio.soundVolume == 0 ? 1 : 0);
             _this.updateSoundButton();
         });
         // Listen for clicks
-        $("#mainMenu button.play").click(function () { return beanstalk.screens.open(beanstalk.screens.game); });
+        $("#mainMenu button.play").click(function () { return beanstalk.game.continueGame(); });
         $("#mainMenu button.back").click(function () { return beanstalk.screens.open(beanstalk.screens.login); });
         $("#mainMenu button.highscores").click(function () { return beanstalk.screens.open(beanstalk.screens.highscores); });
         $("#mainMenu button.instructions").click(function () {
@@ -34,14 +34,13 @@ var MainMenu = (function (_super) {
     };
     MainMenu.prototype.show = function () {
         _super.prototype.show.call(this);
-        this.updateMusicButton();
+        //this.updateMusicButton();
         this.updateSoundButton();
     };
-    MainMenu.prototype.updateMusicButton = function () {
-        this.musicButton.removeClass("off");
-        if (beanstalk.audio.musicVolume == 0)
-            this.musicButton.addClass("off");
-    };
+    //private updateMusicButton() {
+    //this.musicButton.removeClass("off");
+    //if (beanstalk.audio.musicVolume == 0) this.musicButton.addClass("off");
+    //}
     MainMenu.prototype.updateSoundButton = function () {
         this.soundButton.removeClass("off");
         if (beanstalk.audio.soundVolume == 0)

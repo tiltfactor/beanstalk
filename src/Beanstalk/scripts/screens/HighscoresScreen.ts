@@ -17,7 +17,12 @@ class HighscoresScreen extends ScreenBase {
 		
 		// Listen for clicks
 		$("#highscoresScreen button.back").click(() => beanstalk.screens.open(beanstalk.screens.main));
-	}
+        $("#highscoresScreen button.share").click(() => this.share());
+    }
+
+    share() {
+        beanstalk.social.shareProgressToFB();
+    }
 
 	show() {
 		super.show();
@@ -60,15 +65,6 @@ class HighscoresScreen extends ScreenBase {
 
 			});
 		}
-
-		
-
-		
-		
-		
-
-			
-
 	}
 
 	private setRowsToLoading(rows: JQuery) {
@@ -82,9 +78,14 @@ class HighscoresScreen extends ScreenBase {
 	private setRowsFromBeanstalks(rows: JQuery, beanstalks: Parse.Object[]) {
 		rows.each((i, e) => {
 
-			if (i < beanstalks.length) {
+            if (i < beanstalks.length) {
+
+
+                var name = Utils.getNameFromEmail(beanstalks[i].get("user").getUsername());
+                name = Utils.truncate(name, 13);
+
 				$(e).find(".position").text(Utils.getGetOrdinal(i + 1));
-				$(e).find(".name").text(Utils.getNameFromEmail(beanstalks[i].get("user").getUsername()));
+                $(e).find(".name").text(name);
 				$(e).find(".height").text("" + beanstalks[i].get("height"));
 			}
 			else {
@@ -96,13 +97,20 @@ class HighscoresScreen extends ScreenBase {
 		});
 	}
 
-	private setPlayerRow(row: HTMLElement, obj: Parse.Object, rank: number) {
+    private setPlayerRow(row: HTMLElement, obj: Parse.Object, rank: number) {
+       
+        var name = Utils.getNameFromEmail(beanstalk.backend.user.getUsername());
+        name = Utils.truncate(name, 13);
+
 		$(row).find(".position").text(Utils.getGetOrdinal(rank));
-		$(row).find(".name").text(Utils.getNameFromEmail(beanstalk.backend.user.getUsername()));
+        $(row).find(".name").text(name);
 		$(row).find(".height").text(obj.get("height"));
 	}
 
-	private setRow(row: HTMLElement, position: string, name: string, height: string) {
+    private setRow(row: HTMLElement, position: string, name: string, height: string) {
+
+        name = Utils.truncate(name, 13);
+
 		$(row).find(".position").text(position);
 		$(row).find(".name").text(name);
 		$(row).find(".height").text(height);

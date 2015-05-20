@@ -34,6 +34,49 @@
 		return array[Math.floor(Math.random() * array.length)];
 	}
 
+	///
+	// Borrowed from: http://erlycoder.com/105/javascript-weighted-random-value-from-array
+	///
+	static weightedRandomOne<T>(array: T[], weights: number[]): T {
+
+		var normalisedWeights = new Array()
+		var sum = 0;
+
+		// First calculate the sum and the weighted value
+		for (var i = 0; i < array.length; i++) {
+			sum += weights[i];
+			normalisedWeights[i] = sum;
+		}
+
+		// Then normalise the weighted values
+		for (var i = 0; i < array.length; i++) {
+			normalisedWeights[i] = normalisedWeights[i] / sum;
+		}
+
+		var needle = Math.random();
+		var high = normalisedWeights.length - 1;
+		var low = 0;
+
+		// Loop through looking for the correct match (binary search)
+		while (low < high) {
+			var probe = Math.ceil((high + low) / 2);
+
+			if (normalisedWeights[probe] < needle) low = probe + 1;
+			else if (normalisedWeights[probe] > needle) high = probe - 1;
+			else return array[probe];
+		}
+
+		// Return corner cases
+		if (low != high) return array[(normalisedWeights[low] >= needle) ? low : probe];
+		else return array[(normalisedWeights[low] >= needle) ? low : low + 1];
+	}
+
+	static popRandomOne<T>(array: T[]): T {
+		if (array.length == 0) return null;
+		var indx = Math.floor(Math.random() * array.length);
+		return array.splice(indx, 1)[0];
+	}
+
 	static centre(obj: createjs.DisplayObject, horizontally: boolean = true, vertically: boolean = true) {
 
 		if (horizontally)
@@ -72,5 +115,14 @@
 		else if (val > target) val = Math.max(val - change, target);
 		return val;
 	}
+
+	static randomRange(min: number, max: number) {
+		return min + Math.random() * (max-min);
+    }
+
+    static truncate(val: string, len: number) {
+        if (val.length > len - 3) return val.substr(0, len - 3) + "..";
+        return val;
+    }
 
 }

@@ -29,21 +29,51 @@ var LoginScreen = (function (_super) {
         this.loginBtn.onclick = function () { return _this.login(); };
         this.registerBtn.onclick = function () { return _this.register(); };
         this.logoutBtn.onclick = function () { return _this.logout(); };
-        this.playAsGuestBtn.onclick = function () { return beanstalk.screens.open(beanstalk.screens.main); };
-        this.continueBtn.onclick = function () { return beanstalk.screens.open(beanstalk.screens.main); };
+        this.playAsGuestBtn.onclick = function () { return _this.playAsGuest(); };
+        this.continueBtn.onclick = function () { return _this.continue(); };
         this.forgotPasswordBtn.onclick = function () { return _this.forgotPassword(); };
+        // Listen for enter of password and do login
+        $(this.passwordInp).on("keydown", function (e) { return _this.onKeyDown(e); });
         this.updateState();
+    };
+    LoginScreen.prototype.onKeyDown = function (e) {
+        if (e.keyCode == 13)
+            this.login();
+    };
+    LoginScreen.prototype.playAsGuest = function () {
+        beanstalk.screens.open(beanstalk.screens.main);
     };
     LoginScreen.prototype.updateState = function () {
         if (beanstalk.backend.isLoggedIn) {
             this.logoutContainer.hidden = false;
             this.loginContainer.hidden = true;
-            this.emailSpan.textContent = beanstalk.backend.user.getUsername();
+            this.emailSpan.textContent = Utils.truncate(beanstalk.backend.user.getUsername(), 20);
         }
         else {
             this.logoutContainer.hidden = true;
             this.loginContainer.hidden = false;
         }
+    };
+    LoginScreen.prototype.show = function () {
+        _super.prototype.show.call(this);
+        this.updateState();
+    };
+    LoginScreen.prototype.continue = function () {
+        var _this = this;
+        // Before we start, lets load the beanstalk from lasttime
+        this.disable();
+        beanstalk.backend.loadBeanstalk().then(function (obj) {
+            if (obj == null)
+                return beanstalk.backend.createBeanstalk();
+            return Parse.Promise.as(obj);
+        }).then(function (obj) {
+            beanstalk.user.setBackendBeanstalk(obj);
+            _this.enable();
+            beanstalk.screens.open(beanstalk.screens.main);
+        }).fail(function (err) {
+            beanstalk.backend.logout();
+            _this.onBackendError(err);
+        });
     };
     LoginScreen.prototype.login = function () {
         var _this = this;
@@ -63,6 +93,8 @@ var LoginScreen = (function (_super) {
     };
     LoginScreen.prototype.logout = function () {
         beanstalk.backend.logout();
+        beanstalk.user.backendBeanstalk = null;
+        beanstalk.persistance.depersist();
         this.updateState();
     };
     LoginScreen.prototype.forgotPassword = function () {
@@ -79,6 +111,8 @@ var LoginScreen = (function (_super) {
         this.registerBtn.disabled = false;
         this.emailInp.disabled = false;
         this.passwordInp.disabled = false;
+        this.continueBtn.disabled = false;
+        this.logoutBtn.disabled = false;
     };
     LoginScreen.prototype.disable = function () {
         this.playAsGuestBtn.disabled = true;
@@ -86,6 +120,8 @@ var LoginScreen = (function (_super) {
         this.registerBtn.disabled = true;
         this.emailInp.disabled = true;
         this.passwordInp.disabled = true;
+        this.continueBtn.disabled = true;
+        this.logoutBtn.disabled = true;
     };
     LoginScreen.prototype.onBackendError = function (err) {
         this.enable();
@@ -94,17 +130,9 @@ var LoginScreen = (function (_super) {
         $(this.errorContainer).show().delay(3000).fadeOut(1000);
     };
     LoginScreen.prototype.onLoggedIn = function () {
-        var _this = this;
-        console.log("logged in, attempting to load beanstalk for user..");
-        // Now we are logged in lets grab the user data from the server
-        beanstalk.backend.loadBeanstalk().then(function (obj) {
-            beanstalk.user.setBackendBeanstalk(obj);
-            _this.enable();
-            _this.updateState();
-        }).fail(function (err) {
-            beanstalk.backend.logout();
-            _this.onBackendError(err);
-        });
+        console.log("logged in!");
+        this.enable();
+        this.updateState();
     };
     return LoginScreen;
 })(ScreenBase);

@@ -2,7 +2,7 @@
 	"manifest": [
 		{ "src": "images/UI/common/loading_bar_bottom.png", "id": "loading_bar_bottom" },
 		{ "src": "images/UI/common/loading_bar_top.png", "id": "loading_bar_top" },
-		{ "src": "images/UI/common/loading_bar_middle.png", "id": "loading_bar" },
+		{ "src": "images/UI/common/loading_bar_middle.png", "id": "loading_bar_middle" },
 		{ "src": "images/UI/common/beanstalk_logo.png", "id": "beanstalk_logo" },
 		{ "src": "data/audio manifest.json", "id": "audio_manifest" }
 	]

@@ -45,11 +45,23 @@ class LoginScreen extends ScreenBase {
 		this.loginBtn.onclick = () => this.login();
 		this.registerBtn.onclick = () => this.register();
 		this.logoutBtn.onclick = () => this.logout();
-		this.playAsGuestBtn.onclick = () => beanstalk.screens.open(beanstalk.screens.main);
-		this.continueBtn.onclick = () => beanstalk.screens.open(beanstalk.screens.main);
+		this.playAsGuestBtn.onclick = () => this.playAsGuest();
+		this.continueBtn.onclick = () => this.continue();
 		this.forgotPasswordBtn.onclick = () => this.forgotPassword();
 
+		// Listen for enter of password and do login
+		$(this.passwordInp).on("keydown",(e) => this.onKeyDown(e));	
+
 		this.updateState();
+	}
+
+	onKeyDown(e: JQueryKeyEventObject) {
+		if (e.keyCode == 13)
+			this.login();
+	}
+
+	playAsGuest() {
+		beanstalk.screens.open(beanstalk.screens.main);
 	}
 
 	updateState() {
@@ -57,13 +69,38 @@ class LoginScreen extends ScreenBase {
 		if (beanstalk.backend.isLoggedIn) {
 			this.logoutContainer.hidden = false;
 			this.loginContainer.hidden = true;
-			this.emailSpan.textContent = beanstalk.backend.user.getUsername();
+			this.emailSpan.textContent = Utils.truncate(beanstalk.backend.user.getUsername(), 20);
 		}
 		else {
 			this.logoutContainer.hidden = true;
 			this.loginContainer.hidden = false;
 		}
 		
+	}
+
+	show() {
+		super.show();
+		this.updateState();
+	}
+
+	continue() {		
+
+		// Before we start, lets load the beanstalk from lasttime
+		this.disable();
+		beanstalk.backend.loadBeanstalk()
+            .then(obj => {
+                if (obj == null) return beanstalk.backend.createBeanstalk();            
+                return (<any>Parse).Promise.as(obj);			
+            })
+            .then(obj => {
+                beanstalk.user.setBackendBeanstalk(obj);
+                this.enable();
+                beanstalk.screens.open(beanstalk.screens.main);
+            })
+			.fail(err => {
+				beanstalk.backend.logout();
+				this.onBackendError(err);
+			});
 	}
 
 	login() {
@@ -92,6 +129,8 @@ class LoginScreen extends ScreenBase {
 
 	logout() {
 		beanstalk.backend.logout();
+		beanstalk.user.backendBeanstalk = null;
+		beanstalk.persistance.depersist();
 		this.updateState();
 	}
 
@@ -111,6 +150,8 @@ class LoginScreen extends ScreenBase {
 		this.registerBtn.disabled = false;
 		this.emailInp.disabled = false;
 		this.passwordInp.disabled = false;
+		this.continueBtn.disabled = false;
+		this.logoutBtn.disabled = false;
 	}
 
 	disable() {
@@ -119,6 +160,8 @@ class LoginScreen extends ScreenBase {
 		this.registerBtn.disabled = true;
 		this.emailInp.disabled = true;
 		this.passwordInp.disabled = true;
+		this.continueBtn.disabled = true;
+		this.logoutBtn.disabled = true;
 	}
 
 	private onBackendError(err: Parse.Error) {
@@ -129,19 +172,8 @@ class LoginScreen extends ScreenBase {
 	}
 
 	private onLoggedIn() {
-
-		console.log("logged in, attempting to load beanstalk for user..");
-
-		// Now we are logged in lets grab the user data from the server
-		beanstalk.backend.loadBeanstalk()
-			.then(obj => {
-				beanstalk.user.setBackendBeanstalk(obj);
-				this.enable();
-				this.updateState();
-			})
-			.fail(err => {
-				beanstalk.backend.logout();
-				this.onBackendError(err);
-			});
+		console.log("logged in!");
+		this.enable();
+		this.updateState();
 	}
 }

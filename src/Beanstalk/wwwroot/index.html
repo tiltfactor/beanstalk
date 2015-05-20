@@ -1,7 +1,15 @@
-<html>
+﻿<html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+
+    <!-- Facebook Meta -->
+    <meta property="og:url" content="http://tiltfactor.pepwuper.com/Beanstalk" />
+    <meta property="og:title" content="Beanstalk" />
+    <meta property="og:description" content="Checkout how high I am in Beanstalk!" />
+    <meta property="og:site_name" content="Beanstalk" />
+    <meta property="og:app_id" content="849783798403345" />
+    <meta property="og:image" content="http://tiltfactor.pepwuper.com/Beanstalk/images/UI/common/beanstalk_logo.png" />
 
     <!-- injector:css -->
     <link rel="stylesheet" href="lib/bootstrap/bootstrap.css">
@@ -27,70 +35,48 @@
     <script src="lib/jquery-bridget/jquery.bridget.js"></script>
     <script src="lib/jquery-deparam/jquery-deparam.js"></script>
     <script src="lib/jquery-mousewheel/jquery.mousewheel.js"></script>
+    <script src="lib/levenshtein.js"></script>
     <script src="lib/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.js"></script>
     <script src="lib/moment/moment.js"></script>
     <script src="lib/parse/parse.min.js"></script>
     <script src="lib/seiyria-bootstrap-slider/bootstrap-slider.js"></script>
     <script src="lib/underscore/underscore.js"></script>
+    <script src="lib/wordCompare.js"></script>
     <script src="js/screens/ScreenBase.js"></script>
-    <script src="js/actors/Athlete.js"></script>
-    <script src="js/actors/AudienceMember.js"></script>
-    <script src="js/actors/Beanstalk.js"></script>
+    <script src="js/actors/Background.js"></script>
     <script src="js/actors/Captcha.js"></script>
-    <script src="js/actors/CommentatorBubble.js"></script>
-    <script src="js/actors/CorrectIncorrectIndicator.js"></script>
-    <script src="js/actors/Enemy.js"></script>
-    <script src="js/actors/Framerate.js"></script>
-    <script src="js/actors/LoadingBar - Copy.js"></script>
     <script src="js/actors/LoadingBar.js"></script>
-    <script src="js/actors/MapShop.js"></script>
-    <script src="js/actors/MapSurvival.js"></script>
-    <script src="js/actors/Plant - Copy.js"></script>
     <script src="js/actors/Plant.js"></script>
     <script src="js/actors/PlantStalk.js"></script>
-    <script src="js/actors/Powerup.js"></script>
-    <script src="js/actors/PowerupHudIcon.js"></script>
-    <script src="js/actors/StarBackground.js"></script>
-    <script src="js/actors/backgroundstar.js"></script>
-    <script src="js/actors/mapdot.js"></script>
-    <script src="js/actors/maplevel.js"></script>
-    <script src="js/actors/stadium.js"></script>
+    <script src="js/actors/Seed - Copy.js"></script>
+    <script src="js/actors/Seed.js"></script>
+    <script src="js/actors/SidePlant.js"></script>
+    <script src="js/actors/TopStalk.js"></script>
     <script src="js/data/Beanstalk.js"></script>
-    <script src="js/data/LoadingBar.js"></script>
     <script src="js/main.js"></script>
-    <script src="js/managers/AudioManager - Copy.js"></script>
-    <script src="js/managers/BackendManager - Copy.js"></script>
+    <script src="js/managers/AudioManager.js"></script>
     <script src="js/managers/BackendManager.js"></script>
     <script src="js/managers/BeanstalkManager.js"></script>
     <script src="js/managers/CaptchaManager.js"></script>
-    <script src="js/managers/CaptchasManager.js"></script>
-    <script src="js/managers/DifficultyManager.js"></script>
-    <script src="js/managers/ParseManager.js"></script>
-    <script src="js/managers/PowerupsManager.js"></script>
-    <script src="js/managers/TimeTrailManager.js"></script>
-    <script src="js/managers/UpgradesManager.js"></script>
+    <script src="js/managers/GameAmbienceManager.js"></script>
+    <script src="js/managers/GameManager.js"></script>
+    <script src="js/managers/PersistanceManager.js"></script>
+    <script src="js/managers/ResourcesManager.js"></script>
+    <script src="js/managers/ScreensManager.js"></script>
+    <script src="js/managers/SocialManager.js"></script>
+    <script src="js/managers/SplashScreensManager.js"></script>
+    <script src="js/managers/SpriteSheetManager.js"></script>
     <script src="js/managers/UserManager.js"></script>
-    <script src="js/managers/audiomanager.js"></script>
-    <script src="js/managers/gamemanager.js"></script>
-    <script src="js/managers/persistancemanager.js"></script>
-    <script src="js/managers/resourcesmanager.js"></script>
-    <script src="js/managers/screensmanager.js"></script>
-    <script src="js/managers/smorballmanager.js"></script>
-    <script src="js/managers/spawningmanager.js"></script>
-    <script src="js/managers/splashscreensmanager.js"></script>
     <script src="js/screens/GameScreen.js"></script>
     <script src="js/screens/HighscoresScreen.js"></script>
+    <script src="js/screens/InitialLoadingScreen.js"></script>
     <script src="js/screens/InstructionScreen.js"></script>
-    <script src="js/screens/LoadingLevelScreen.js"></script>
     <script src="js/screens/LoginScreen.js"></script>
-    <script src="js/screens/MainMenu - Copy.js"></script>
-    <script src="js/screens/MapScreen.js"></script>
-    <script src="js/screens/OptionsMenu.js"></script>
-    <script src="js/screens/ShopScreen.js"></script>
-    <script src="js/screens/initialloadingscreen.js"></script>
-    <script src="js/screens/mainmenu.js"></script>
-    <script src="js/utils/WavesBuilder.js"></script>
-    <script src="js/utils/utils.js"></script>
+    <script src="js/screens/MainMenu.js"></script>
+    <script src="js/utils/SBSprite.js"></script>
+    <script src="js/utils/SBSpriteSheet.js"></script>
+    <script src="js/utils/SBSpriteUtils.js"></script>
+    <script src="js/utils/Utils.js"></script>
     <!-- endinjector -->
 
 </head>

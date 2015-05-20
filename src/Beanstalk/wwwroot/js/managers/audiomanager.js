@@ -1,14 +1,15 @@
 var AudioManager = (function () {
     function AudioManager() {
-        this.musicVolume = 1;
+        //musicVolume: number = 1;
         this.soundVolume = 1;
+        this.musicVolumeMultiplier = 0.6;
         this.soundsPlaying = [];
-        createjs.Sound.initializeDefaultPlugins();
-        //createjs.Sound.registerPlugins([createjs.HTMLAudioPlugin, createjs.WebAudioPlugin, createjs.FlashAudioPlugin]);
-        createjs.Sound.registerPlugins([createjs.WebAudioPlugin]);
-        createjs.Sound.alternateExtensions = ["mp3"];
+        //createjs.Sound.initializeDefaultPlugins();
+        //createjs.Sound.registerPlugins([createjs.WebAudioPlugin, createjs.HTMLAudioPlugin, createjs.FlashAudioPlugin]);
+        //createjs.Sound.alternateExtensions = ["mp3"];
         createjs.Sound.defaultInterruptBehavior = createjs.Sound.INTERRUPT_NONE;
-        beanstalk.resources.fgQueue.installPlugin(createjs.Sound);
+        //smorball.resources.fgQueue.installPlugin(<any>createjs.Sound);
+        console.log("AUDIO CAPABILITIESss: ", createjs.Sound.getCapabilities());
     }
     AudioManager.prototype.init = function () {
         var _this = this;
@@ -20,25 +21,29 @@ var AudioManager = (function () {
         if (id == "main_theme_sound" && beanstalk.screens.current != null && beanstalk.screens.current != beanstalk.screens.game)
             this.playMusic();
     };
-    AudioManager.prototype.setMusicVolume = function (volume) {
-        this.musicVolume = volume;
-        if (this.music)
-            this.music.volume = volume;
-        beanstalk.persistance.persist();
-    };
+    //setMusicVolume(volume: number) {
+    //	this.musicVolume = volume;
+    //	if (this.music) this.music.volume = volume * this.musicVolumeMultiplier;
+    //	beanstalk.persistance.persist();
+    //}
     AudioManager.prototype.setSoundVolume = function (volume) {
         var change = volume - this.soundVolume;
         _.each(this.soundsPlaying, function (s) { return s.volume += change; });
+        // HACK! Update the ambience immediately to stop the popping sound
+        beanstalk.ambience.update(0);
         this.soundVolume = volume;
+        if (this.music)
+            this.music.volume = volume * this.musicVolumeMultiplier;
         beanstalk.persistance.persist();
     };
     AudioManager.prototype.playMusic = function () {
-        //if (this.music != null) return;
-        //this.music = createjs.Sound.play("main_theme_sound");		
-        //this.music.loop = -1;
-        //this.music.volume = this.musicVolume;
-        //if (this.music.playState == "playFailed")
-        //	this.music = null;
+        if (this.music != null)
+            return;
+        this.music = createjs.Sound.play("beanstalk_garden_v3_sound");
+        this.music.loop = -1;
+        this.music.volume = this.soundVolume * this.musicVolumeMultiplier;
+        if (this.music.playState == "playFailed")
+            this.music = null;
     };
     AudioManager.prototype.playSound = function (id, volumeMultipler) {
         if (volumeMultipler === void 0) { volumeMultipler = 1; }

@@ -1,0 +1,91 @@
+﻿{
+	"width": 870,
+	"height": 1160,
+	"maxPlantHeightPixels": 3800,
+	"stalksBeforeLock": 4,
+	"maxSeedVel": 750,
+	"seedLandY": -100,
+	"maxCaptchaSize": 200,
+	"minCaptchaPixelSize": 10,
+	"captchaScaleLimitConstantN": 12,
+	"metersPerStalk": 10,
+	"plant": {
+		"stalks": {
+			"bottom": {
+				"id": "bottom",
+				"regX": 435,
+				"regY": 1200,
+				"scale": 1,
+				"flowers": [ ]
+			},
+			"bright": {
+				"id": "bright",
+				"regX": 463,
+				"regY": 1100,
+				"scale": 1,
+				"flowers": [
+					{ "x": 478, "y": 1150 },
+					{ "x": 420, "y": 1090 },
+					{ "x": 426, "y": 993 },
+					{ "x": 422, "y": 876 },
+					{ "x": 616, "y": 822 },
+					{ "x": 660, "y": 696 },
+					{ "x": 742, "y": 698 },
+					{ "x": 808, "y": 594 }
+				]
+			},
+			"dark": {
+				"id": "dark",
+				"regX": 400,
+				"regY": 1100,
+				"scale": 1,
+				"flowers": [
+					{ "x": 483, "y": 1085 },
+					{ "x": 360, "y": 1035 },
+					{ "x": 519, "y": 945 },
+					{ "x": 468, "y": 819 },
+					{ "x": 357, "y": 735 },
+					{ "x": 231, "y": 663 },
+					{ "x": 150, "y": 606 },
+					{ "x": 228, "y": 579 }
+				]
+			},
+			"top": {
+				"id": "top",
+				"regX": 450,
+				"regY": 1173,
+				"scale": 1,
+				"seed": { "x": 350, "y": 480 },
+				"flowers": [ ]
+			}
+		}
+	},
+	"backgroundSections": {
+		"garden": {
+			"height": 4520,
+			"ambience": "beanstalk_garden_v2_sound"
+		},
+		"park": {
+			"height": 3500,
+			"ambience": "beanstalk_park_v2_sound"
+		},
+		"town": {
+			"height": 2800,
+			"ambience": "beanstalk_town_v1_sound"
+		},
+		"mountains": {
+			"height": 1800,
+			"ambience": "beanstalk_mountains_v3_sound"
+		},
+		"space": {
+			"height": 800,
+			"ambience": "moon_and_space_sound"
+		}
+	},
+	"penaltyTime":  1,
+	"entriesBeforeServerSubmission":  10,
+	"PageAPIUrl": "http://tiltfactor1.dartmouth.edu:8080/api/page",
+	"DifferenceAPIUrl": "http://tiltfactor1.dartmouth.edu:8080/api/difference",
+	"PageAPITimeout":  3000,
+	"PageAPIAccessToken":  "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJHYW1lIiwiaWF0IjoxNDE1MzQxNjMxMjY4LCJpc3MiOiJCSExTZXJ2ZXIifQ.bwRps5G6lAd8tGZKK7nExzhxFrZmAwud0C2RW26sdRM"
+}

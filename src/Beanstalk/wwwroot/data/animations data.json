@@ -1,0 +1,123 @@
+{
+  "animations": {
+    "types": {
+      "bush": {
+        "regX": 91,
+        "regY": 106,
+        "framerate": 10
+      },
+      "bush2": {
+        "regX": 139,
+        "regY": 128,
+        "framerate": 10
+      },
+      "tree": {
+        "regX": 48,
+        "regY": 178,
+        "framerate": 10
+      },
+      "tree2": {
+        "regX": 86,
+        "regY": 313,
+        "framerate": 10
+      },
+      "star2": {
+        "regX": 41,
+        "regY": 49,
+        "framerate": 2
+      },
+      "smoke": {
+        "regX": 12,
+        "regY": 98,
+        "framerate": 5
+      }
+    },
+    "positions": [
+      {
+        "type": "bush",
+        "x": 485,
+        "y": 4361,
+        "scale":  1
+      },
+      {
+        "type": "bush",
+        "x": 342,
+        "y": 4001,
+        "scale":  1
+      },
+      {
+        "type": "bush2",
+        "x": 23,
+        "y": 4601,
+        "scale":  1
+      },
+      {
+        "type": "smoke",
+        "x": 258,
+        "y": 2785,
+        "scale":  1
+      },
+      {
+        "type": "tree2",
+        "x": 677,
+        "y": 3553,
+        "scale":  1
+      },
+      {
+        "type": "tree",
+        "x": 557,
+        "y": 3341,
+        "scale":  1
+      },
+      {
+        "type": "star2",
+        "x": 713,
+        "y": 130,
+        "scale":  1
+      },
+      {
+        "type": "star2",
+        "x": 587,
+        "y": 522,
+        "scale":  1
+      },
+      {
+        "type": "star2",
+        "x": 287,
+        "y": -100,
+        "scale":  0.8
+      }
+    ]
+  },
+  "tinytown": {
+    "types": {
+      "blimp": {
+        "regX": 155,
+        "regY": 212,
+        "framerate": 10
+      },
+      "deer": {
+        "regX": 173,
+        "regY": 249,
+        "framerate": 10
+      },
+      "goat": {
+        "regX": 175,
+        "regY": 233,
+        "framerate": 10
+      },
+      "man window": {
+        "regX": 162,
+        "regY": 259,
+        "framerate": 10
+      }
+    },
+    "positions": [
+      {
+        "type": "blimp",
+        "x": 485,
+        "y": 4361
+      }
+    ]
+  }
+}

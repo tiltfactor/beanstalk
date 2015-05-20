@@ -1,0 +1,15 @@
+﻿[
+    {"image": "instructions1", "description": "Type the phrase shown to make your Beanstalk sprout."},
+    {"image": "instructions2", "description": "Get 4 phrases in a row right, and the plant will grow a new segment."},
+    {"image": "instructions3", "description": "If you get one wrong, no sweat, you’ll just have to start again from your current segment."},
+    {"image": "instructions4", "description": "Every phrase you type correctly helps contribute to the digitization of scanned manuscripts!"},
+    {"image": "instructions5", "description": "The more you contribute, the more your plant grows.  Compare your efforts to others’ efforts on the high score list."},
+    {"image": "instructions6", "description": "Punctuation in phrases matters, so type carefully."},
+    {"image": "instructions7", "description": "Capitalization doesn’t matter.  You can type words with capitals as all lowercase."},
+    {"image": "instructions8", "description": "Some phrases have multiple words.  Use spaces to separate these words."},
+    {"image": "instructions9", "description": "Do the best you can with a standard keyboard.  For example, type é as e, and æ as ae."},
+    {"image": "instructions10", "description": "Use the slash character, ‘/’, for fractions."},
+    {"image": "instructions11", "description": "Some phrases will be impossible to type.  If you run into one of these press “pass” to skip it.  You don’t have unlimited passes, so use them wisely."}
+]
+
+

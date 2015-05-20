@@ -16,6 +16,19 @@ var BackendManager = (function () {
     BackendManager.prototype.loadBeanstalk = function () {
         return new Parse.Query("Beanstalk").equalTo("user", this.user).first();
     };
+    BackendManager.prototype.createBeanstalk = function () {
+        console.log("Creating new beanstalk parse object.");
+        var acl = new Parse.ACL();
+        acl.setWriteAccess(this.user.id, true);
+        acl.setPublicWriteAccess(false);
+        acl.setPublicReadAccess(true);
+        var bs = new Parse.Object("Beanstalk");
+        bs.set("user", this.user);
+        bs.set("height", 0);
+        bs.set("stalks", 0);
+        bs.setACL(acl);
+        return bs.save();
+    };
     BackendManager.prototype.forgotPassword = function (email) {
         return Parse.User.requestPasswordReset(email);
     };

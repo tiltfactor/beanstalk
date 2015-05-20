@@ -20,8 +20,8 @@ class LoadingScreen extends createjs.Container {
 
 	update(delta:number) {
 		// Dont need to update if not visible
-		if (!this.visible) return;
-
+        if (!this.visible) return;       
+        
 		// Update the bar based on our load progress
 		this.bar.setProgress(beanstalk.resources.fgQueue.progress);
 	}

@@ -30,6 +30,10 @@ var BeanstalkManager = (function () {
         this.backend = new BackendManager();
         this.user = new UserManager();
         this.captchas = new CaptchaManager();
+        this.game = new GameManager();
+        this.ambience = new GameAmbienceManager();
+        this.sprites = new SpriteSheetManager();
+        this.social = new SocialManager();
         // Start off things invisible
         this.loadingScreen.visible = false;
         // Load the last session (if there is one)
@@ -52,6 +56,7 @@ var BeanstalkManager = (function () {
             _this.backend.init();
             _this.user.init();
             _this.audio.init();
+            _this.social.init();
             _this.loadingScreen.init();
             _this.loadingScreen.visible = true;
             _this.resources.loadMainGameResources(function () {
@@ -59,18 +64,17 @@ var BeanstalkManager = (function () {
                 // Now the main resources have been loaded we can init a few things		
                 _this.screens.init();
                 _this.captchas.init();
+                _this.game.init();
                 // Dont need the loading screen any more
                 _this.loadingScreen.visible = false;
-                // First menu depends on if we are logged in or not
-                var firstMenu = _this.backend.isLoggedIn ? _this.screens.main : _this.screens.login;
                 // If we are using a skipIntro debug flag then skip it now
                 if (Utils.deparam(location.href).skipIntro == "true") {
-                    _this.screens.open(firstMenu);
+                    _this.screens.open(_this.screens.login);
                 }
                 else {
                     _this.splashScreens.showSplashScreens(function () {
                         console.log("spash screens done, showing main menu.");
-                        _this.screens.open(firstMenu);
+                        _this.screens.open(_this.screens.login);
                     });
                 }
             });
@@ -99,6 +103,7 @@ var BeanstalkManager = (function () {
         // Update all the bits
         this.loadingScreen.update(delta);
         this.screens.update(delta);
+        this.ambience.update(delta);
         // Finally render
         this.stage.update(e);
     };

@@ -1,7 +1,77 @@
 [
     {
-        "src": "audio/main_theme.mp3",
-        "id": "main_theme_sound",
+        "src": "audio/Beanstalk Garden_V3.mp3",
+        "id": "beanstalk_garden_v3_sound",
+        "data": 99
+    },
+    {
+        "src": "audio/Beanstalk_flower_grow_bubble_02.mp3",
+        "id": "beanstalk_flower_grow_bubble_02_sound",
+        "data": 99
+    },
+    {
+        "src": "audio/Beanstalk_flower_grow_bubble_03.mp3",
+        "id": "beanstalk_flower_grow_bubble_03_sound",
+        "data": 99
+    },
+    {
+        "src": "audio/Beanstalk_Mountains_V3.mp3",
+        "id": "beanstalk_mountains_v3_sound",
+        "data": 99
+    },
+    {
+        "src": "audio/Beanstalk_Park_V2.mp3",
+        "id": "beanstalk_park_v2_sound",
+        "data": 99
+    },
+    {
+        "src": "audio/Beanstalk_Town_V1.mp3",
+        "id": "beanstalk_town_v1_sound",
+        "data": 99
+    },
+    {
+        "src": "audio/Leaves grow A1.mp3",
+        "id": "leaves_grow_a1_sound",
+        "data": 99
+    },
+    {
+        "src": "audio/Leaves grow A3.mp3",
+        "id": "leaves_grow_a3_sound",
+        "data": 99
+    },
+    {
+        "src": "audio/Leaves Wither A1.mp3",
+        "id": "leaves_wither_a1_sound",
+        "data": 99
+    },
+    {
+        "src": "audio/Letter Typed 1.mp3",
+        "id": "letter_typed_1_sound",
+        "data": 99
+    },
+    {
+        "src": "audio/Moon_and_Space.mp3",
+        "id": "moon_and_space_sound",
+        "data": 99
+    },
+    {
+        "src": "audio/Pass B2.mp3",
+        "id": "pass_b2_sound",
+        "data": 99
+    },
+    {
+        "src": "audio/Text Entry Backspace.mp3",
+        "id": "text_entry_backspace_sound",
+        "data": 99
+    },
+    {
+        "src": "audio/Type letter simple 02.mp3",
+        "id": "type_letter_simple_02_sound",
+        "data": 99
+    },
+    {
+        "src": "audio/Type Spacebar simple 02.mp3",
+        "id": "type_spacebar_simple_02_sound",
         "data": 99
     }
 ]

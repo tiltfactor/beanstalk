@@ -16,7 +16,7 @@
 	height: 768px;
 	position: absolute;
 	top: 260px;
-	left: 70px;
+	left: 10px;
 	padding: 105px;
 }
 
@@ -100,7 +100,10 @@
 	height: 63px;
 	margin-top: 10px;
 	margin-bottom: 10px;
-	padding: 23px;
+	padding-left: 23px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	padding-right: 23px;
 	border: none;
 }
 

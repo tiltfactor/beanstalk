@@ -14,10 +14,10 @@ class MainMenu extends ScreenBase {
 		super.init();		
 
 		// Listen for toggle on the music button
-		this.musicButton = $("#mainMenu button.music").click(() => {
-			beanstalk.audio.setMusicVolume(beanstalk.audio.musicVolume == 0 ? 1 : 0);
-			this.updateMusicButton();
-		});
+		//this.musicButton = $("#mainMenu button.music").click(() => {
+		//	beanstalk.audio.setMusicVolume(beanstalk.audio.musicVolume == 0 ? 1 : 0);
+		//	this.updateMusicButton();
+		//});
 
 		// Listen for toggle on the sound button
 		this.soundButton = $("#mainMenu button.sound").click(() => {
@@ -26,7 +26,7 @@ class MainMenu extends ScreenBase {
 		});
 
 		// Listen for clicks
-		$("#mainMenu button.play").click(() => beanstalk.screens.open(beanstalk.screens.game));
+		$("#mainMenu button.play").click(() => beanstalk.game.continueGame());
 		$("#mainMenu button.back").click(() => beanstalk.screens.open(beanstalk.screens.login));
 		$("#mainMenu button.highscores").click(() => beanstalk.screens.open(beanstalk.screens.highscores));
 		$("#mainMenu button.instructions").click(() => {
@@ -37,14 +37,14 @@ class MainMenu extends ScreenBase {
 
 	show() {
 		super.show();
-		this.updateMusicButton();
+		//this.updateMusicButton();
 		this.updateSoundButton();
 	}
 
-	private updateMusicButton() {
-		this.musicButton.removeClass("off");
-		if (beanstalk.audio.musicVolume == 0) this.musicButton.addClass("off");
-	}
+	//private updateMusicButton() {
+		//this.musicButton.removeClass("off");
+		//if (beanstalk.audio.musicVolume == 0) this.musicButton.addClass("off");
+	//}
 
 	private updateSoundButton() {
 		this.soundButton.removeClass("off");

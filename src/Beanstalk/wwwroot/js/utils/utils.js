@@ -27,6 +27,43 @@ var Utils = (function () {
     Utils.randomOne = function (array) {
         return array[Math.floor(Math.random() * array.length)];
     };
+    ///
+    // Borrowed from: http://erlycoder.com/105/javascript-weighted-random-value-from-array
+    ///
+    Utils.weightedRandomOne = function (array, weights) {
+        var normalisedWeights = new Array();
+        var sum = 0;
+        for (var i = 0; i < array.length; i++) {
+            sum += weights[i];
+            normalisedWeights[i] = sum;
+        }
+        for (var i = 0; i < array.length; i++) {
+            normalisedWeights[i] = normalisedWeights[i] / sum;
+        }
+        var needle = Math.random();
+        var high = normalisedWeights.length - 1;
+        var low = 0;
+        while (low < high) {
+            var probe = Math.ceil((high + low) / 2);
+            if (normalisedWeights[probe] < needle)
+                low = probe + 1;
+            else if (normalisedWeights[probe] > needle)
+                high = probe - 1;
+            else
+                return array[probe];
+        }
+        // Return corner cases
+        if (low != high)
+            return array[(normalisedWeights[low] >= needle) ? low : probe];
+        else
+            return array[(normalisedWeights[low] >= needle) ? low : low + 1];
+    };
+    Utils.popRandomOne = function (array) {
+        if (array.length == 0)
+            return null;
+        var indx = Math.floor(Math.random() * array.length);
+        return array.splice(indx, 1)[0];
+    };
     Utils.centre = function (obj, horizontally, vertically) {
         if (horizontally === void 0) { horizontally = true; }
         if (vertically === void 0) { vertically = true; }
@@ -58,6 +95,14 @@ var Utils = (function () {
             val = Math.min(val + change, target);
         else if (val > target)
             val = Math.max(val - change, target);
+        return val;
+    };
+    Utils.randomRange = function (min, max) {
+        return min + Math.random() * (max - min);
+    };
+    Utils.truncate = function (val, len) {
+        if (val.length > len - 3)
+            return val.substr(0, len - 3) + "..";
         return val;
     };
     return Utils;

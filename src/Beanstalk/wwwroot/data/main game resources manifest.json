@@ -15,25 +15,46 @@
 		{ "src": "images/UI/common/BS_btn_disabled.png", "id": "BS_btn_disabled" },
 		{ "src": "images/UI/common/beanstalk_logo.png", "id": "beanstalk_logo" },
 
+		{ "src": "data/local ocr page data.json", "id": "local_ocr_page_data" },
+		{ "src": "data/instructions data.json", "id": "instructions_data" },
+		{ "src": "data/animations data.json", "id": "animations_data" },
+
 		{ "src": "images/UI/login screen/blue_btn_disabled.png", "id": "blue_btn_disabled" },
 		{ "src": "images/UI/login screen/blue_btn_down.png", "id": "blue_btn_down" },
 		{ "src": "images/UI/login screen/blue_btn_over.png", "id": "blue_btn_over" },
 		{ "src": "images/UI/login screen/blue_btn_up.png", "id": "blue_btn_up" },
 		{ "src": "images/UI/login screen/login-screen-bg.png", "id": "login-screen-bg" },
 
-		{ "src": "images/Game/background middle.png", "id": "background_middle" },
+		{ "src": "images/Game/background-top-part.jpg", "id": "background-top-part" },
+		{ "src": "images/Game/background-middle-part.jpg", "id": "background-middle-part" },
+		{ "src": "images/Game/background-bottom-part.jpg", "id": "background-bottom-part" },
 		{ "src": "images/Game/concrete overlay.png", "id": "concrete_overlay" },
 
-		{ "src": "images/Plant Parts/BottomStalk.json", "id": "bottom_stalk_json" },
-		{ "src": "images/Plant Parts/BottomStalk.png", "id": "bottom_stalk_png" },
+		{ "src": "images/Plant Parts/Bottom Stalk.json", "id": "bottom_stalk_json" },
+		{ "src": "images/Plant Parts/Bottom Stalk.png", "id": "bottom_stalk_png" },
 		{ "src": "images/Plant Parts/BrightStalk.json", "id": "bright_stalk_json" },
 		{ "src": "images/Plant Parts/BrightStalk.png", "id": "bright_stalk_png" },
 		{ "src": "images/Plant Parts/DarkStalk.json", "id": "dark_stalk_json" },
 		{ "src": "images/Plant Parts/DarkStalk.png", "id": "dark_stalk_png" },
+		{ "src": "images/Plant Parts/TopStalk.json", "id": "top_stalk_json" },
+		{ "src": "images/Plant Parts/TopStalk.png", "id": "top_stalk_png" },
+		{ "src": "images/Plant Parts/flower1.png", "id": "flower1" },
+		{ "src": "images/Plant Parts/flower2.png", "id": "flower2" },
+		{ "src": "images/Plant Parts/flower3.png", "id": "flower3" },
+		{ "src": "images/Plant Parts/flower4.png", "id": "flower4" },
+    { "src": "images/Plant Parts/seed.png", "id": "seed" },
+
+    { "src": "images/Animations/tiny town.png", "id": "tiny_town_png" },
+    { "src": "images/Animations/tiny town.json", "id": "tiny_town_json" },
+    { "src": "images/Animations/animations.png", "id": "animations_png" },
+		{ "src": "images/Animations/animations.json", "id": "animations_json" },
 
 		{ "src": "images/Splash Screens/MBG-Logo.jpg", "id": "MBG_logo" },
 		{ "src": "images/Splash Screens/BHL Logo.png", "id": "BHL_logo" },
-		{ "src": "images/Splash Screens/Tiltfacor on White.png", "id": "TiltFactor_logo" }
+		{ "src": "images/Splash Screens/Tiltfacor on White.png", "id": "TiltFactor_logo" },
+
+		{ "src": "images/Other/Captchas.json", "id": "captchas_json" },
+		{ "src": "images/Other/Captchas.jpg", "id": "captchas_jpg" }
 
 	]
 }

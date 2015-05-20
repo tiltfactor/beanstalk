@@ -13,6 +13,10 @@ class BeanstalkManager {
 	backend: BackendManager;
 	user: UserManager;
 	captchas: CaptchaManager;
+	game: GameManager;
+    ambience: GameAmbienceManager;
+    sprites: SpriteSheetManager;
+    social: SocialManager;
 
 	constructor(config: BeanstalkConfig) {
 		this.config = config;
@@ -48,6 +52,10 @@ class BeanstalkManager {
 		this.backend = new BackendManager();
 		this.user = new UserManager();
 		this.captchas = new CaptchaManager();
+		this.game = new GameManager();
+        this.ambience = new GameAmbienceManager();
+        this.sprites = new SpriteSheetManager();
+        this.social = new SocialManager();
 
 		// Start off things invisible
 		this.loadingScreen.visible = false;
@@ -76,31 +84,31 @@ class BeanstalkManager {
 			// Now the initial resources have been loaded we can init the loading screen's bits and show it			
 			this.backend.init();
 			this.user.init();
-			this.audio.init();
+            this.audio.init();
+            this.social.init();
 			this.loadingScreen.init();			
 			this.loadingScreen.visible = true;
 
-			this.resources.loadMainGameResources(() => {
+            this.resources.loadMainGameResources(() => {
+
 				console.log("main game resources loaded, showing splash screens.");
 
 				// Now the main resources have been loaded we can init a few things		
 				this.screens.init();
-				this.captchas.init();
+				this.captchas.init();				
+				this.game.init();
 
 				// Dont need the loading screen any more
 				this.loadingScreen.visible = false;
 
-				// First menu depends on if we are logged in or not
-				var firstMenu = this.backend.isLoggedIn ? this.screens.main : this.screens.login;
-
 				// If we are using a skipIntro debug flag then skip it now
 				if (Utils.deparam(location.href).skipIntro == "true") {
-					this.screens.open(firstMenu);
+					this.screens.open(this.screens.login);
 				}
 				else {
 					this.splashScreens.showSplashScreens(() => {
 						console.log("spash screens done, showing main menu.");
-						this.screens.open(firstMenu);
+						this.screens.open(this.screens.login);
 					});
 				}		
 			});
@@ -136,6 +144,7 @@ class BeanstalkManager {
 		// Update all the bits
 		this.loadingScreen.update(delta);
 		this.screens.update(delta);
+		this.ambience.update(delta);
 
 		// Finally render
 		this.stage.update(e);
