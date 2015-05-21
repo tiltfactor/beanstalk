@@ -1,122 +1,145 @@
 {
   "animations": {
-    "types": {
-      "bush": {
+    "types": [
+      {
+        "id": "bush",
         "regX": 91,
         "regY": 106,
-        "framerate": 10
+        "framerate": 10,
+        "loopDelayMin": 3,
+        "loopDelayMax": 5
       },
-      "bush2": {
+      {
+        "id": "bush2",
         "regX": 139,
         "regY": 128,
-        "framerate": 10
+        "framerate": 10,
+        "loopDelayMin": 3,
+        "loopDelayMax": 5
       },
-      "tree": {
+      {
+        "id": "tree",
         "regX": 48,
         "regY": 178,
-        "framerate": 10
+        "framerate": 10,
+        "loopDelayMin": 3,
+        "loopDelayMax": 5
       },
-      "tree2": {
+      {
+        "id": "tree2",
         "regX": 86,
         "regY": 313,
-        "framerate": 10
+        "framerate": 10,
+        "loopDelayMin": 3,
+        "loopDelayMax": 5
       },
-      "star2": {
+      {
+        "id": "star2",
         "regX": 41,
         "regY": 49,
-        "framerate": 2
+        "framerate": 2,
+        "loopDelayMin": 0,
+        "loopDelayMax": 1
       },
-      "smoke": {
+      {
+        "id": "smoke",
         "regX": 12,
         "regY": 98,
-        "framerate": 5
+        "framerate": 5,
+        "loopDelayMin": 0,
+        "loopDelayMax": 0
       }
-    },
-    "positions": [
+    ],
+    "instances": [
       {
         "type": "bush",
         "x": 485,
         "y": 4361,
-        "scale":  1
+        "scale": 1
       },
       {
         "type": "bush",
         "x": 342,
         "y": 4001,
-        "scale":  1
+        "scale": 1
       },
       {
         "type": "bush2",
         "x": 23,
         "y": 4601,
-        "scale":  1
+        "scale": 1
       },
       {
         "type": "smoke",
         "x": 258,
         "y": 2785,
-        "scale":  1
+        "scale": 1
       },
       {
         "type": "tree2",
         "x": 677,
         "y": 3553,
-        "scale":  1
+        "scale": 1
       },
       {
         "type": "tree",
         "x": 557,
         "y": 3341,
-        "scale":  1
+        "scale": 1
       },
       {
         "type": "star2",
         "x": 713,
         "y": 130,
-        "scale":  1
+        "scale": 1
       },
       {
         "type": "star2",
         "x": 587,
         "y": 522,
-        "scale":  1
+        "scale": 1
       },
       {
         "type": "star2",
         "x": 287,
         "y": -100,
-        "scale":  0.8
+        "scale": 0.8
       }
     ]
   },
   "tinytown": {
-    "types": {
-      "blimp": {
+    "types": [
+      {
+        "id": "blimp",
         "regX": 155,
         "regY": 212,
         "framerate": 10
       },
-      "deer": {
+      {
+        "id": "deer",
         "regX": 173,
         "regY": 249,
         "framerate": 10
       },
-      "goat": {
+      {
+        "id": "goat",
         "regX": 175,
         "regY": 233,
         "framerate": 10
       },
-      "man window": {
+      {
+        "id": "man window",
         "regX": 162,
         "regY": 259,
         "framerate": 10
       }
-    },
-    "positions": [
+    ],
+    "instances": [
       {
         "type": "blimp",
         "x": 485,
-        "y": 4361
+        "y": 4361,
+        "scale": 1
       }
     ]
   }

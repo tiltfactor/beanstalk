@@ -46,5 +46,11 @@ var SBSpriteUtils = (function () {
         //img.src = canvas.toDataURL("image/png");
         //return img;
     };
+    SBSpriteUtils.addRandomDelayToLoop = function (sprite, minTimeSeconds, maxTimeSeconds) {
+        sprite.on("animationend", function (obj) {
+            sprite.stop();
+            createjs.Tween.get(sprite).wait(Utils.randomRange(minTimeSeconds, maxTimeSeconds) * 1000).call(function () { return sprite.play(); });
+        });
+    };
     return SBSpriteUtils;
 })();

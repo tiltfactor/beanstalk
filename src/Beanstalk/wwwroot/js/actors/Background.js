@@ -31,6 +31,7 @@ var Background = (function (_super) {
         this.tinyTownConatiner = new createjs.Container();
         this.addChild(this.tinyTownConatiner);
         this.addAnimations();
+        this.addTinyTownAnims();
     }
     Background.prototype.getBGHeight = function () {
         return this.bgParts.getBounds().height;
@@ -39,17 +40,34 @@ var Background = (function (_super) {
         var _this = this;
         var data = beanstalk.resources.getResource("animations_data");
         var ss = this.getSpriteSheet("animations");
-        _.each(data.animations.positions, function (a) {
-            var t = data.animations.types[a.type];
+        _.each(data.animations.instances, function (a) {
+            var type = _.find(data.animations.types, function (t) { return t.id == a.type; });
             var anim = new SBSprite(ss, a.type);
-            anim.regX = t.regX;
-            anim.regY = t.regY;
-            anim.framerate = t.framerate;
+            anim.regX = type.regX;
+            anim.regY = type.regY;
+            anim.framerate = type.framerate;
             anim.currentAnimationFrame = Math.floor(Math.random() * ss.getNumFrames(a.type));
             anim.x = a.x;
             anim.y = a.y - _this.getBGHeight();
             anim.scaleX = anim.scaleY = a.scale;
+            SBSpriteUtils.addRandomDelayToLoop(anim, type.loopDelayMin, type.loopDelayMax);
             _this.animationsContainer.addChild(anim);
+        });
+    };
+    Background.prototype.addTinyTownAnims = function () {
+        var _this = this;
+        var data = beanstalk.resources.getResource("animations_data");
+        var ss = this.getSpriteSheet("tiny_town");
+        _.each(data.tinytown.instances, function (a) {
+            var type = _.find(data.tinytown.types, function (t) { return t.id == a.type; });
+            var tt;
+            if (a.type == "blimp")
+                tt = new Blimp(type);
+            tt.sprite.x = a.x;
+            tt.sprite.y = a.y - _this.getBGHeight();
+            tt.sprite.scaleX = tt.sprite.scaleY = a.scale;
+            //SBSpriteUtils.addRandomDelayToLoop(anim, t.loopDelayMin, t.loopDelayMax);
+            _this.animationsContainer.addChild(tt);
         });
     };
     Background.prototype.getSpriteSheet = function (type) {

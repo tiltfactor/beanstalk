@@ -57,5 +57,14 @@
         //img.src = canvas.toDataURL("image/png");
         //return img;
     }
+
+    static addRandomDelayToLoop(sprite: SBSprite, minTimeSeconds: number, maxTimeSeconds: number) {
+        sprite.on("animationend", obj => {
+            sprite.stop();
+            createjs.Tween.get(sprite)
+                .wait(Utils.randomRange(minTimeSeconds, maxTimeSeconds) * 1000)
+                .call(() => sprite.play());
+        });
+    }
 	
 }

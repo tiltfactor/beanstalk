@@ -6,14 +6,20 @@ interface SimplePoint {
 }
 
 interface AnimationsData {
-    animations: { types: _.Dictionary<AnimationType>; positions: AnimationInstance[] };
-    tinytown: { types: _.Dictionary<AnimationType>; positions: AnimationInstance[] };
+    animations: { types: AnimationType[]; instances: AnimationInstance[] };
+    tinytown: { types: TinyTownAnimationType[]; instances: TinyTownAnimationInstance[] };
 }
 
 interface AnimationType {
+    id: string;
     regX: number;
     regY: number;
     framerate: number;    
+    loopDelayMin: number;
+    loopDelayMax: number;
+}
+
+interface TinyTownAnimationType extends AnimationType {
 }
 
 interface AnimationInstance {
@@ -21,6 +27,9 @@ interface AnimationInstance {
     x: number;
     y: number;
     scale: number;
+}
+
+interface TinyTownAnimationInstance extends AnimationInstance {
 }
 
 interface BeanstalkConfig {
