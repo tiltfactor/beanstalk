@@ -36,6 +36,9 @@ var Background = (function (_super) {
     Background.prototype.getBGHeight = function () {
         return this.bgParts.getBounds().height;
     };
+    Background.prototype.getBGWidth = function () {
+        return this.bgParts.getBounds().width;
+    };
     Background.prototype.addAnimations = function () {
         var _this = this;
         var data = beanstalk.resources.getResource("animations_data");
@@ -57,23 +60,49 @@ var Background = (function (_super) {
     Background.prototype.addTinyTownAnims = function () {
         var _this = this;
         var data = beanstalk.resources.getResource("animations_data");
+        this.tinyTownAnims = [];
         var ss = this.getSpriteSheet("tiny_town");
         _.each(data.tinytown.instances, function (a) {
             var type = _.find(data.tinytown.types, function (t) { return t.id == a.type; });
+            //if (a.type != "man window") return;
             var tt;
             if (a.type == "blimp")
                 tt = new Blimp(type);
+            else if (a.type == "goat")
+                tt = new TinyTownAnim(type);
+            else if (a.type == "deer")
+                tt = new Deer(type);
+            else if (a.type == "man window")
+                tt = new ManWindow(type);
             tt.sprite.x = a.x;
             tt.sprite.y = a.y - _this.getBGHeight();
             tt.sprite.scaleX = tt.sprite.scaleY = a.scale;
-            //SBSpriteUtils.addRandomDelayToLoop(anim, t.loopDelayMin, t.loopDelayMax);
-            _this.animationsContainer.addChild(tt);
+            tt.visible = false;
+            _this.tinyTownConatiner.addChild(tt);
+            _this.tinyTownAnims.push(tt);
         });
+    };
+    Background.prototype.showNextTinyTownAnim = function () {
+        // First make sure all anims are invisible
+        _.each(this.tinyTownAnims, function (tt) { return tt.visible = false; });
+        // Work out what is the lowest showCount
+        var min = _.min(this.tinyTownAnims, function (t) { return t.showCount; }).showCount;
+        // Now group them by the number of times they have been played
+        var group = _.chain(this.tinyTownAnims).sortBy(function (t) { return t.showCount; }).groupBy(function (t) { return t.showCount; }).value()[min];
+        console.log("anims grp", group, this.tinyTownAnims);
+        // Set the active and increment its showcount so it is not shown next time
+        this.activeTinyTown = Utils.randomOne(group);
+        this.activeTinyTown.showCount++;
+        this.activeTinyTown.visible = true;
     };
     Background.prototype.getSpriteSheet = function (type) {
         var d = beanstalk.resources.getResource(type + "_json");
         d.images = [beanstalk.resources.getResource(type + "_png")];
         return beanstalk.sprites.getSpriteSheet(type, new createjs.SpriteSheet(d));
+    };
+    Background.prototype.update = function (delta) {
+        if (this.activeTinyTown != null)
+            this.activeTinyTown.update(delta);
     };
     return Background;
 })(createjs.Container);

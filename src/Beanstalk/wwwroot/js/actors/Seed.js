@@ -15,7 +15,7 @@ var Seed = (function (_super) {
     __extends(Seed, _super);
     function Seed() {
         _super.call(this, beanstalk.resources.getResource("seed"));
-        this.vel = -650;
+        this.vel = -700;
         this.state = 0 /* None */;
         this.regX = this.getBounds().width / 2;
         this.regY = this.getBounds().height / 2;

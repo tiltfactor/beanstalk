@@ -5,6 +5,9 @@ class Background extends createjs.Container {
     animationsContainer: createjs.Container;
     tinyTownConatiner: createjs.Container;
 
+    private activeTinyTown: TinyTownAnim;
+    private tinyTownAnims: TinyTownAnim[];
+
 	constructor() {
         super();
 
@@ -45,6 +48,10 @@ class Background extends createjs.Container {
         return this.bgParts.getBounds().height;
     }
 
+    getBGWidth() {
+        return this.bgParts.getBounds().width;
+    }
+
     private addAnimations() {
 
         var data = <AnimationsData>beanstalk.resources.getResource("animations_data");
@@ -73,28 +80,62 @@ class Background extends createjs.Container {
 
         var data = <AnimationsData>beanstalk.resources.getResource("animations_data");
 
+        this.tinyTownAnims = [];
+
         var ss = this.getSpriteSheet("tiny_town");
         _.each(data.tinytown.instances, a => {
 
             var type = _.find(data.tinytown.types, t => t.id == a.type);
 
+            //if (a.type != "man window") return;
+
             var tt: TinyTownAnim;
             if (a.type == "blimp") tt = new Blimp(type);
+            else if (a.type == "goat") tt = new TinyTownAnim(type);
+            else if (a.type == "deer") tt = new Deer(type);
+            else if (a.type == "man window") tt = new ManWindow(type);
 
             tt.sprite.x = a.x;
             tt.sprite.y = a.y - this.getBGHeight();
             tt.sprite.scaleX = tt.sprite.scaleY = a.scale;
-            //SBSpriteUtils.addRandomDelayToLoop(anim, t.loopDelayMin, t.loopDelayMax);
 
-            this.animationsContainer.addChild(tt);
+            tt.visible = false;
+            this.tinyTownConatiner.addChild(tt);
+            this.tinyTownAnims.push(tt);
         });
 
+    }
+
+    public showNextTinyTownAnim() {
+        // First make sure all anims are invisible
+        _.each(this.tinyTownAnims, tt => tt.visible = false);
+
+        // Work out what is the lowest showCount
+        var min = _.min(this.tinyTownAnims, t => t.showCount).showCount;
+
+        // Now group them by the number of times they have been played
+        var group = _.chain(this.tinyTownAnims)
+            .sortBy(t => t.showCount)
+            .groupBy(t => t.showCount)                                  
+            .value()[min]
+
+        console.log("anims grp", group, this.tinyTownAnims);
+
+        // Set the active and increment its showcount so it is not shown next time
+        this.activeTinyTown = Utils.randomOne(group);
+        this.activeTinyTown.showCount++;
+        this.activeTinyTown.visible = true;
     }
 
     private getSpriteSheet(type:string): SBSpriteSheet {
         var d = beanstalk.resources.getResource(type+"_json");
         d.images = [beanstalk.resources.getResource(type+"_png")];
         return beanstalk.sprites.getSpriteSheet(type, new createjs.SpriteSheet(d));
+    }
+
+    public update(delta: number) {
+        if (this.activeTinyTown != null)
+            this.activeTinyTown.update(delta);
     }
 
 	

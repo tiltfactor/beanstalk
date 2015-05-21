@@ -129,6 +129,7 @@ class GameScreen extends ScreenBase
 		this.container.y = Math.max(this.container.y, this.minCamHeight);
 
         this.plant.update(delta);
+        this.background.update(delta);
 	}
 
 	growSeed(x: number, y: number)
@@ -154,7 +155,8 @@ class GameScreen extends ScreenBase
 			});
 
 			this.plant.reset();
-			this.plant.growBottom();
+            this.plant.growBottom();
+            this.background.showNextTinyTownAnim();
 		});	
 	}
 

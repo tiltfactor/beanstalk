@@ -37,7 +37,10 @@ class GameManager {
 		});	
 
 		// Start the ambience
-		beanstalk.ambience.init();			
+        beanstalk.ambience.init();		
+
+        // Show the next tinytown
+        beanstalk.screens.game.background.showNextTinyTownAnim();	
 	}
 
 	quitToMenus() {

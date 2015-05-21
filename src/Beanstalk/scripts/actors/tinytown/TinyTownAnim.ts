@@ -2,13 +2,13 @@
 
     sprite: SBSprite;
     type: TinyTownAnimationType;
+    showCount: number;
 
     constructor(type: TinyTownAnimationType) {
 
         super();
-
        
-
+        this.showCount = 0;
         this.type = type;
         var ss = this.getSpriteSheet(type.id);
         this.sprite = new SBSprite(ss, type.id);
@@ -17,9 +17,7 @@
         this.sprite.regX = type.regX;
         this.sprite.regY = type.regY;
         this.sprite.framerate = type.framerate;
-        this.sprite.currentAnimationFrame = Math.floor(Math.random() * ss.getNumFrames(type.id));
-       
-
+        this.sprite.currentAnimationFrame = Math.floor(Math.random() * ss.getNumFrames(type.id));     
     }
 
     private getSpriteSheet(type: string): SBSpriteSheet {
@@ -28,6 +26,7 @@
         return beanstalk.sprites.getSpriteSheet(type, new createjs.SpriteSheet(d));
     }
 
-
+    public update(delta: number) {
+    }
 
 }

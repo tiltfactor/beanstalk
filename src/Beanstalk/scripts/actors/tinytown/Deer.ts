@@ -1,6 +1,6 @@
-﻿class Blimp extends TinyTownAnim {
+﻿class Deer extends TinyTownAnim {
 
-    private vel: number = -50;
+    private vel: number = -100;
     
     constructor(instance: TinyTownAnimationType) {
         super(instance);       

@@ -119,7 +119,7 @@
         "id": "deer",
         "regX": 173,
         "regY": 249,
-        "framerate": 10
+        "framerate": 20
       },
       {
         "id": "goat",
@@ -129,17 +129,35 @@
       },
       {
         "id": "man window",
-        "regX": 162,
-        "regY": 259,
+        "regX": 91,
+        "regY": 38,
         "framerate": 10
       }
     ],
     "instances": [
       {
         "type": "blimp",
-        "x": 485,
-        "y": 4361,
+        "x": 647,
+        "y": 1142,
         "scale": 1
+      },
+      {
+        "type": "goat",
+        "x": 545,
+        "y": 1542,
+        "scale": 1
+      },
+      {
+        "type": "deer",
+        "x": 737,
+        "y": 4067,
+        "scale": 1
+      },
+      {
+        "type": "man window",
+        "x": 174,
+        "y": 3036,
+        "scale": 0.421875
       }
     ]
   }

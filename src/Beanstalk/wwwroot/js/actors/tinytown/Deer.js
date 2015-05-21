@@ -4,18 +4,18 @@ var __extends = this.__extends || function (d, b) {
     __.prototype = b.prototype;
     d.prototype = new __();
 };
-var Blimp = (function (_super) {
-    __extends(Blimp, _super);
-    function Blimp(instance) {
+var Deer = (function (_super) {
+    __extends(Deer, _super);
+    function Deer(instance) {
         _super.call(this, instance);
-        this.vel = -50;
+        this.vel = -100;
     }
-    Blimp.prototype.update = function (delta) {
+    Deer.prototype.update = function (delta) {
         this.x += this.vel * delta;
         var w = this.sprite.getBounds().width;
         var bgw = beanstalk.screens.game.background.getBGWidth();
         if (this.x < -w - 600)
             this.x = bgw;
     };
-    return Blimp;
+    return Deer;
 })(TinyTownAnim);

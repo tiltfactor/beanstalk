@@ -94,6 +94,7 @@ var GameScreen = (function (_super) {
         //this.container.y = Math.min(this.container.y, this.maxCamHeight);
         this.container.y = Math.max(this.container.y, this.minCamHeight);
         this.plant.update(delta);
+        this.background.update(delta);
     };
     GameScreen.prototype.growSeed = function (x, y) {
         this.seed = new Seed();
@@ -114,6 +115,7 @@ var GameScreen = (function (_super) {
             });
             _this.plant.reset();
             _this.plant.growBottom();
+            _this.background.showNextTinyTownAnim();
         });
     };
     GameScreen.prototype.show = function () {

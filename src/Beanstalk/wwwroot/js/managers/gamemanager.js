@@ -26,6 +26,8 @@ var GameManager = (function () {
         });
         // Start the ambience
         beanstalk.ambience.init();
+        // Show the next tinytown
+        beanstalk.screens.game.background.showNextTinyTownAnim();
     };
     GameManager.prototype.quitToMenus = function () {
         this.state = 0 /* Menus */;
