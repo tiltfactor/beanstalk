@@ -29,6 +29,7 @@
 		{ "src": "images/Game/background-middle-part.jpg", "id": "background-middle-part" },
 		{ "src": "images/Game/background-bottom-part.jpg", "id": "background-bottom-part" },
 		{ "src": "images/Game/concrete overlay.png", "id": "concrete_overlay" },
+		{ "src": "images/Game/side-plant-crack.png", "id": "side_plant_crack" },
 
 		{ "src": "images/Plant Parts/Bottom Stalk.json", "id": "bottom_stalk_json" },
 		{ "src": "images/Plant Parts/Bottom Stalk.png", "id": "bottom_stalk_png" },

@@ -16,15 +16,15 @@ class Background extends createjs.Container {
 
         // Add the background parts (split for performance)
         var bottom = new createjs.Bitmap(beanstalk.resources.getResource("background-bottom-part"));
-        bottom.regY = Math.round(bottom.getBounds().height);
+        bottom.regY = bottom.getBounds().height;
         this.bgParts.addChild(bottom);
 
         var middle = new createjs.Bitmap(beanstalk.resources.getResource("background-middle-part"));
-        middle.regY = Math.round(bottom.getBounds().height + middle.getBounds().height);
+        middle.regY = bottom.getBounds().height + middle.getBounds().height - 1;
         this.bgParts.addChild(middle);
 
         var top = new createjs.Bitmap(beanstalk.resources.getResource("background-top-part"));
-        top.regY = Math.round(bottom.getBounds().height + middle.getBounds().height + top.getBounds().height);
+        top.regY = bottom.getBounds().height + middle.getBounds().height + top.getBounds().height - 2;
         this.bgParts.addChild(top);
 
         var solidSpace = new createjs.Shape();

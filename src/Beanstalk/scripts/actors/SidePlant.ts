@@ -1,6 +1,7 @@
 ﻿class SidePlant extends createjs.Container {
 
 
+
     constructor(stalks: number) {
         super();
 
@@ -13,6 +14,12 @@
             s.y = -i * 180;
             this.addChild(s);
         }
+
+
+        var crack = new createjs.Bitmap(beanstalk.resources.getResource("side_plant_crack"));
+        crack.y = 710;
+        crack.x = 52;
+        this.addChild(crack);
 
         //var shape = new createjs.Shape();
         //shape.graphics.beginFill("red");
