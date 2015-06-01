@@ -60,7 +60,7 @@
 	playSound(id: string, volumeMultipler: number = 1): createjs.AbstractSoundInstance {
 		var sound = createjs.Sound.play(id);
 		sound.volume = this.soundVolume * volumeMultipler;
-		this.soundsPlaying.push(sound);
+        this.soundsPlaying.push(sound);   
 		return sound;
 	}
 
@@ -85,9 +85,12 @@
 		for (var i = 0; i < this.soundsPlaying.length; i++) {
 			var s = this.soundsPlaying[i];
 			if (s.playState == "playFinished") {
-				this.soundsPlaying.splice(i, 1);
+                this.soundsPlaying.splice(i, 1);
+                s.destroy();
 				i--;
 			}
-		}
+        }
+
+        
 	}
 }

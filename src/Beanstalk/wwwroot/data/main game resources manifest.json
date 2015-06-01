@@ -1,11 +1,11 @@
 ﻿{
 	"manifest": [
 		
-		{ "src": "html/main menu.html", "id": "main_menu_html" },
-		{ "src": "html/game screen.html", "id": "game_screen_html" },
-		{ "src": "html/instructions screen.html", "id": "instructions_screen_html" },
-		{ "src": "html/login screen.html", "id": "login_screen_html" },
-		{ "src": "html/highscores screen.html", "id": "highscores_screen_html" },
+		{ "src": "html/main-menu.html", "id": "main_menu_html" },
+		{ "src": "html/game-screen.html", "id": "game_screen_html" },
+		{ "src": "html/instructions-screen.html", "id": "instructions_screen_html" },
+		{ "src": "html/login-screen.html", "id": "login_screen_html" },
+		{ "src": "html/highscores-screen.html", "id": "highscores_screen_html" },
 
 		{ "src": "images/UI/main menu/buttons_bg.png", "id": "main_menu_buttons_bg" },
 
@@ -30,6 +30,7 @@
 		{ "src": "images/Game/background-bottom-part.jpg", "id": "background-bottom-part" },
 		{ "src": "images/Game/concrete overlay.png", "id": "concrete_overlay" },
 		{ "src": "images/Game/side-plant-crack.png", "id": "side_plant_crack" },
+		{ "src": "images/Game/side-plant-root.png", "id": "side_plant_root" },
 
 		{ "src": "images/Plant Parts/Bottom Stalk.json", "id": "bottom_stalk_json" },
 		{ "src": "images/Plant Parts/Bottom Stalk.png", "id": "bottom_stalk_png" },

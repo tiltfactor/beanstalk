@@ -33,9 +33,18 @@ class Seed extends createjs.Bitmap {
 		t = this.shake(t, 40, 20, 40);
 		t = t.wait(500);
 		t = this.shake(t, 40, 10, 30)
-		t.call(() => this.state = SeedState.Falling);
+        t.call(() => this.startFalling())
+    }
 
-	}
+    private startFalling() {
+        this.state = SeedState.Falling;
+
+        // Make the seed drift to the right then drift back again
+        var xFrom = this.x;
+        createjs.Tween.get(this)
+            .to({ x: xFrom + 300 }, 3000, createjs.Ease.quadOut)
+            .to({ x: xFrom }, 3000, createjs.Ease.quadIn);
+    }
 
 	update(delta: number) {
 		if (this.state == SeedState.Falling) {

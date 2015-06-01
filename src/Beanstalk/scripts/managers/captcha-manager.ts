@@ -20,8 +20,12 @@
 	init() {
 
 		$("#gameScreen button.submit").click(() => this.testTextEntry());	
-		$("#gameScreen button.pass-btn").click(() => this.pass());
-		$("#gameScreen .hud .height").click(() => this.onCaptchaEnteredSuccessfully());
+        $("#gameScreen button.pass-btn").click(() => this.pass());
+
+        // Only if we are debugging do we allow the auto-grow-cheat
+        if (beanstalk.config.debug)
+            $("#gameScreen .hud .height").click(() => this.onCaptchaEnteredSuccessfully());
+
 		this.input = $("#gameScreen .hud .bottom-hud input");
 		this.input.on("keydown",(event) => this.onKeyDown(event));		
 

@@ -30,7 +30,13 @@ var Seed = (function (_super) {
         t = this.shake(t, 40, 20, 40);
         t = t.wait(500);
         t = this.shake(t, 40, 10, 30);
-        t.call(function () { return _this.state = 2 /* Falling */; });
+        t.call(function () { return _this.startFalling(); });
+    };
+    Seed.prototype.startFalling = function () {
+        this.state = 2 /* Falling */;
+        // Make the seed drift to the right then drift back again
+        var xFrom = this.x;
+        createjs.Tween.get(this).to({ x: xFrom + 300 }, 3000, createjs.Ease.quadOut).to({ x: xFrom }, 3000, createjs.Ease.quadIn);
     };
     Seed.prototype.update = function (delta) {
         if (this.state == 2 /* Falling */) {

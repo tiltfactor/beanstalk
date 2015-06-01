@@ -2,10 +2,13 @@
 var BeanstalkManager = (function () {
     function BeanstalkManager(config) {
         this.config = config;
-        this.config.debug = location.hostname == "localhost";
     }
     BeanstalkManager.prototype.init = function () {
         var _this = this;
+        // if we arent debugging then dont show the log messages
+        if (!this.config.debug)
+            console.log = function () {
+            };
         console.log("starting up Beanstalk");
         // Create the main stage
         this.stage = new createjs.Stage("mainCanvas");

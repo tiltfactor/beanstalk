@@ -75,6 +75,7 @@ var AudioManager = (function () {
             var s = this.soundsPlaying[i];
             if (s.playState == "playFinished") {
                 this.soundsPlaying.splice(i, 1);
+                s.destroy();
                 i--;
             }
         }

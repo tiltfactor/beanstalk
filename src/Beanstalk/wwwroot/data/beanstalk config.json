@@ -60,28 +60,29 @@
 			}
 		}
 	},
-	"backgroundSections": {
-		"garden": {
-			"height": 4520,
-			"ambience": "beanstalk_garden_v2_sound"
-		},
-		"park": {
-			"height": 3500,
-			"ambience": "beanstalk_park_v2_sound"
-		},
-		"town": {
-			"height": 2800,
-			"ambience": "beanstalk_town_v1_sound"
-		},
-		"mountains": {
-			"height": 1800,
-			"ambience": "beanstalk_mountains_v3_sound"
-		},
-		"space": {
-			"height": 800,
-			"ambience": "moon_and_space_sound"
-		}
-	},
+  "backgroundSections": {
+    "garden": {
+      "height": 4520,
+      "ambience": "beanstalk_garden_v2_sound"
+    },
+    "park": {
+      "height": 3500,
+      "ambience": "beanstalk_park_v2_sound"
+    },
+    "town": {
+      "height": 2800,
+      "ambience": "beanstalk_town_v1_sound"
+    },
+    "mountains": {
+      "height": 1800,
+      "ambience": "beanstalk_mountains_v3_sound"
+    },
+    "space": {
+      "height": 800,
+      "ambience": "moon_and_space_sound"
+    }
+  },
+  "debug":  false,
 	"penaltyTime":  1,
 	"entriesBeforeServerSubmission":  10,
 	"PageAPIUrl": "http://tiltfactor1.dartmouth.edu:8080/api/page",

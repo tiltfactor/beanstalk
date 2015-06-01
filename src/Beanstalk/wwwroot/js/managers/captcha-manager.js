@@ -9,7 +9,9 @@ var CaptchaManager = (function () {
         var _this = this;
         $("#gameScreen button.submit").click(function () { return _this.testTextEntry(); });
         $("#gameScreen button.pass-btn").click(function () { return _this.pass(); });
-        $("#gameScreen .hud .height").click(function () { return _this.onCaptchaEnteredSuccessfully(); });
+        // Only if we are debugging do we allow the auto-grow-cheat
+        if (beanstalk.config.debug)
+            $("#gameScreen .hud .height").click(function () { return _this.onCaptchaEnteredSuccessfully(); });
         this.input = $("#gameScreen .hud .bottom-hud input");
         this.input.on("keydown", function (event) { return _this.onKeyDown(event); });
         window.onkeydown = function (event) {

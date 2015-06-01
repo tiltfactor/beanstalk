@@ -20,10 +20,13 @@ class BeanstalkManager {
 
 	constructor(config: BeanstalkConfig) {
 		this.config = config;
-		this.config.debug = location.hostname == "localhost";
 	}
 
-	init() {
+    init() {
+        // if we arent debugging then dont show the log messages
+        if (!this.config.debug)
+            console.log = function () { }
+
 		console.log("starting up Beanstalk");
 
 		// Create the main stage
