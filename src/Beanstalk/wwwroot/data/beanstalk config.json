@@ -82,12 +82,12 @@
       "ambience": "moon_and_space_sound"
     }
   },
-  "debug":  false,
+ 	"debug":  true,
 	"penaltyTime":  1,
-	"entriesBeforeServerSubmission":  10,
-	"PageAPIUrl": "http://tiltfactor1.dartmouth.edu:8080/api/page",
-	"DifferenceAPIUrl": "http://tiltfactor1.dartmouth.edu:8080/api/difference",
-  "PageAPITimeout": 3000,
-  "fbAppId":  "849783798403345",
-	"PageAPIAccessToken":  "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJHYW1lIiwiaWF0IjoxNDE1MzQxNjMxMjY4LCJpc3MiOiJCSExTZXJ2ZXIifQ.bwRps5G6lAd8tGZKK7nExzhxFrZmAwud0C2RW26sdRM"
+	"entriesBeforeServerSubmission":  25,
+	"PageAPIUrl": "http://tiltfactor1.dartmouth.edu:8081/api/page",
+	"DifferenceAPIUrl": "http://tiltfactor1.dartmouth.edu:8081/api/difference",
+	"PageAPITimeout":  3000,
+	"PageAPIAccessToken":  "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJUaWx0ZmFjdG9yIiwiaWF0IjoxNDI3OTE2MTIxNDI1LCJpc3MiOiJCSExTZXJ2ZXIifQ.T19ejRiQPnVzCmh-PFKULwNQ4yhebbQac4o61NcZkvA",
+  	"fbAppId":  "849783798403345"
 }
