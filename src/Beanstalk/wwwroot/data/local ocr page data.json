@@ -2,59 +2,59 @@
 	"isLocal": true,
 	"differences": [
 		{
-			"id": "000",
-			"frame": 0,
+			"id": "118",
+			"frame": 118,
 			"texts": [
-				"pretty",
-				"pretty"
+				"enjoy",
+				"enjoy"
 			]
 		},
 		{
-			"id": "001",
-			"frame": 1,
+			"id": "145",
+			"frame": 145,
 			"texts": [
-				"throughout,",
-				"throughout,"
+				"grand.",
+				"grand."
 			]
 		},
 		{
-			"id": "002",
-			"frame": 2,
+			"id": "006",
+			"frame": 6,
 			"texts": [
-				"Torr.",
-				"Torr."
-			]
-		},
-		{
-			"id": "003",
-			"frame": 3,
-			"texts": [
-				"ROSA",
-				"ROSA"
+				"Belle",
+				"Belle"
 			]
 		},
 		{
 			"id": "004",
 			"frame": 4,
 			"texts": [
-				"Gray's Flora,",
-				"Gray's Flora,"
+				"BAY",
+				"BAY"
 			]
 		},
 		{
-			"id": "005",
-			"frame": 5,
+			"id": "132",
+			"frame": 132,
 			"texts": [
-				"ROSACEAE.",
-				"ROSACEAE."
+				"fifty feet",
+				"fifty feet"
 			]
 		},
 		{
-			"id": "055",
-			"frame": 55,
+			"id": "026",
+			"frame": 26,
 			"texts": [
-				"6/10",
-				"6/10"
+				"MALVACEAE",
+				"MALVACEÆ."
+			]
+		},
+		{
+			"id": "001",
+			"frame": 1,
+			"texts": [
+				"21/2",
+				"2 1/2"
 			]
 		},
 		{
@@ -62,4215 +62,2575 @@
 			"frame": 73,
 			"texts": [
 				"bractea",
-				"bracteâ"
-			]
-		},
-		{
-			"id": "007",
-			"frame": 7,
-			"texts": [
-				"m dvu",
-				"Â«Em"
-			]
-		},
-		{
-			"id": "008",
-			"frame": 8,
-			"texts": [
-				"decumhens",
-				"decumbens"
-			]
-		},
-		{
-			"id": "009",
-			"frame": 9,
-			"texts": [
-				"seeded,",
-				"seeded."
-			]
-		},
-		{
-			"id": "010",
-			"frame": 10,
-			"texts": [
-				"HosACKTA",
-				"HIOSACKIA"
-			]
-		},
-		{
-			"id": "011",
-			"frame": 11,
-			"texts": [
-				"PuRSHiANA,",
-				"PURSHIANA,"
-			]
-		},
-		{
-			"id": "012",
-			"frame": 12,
-			"texts": [
-				"Beuth.^",
-				"Benth.,"
-			]
-		},
-		{
-			"id": "013",
-			"frame": 13,
-			"texts": [
-				"pobescent",
-				"pubescent"
-			]
-		},
-		{
-			"id": "014",
-			"frame": 14,
-			"texts": [
-				"Grays",
-				"Gray's"
-			]
-		},
-		{
-			"id": "006",
-			"frame": 6,
-			"texts": [
-				"l-l|",
-				"1-1j"
-			]
-		},
-		{
-			"id": "015",
-			"frame": 15,
-			"texts": [
-				"Flora^",
-				"Flora,"
-			]
-		},
-		{
-			"id": "016",
-			"frame": 16,
-			"texts": [
-				"i,^.",
-				"i, p."
-			]
-		},
-		{
-			"id": "017",
-			"frame": 17,
-			"texts": [
-				"Agavdli.^",
-				"Agardh.,"
-			]
-		},
-		{
-			"id": "018",
-			"frame": 18,
-			"texts": [
-				"hranchlets",
-				"branchlets"
-			]
-		},
-		{
-			"id": "019",
-			"frame": 19,
-			"texts": [
-				"j9.",
-				"p."
-			]
-		},
-		{
-			"id": "020",
-			"frame": 20,
-			"texts": [
-				"pekexxis?",
-				"PERENNIS ?"
-			]
-		},
-		{
-			"id": "021",
-			"frame": 21,
-			"texts": [
-				"Linn,",
-				"Linn."
-			]
-		},
-		{
-			"id": "022",
-			"frame": 22,
-			"texts": [
-				"umhellose,",
-				"umbellose,"
-			]
-		},
-		{
-			"id": "023",
-			"frame": 23,
-			"texts": [
-				"1^-2",
-				"1-2"
-			]
-		},
-		{
-			"id": "024",
-			"frame": 24,
-			"texts": [
-				"FRAXiNiroLiA,",
-				"FRAXINIFOLIA,"
-			]
-		},
-		{
-			"id": "025",
-			"frame": 25,
-			"texts": [
-				"Bovh. ,",
-				"Bork.,"
-			]
-		},
-		{
-			"id": "026",
-			"frame": 26,
-			"texts": [
-				"LYTHRACE^.",
-				"LYTHRACEXE."
-			]
-		},
-		{
-			"id": "027",
-			"frame": 27,
-			"texts": [
-				"alatum,",
-				"ALATumM,"
-			]
-		},
-		{
-			"id": "028",
-			"frame": 28,
-			"texts": [
-				"va/r.",
-				"var."
-			]
-		},
-		{
-			"id": "029",
-			"frame": 29,
-			"texts": [
-				"linearifoliumj",
-				"linearifolium,"
-			]
-		},
-		{
-			"id": "030",
-			"frame": 30,
-			"texts": [
-				"PI.",
-				"P1."
-			]
-		},
-		{
-			"id": "031",
-			"frame": 31,
-			"texts": [
-				"Lindh.^",
-				"Lindh.,"
-			]
-		},
-		{
-			"id": "032",
-			"frame": 32,
-			"texts": [
-				"ONAGEACE^.",
-				"ONAGRACEE."
-			]
-		},
-		{
-			"id": "033",
-			"frame": 33,
-			"texts": [
-				"Caufornica,",
-				"CAIMFORNICA,"
-			]
-		},
-		{
-			"id": "034",
-			"frame": 34,
-			"texts": [
-				"PresL",
-				"Presl."
-			]
-		},
-		{
-			"id": "035",
-			"frame": 35,
-			"texts": [
-				"in Torr.",
-				"in\"Torr."
-			]
-		},
-		{
-			"id": "036",
-			"frame": 36,
-			"texts": [
-				"Flora^",
-				"Flora,"
-			]
-		},
-		{
-			"id": "037",
-			"frame": 37,
-			"texts": [
-				"August,",
-				"August."
-			]
-		},
-		{
-			"id": "038",
-			"frame": 38,
-			"texts": [
-				"Gray 3",
-				"Gray's"
-			]
-		},
-		{
-			"id": "039",
-			"frame": 39,
-			"texts": [
-				"Flora ^",
-				"Flora,"
-			]
-		},
-		{
-			"id": "040",
-			"frame": 40,
-			"texts": [
-				"CEnothera",
-				"(ENOTHERA"
-			]
-		},
-		{
-			"id": "041",
-			"frame": 41,
-			"texts": [
-				"Flora^",
-				"Flora,"
-			]
-		},
-		{
-			"id": "042",
-			"frame": 42,
-			"texts": [
-				"GoDKiiA",
-				"GODETIA"
-			]
-		},
-		{
-			"id": "043",
-			"frame": 43,
-			"texts": [
-				"(CEnothera)",
-				"((ENOTHERA)"
-			]
-		},
-		{
-			"id": "044",
-			"frame": 44,
-			"texts": [
-				"Williamsoxi,",
-				"WILLIAMSONI,"
-			]
-		},
-		{
-			"id": "045",
-			"frame": 45,
-			"texts": [
-				"attenuatis;",
-				"attenuatis,"
-			]
-		},
-		{
-			"id": "046",
-			"frame": 46,
-			"texts": [
-				"fasciculatisc^ue.",
-				"fasciculatisque."
-			]
-		},
-		{
-			"id": "047",
-			"frame": 47,
-			"texts": [
-				"<^t",
-				"(t"
-			]
-		},
-		{
-			"id": "048",
-			"frame": 48,
-			"texts": [
-				"subflexuous^",
-				"subflexuous,"
-			]
-		},
-		{
-			"id": "049",
-			"frame": 49,
-			"texts": [
-				"semipoUicarem",
-				"semipollicarem"
+				"bractea"
 			]
 		},
 		{
 			"id": "050",
 			"frame": 50,
 			"texts": [
-				"subaeq^uantibus,",
-				"subaequantibus,"
-			]
-		},
-		{
-			"id": "051",
-			"frame": 51,
-			"texts": [
-				"flavis^",
-				"flavis,"
-			]
-		},
-		{
-			"id": "052",
-			"frame": 52,
-			"texts": [
-				"starainibus",
-				"staminibus"
-			]
-		},
-		{
-			"id": "053",
-			"frame": 53,
-			"texts": [
-				"ine^ualibus,",
-				"inequalibus,"
-			]
-		},
-		{
-			"id": "054",
-			"frame": 54,
-			"texts": [
-				"gequantibus;",
-				"sequantibus;"
-			]
-		},
-		{
-			"id": "056",
-			"frame": 56,
-			"texts": [
-				"ZYGOPHYLLACEiE.",
-				"ZYGOPHYLLACEME."
-			]
-		},
-		{
-			"id": "057",
-			"frame": 57,
-			"texts": [
-				"Larrba",
-				"LARREA"
-			]
-		},
-		{
-			"id": "058",
-			"frame": 58,
-			"texts": [
-				"thraughliout",
-				"throughout"
-			]
-		},
-		{
-			"id": "059",
-			"frame": 59,
-			"texts": [
-				"Gray's",
-				"Oray's"
-			]
-		},
-		{
-			"id": "060",
-			"frame": 60,
-			"texts": [
-				"IIL,",
-				"Ill."
-			]
-		},
-		{
-			"id": "061",
-			"frame": 61,
-			"texts": [
-				"Engelm,",
-				"Engelm."
-			]
-		},
-		{
-			"id": "062",
-			"frame": 62,
-			"texts": [
-				"Jpp.",
-				"App."
-			]
-		},
-		{
-			"id": "063",
-			"frame": 63,
-			"texts": [
-				"ZygophyUum",
-				"Zygophyllum"
-			]
-		},
-		{
-			"id": "064",
-			"frame": 64,
-			"texts": [
-				"tridentafwn^",
-				"tridentatum,"
-			]
-		},
-		{
-			"id": "065",
-			"frame": 65,
-			"texts": [
-				"Indians^",
-				"Indians,"
-			]
-		},
-		{
-			"id": "066",
-			"frame": 66,
-			"texts": [
-				"MALVACE^.",
-				"MALVACE2E."
-			]
-		},
-		{
-			"id": "067",
-			"frame": 67,
-			"texts": [
-				"Fendhsp.",
-				"Fendl.,"
-			]
-		},
-		{
-			"id": "068",
-			"frame": 68,
-			"texts": [
-				"Mac.",
-				"Moc."
-			]
-		},
-		{
-			"id": "069",
-			"frame": 69,
-			"texts": [
-				"imarrubioideS;",
-				"MARRUBIOIDES,"
-			]
-		},
-		{
-			"id": "070",
-			"frame": 70,
-			"texts": [
-				"ovato-ianceolatis",
-				"ovato-Lanceolatis"
-			]
-		},
-		{
-			"id": "071",
-			"frame": 71,
-			"texts": [
-				"lineir.",
-				"linear."
-			]
-		},
-		{
-			"id": "072",
-			"frame": 72,
-			"texts": [
-				"7iova",
-				"nova"
-			]
-		},
-		{
-			"id": "074",
-			"frame": 74,
-			"texts": [
-				"lineari-lanceolata",
-				"lineari-lanceolatS"
-			]
-		},
-		{
-			"id": "075",
-			"frame": 75,
-			"texts": [
-				"and",
-				"ant"
-			]
-		},
-		{
-			"id": "076",
-			"frame": 76,
-			"texts": [
-				"ccspitose,",
-				"cespitose,"
-			]
-		},
-		{
-			"id": "077",
-			"frame": 77,
-			"texts": [
-				"flexuose^",
-				"flexuose,"
-			]
-		},
-		{
-			"id": "078",
-			"frame": 78,
-			"texts": [
-				"impanpinnate;",
-				"imparipinnate;"
-			]
-		},
-		{
-			"id": "079",
-			"frame": 79,
-			"texts": [
-				"membrauaceous,",
-				"membranaceous,"
-			]
-		},
-		{
-			"id": "080",
-			"frame": 80,
-			"texts": [
-				"acumiaate;",
-				"acuminate;"
-			]
-		},
-		{
-			"id": "081",
-			"frame": 81,
-			"texts": [
-				"1-3'flowered",
-				"1-3-flowered;"
-			]
-		},
-		{
-			"id": "082",
-			"frame": 82,
-			"texts": [
-				"long^",
-				"long,"
-			]
-		},
-		{
-			"id": "083",
-			"frame": 83,
-			"texts": [
-				"yellow",
-				"yellow;"
-			]
-		},
-		{
-			"id": "084",
-			"frame": 84,
-			"texts": [
-				"pinnatus^",
-				"pinnatus,"
-			]
-		},
-		{
-			"id": "085",
-			"frame": 85,
-			"texts": [
-				"Hook,",
-				"Hook."
-			]
-		},
-		{
-			"id": "086",
-			"frame": 86,
-			"texts": [
-				"dectimhensj",
-				"decumbens,"
-			]
-		},
-		{
-			"id": "087",
-			"frame": 87,
-			"texts": [
-				"Kamuli",
-				"Ramuli"
-			]
-		},
-		{
-			"id": "088",
-			"frame": 88,
-			"texts": [
-				"Tm^r.",
-				"Torr."
-			]
-		},
-		{
-			"id": "089",
-			"frame": 89,
-			"texts": [
-				"pobescent",
-				"pubescent"
-			]
-		},
-		{
-			"id": "090",
-			"frame": 90,
-			"texts": [
-				"hranchlets",
-				"branchlets"
-			]
-		},
-		{
-			"id": "091",
-			"frame": 91,
-			"texts": [
-				"umhellose",
-				"umbellose"
-			]
-		},
-		{
-			"id": "092",
-			"frame": 92,
-			"texts": [
-				"IIosACKTA",
-				"HIOSACKIA"
-			]
-		},
-		{
-			"id": "093",
-			"frame": 93,
-			"texts": [
-				"diflimilis planta",
-				"diï¬‚imiligï¬‚ama"
-			]
-		},
-		{
-			"id": "094",
-			"frame": 94,
-			"texts": [
-				"pluribus",
-				"phxriqkas"
-			]
-		},
-		{
-			"id": "095",
-			"frame": 95,
-			"texts": [
-				"rarais",
-				"rimis"
-			]
-		},
-		{
-			"id": "096",
-			"frame": 96,
-			"texts": [
-				"libus",
-				"Iibns"
-			]
-		},
-		{
-			"id": "097",
-			"frame": 97,
-			"texts": [
-				"&: firmis",
-				"aggï¬tmis"
-			]
-		},
-		{
-			"id": "098",
-			"frame": 98,
-			"texts": [
-				"prsedita,",
-				"przdita ,"
-			]
-		},
-		{
-			"id": "099",
-			"frame": 99,
-			"texts": [
-				"D. Augcrio",
-				"D.fï¬t3â€˜gcrio"
-			]
-		},
-		{
-			"id": "100",
-			"frame": 100,
-			"texts": [
-				"foliorum",
-				"fdkimm"
-			]
-		},
-		{
-			"id": "101",
-			"frame": 101,
-			"texts": [
-				"(cd",
-				"fed"
-			]
-		},
-		{
-			"id": "102",
-			"frame": 102,
-			"texts": [
-				"molliorum , non",
-				"mul1iÂ¢rÂ§.im,non"
-			]
-		},
-		{
-			"id": "103",
-			"frame": 103,
-			"texts": [
-				"miniis",
-				"mimis"
-			]
-		},
-		{
-			"id": "104",
-			"frame": 104,
-			"texts": [
-				"rauli",
-				"muli"
-			]
-		},
-		{
-			"id": "105",
-			"frame": 105,
-			"texts": [
-				"fummi dcfinunt",
-				"fumngidcï¬nunt"
-			]
-		},
-		{
-			"id": "106",
-			"frame": 106,
-			"texts": [
-				"incapitulum",
-				"in capitulum"
-			]
-		},
-		{
-			"id": "107",
-			"frame": 107,
-			"texts": [
-				"fquamatum",
-				"fquamamtn"
-			]
-		},
-		{
-			"id": "108",
-			"frame": 108,
-			"texts": [
-				"Ptarmica,",
-				"Ptarmjtca,"
-			]
-		},
-		{
-			"id": "109",
-			"frame": 109,
-			"texts": [
-				"aut",
-				"aux"
-			]
-		},
-		{
-			"id": "110",
-			"frame": 110,
-			"texts": [
-				"quod",
-				"guod"
-			]
-		},
-		{
-			"id": "111",
-			"frame": 111,
-			"texts": [
-				"tandcm",
-				"fagdcm"
-			]
-		},
-		{
-			"id": "112",
-			"frame": 112,
-			"texts": [
-				"{ele",
-				"(BE:"
-			]
-		},
-		{
-			"id": "113",
-			"frame": 113,
-			"texts": [
-				"florem",
-				"ï¬‚orcm"
-			]
-		},
-		{
-			"id": "114",
-			"frame": 114,
-			"texts": [
-				"liorisduris,",
-				"liqtis duris,"
-			]
-		},
-		{
-			"id": "115",
-			"frame": 115,
-			"texts": [
-				"Auftriaca,",
-				"Auï¬riaca,"
-			]
-		},
-		{
-			"id": "116",
-			"frame": 116,
-			"texts": [
-				"ied",
-				"{Ed"
-			]
-		},
-		{
-			"id": "117",
-			"frame": 117,
-			"texts": [
-				"minus",
-				"mimis"
-			]
-		},
-		{
-			"id": "118",
-			"frame": 118,
-			"texts": [
-				"clegantis",
-				"clcgantis"
-			]
-		},
-		{
-			"id": "119",
-			"frame": 119,
-			"texts": [
-				"dilutiorisquc",
-				"dilutiqriscï¬uc"
-			]
-		},
-		{
-			"id": "120",
-			"frame": 120,
-			"texts": [
-				"mcdium",
-				"medium"
-			]
-		},
-		{
-			"id": "121",
-			"frame": 121,
-			"texts": [
-				"florem,",
-				"ï¬‚orcm."
-			]
-		},
-		{
-			"id": "122",
-			"frame": 122,
-			"texts": [
-				"villofls",
-				"villoï¬s"
-			]
-		},
-		{
-			"id": "123",
-			"frame": 123,
-			"texts": [
-				"ftarainibus:",
-				"ï¬aminibus:"
-			]
-		},
-		{
-			"id": "124",
-			"frame": 124,
-			"texts": [
-				"tota,",
-				"toga,"
-			]
-		},
-		{
-			"id": "125",
-			"frame": 125,
-			"texts": [
-				"planta",
-				"plama"
-			]
-		},
-		{
-			"id": "126",
-			"frame": 126,
-			"texts": [
-				"tra*5tata",
-				"trzï¬lata"
-			]
-		},
-		{
-			"id": "127",
-			"frame": 127,
-			"texts": [
-				"fpirat",
-				"fpira:"
-			]
-		},
-		{
-			"id": "128",
-			"frame": 128,
-			"texts": [
-				"odorcm;",
-				"odorcm:"
-			]
-		},
-		{
-			"id": "129",
-			"frame": 129,
-			"texts": [
-				"florebat",
-				"ï¬‚orcbat"
-			]
-		},
-		{
-			"id": "130",
-			"frame": 130,
-			"texts": [
-				"Augufto.",
-				"Auguï¬‚o."
-			]
-		},
-		{
-			"id": "131",
-			"frame": 131,
-			"texts": [
-				"CONYZA",
-				"â€˜CQNfY.Z.A"
-			]
-		},
-		{
-			"id": "132",
-			"frame": 132,
-			"texts": [
-				"rainor,",
-				"minor,"
-			]
-		},
-		{
-			"id": "133",
-			"frame": 133,
-			"texts": [
-				"Narboncnfl",
-				"Narboncnï¬iiuc"
-			]
-		},
-		{
-			"id": "134",
-			"frame": 134,
-			"texts": [
-				"Septiraania,",
-				"scpmmia,"
-			]
-		},
-		{
-			"id": "135",
-			"frame": 135,
-			"texts": [
-				"lumctiara",
-				"tum ctiam"
-			]
-		},
-		{
-			"id": "136",
-			"frame": 136,
-			"texts": [
-				"Salmanticenfi",
-				"Salmanticcnï¬"
-			]
-		},
-		{
-			"id": "137",
-			"frame": 137,
-			"texts": [
-				"Caftellsc",
-				"Caï¬cllx"
-			]
-		},
-		{
-			"id": "138",
-			"frame": 138,
-			"texts": [
-				"valde",
-				"valcie"
-			]
-		},
-		{
-			"id": "139",
-			"frame": 139,
-			"texts": [
-				"odorata",
-				"odorara"
-			]
-		},
-		{
-			"id": "140",
-			"frame": 140,
-			"texts": [
-				"qux",
-				"qua:"
-			]
-		},
-		{
-			"id": "141",
-			"frame": 141,
-			"texts": [
-				"Bsctic^",
-				"BzticÃ©"
-			]
-		},
-		{
-			"id": "142",
-			"frame": 142,
-			"texts": [
-				"longe",
-				"longgâ€™:"
-			]
-		},
-		{
-			"id": "143",
-			"frame": 143,
-			"texts": [
-				"tiorem",
-				"tiorcm"
-			]
-		},
-		{
-			"id": "144",
-			"frame": 144,
-			"texts": [
-				"plania",
-				"plants."
-			]
-		},
-		{
-			"id": "145",
-			"frame": 145,
-			"texts": [
-				"ficca",
-				"{ices"
-			]
-		},
-		{
-			"id": "146",
-			"frame": 146,
-			"texts": [
-				"quac",
-				"qua:"
-			]
-		},
-		{
-			"id": "147",
-			"frame": 147,
-			"texts": [
-				"mihiconfpeda",
-				"niihiicotifpcÃ©fa"
-			]
-		},
-		{
-			"id": "148",
-			"frame": 148,
-			"texts": [
-				"(raonftrantc",
-				"â€™(rn'on(Ixantc"
-			]
-		},
-		{
-			"id": "149",
-			"frame": 149,
-			"texts": [
-				"Guil.",
-				"Gail."
-			]
-		},
-		{
-			"id": "150",
-			"frame": 150,
-			"texts": [
-				"Boelio)",
-				"B06110)"
-			]
-		},
-		{
-			"id": "151",
-			"frame": 151,
-			"texts": [
-				"coriieduram",
-				"cohicÃ©tuxam"
-			]
-		},
-		{
-			"id": "152",
-			"frame": 152,
-			"texts": [
-				"facere",
-				"faccrc:"
-			]
-		},
-		{
-			"id": "153",
-			"frame": 153,
-			"texts": [
-				"quco.",
-				"qtiqo."
-			]
-		},
-		{
-			"id": "154",
-			"frame": 154,
-			"texts": [
-				"Prfg. XXXII II.,",
-				"P13. xxvn\". ,"
-			]
-		},
-		{
-			"id": "155",
-			"frame": 155,
-			"texts": [
-				"neglcxitÂ»",
-				"ncgtcxit,"
-			]
-		},
-		{
-			"id": "156",
-			"frame": 156,
-			"texts": [
-				"piÂ£lor",
-				"piÃ©tot"
-			]
-		},
-		{
-			"id": "157",
-			"frame": 157,
-			"texts": [
-				"debucranc,",
-				"dcbucrant,"
-			]
-		},
-		{
-			"id": "158",
-			"frame": 158,
-			"texts": [
-				"fibrz",
-				"libs:"
-			]
-		},
-		{
-			"id": "159",
-			"frame": 159,
-			"texts": [
-				"<<iii/f",
-				"add:"
-			]
-		},
-		{
-			"id": "160",
-			"frame": 160,
-			"texts": [
-				"conueniunt;",
-				"conucniiunt;"
-			]
-		},
-		{
-			"id": "161",
-			"frame": 161,
-			"texts": [
-				"Fag.xxxu",
-				"Bag. xxxx."
-			]
-		},
-		{
-			"id": "162",
-			"frame": 162,
-			"texts": [
-				"tra^antur,'",
-				"traÃ©ikmtsr"
-			]
-		},
-		{
-			"id": "163",
-			"frame": 163,
-			"texts": [
-				"detagena",
-				"JetÃ©gaaÃ©"
-			]
-		},
-		{
-			"id": "164",
-			"frame": 164,
-			"texts": [
-				"/ippendicej",
-				"Appcndice,"
-			]
-		},
-		{
-			"id": "165",
-			"frame": 165,
-			"texts": [
-				"siliqva",
-				"szngogg,"
-			]
-		},
-		{
-			"id": "166",
-			"frame": 166,
-			"texts": [
-				"Atera",
-				"'-.A4l:Â¢m"
-			]
-		},
-		{
-			"id": "167",
-			"frame": 167,
-			"texts": [
-				"pecagona.",
-				"_DÂ£.CA.!Â§QNâ€˜A."
-			]
-		},
-		{
-			"id": "168",
-			"frame": 168,
-			"texts": [
-				"-^thiopica,",
-				"fï¬mnotÃ©rcs,"
-			]
-		},
-		{
-			"id": "169",
-			"frame": 169,
-			"texts": [
-				"Bamta",
-				"BAMIA"
-			]
-		},
-		{
-			"id": "170",
-			"frame": 170,
-			"texts": [
-				"ramos",
-				"xamos"
-			]
-		},
-		{
-			"id": "171",
-			"frame": 171,
-			"texts": [
-				"//'Â».7.",
-				"lin.-,7."
-			]
-		},
-		{
-			"id": "172",
-			"frame": 172,
-			"texts": [
-				"P4?. XXV.",
-				"Pug. xxv."
-			]
-		},
-		{
-			"id": "173",
-			"frame": 173,
-			"texts": [
-				"fcrotinx.",
-				"fcroxihs"
-			]
-		},
-		{
-			"id": "174",
-			"frame": 174,
-			"texts": [
-				"nimium",
-				"gmntuin"
-			]
-		},
-		{
-			"id": "175",
-			"frame": 175,
-			"texts": [
-				"frugiferos,quoniam",
-				"frugifcros,quonaam"
-			]
-		},
-		{
-			"id": "176",
-			"frame": 176,
-			"texts": [
-				"commiflis",
-				"commiï¬is"
-			]
-		},
-		{
-			"id": "177",
-			"frame": 177,
-			"texts": [
-				"telfuri",
-				"tclluri"
-			]
-		},
-		{
-			"id": "178",
-			"frame": 178,
-			"texts": [
-				"fuse",
-				"{um"
-			]
-		},
-		{
-			"id": "179",
-			"frame": 179,
-			"texts": [
-				"e",
-				"e':"
+				"abcdefg",
+				"abcdefg"
 			]
 		},
 		{
 			"id": "180",
 			"frame": 180,
 			"texts": [
-				"Aliquot",
-				"Aliqupt"
+				"lucky",
+				"lucky"
 			]
 		},
 		{
-			"id": "181",
-			"frame": 181,
+			"id": "046",
+			"frame": 46,
 			"texts": [
-				"P4^. XXV.",
-				"â€˜Pag. xxv."
-			]
-		},
-		{
-			"id": "182",
-			"frame": 182,
-			"texts": [
-				"forfitan,",
-				"forfitan."
-			]
-		},
-		{
-			"id": "183",
-			"frame": 183,
-			"texts": [
-				"pronunciare",
-				"prngiuncigrg"
-			]
-		},
-		{
-			"id": "184",
-			"frame": 184,
-			"texts": [
-				"nihil",
-				"Tnjhi1"
-			]
-		},
-		{
-			"id": "185",
-			"frame": 185,
-			"texts": [
-				"cuanucrai,",
-				"cnmnctat,"
-			]
-		},
-		{
-			"id": "186",
-			"frame": 186,
-			"texts": [
-				"qui prorfus",
-				"quiptprfus."
-			]
-		},
-		{
-			"id": "187",
-			"frame": 187,
-			"texts": [
-				"16",
-				"26"
-			]
-		},
-		{
-			"id": "188",
-			"frame": 188,
-			"texts": [
-				"tim",
-				"rim"
-			]
-		},
-		{
-			"id": "189",
-			"frame": 189,
-			"texts": [
-				"GVLIELMi PIS",
-				"26- GVLIELMIPISONIS"
-			]
-		},
-		{
-			"id": "190",
-			"frame": 190,
-			"texts": [
-				"compa&a",
-				"compaÃ©ta"
-			]
-		},
-		{
-			"id": "191",
-			"frame": 191,
-			"texts": [
-				"vaiis",
-				"vaï¬s"
-			]
-		},
-		{
-			"id": "192",
-			"frame": 192,
-			"texts": [
-				"rarapingucdinc",
-				"rarapingucdine"
-			]
-		},
-		{
-			"id": "193",
-			"frame": 193,
-			"texts": [
-				"far&a>fcrendis",
-				"farÃ©â€˜ta,fcrcndis"
-			]
-		},
-		{
-			"id": "194",
-			"frame": 194,
-			"texts": [
-				"fitigationibus",
-				"tlxtigationibus"
-			]
-		},
-		{
-			"id": "195",
-			"frame": 195,
-			"texts": [
-				"&",
-				"Sc"
-			]
-		},
-		{
-			"id": "196",
-			"frame": 196,
-			"texts": [
-				"fanguinis",
-				"{mguinis"
-			]
-		},
-		{
-			"id": "197",
-			"frame": 197,
-			"texts": [
-				"apciora",
-				"aptiora"
-			]
-		},
-		{
-			"id": "198",
-			"frame": 198,
-			"texts": [
-				"Aprima",
-				"prim;"
-			]
-		},
-		{
-			"id": "199",
-			"frame": 199,
-			"texts": [
-				"namque",
-				"namquc"
-			]
-		},
-		{
-			"id": "200",
-			"frame": 200,
-			"texts": [
-				"infantiaad",
-				"mlantxa adâ€˜."
-			]
-		},
-		{
-			"id": "201",
-			"frame": 201,
-			"texts": [
-				"iplÃ©m",
-				"ipfam"
-			]
-		},
-		{
-			"id": "202",
-			"frame": 202,
-			"texts": [
-				"ufque",
-				"ufquc"
-			]
-		},
-		{
-			"id": "203",
-			"frame": 203,
-			"texts": [
-				"fenedam",
-				"fcncÃ©tam"
-			]
-		},
-		{
-			"id": "204",
-			"frame": 204,
-			"texts": [
-				"cito,",
-				"cxto ,"
-			]
-		},
-		{
-			"id": "205",
-			"frame": 205,
-			"texts": [
-				"tuto&jucunde,",
-				"tuto &}.ucundc,"
-			]
-		},
-		{
-			"id": "206",
-			"frame": 206,
-			"texts": [
-				"amici amicis",
-				"-.1miciamicis"
-			]
-		},
-		{
-			"id": "207",
-			"frame": 207,
-			"texts": [
-				"diei",
-				"dici"
-			]
-		},
-		{
-			"id": "208",
-			"frame": 208,
-			"texts": [
-				"no&ifve",
-				"noÃ©tiï¬rc"
-			]
-		},
-		{
-			"id": "209",
-			"frame": 209,
-			"texts": [
-				"hora",
-				"hora."
-			]
-		},
-		{
-			"id": "210",
-			"frame": 210,
-			"texts": [
-				"venas",
-				"vencs"
-			]
-		},
-		{
-			"id": "211",
-			"frame": 211,
-			"texts": [
-				"Rhaiin",
-				"Rhalm"
-			]
-		},
-		{
-			"id": "212",
-			"frame": 212,
-			"texts": [
-				"Avicennam",
-				"Avxccnnam"
-			]
-		},
-		{
-			"id": "213",
-			"frame": 213,
-			"texts": [
-				"lmitantes",
-				"imitantcs"
-			]
-		},
-		{
-			"id": "214",
-			"frame": 214,
-			"texts": [
-				"Celiiquc",
-				"Cclliquc"
-			]
-		},
-		{
-			"id": "215",
-			"frame": 215,
-			"texts": [
-				"di#um",
-				"diftum"
-			]
-		},
-		{
-			"id": "216",
-			"frame": 216,
-			"texts": [
-				"1 i. c. x.",
-				"I 1.\" c. x."
-			]
-		},
-		{
-			"id": "217",
-			"frame": 217,
-			"texts": [
-				"refpiciendum",
-				"rcfpicicnclum,"
-			]
-		},
-		{
-			"id": "218",
-			"frame": 218,
-			"texts": [
-				"quxaetas",
-				"quz attas"
-			]
-		},
-		{
-			"id": "219",
-			"frame": 219,
-			"texts": [
-				"fit,",
-				"lit,"
-			]
-		},
-		{
-			"id": "220",
-			"frame": 220,
-			"texts": [
-				"ncque",
-				"ncquc"
-			]
-		},
-		{
-			"id": "221",
-			"frame": 221,
-			"texts": [
-				"corpore",
-				"corporc"
-			]
-		},
-		{
-			"id": "222",
-			"frame": 222,
-			"texts": [
-				"intusgcratur,",
-				"intus gcratut"
-			]
-		},
-		{
-			"id": "223",
-			"frame": 223,
-			"texts": [
-				"quar",
-				"qux"
-			]
-		},
-		{
-			"id": "224",
-			"frame": 224,
-			"texts": [
-				"vires",
-				"vircs"
-			]
-		},
-		{
-			"id": "225",
-			"frame": 225,
-			"texts": [
-				"iint",
-				"lint"
-			]
-		},
-		{
-			"id": "226",
-			"frame": 226,
-			"texts": [
-				"tamen",
-				"tarncn"
-			]
-		},
-		{
-			"id": "227",
-			"frame": 227,
-			"texts": [
-				"cautione",
-				"caution:"
-			]
-		},
-		{
-			"id": "228",
-			"frame": 228,
-			"texts": [
-				"Europxos",
-				"Europazos"
-			]
-		},
-		{
-			"id": "229",
-			"frame": 229,
-			"texts": [
-				"Boreales",
-				"Botcalcs"
-			]
-		},
-		{
-			"id": "230",
-			"frame": 230,
-			"texts": [
-				"fuperent",
-				"lupcrcnc"
-			]
-		},
-		{
-			"id": "231",
-			"frame": 231,
-			"texts": [
-				"fe-",
-				"Ic"
-			]
-		},
-		{
-			"id": "232",
-			"frame": 232,
-			"texts": [
-				"frequentia",
-				"frcqucntia:"
-			]
-		},
-		{
-			"id": "233",
-			"frame": 233,
-			"texts": [
-				"tanto",
-				"canto"
-			]
-		},
-		{
-			"id": "234",
-			"frame": 234,
-			"texts": [
-				"cedant",
-				"ccdant"
-			]
-		},
-		{
-			"id": "235",
-			"frame": 235,
-			"texts": [
-				"quantitate",
-				"quantitatc"
-			]
-		},
-		{
-			"id": "236",
-			"frame": 236,
-			"texts": [
-				"mittendi",
-				"mittcndi"
-			]
-		},
-		{
-			"id": "237",
-			"frame": 237,
-			"texts": [
-				"ima",
-				"una"
-			]
-		},
-		{
-			"id": "238",
-			"frame": 238,
-			"texts": [
-				"enim",
-				"cnirn"
-			]
-		},
-		{
-			"id": "239",
-			"frame": 239,
-			"texts": [
-				"inc-.1",
-				"in ca"
-			]
-		},
-		{
-			"id": "240",
-			"frame": 240,
-			"texts": [
-				"iiint",
-				"lunt"
-			]
-		},
-		{
-			"id": "241",
-			"frame": 241,
-			"texts": [
-				"libcrales",
-				"libcralcs"
-			]
-		},
-		{
-			"id": "242",
-			"frame": 242,
-			"texts": [
-				"fatis",
-				"fiitis"
-			]
-		},
-		{
-			"id": "243",
-			"frame": 243,
-			"texts": [
-				"e",
-				"Ã©"
-			]
-		},
-		{
-			"id": "244",
-			"frame": 244,
-			"texts": [
-				"Nec",
-				"Ncc"
-			]
-		},
-		{
-			"id": "245",
-			"frame": 245,
-			"texts": [
-				"cxemplum",
-				"cxcmplum"
-			]
-		},
-		{
-			"id": "246",
-			"frame": 246,
-			"texts": [
-				"aifecutos",
-				"allccutos"
-			]
-		},
-		{
-			"id": "247",
-			"frame": 247,
-			"texts": [
-				"memini,",
-				"tncmini,"
-			]
-		},
-		{
-			"id": "248",
-			"frame": 248,
-			"texts": [
-				"atque",
-				"atquc"
-			]
-		},
-		{
-			"id": "249",
-			"frame": 249,
-			"texts": [
-				"adanimi",
-				"ad animi"
-			]
-		},
-		{
-			"id": "250",
-			"frame": 250,
-			"texts": [
-				"deliquium",
-				"dcliquium"
-			]
-		},
-		{
-			"id": "251",
-			"frame": 251,
-			"texts": [
-				"ufque",
-				"ufquc"
-			]
-		},
-		{
-			"id": "252",
-			"frame": 252,
-			"texts": [
-				"fangiiinem",
-				"flmgpincm"
-			]
-		},
-		{
-			"id": "253",
-			"frame": 253,
-			"texts": [
-				"detraxiffe;",
-				"dctraxiï¬‚c;"
-			]
-		},
-		{
-			"id": "254",
-			"frame": 254,
-			"texts": [
-				"requifitaadid",
-				"rcquifxta adid"
-			]
-		},
-		{
-			"id": "255",
-			"frame": 255,
-			"texts": [
-				"uno",
-				"11110"
-			]
-		},
-		{
-			"id": "256",
-			"frame": 256,
-			"texts": [
-				"infubjc&oraro",
-				"in fubjcÃ©lo taro"
-			]
-		},
-		{
-			"id": "257",
-			"frame": 257,
-			"texts": [
-				"Injuvenili",
-				"In juvcnili"
-			]
-		},
-		{
-			"id": "258",
-			"frame": 258,
-			"texts": [
-				"vegeto",
-				"vcgcto"
-			]
-		},
-		{
-			"id": "259",
-			"frame": 259,
-			"texts": [
-				"acplethorico",
-				"ac plcthorico"
-			]
-		},
-		{
-			"id": "260",
-			"frame": 260,
-			"texts": [
-				"cotporc",
-				"corporc"
-			]
-		},
-		{
-			"id": "261",
-			"frame": 261,
-			"texts": [
-				"vixfcptem",
-				"vix lcptcm"
-			]
-		},
-		{
-			"id": "262",
-			"frame": 262,
-			"texts": [
-				"excedunt:",
-				"cxccdunt:"
-			]
-		},
-		{
-			"id": "263",
-			"frame": 263,
-			"texts": [
-				"quater",
-				"quatcr"
-			]
-		},
-		{
-			"id": "264",
-			"frame": 264,
-			"texts": [
-				"tamen",
-				"tamcn"
-			]
-		},
-		{
-			"id": "265",
-			"frame": 265,
-			"texts": [
-				"In quo ncc",
-				"Inquonec"
-			]
-		},
-		{
-			"id": "266",
-			"frame": 266,
-			"texts": [
-				"a",
-				"31"
-			]
-		},
-		{
-			"id": "267",
-			"frame": 267,
-			"texts": [
-				"fumpto",
-				"lumpto"
-			]
-		},
-		{
-			"id": "268",
-			"frame": 268,
-			"texts": [
-				"cibo 5 ncc",
-				"cibo;nec"
-			]
-		},
-		{
-			"id": "269",
-			"frame": 269,
-			"texts": [
-				"Europaros",
-				"Europztlos"
-			]
-		},
-		{
-			"id": "270",
-			"frame": 270,
-			"texts": [
-				"nofhos",
-				"nollros"
-			]
-		},
-		{
-			"id": "271",
-			"frame": 271,
-			"texts": [
-				"qui",
-				"qm"
-			]
-		},
-		{
-			"id": "272",
-			"frame": 272,
-			"texts": [
-				"utcunque",
-				"utcunquc"
-			]
-		},
-		{
-			"id": "273",
-			"frame": 273,
-			"texts": [
-				"Sanguinem",
-				"Sanguincm"
-			]
-		},
-		{
-			"id": "274",
-			"frame": 274,
-			"texts": [
-				"educere",
-				"cduccrc"
-			]
-		},
-		{
-			"id": "275",
-			"frame": 275,
-			"texts": [
-				"concentrandas",
-				"conccnttandas"
-			]
-		},
-		{
-			"id": "276",
-			"frame": 276,
-			"texts": [
-				"vires",
-				"vzrcs"
-			]
-		},
-		{
-			"id": "277",
-			"frame": 277,
-			"texts": [
-				"lipothy-",
-				"l1pothyâ€”-"
-			]
-		},
-		{
-			"id": "278",
-			"frame": 278,
-			"texts": [
-				"evitandas",
-				"cvitandas"
-			]
-		},
-		{
-			"id": "279",
-			"frame": 279,
-			"texts": [
-				"oftam",
-				"offam"
-			]
-		},
-		{
-			"id": "280",
-			"frame": 280,
-			"texts": [
-				"conditurac",
-				"conditura:"
-			]
-		},
-		{
-			"id": "281",
-			"frame": 281,
-			"texts": [
-				"eum",
-				"cum"
-			]
-		},
-		{
-			"id": "282",
-			"frame": 282,
-			"texts": [
-				"frigidae",
-				"frigida:"
-			]
-		},
-		{
-			"id": "283",
-			"frame": 283,
-			"texts": [
-				"exhibent.",
-				"cxlnbcnt."
-			]
-		},
-		{
-			"id": "284",
-			"frame": 284,
-			"texts": [
-				"qux",
-				"qua:"
-			]
-		},
-		{
-			"id": "285",
-			"frame": 285,
-			"texts": [
-				"fiint",
-				"fun:"
+				"Well-",
+				"Well-"
 			]
 		},
 		{
 			"id": "286",
 			"frame": 286,
 			"texts": [
-				"Europads",
-				"Europxis"
+				"sugar",
+				"sugar"
+			]
+		},
+		{
+			"id": "000",
+			"frame": 0,
+			"texts": [
+				"15th",
+				"15th"
+			]
+		},
+		{
+			"id": "002",
+			"frame": 2,
+			"texts": [
+				"26th.",
+				"26th"
+			]
+		},
+		{
+			"id": "003",
+			"frame": 3,
+			"texts": [
+				"2nd",
+				"2nd"
+			]
+		},
+		{
+			"id": "005",
+			"frame": 5,
+			"texts": [
+				"Baron",
+				"Baron"
+			]
+		},
+		{
+			"id": "007",
+			"frame": 7,
+			"texts": [
+				"Cabot",
+				"Cabot"
+			]
+		},
+		{
+			"id": "008",
+			"frame": 8,
+			"texts": [
+				"Chest",
+				"Chest"
+			]
+		},
+		{
+			"id": "009",
+			"frame": 9,
+			"texts": [
+				"Depot",
+				"Depot"
+			]
+		},
+		{
+			"id": "010",
+			"frame": 10,
+			"texts": [
+				"Dominion",
+				"Dominion"
+			]
+		},
+		{
+			"id": "011",
+			"frame": 11,
+			"texts": [
+				"Eskimo",
+				"Eskimo"
+			]
+		},
+		{
+			"id": "012",
+			"frame": 12,
+			"texts": [
+				"Full",
+				"Full"
+			]
+		},
+		{
+			"id": "013",
+			"frame": 13,
+			"texts": [
+				"Fury",
+				"Fury"
+			]
+		},
+		{
+			"id": "014",
+			"frame": 14,
+			"texts": [
+				"Goose",
+				"Goose"
+			]
+		},
+		{
+			"id": "015",
+			"frame": 15,
+			"texts": [
+				"Grace",
+				"Grace"
+			]
+		},
+		{
+			"id": "016",
+			"frame": 16,
+			"texts": [
+				"Gray",
+				"Gray"
+			]
+		},
+		{
+			"id": "017",
+			"frame": 17,
+			"texts": [
+				"Gull",
+				"Gull"
+			]
+		},
+		{
+			"id": "018",
+			"frame": 18,
+			"texts": [
+				"Guy",
+				"Guy"
+			]
+		},
+		{
+			"id": "019",
+			"frame": 19,
+			"texts": [
+				"Halifax,",
+				"Halifax,"
+			]
+		},
+		{
+			"id": "020",
+			"frame": 20,
+			"texts": [
+				"Huds",
+				"Huds"
+			]
+		},
+		{
+			"id": "021",
+			"frame": 21,
+			"texts": [
+				"Isle",
+				"Isle"
+			]
+		},
+		{
+			"id": "022",
+			"frame": 22,
+			"texts": [
+				"JOHN",
+				"JOHN"
+			]
+		},
+		{
+			"id": "023",
+			"frame": 23,
+			"texts": [
+				"Jager",
+				"Jager"
+			]
+		},
+		{
+			"id": "024",
+			"frame": 24,
+			"texts": [
+				"James",
+				"James"
+			]
+		},
+		{
+			"id": "025",
+			"frame": 25,
+			"texts": [
+				"July.",
+				"July."
+			]
+		},
+		{
+			"id": "027",
+			"frame": 27,
+			"texts": [
+				"MINTO.",
+				"MINTO."
+			]
+		},
+		{
+			"id": "028",
+			"frame": 28,
+			"texts": [
+				"Marble",
+				"Marble"
+			]
+		},
+		{
+			"id": "029",
+			"frame": 29,
+			"texts": [
+				"Marine",
+				"Marine"
+			]
+		},
+		{
+			"id": "030",
+			"frame": 30,
+			"texts": [
+				"Mount",
+				"Mount"
+			]
+		},
+		{
+			"id": "031",
+			"frame": 31,
+			"texts": [
+				"Mr. L.",
+				"Mr. L."
+			]
+		},
+		{
+			"id": "032",
+			"frame": 32,
+			"texts": [
+				"Mr.",
+				"Mr."
+			]
+		},
+		{
+			"id": "033",
+			"frame": 33,
+			"texts": [
+				"ONAGRACEAE.",
+				"ONAGRACEÆ."
+			]
+		},
+		{
+			"id": "034",
+			"frame": 34,
+			"texts": [
+				"OTTAWA,",
+				"OTTAWA,"
+			]
+		},
+		{
+			"id": "035",
+			"frame": 35,
+			"texts": [
+				"Potter",
+				"Potter"
+			]
+		},
+		{
+			"id": "036",
+			"frame": 36,
+			"texts": [
+				"Prefontaine",
+				"Préfontaine"
+			]
+		},
+		{
+			"id": "037",
+			"frame": 37,
+			"texts": [
+				"Rev. Mr.",
+				"Rev. Mr."
+			]
+		},
+		{
+			"id": "038",
+			"frame": 38,
+			"texts": [
+				"Roes",
+				"Roes"
+			]
+		},
+		{
+			"id": "039",
+			"frame": 39,
+			"texts": [
+				"Ross",
+				"Ross"
+			]
+		},
+		{
+			"id": "040",
+			"frame": 40,
+			"texts": [
+				"Senecal",
+				"Senécal"
+			]
+		},
+		{
+			"id": "041",
+			"frame": 41,
+			"texts": [
+				"Seven",
+				"Seven"
+			]
+		},
+		{
+			"id": "042",
+			"frame": 42,
+			"texts": [
+				"St.",
+				"St."
+			]
+		},
+		{
+			"id": "043",
+			"frame": 43,
+			"texts": [
+				"Tern",
+				"Tern"
+			]
+		},
+		{
+			"id": "044",
+			"frame": 44,
+			"texts": [
+				"Victory",
+				"Victory"
+			]
+		},
+		{
+			"id": "045",
+			"frame": 45,
+			"texts": [
+				"Wager",
+				"Wager,"
+			]
+		},
+		{
+			"id": "047",
+			"frame": 47,
+			"texts": [
+				"Whist",
+				"Whist"
+			]
+		},
+		{
+			"id": "048",
+			"frame": 48,
+			"texts": [
+				"Winchester",
+				"Winchester"
+			]
+		},
+		{
+			"id": "049",
+			"frame": 49,
+			"texts": [
+				"abate",
+				"abate"
+			]
+		},
+		{
+			"id": "051",
+			"frame": 51,
+			"texts": [
+				"abcdefghijk",
+				"abcdefghijk"
+			]
+		},
+		{
+			"id": "052",
+			"frame": 52,
+			"texts": [
+				"ably",
+				"ably"
+			]
+		},
+		{
+			"id": "053",
+			"frame": 53,
+			"texts": [
+				"above",
+				"above"
+			]
+		},
+		{
+			"id": "054",
+			"frame": 54,
+			"texts": [
+				"advice",
+				"advice"
+			]
+		},
+		{
+			"id": "055",
+			"frame": 55,
+			"texts": [
+				"alarm",
+				"alarm"
+			]
+		},
+		{
+			"id": "056",
+			"frame": 56,
+			"texts": [
+				"alti",
+				"alti"
+			]
+		},
+		{
+			"id": "057",
+			"frame": 57,
+			"texts": [
+				"anchorage",
+				"anchorage"
+			]
+		},
+		{
+			"id": "058",
+			"frame": 58,
+			"texts": [
+				"and that",
+				"and that"
+			]
+		},
+		{
+			"id": "059",
+			"frame": 59,
+			"texts": [
+				"and then",
+				"and then"
+			]
+		},
+		{
+			"id": "060",
+			"frame": 60,
+			"texts": [
+				"articles",
+				"articles"
+			]
+		},
+		{
+			"id": "061",
+			"frame": 61,
+			"texts": [
+				"as",
+				"as"
+			]
+		},
+		{
+			"id": "062",
+			"frame": 62,
+			"texts": [
+				"aspect",
+				"aspect"
+			]
+		},
+		{
+			"id": "063",
+			"frame": 63,
+			"texts": [
+				"avail",
+				"avail"
+			]
+		},
+		{
+			"id": "064",
+			"frame": 64,
+			"texts": [
+				"awakened",
+				"awakened"
+			]
+		},
+		{
+			"id": "065",
+			"frame": 65,
+			"texts": [
+				"away",
+				"away"
+			]
+		},
+		{
+			"id": "066",
+			"frame": 66,
+			"texts": [
+				"bank,",
+				"bank,"
+			]
+		},
+		{
+			"id": "067",
+			"frame": 67,
+			"texts": [
+				"bark",
+				"bark"
+			]
+		},
+		{
+			"id": "068",
+			"frame": 68,
+			"texts": [
+				"be",
+				"be"
+			]
+		},
+		{
+			"id": "069",
+			"frame": 69,
+			"texts": [
+				"bird",
+				"bird"
+			]
+		},
+		{
+			"id": "070",
+			"frame": 70,
+			"texts": [
+				"blizz",
+				"blizz"
+			]
+		},
+		{
+			"id": "071",
+			"frame": 71,
+			"texts": [
+				"blue.",
+				"blue."
+			]
+		},
+		{
+			"id": "072",
+			"frame": 72,
+			"texts": [
+				"bow",
+				"bow"
+			]
+		},
+		{
+			"id": "074",
+			"frame": 74,
+			"texts": [
+				"bro",
+				"bro"
+			]
+		},
+		{
+			"id": "075",
+			"frame": 75,
+			"texts": [
+				"built",
+				"built"
+			]
+		},
+		{
+			"id": "076",
+			"frame": 76,
+			"texts": [
+				"bus",
+				"bus"
+			]
+		},
+		{
+			"id": "077",
+			"frame": 77,
+			"texts": [
+				"but",
+				"but"
+			]
+		},
+		{
+			"id": "078",
+			"frame": 78,
+			"texts": [
+				"can",
+				"can"
+			]
+		},
+		{
+			"id": "079",
+			"frame": 79,
+			"texts": [
+				"capture",
+				"capture"
+			]
+		},
+		{
+			"id": "080",
+			"frame": 80,
+			"texts": [
+				"cargo",
+				"cargo"
+			]
+		},
+		{
+			"id": "081",
+			"frame": 81,
+			"texts": [
+				"caribou",
+				"caribou"
+			]
+		},
+		{
+			"id": "082",
+			"frame": 82,
+			"texts": [
+				"cause",
+				"cause"
+			]
+		},
+		{
+			"id": "083",
+			"frame": 83,
+			"texts": [
+				"charge",
+				"charge"
+			]
+		},
+		{
+			"id": "084",
+			"frame": 84,
+			"texts": [
+				"chart",
+				"chart"
+			]
+		},
+		{
+			"id": "085",
+			"frame": 85,
+			"texts": [
+				"chase.",
+				"chase."
+			]
+		},
+		{
+			"id": "086",
+			"frame": 86,
+			"texts": [
+				"clay,",
+				"clay,"
+			]
+		},
+		{
+			"id": "087",
+			"frame": 87,
+			"texts": [
+				"co-operation",
+				"co-operation"
+			]
+		},
+		{
+			"id": "088",
+			"frame": 88,
+			"texts": [
+				"coal",
+				"coal"
+			]
+		},
+		{
+			"id": "089",
+			"frame": 89,
+			"texts": [
+				"coarse",
+				"coarse"
+			]
+		},
+		{
+			"id": "090",
+			"frame": 90,
+			"texts": [
+				"cod",
+				"cod"
+			]
+		},
+		{
+			"id": "091",
+			"frame": 91,
+			"texts": [
+				"cold",
+				"cold"
+			]
+		},
+		{
+			"id": "092",
+			"frame": 92,
+			"texts": [
+				"combating",
+				"combating"
+			]
+		},
+		{
+			"id": "093",
+			"frame": 93,
+			"texts": [
+				"comes",
+				"comes"
+			]
+		},
+		{
+			"id": "094",
+			"frame": 94,
+			"texts": [
+				"confi-",
+				"confi-"
+			]
+		},
+		{
+			"id": "095",
+			"frame": 95,
+			"texts": [
+				"cool",
+				"cool"
+			]
+		},
+		{
+			"id": "096",
+			"frame": 96,
+			"texts": [
+				"cover",
+				"cover"
+			]
+		},
+		{
+			"id": "097",
+			"frame": 97,
+			"texts": [
+				"cross",
+				"cross"
+			]
+		},
+		{
+			"id": "098",
+			"frame": 98,
+			"texts": [
+				"cup",
+				"cup"
+			]
+		},
+		{
+			"id": "099",
+			"frame": 99,
+			"texts": [
+				"dash",
+				"dash"
+			]
+		},
+		{
+			"id": "100",
+			"frame": 100,
+			"texts": [
+				"date",
+				"date"
+			]
+		},
+		{
+			"id": "101",
+			"frame": 101,
+			"texts": [
+				"day's",
+				"day's"
+			]
+		},
+		{
+			"id": "102",
+			"frame": 102,
+			"texts": [
+				"deers",
+				"deers"
+			]
+		},
+		{
+			"id": "103",
+			"frame": 103,
+			"texts": [
+				"dense",
+				"dense"
+			]
+		},
+		{
+			"id": "104",
+			"frame": 104,
+			"texts": [
+				"detach",
+				"detach"
+			]
+		},
+		{
+			"id": "105",
+			"frame": 105,
+			"texts": [
+				"devoted",
+				"devoted"
+			]
+		},
+		{
+			"id": "106",
+			"frame": 106,
+			"texts": [
+				"diag",
+				"diag"
+			]
+		},
+		{
+			"id": "107",
+			"frame": 107,
+			"texts": [
+				"diffi",
+				"diffi"
+			]
+		},
+		{
+			"id": "108",
+			"frame": 108,
+			"texts": [
+				"dogs,",
+				"dogs,"
+			]
+		},
+		{
+			"id": "109",
+			"frame": 109,
+			"texts": [
+				"dozen",
+				"dozen"
+			]
+		},
+		{
+			"id": "110",
+			"frame": 110,
+			"texts": [
+				"drawn",
+				"drawn"
+			]
+		},
+		{
+			"id": "111",
+			"frame": 111,
+			"texts": [
+				"drive",
+				"drive"
+			]
+		},
+		{
+			"id": "112",
+			"frame": 112,
+			"texts": [
+				"dry",
+				"dry"
+			]
+		},
+		{
+			"id": "113",
+			"frame": 113,
+			"texts": [
+				"due",
+				"due"
+			]
+		},
+		{
+			"id": "114",
+			"frame": 114,
+			"texts": [
+				"duty",
+				"duty"
+			]
+		},
+		{
+			"id": "115",
+			"frame": 115,
+			"texts": [
+				"east",
+				"east"
+			]
+		},
+		{
+			"id": "116",
+			"frame": 116,
+			"texts": [
+				"edge.",
+				"edge."
+			]
+		},
+		{
+			"id": "117",
+			"frame": 117,
+			"texts": [
+				"empty",
+				"empty"
+			]
+		},
+		{
+			"id": "119",
+			"frame": 119,
+			"texts": [
+				"escape",
+				"escape"
+			]
+		},
+		{
+			"id": "120",
+			"frame": 120,
+			"texts": [
+				"evening.",
+				"evening."
+			]
+		},
+		{
+			"id": "121",
+			"frame": 121,
+			"texts": [
+				"every",
+				"every"
+			]
+		},
+		{
+			"id": "122",
+			"frame": 122,
+			"texts": [
+				"ex-",
+				"ex-"
+			]
+		},
+		{
+			"id": "123",
+			"frame": 123,
+			"texts": [
+				"exhaust",
+				"exhaust"
+			]
+		},
+		{
+			"id": "124",
+			"frame": 124,
+			"texts": [
+				"expl",
+				"expl"
+			]
+		},
+		{
+			"id": "125",
+			"frame": 125,
+			"texts": [
+				"extra",
+				"extra"
+			]
+		},
+		{
+			"id": "126",
+			"frame": 126,
+			"texts": [
+				"face",
+				"face"
+			]
+		},
+		{
+			"id": "127",
+			"frame": 127,
+			"texts": [
+				"fall",
+				"fall:"
+			]
+		},
+		{
+			"id": "128",
+			"frame": 128,
+			"texts": [
+				"families",
+				"families"
+			]
+		},
+		{
+			"id": "129",
+			"frame": 129,
+			"texts": [
+				"feet",
+				"feet"
+			]
+		},
+		{
+			"id": "130",
+			"frame": 130,
+			"texts": [
+				"few",
+				"few"
+			]
+		},
+		{
+			"id": "131",
+			"frame": 131,
+			"texts": [
+				"field",
+				"field"
+			]
+		},
+		{
+			"id": "133",
+			"frame": 133,
+			"texts": [
+				"fish",
+				"fish"
+			]
+		},
+		{
+			"id": "134",
+			"frame": 134,
+			"texts": [
+				"five",
+				"five"
+			]
+		},
+		{
+			"id": "135",
+			"frame": 135,
+			"texts": [
+				"fleet,",
+				"fleet,"
+			]
+		},
+		{
+			"id": "136",
+			"frame": 136,
+			"texts": [
+				"float",
+				"float"
+			]
+		},
+		{
+			"id": "137",
+			"frame": 137,
+			"texts": [
+				"floe.",
+				"floe."
+			]
+		},
+		{
+			"id": "138",
+			"frame": 138,
+			"texts": [
+				"fort.",
+				"fort."
+			]
+		},
+		{
+			"id": "139",
+			"frame": 139,
+			"texts": [
+				"fox",
+				"fox"
+			]
+		},
+		{
+			"id": "140",
+			"frame": 140,
+			"texts": [
+				"frame",
+				"frame"
+			]
+		},
+		{
+			"id": "141",
+			"frame": 141,
+			"texts": [
+				"fresh",
+				"fresh"
+			]
+		},
+		{
+			"id": "142",
+			"frame": 142,
+			"texts": [
+				"front",
+				"front"
+			]
+		},
+		{
+			"id": "143",
+			"frame": 143,
+			"texts": [
+				"gave",
+				"gave"
+			]
+		},
+		{
+			"id": "144",
+			"frame": 144,
+			"texts": [
+				"gorge",
+				"gorge"
+			]
+		},
+		{
+			"id": "146",
+			"frame": 146,
+			"texts": [
+				"great",
+				"great"
+			]
+		},
+		{
+			"id": "147",
+			"frame": 147,
+			"texts": [
+				"green",
+				"green"
+			]
+		},
+		{
+			"id": "148",
+			"frame": 148,
+			"texts": [
+				"gulf,",
+				"gulf,"
+			]
+		},
+		{
+			"id": "149",
+			"frame": 149,
+			"texts": [
+				"haul",
+				"haul"
+			]
+		},
+		{
+			"id": "150",
+			"frame": 150,
+			"texts": [
+				"head",
+				"head"
+			]
+		},
+		{
+			"id": "151",
+			"frame": 151,
+			"texts": [
+				"heart",
+				"heart"
+			]
+		},
+		{
+			"id": "152",
+			"frame": 152,
+			"texts": [
+				"heaves",
+				"heaves"
+			]
+		},
+		{
+			"id": "153",
+			"frame": 153,
+			"texts": [
+				"heavy",
+				"heavy"
+			]
+		},
+		{
+			"id": "154",
+			"frame": 154,
+			"texts": [
+				"hill",
+				"hill"
+			]
+		},
+		{
+			"id": "155",
+			"frame": 155,
+			"texts": [
+				"hollows",
+				"hollows"
+			]
+		},
+		{
+			"id": "156",
+			"frame": 156,
+			"texts": [
+				"hot",
+				"hot"
+			]
+		},
+		{
+			"id": "157",
+			"frame": 157,
+			"texts": [
+				"house",
+				"house"
+			]
+		},
+		{
+			"id": "158",
+			"frame": 158,
+			"texts": [
+				"hunt",
+				"hunt"
+			]
+		},
+		{
+			"id": "159",
+			"frame": 159,
+			"texts": [
+				"hurry",
+				"hurry"
+			]
+		},
+		{
+			"id": "160",
+			"frame": 160,
+			"texts": [
+				"ice,",
+				"ice,"
+			]
+		},
+		{
+			"id": "161",
+			"frame": 161,
+			"texts": [
+				"inch",
+				"inch"
+			]
+		},
+		{
+			"id": "162",
+			"frame": 162,
+			"texts": [
+				"index'",
+				"index"
+			]
+		},
+		{
+			"id": "163",
+			"frame": 163,
+			"texts": [
+				"inlet.",
+				"inlet."
+			]
+		},
+		{
+			"id": "164",
+			"frame": 164,
+			"texts": [
+				"iron",
+				"iron"
+			]
+		},
+		{
+			"id": "165",
+			"frame": 165,
+			"texts": [
+				"is",
+				"is"
+			]
+		},
+		{
+			"id": "166",
+			"frame": 166,
+			"texts": [
+				"keg",
+				"keg"
+			]
+		},
+		{
+			"id": "167",
+			"frame": 167,
+			"texts": [
+				"laden",
+				"laden"
+			]
+		},
+		{
+			"id": "168",
+			"frame": 168,
+			"texts": [
+				"land",
+				"land"
+			]
+		},
+		{
+			"id": "169",
+			"frame": 169,
+			"texts": [
+				"last",
+				"last"
+			]
+		},
+		{
+			"id": "170",
+			"frame": 170,
+			"texts": [
+				"lati",
+				"lati"
+			]
+		},
+		{
+			"id": "171",
+			"frame": 171,
+			"texts": [
+				"law",
+				"law"
+			]
+		},
+		{
+			"id": "172",
+			"frame": 172,
+			"texts": [
+				"learned",
+				"learned"
+			]
+		},
+		{
+			"id": "173",
+			"frame": 173,
+			"texts": [
+				"leave",
+				"leave"
+			]
+		},
+		{
+			"id": "174",
+			"frame": 174,
+			"texts": [
+				"level",
+				"level"
+			]
+		},
+		{
+			"id": "175",
+			"frame": 175,
+			"texts": [
+				"limes",
+				"limes"
+			]
+		},
+		{
+			"id": "176",
+			"frame": 176,
+			"texts": [
+				"little",
+				"little"
+			]
+		},
+		{
+			"id": "177",
+			"frame": 177,
+			"texts": [
+				"long",
+				"long"
+			]
+		},
+		{
+			"id": "178",
+			"frame": 178,
+			"texts": [
+				"lost.",
+				"lost."
+			]
+		},
+		{
+			"id": "179",
+			"frame": 179,
+			"texts": [
+				"lower",
+				"lower"
+			]
+		},
+		{
+			"id": "181",
+			"frame": 181,
+			"texts": [
+				"machine",
+				"machine"
+			]
+		},
+		{
+			"id": "182",
+			"frame": 182,
+			"texts": [
+				"mail",
+				"mail"
+			]
+		},
+		{
+			"id": "183",
+			"frame": 183,
+			"texts": [
+				"main",
+				"main"
+			]
+		},
+		{
+			"id": "184",
+			"frame": 184,
+			"texts": [
+				"man",
+				"man"
+			]
+		},
+		{
+			"id": "185",
+			"frame": 185,
+			"texts": [
+				"mark",
+				"mark"
+			]
+		},
+		{
+			"id": "186",
+			"frame": 186,
+			"texts": [
+				"marvel",
+				"marvel"
+			]
+		},
+		{
+			"id": "187",
+			"frame": 187,
+			"texts": [
+				"mass",
+				"mass"
+			]
+		},
+		{
+			"id": "188",
+			"frame": 188,
+			"texts": [
+				"mates",
+				"mates"
+			]
+		},
+		{
+			"id": "189",
+			"frame": 189,
+			"texts": [
+				"may",
+				"may"
+			]
+		},
+		{
+			"id": "190",
+			"frame": 190,
+			"texts": [
+				"meal",
+				"meal"
+			]
+		},
+		{
+			"id": "191",
+			"frame": 191,
+			"texts": [
+				"means",
+				"means"
+			]
+		},
+		{
+			"id": "192",
+			"frame": 192,
+			"texts": [
+				"men,",
+				"men,"
+			]
+		},
+		{
+			"id": "193",
+			"frame": 193,
+			"texts": [
+				"ments",
+				"ments"
+			]
+		},
+		{
+			"id": "194",
+			"frame": 194,
+			"texts": [
+				"mid-winter",
+				"mid-winter"
+			]
+		},
+		{
+			"id": "195",
+			"frame": 195,
+			"texts": [
+				"mild",
+				"mild"
+			]
+		},
+		{
+			"id": "196",
+			"frame": 196,
+			"texts": [
+				"miles",
+				"miles"
+			]
+		},
+		{
+			"id": "197",
+			"frame": 197,
+			"texts": [
+				"mono",
+				"mono"
+			]
+		},
+		{
+			"id": "198",
+			"frame": 198,
+			"texts": [
+				"months",
+				"months"
+			]
+		},
+		{
+			"id": "199",
+			"frame": 199,
+			"texts": [
+				"mouth",
+				"mouth"
+			]
+		},
+		{
+			"id": "200",
+			"frame": 200,
+			"texts": [
+				"much",
+				"much"
+			]
+		},
+		{
+			"id": "201",
+			"frame": 201,
+			"texts": [
+				"named",
+				"named"
+			]
+		},
+		{
+			"id": "202",
+			"frame": 202,
+			"texts": [
+				"neigh",
+				"neigh"
+			]
+		},
+		{
+			"id": "203",
+			"frame": 203,
+			"texts": [
+				"news",
+				"news"
+			]
+		},
+		{
+			"id": "204",
+			"frame": 204,
+			"texts": [
+				"newspaper",
+				"newspaper"
+			]
+		},
+		{
+			"id": "205",
+			"frame": 205,
+			"texts": [
+				"next",
+				"next"
+			]
+		},
+		{
+			"id": "206",
+			"frame": 206,
+			"texts": [
+				"nine",
+				"nine"
+			]
+		},
+		{
+			"id": "207",
+			"frame": 207,
+			"texts": [
+				"noon",
+				"noon"
+			]
+		},
+		{
+			"id": "208",
+			"frame": 208,
+			"texts": [
+				"north",
+				"north"
+			]
+		},
+		{
+			"id": "209",
+			"frame": 209,
+			"texts": [
+				"now",
+				"now"
+			]
+		},
+		{
+			"id": "210",
+			"frame": 210,
+			"texts": [
+				"number",
+				"number"
+			]
+		},
+		{
+			"id": "211",
+			"frame": 211,
+			"texts": [
+				"o'clock",
+				"o'clock"
+			]
+		},
+		{
+			"id": "212",
+			"frame": 212,
+			"texts": [
+				"oak,",
+				"oak,"
+			]
+		},
+		{
+			"id": "213",
+			"frame": 213,
+			"texts": [
+				"off",
+				"off"
+			]
+		},
+		{
+			"id": "214",
+			"frame": 214,
+			"texts": [
+				"officer",
+				"officer"
+			]
+		},
+		{
+			"id": "215",
+			"frame": 215,
+			"texts": [
+				"oil",
+				"oil"
+			]
+		},
+		{
+			"id": "216",
+			"frame": 216,
+			"texts": [
+				"other",
+				"other"
+			]
+		},
+		{
+			"id": "217",
+			"frame": 217,
+			"texts": [
+				"ount",
+				"ount"
+			]
+		},
+		{
+			"id": "218",
+			"frame": 218,
+			"texts": [
+				"out-door",
+				"out-door"
+			]
+		},
+		{
+			"id": "219",
+			"frame": 219,
+			"texts": [
+				"owing",
+				"owing"
+			]
+		},
+		{
+			"id": "220",
+			"frame": 220,
+			"texts": [
+				"pairs",
+				"pairs"
+			]
+		},
+		{
+			"id": "221",
+			"frame": 221,
+			"texts": [
+				"parts",
+				"parts"
+			]
+		},
+		{
+			"id": "222",
+			"frame": 222,
+			"texts": [
+				"pass,",
+				"pass,"
+			]
+		},
+		{
+			"id": "223",
+			"frame": 223,
+			"texts": [
+				"pay",
+				"pay"
+			]
+		},
+		{
+			"id": "224",
+			"frame": 224,
+			"texts": [
+				"peaks",
+				"peaks"
+			]
+		},
+		{
+			"id": "225",
+			"frame": 225,
+			"texts": [
+				"penditure.",
+				"penditure."
+			]
+		},
+		{
+			"id": "226",
+			"frame": 226,
+			"texts": [
+				"perish",
+				"perish"
+			]
+		},
+		{
+			"id": "227",
+			"frame": 227,
+			"texts": [
+				"pinnacles",
+				"pinnacles:"
+			]
+		},
+		{
+			"id": "228",
+			"frame": 228,
+			"texts": [
+				"point",
+				"point"
+			]
+		},
+		{
+			"id": "229",
+			"frame": 229,
+			"texts": [
+				"ponds,",
+				"ponds,"
+			]
+		},
+		{
+			"id": "230",
+			"frame": 230,
+			"texts": [
+				"pools",
+				"pools"
+			]
+		},
+		{
+			"id": "231",
+			"frame": 231,
+			"texts": [
+				"posit",
+				"posit"
+			]
+		},
+		{
+			"id": "232",
+			"frame": 232,
+			"texts": [
+				"post",
+				"post"
+			]
+		},
+		{
+			"id": "233",
+			"frame": 233,
+			"texts": [
+				"praise.",
+				"praise."
+			]
+		},
+		{
+			"id": "234",
+			"frame": 234,
+			"texts": [
+				"present",
+				"present"
+			]
+		},
+		{
+			"id": "235",
+			"frame": 235,
+			"texts": [
+				"press",
+				"press"
+			]
+		},
+		{
+			"id": "236",
+			"frame": 236,
+			"texts": [
+				"prev",
+				"prev"
+			]
+		},
+		{
+			"id": "237",
+			"frame": 237,
+			"texts": [
+				"publica-",
+				"publica-"
+			]
+		},
+		{
+			"id": "238",
+			"frame": 238,
+			"texts": [
+				"quartz",
+				"quartz"
+			]
+		},
+		{
+			"id": "239",
+			"frame": 239,
+			"texts": [
+				"quite",
+				"quite"
+			]
+		},
+		{
+			"id": "240",
+			"frame": 240,
+			"texts": [
+				"rage",
+				"rage"
+			]
+		},
+		{
+			"id": "241",
+			"frame": 241,
+			"texts": [
+				"reach",
+				"reach"
+			]
+		},
+		{
+			"id": "242",
+			"frame": 242,
+			"texts": [
+				"read",
+				"read"
+			]
+		},
+		{
+			"id": "243",
+			"frame": 243,
+			"texts": [
+				"rear,",
+				"rear,"
+			]
+		},
+		{
+			"id": "244",
+			"frame": 244,
+			"texts": [
+				"receive",
+				"receive"
+			]
+		},
+		{
+			"id": "245",
+			"frame": 245,
+			"texts": [
+				"reefs,",
+				"reefs,"
+			]
+		},
+		{
+			"id": "246",
+			"frame": 246,
+			"texts": [
+				"remain",
+				"remain"
+			]
+		},
+		{
+			"id": "247",
+			"frame": 247,
+			"texts": [
+				"rendered",
+				"rendered"
+			]
+		},
+		{
+			"id": "248",
+			"frame": 248,
+			"texts": [
+				"reside",
+				"reside"
+			]
+		},
+		{
+			"id": "249",
+			"frame": 249,
+			"texts": [
+				"ridge",
+				"ridge"
+			]
+		},
+		{
+			"id": "250",
+			"frame": 250,
+			"texts": [
+				"right",
+				"right"
+			]
+		},
+		{
+			"id": "251",
+			"frame": 251,
+			"texts": [
+				"rise",
+				"rise"
+			]
+		},
+		{
+			"id": "252",
+			"frame": 252,
+			"texts": [
+				"river",
+				"river"
+			]
+		},
+		{
+			"id": "253",
+			"frame": 253,
+			"texts": [
+				"rocky",
+				"rocky"
+			]
+		},
+		{
+			"id": "254",
+			"frame": 254,
+			"texts": [
+				"rose",
+				"rose"
+			]
+		},
+		{
+			"id": "255",
+			"frame": 255,
+			"texts": [
+				"rough",
+				"rough"
+			]
+		},
+		{
+			"id": "256",
+			"frame": 256,
+			"texts": [
+				"route.",
+				"route."
+			]
+		},
+		{
+			"id": "257",
+			"frame": 257,
+			"texts": [
+				"safe",
+				"safe"
+			]
+		},
+		{
+			"id": "258",
+			"frame": 258,
+			"texts": [
+				"said",
+				"said"
+			]
+		},
+		{
+			"id": "259",
+			"frame": 259,
+			"texts": [
+				"scene.",
+				"scene."
+			]
+		},
+		{
+			"id": "260",
+			"frame": 260,
+			"texts": [
+				"seal",
+				"seal"
+			]
+		},
+		{
+			"id": "261",
+			"frame": 261,
+			"texts": [
+				"serious",
+				"serious"
+			]
+		},
+		{
+			"id": "262",
+			"frame": 262,
+			"texts": [
+				"shall",
+				"shall"
+			]
+		},
+		{
+			"id": "263",
+			"frame": 263,
+			"texts": [
+				"sharp",
+				"sharp"
+			]
+		},
+		{
+			"id": "264",
+			"frame": 264,
+			"texts": [
+				"shoal",
+				"shoal"
+			]
+		},
+		{
+			"id": "265",
+			"frame": 265,
+			"texts": [
+				"short",
+				"short"
+			]
+		},
+		{
+			"id": "266",
+			"frame": 266,
+			"texts": [
+				"sick",
+				"sick"
+			]
+		},
+		{
+			"id": "267",
+			"frame": 267,
+			"texts": [
+				"side",
+				"side"
+			]
+		},
+		{
+			"id": "268",
+			"frame": 268,
+			"texts": [
+				"sigh",
+				"sigh"
+			]
+		},
+		{
+			"id": "269",
+			"frame": 269,
+			"texts": [
+				"sight",
+				"sight"
+			]
+		},
+		{
+			"id": "270",
+			"frame": 270,
+			"texts": [
+				"signs",
+				"signs"
+			]
+		},
+		{
+			"id": "271",
+			"frame": 271,
+			"texts": [
+				"similar",
+				"similar"
+			]
+		},
+		{
+			"id": "272",
+			"frame": 272,
+			"texts": [
+				"six",
+				"six"
+			]
+		},
+		{
+			"id": "273",
+			"frame": 273,
+			"texts": [
+				"skins",
+				"skins"
+			]
+		},
+		{
+			"id": "274",
+			"frame": 274,
+			"texts": [
+				"snow",
+				"snow"
+			]
+		},
+		{
+			"id": "275",
+			"frame": 275,
+			"texts": [
+				"snug",
+				"snug"
+			]
+		},
+		{
+			"id": "276",
+			"frame": 276,
+			"texts": [
+				"so",
+				"so"
+			]
+		},
+		{
+			"id": "277",
+			"frame": 277,
+			"texts": [
+				"solid",
+				"solid"
+			]
+		},
+		{
+			"id": "278",
+			"frame": 278,
+			"texts": [
+				"sound",
+				"sound"
+			]
+		},
+		{
+			"id": "279",
+			"frame": 279,
+			"texts": [
+				"south",
+				"south"
+			]
+		},
+		{
+			"id": "280",
+			"frame": 280,
+			"texts": [
+				"staff",
+				"staff"
+			]
+		},
+		{
+			"id": "281",
+			"frame": 281,
+			"texts": [
+				"station",
+				"station"
+			]
+		},
+		{
+			"id": "282",
+			"frame": 282,
+			"texts": [
+				"steep",
+				"steep:"
+			]
+		},
+		{
+			"id": "283",
+			"frame": 283,
+			"texts": [
+				"storm",
+				"storm"
+			]
+		},
+		{
+			"id": "284",
+			"frame": 284,
+			"texts": [
+				"stout",
+				"stout"
+			]
+		},
+		{
+			"id": "285",
+			"frame": 285,
+			"texts": [
+				"stove",
+				"stove"
 			]
 		},
 		{
 			"id": "287",
 			"frame": 287,
 			"texts": [
-				"minores",
-				"minorcs"
+				"summit of",
+				"summit of"
 			]
 		},
 		{
 			"id": "288",
 			"frame": 288,
 			"texts": [
-				"fearificationibus",
-				"{cariï¬cationibus"
+				"surf",
+				"surf"
 			]
 		},
 		{
 			"id": "289",
 			"frame": 289,
 			"texts": [
-				"autcm",
-				"gutcm"
+				"tanks",
+				"tanks"
 			]
 		},
 		{
 			"id": "290",
 			"frame": 290,
 			"texts": [
-				"frequentiflime",
-				"frcqucntiï¬‚imc"
+				"tell,",
+				"tell,"
 			]
 		},
 		{
 			"id": "291",
 			"frame": 291,
 			"texts": [
-				"cucurbitalis",
-				"cucutbitalis"
+				"temp",
+				"temp"
 			]
 		},
 		{
 			"id": "292",
 			"frame": 292,
 			"texts": [
-				"corneis",
-				"corncis"
+				"thanks",
+				"thanks"
 			]
 		},
 		{
 			"id": "293",
 			"frame": 293,
 			"texts": [
-				"phlebotomiar",
-				"phlcbotomix"
+				"these",
+				"these"
 			]
 		},
 		{
 			"id": "294",
 			"frame": 294,
 			"texts": [
-				"dcfedhim",
-				"dcfcÃ©tum"
+				"thick",
+				"thick"
 			]
 		},
 		{
 			"id": "295",
 			"frame": 295,
 			"texts": [
-				"i iipplent.",
-				"fixpplcnr."
+				"three",
+				"three"
 			]
 		},
 		{
 			"id": "296",
 			"frame": 296,
 			"texts": [
-				"cornearum",
-				"corncarum"
+				"thou",
+				"thou"
 			]
 		},
 		{
 			"id": "297",
 			"frame": 297,
 			"texts": [
-				"Americanos",
-				"flmcrxcanos"
+				"tides",
+				"tides"
 			]
 		},
 		{
 			"id": "298",
 			"frame": 298,
 			"texts": [
-				"ufiis",
-				"ulus"
+				"tight",
+				"tight"
 			]
 		},
 		{
 			"id": "299",
 			"frame": 299,
 			"texts": [
-				"exiftit",
-				"cxxfhtl,"
+				"time",
+				"time"
 			]
 		},
 		{
 			"id": "300",
 			"frame": 300,
 			"texts": [
-				"ea:que",
-				"cacquc"
+				"tobacco,",
+				"tobacco,"
 			]
 		},
 		{
 			"id": "301",
 			"frame": 301,
 			"texts": [
-				"f imt",
-				"lunt"
+				"tony",
+				"tony"
 			]
 		},
 		{
 			"id": "302",
 			"frame": 302,
 			"texts": [
-				"parvaeperpolitx",
-				"parvmpcrpolitx"
+				"too",
+				"too"
 			]
 		},
 		{
 			"id": "303",
 			"frame": 303,
 			"texts": [
-				"altera",
-				"altcra"
+				"total",
+				"total"
 			]
 		},
 		{
 			"id": "304",
 			"frame": 304,
 			"texts": [
-				"extremitas",
-				"cxtrcmuas"
+				"track",
+				"track"
 			]
 		},
 		{
 			"id": "305",
 			"frame": 305,
 			"texts": [
-				"altera",
-				"altcra"
+				"tramp",
+				"tramp"
 			]
 		},
 		{
 			"id": "306",
 			"frame": 306,
 			"texts": [
-				"anguftiflima",
-				"angulhï¬‚ima"
+				"trust",
+				"trust"
 			]
 		},
 		{
 			"id": "307",
 			"frame": 307,
 			"texts": [
-				"meatu",
-				"mcatu"
+				"turns",
+				"turns"
 			]
 		},
 		{
 			"id": "308",
 			"frame": 308,
 			"texts": [
-				"quasnonigne",
-				"quas non ignc"
+				"tusk",
+				"tusk"
 			]
 		},
 		{
 			"id": "309",
 			"frame": 309,
 			"texts": [
-				"velaqua",
-				"vcl aqua"
+				"two",
+				"two"
 			]
 		},
 		{
 			"id": "310",
 			"frame": 310,
 			"texts": [
-				"calenti,",
-				"calcnti,"
+				"under",
+				"under"
 			]
 		},
 		{
 			"id": "311",
 			"frame": 311,
 			"texts": [
-				"fedoris",
-				"{ed oris"
+				"up",
+				"up"
 			]
 		},
 		{
 			"id": "312",
 			"frame": 312,
 			"texts": [
-				"fu&ione",
-				"fuÃ©tionc"
+				"upper",
+				"upper"
 			]
 		},
 		{
 			"id": "313",
 			"frame": 313,
 			"texts": [
-				"cuti",
-				"cu ti"
+				"use",
+				"use"
 			]
 		},
 		{
 			"id": "314",
 			"frame": 314,
 			"texts": [
-				"validiflime",
-				"validiï¬‚imc"
+				"very",
+				"very"
 			]
 		},
 		{
 			"id": "315",
 			"frame": 315,
 			"texts": [
-				"affi-",
-				"alli-"
+				"wad",
+				"wad"
 			]
 		},
 		{
 			"id": "316",
 			"frame": 316,
 			"texts": [
-				"'gunt",
-				"gunt"
+				"waist",
+				"waist"
 			]
 		},
 		{
 			"id": "317",
 			"frame": 317,
 			"texts": [
-				"reiterantque",
-				"rcitcrantquc"
+				"was set,",
+				"was set,"
 			]
 		},
 		{
 			"id": "318",
 			"frame": 318,
 			"texts": [
-				"Suctum",
-				"SuÃ©hun"
+				"waste",
+				"waste"
 			]
 		},
 		{
 			"id": "319",
 			"frame": 319,
 			"texts": [
-				"illum",
-				"illurn"
+				"watch",
+				"watch"
 			]
 		},
 		{
 			"id": "320",
 			"frame": 320,
 			"texts": [
-				"Homerus,",
-				"Horncrus,"
+				"water",
+				"water"
 			]
 		},
 		{
 			"id": "321",
 			"frame": 321,
 			"texts": [
-				"Machaone",
-				"Machaonc"
+				"west",
+				"west"
 			]
 		},
 		{
 			"id": "322",
 			"frame": 322,
 			"texts": [
-				"Mcnelaum",
-				"Mcnclaum"
+				"whales",
+				"whales"
 			]
 		},
 		{
 			"id": "323",
 			"frame": 323,
 			"texts": [
-				"vulneratum",
-				"vulncratum"
+				"whistle",
+				"whistle"
 			]
 		},
 		{
 			"id": "324",
 			"frame": 324,
 			"texts": [
-				"Sanguinem,",
-				"Sangtlincm,"
+				"who",
+				"who"
 			]
 		},
 		{
 			"id": "325",
 			"frame": 325,
 			"texts": [
-				"exfiigens,",
-				"cxfugcns,"
+				"wind,",
+				"wind,"
 			]
 		},
 		{
 			"id": "326",
 			"frame": 326,
 			"texts": [
-				"lexiia",
-				"lcnia"
+				"work",
+				"work"
 			]
 		},
 		{
 			"id": "327",
 			"frame": 327,
 			"texts": [
-				"medicamenta",
-				"mcdicamcnta"
+				"worse",
+				"worse"
 			]
 		},
 		{
 			"id": "328",
 			"frame": 328,
 			"texts": [
-				"Quam",
-				"Qtam"
-			]
-		},
-		{
-			"id": "329",
-			"frame": 329,
-			"texts": [
-				"vero",
-				"vcro"
-			]
-		},
-		{
-			"id": "330",
-			"frame": 330,
-			"texts": [
-				"tutum",
-				"tutllm"
-			]
-		},
-		{
-			"id": "331",
-			"frame": 331,
-			"texts": [
-				"& validum",
-				"Scvalidum"
-			]
-		},
-		{
-			"id": "332",
-			"frame": 332,
-			"texts": [
-				"f carificatio",
-				"lcariï¬catio"
-			]
-		},
-		{
-			"id": "333",
-			"frame": 333,
-			"texts": [
-				"r emedium",
-				"tcmcdium"
-			]
-		},
-		{
-			"id": "334",
-			"frame": 334,
-			"texts": [
-				"con~",
-				"con-"
-			]
-		},
-		{
-			"id": "335",
-			"frame": 335,
-			"texts": [
-				"tra",
-				"â€˜tra"
-			]
-		},
-		{
-			"id": "336",
-			"frame": 336,
-			"texts": [
-				"externa",
-				"cxtcrna"
-			]
-		},
-		{
-			"id": "337",
-			"frame": 337,
-			"texts": [
-				"interna , praeter",
-				"interna,-prztcr"
-			]
-		},
-		{
-			"id": "338",
-			"frame": 338,
-			"texts": [
-				"Galenum",
-				"Galcnurn"
-			]
-		},
-		{
-			"id": "339",
-			"frame": 339,
-			"texts": [
-				"Celfiim,",
-				"Ccllum"
-			]
-		},
-		{
-			"id": "340",
-			"frame": 340,
-			"texts": [
-				"ex",
-				"cx"
-			]
-		},
-		{
-			"id": "341",
-			"frame": 341,
-			"texts": [
-				"refert.",
-				"rcfcrt."
-			]
-		},
-		{
-			"id": "342",
-			"frame": 342,
-			"texts": [
-				"Etde",
-				"E: dc"
-			]
-		},
-		{
-			"id": "343",
-			"frame": 343,
-			"texts": [
-				"f e ipfe",
-				"fcipfc"
-			]
-		},
-		{
-			"id": "344",
-			"frame": 344,
-			"texts": [
-				"teftatur",
-				"tcftatur"
-			]
-		},
-		{
-			"id": "345",
-			"frame": 345,
-			"texts": [
-				"pefte",
-				"cite"
-			]
-		},
-		{
-			"id": "346",
-			"frame": 346,
-			"texts": [
-				"laboranti,",
-				"laboxanti,"
-			]
-		},
-		{
-			"id": "347",
-			"frame": 347,
-			"texts": [
-				"duas",
-				"â€˜duas"
-			]
-		},
-		{
-			"id": "348",
-			"frame": 348,
-			"texts": [
-				"circiter",
-				"circitcr"
-			]
-		},
-		{
-			"id": "349",
-			"frame": 349,
-			"texts": [
-				"fanguinis",
-				"fantruinis"
-			]
-		},
-		{
-			"id": "350",
-			"frame": 350,
-			"texts": [
-				"fuccefTu",
-				"fucccï¬‚h"
-			]
-		},
-		{
-			"id": "351",
-			"frame": 351,
-			"texts": [
-				"per",
-				"pct"
-			]
-		},
-		{
-			"id": "352",
-			"frame": 352,
-			"texts": [
-				"fcarificationem",
-				"fcariï¬cationcm"
-			]
-		},
-		{
-			"id": "353",
-			"frame": 353,
-			"texts": [
-				"fuifle",
-				"fuifli"
-			]
-		},
-		{
-			"id": "354",
-			"frame": 354,
-			"texts": [
-				"educlas.",
-				"cduÃ©tas,"
-			]
-		},
-		{
-			"id": "355",
-			"frame": 355,
-			"texts": [
-				"Hoc idem",
-				"Hocidcm"
-			]
-		},
-		{
-			"id": "356",
-			"frame": 356,
-			"texts": [
-				"Indigenas",
-				"Indigcnae"
-			]
-		},
-		{
-			"id": "357",
-			"frame": 357,
-			"texts": [
-				"faciimt",
-				"aciunt"
-			]
-		},
-		{
-			"id": "358",
-			"frame": 358,
-			"texts": [
-				"volentes",
-				"volcntcs"
-			]
-		},
-		{
-			"id": "359",
-			"frame": 359,
-			"texts": [
-				"cute",
-				"cutc"
-			]
-		},
-		{
-			"id": "360",
-			"frame": 360,
-			"texts": [
-				"fanguinem",
-				"fÃ©lnguincm"
-			]
-		},
-		{
-			"id": "361",
-			"frame": 361,
-			"texts": [
-				"demsre",
-				"dcmcrc"
-			]
-		},
-		{
-			"id": "362",
-			"frame": 362,
-			"texts": [
-				"hincque",
-				"hincquc"
-			]
-		},
-		{
-			"id": "363",
-			"frame": 363,
-			"texts": [
-				"educi",
-				"cduci"
-			]
-		},
-		{
-			"id": "364",
-			"frame": 364,
-			"texts": [
-				"folet.",
-				"folct."
-			]
-		},
-		{
-			"id": "365",
-			"frame": 365,
-			"texts": [
-				"Verum",
-				"Vcrum"
-			]
-		},
-		{
-			"id": "366",
-			"frame": 366,
-			"texts": [
-				"quod",
-				"quad"
-			]
-		},
-		{
-			"id": "367",
-			"frame": 367,
-			"texts": [
-				"citracu",
-				"citra cu-"
-			]
-		},
-		{
-			"id": "368",
-			"frame": 368,
-			"texts": [
-				"curbitulas abfblvendas",
-				"curbitulas_ abfolvcndas"
-			]
-		},
-		{
-			"id": "369",
-			"frame": 369,
-			"texts": [
-				"convenitBrafilianis",
-				"convcn1'tBraï¬lianis"
-			]
-		},
-		{
-			"id": "370",
-			"frame": 370,
-			"texts": [
-				"Europaeis",
-				"Europxis"
-			]
-		},
-		{
-			"id": "371",
-			"frame": 371,
-			"texts": [
-				"ncque",
-				"ncquc"
-			]
-		},
-		{
-			"id": "372",
-			"frame": 372,
-			"texts": [
-				"modo",
-				"mode"
-			]
-		},
-		{
-			"id": "373",
-			"frame": 373,
-			"texts": [
-				"ne-",
-				"no-"
-			]
-		},
-		{
-			"id": "374",
-			"frame": 374,
-			"texts": [
-				"que",
-				"quc"
-			]
-		},
-		{
-			"id": "375",
-			"frame": 375,
-			"texts": [
-				"Raro",
-				"Karo"
-			]
-		},
-		{
-			"id": "376",
-			"frame": 376,
-			"texts": [
-				"enim",
-				"cnim"
-			]
-		},
-		{
-			"id": "377",
-			"frame": 377,
-			"texts": [
-				"cultello,",
-				"cultcllo,"
-			]
-		},
-		{
-			"id": "378",
-			"frame": 378,
-			"texts": [
-				"fiiperficiarie,",
-				"fupcrï¬ciaric,"
-			]
-		},
-		{
-			"id": "379",
-			"frame": 379,
-			"texts": [
-				"fed",
-				"fcd"
-			]
-		},
-		{
-			"id": "380",
-			"frame": 380,
-			"texts": [
-				"arborumj vel",
-				"atborums_vcl"
-			]
-		},
-		{
-			"id": "381",
-			"frame": 381,
-			"texts": [
-				"dentibus",
-				"dcntibus"
-			]
-		},
-		{
-			"id": "382",
-			"frame": 382,
-			"texts": [
-				"pifcisLamias",
-				"pilcis Lamia:"
-			]
-		},
-		{
-			"id": "383",
-			"frame": 383,
-			"texts": [
-				"(finequibus",
-				"(ï¬ne quibus"
-			]
-		},
-		{
-			"id": "384",
-			"frame": 384,
-			"texts": [
-				"vixquemquam",
-				"vix qucmquam"
-			]
-		},
-		{
-			"id": "385",
-			"frame": 385,
-			"texts": [
-				"eorumperegrinarivideas)",
-				"comm pcrcgrinarividcas)"
-			]
-		},
-		{
-			"id": "386",
-			"frame": 386,
-			"texts": [
-				"fiunt,",
-				"ï¬untâ€œ,"
-			]
-		},
-		{
-			"id": "387",
-			"frame": 387,
-			"texts": [
-				"altifquepla-",
-				"altifqzpc plet-"
-			]
-		},
-		{
-			"id": "388",
-			"frame": 388,
-			"texts": [
-				"adeo",
-				"adco"
-			]
-		},
-		{
-			"id": "389",
-			"frame": 389,
-			"texts": [
-				"malleolis",
-				"mallcolis"
-			]
-		},
-		{
-			"id": "390",
-			"frame": 390,
-			"texts": [
-				"veterum",
-				"vetcrum"
-			]
-		},
-		{
-			"id": "391",
-			"frame": 391,
-			"texts": [
-				"carterifque",
-				"cztcrifquc"
-			]
-		},
-		{
-			"id": "392",
-			"frame": 392,
-			"texts": [
-				"extcrnis",
-				"cxtcrnis"
-			]
-		},
-		{
-			"id": "393",
-			"frame": 393,
-			"texts": [
-				"^gyptii",
-				"1Egypti'i"
-			]
-		},
-		{
-			"id": "394",
-			"frame": 394,
-			"texts": [
-				"fblent:",
-				"folcnt:"
-			]
-		},
-		{
-			"id": "395",
-			"frame": 395,
-			"texts": [
-				"femoribus,",
-				"fcmoribus"
-			]
-		},
-		{
-			"id": "396",
-			"frame": 396,
-			"texts": [
-				"fiiris,",
-				"ï¬lris"
-			]
-		},
-		{
-			"id": "397",
-			"frame": 397,
-			"texts": [
-				"Hac",
-				"â€˜I-lac"
-			]
-		},
-		{
-			"id": "398",
-			"frame": 398,
-			"texts": [
-				"rationelibras",
-				"rationclibras"
-			]
-		},
-		{
-			"id": "399",
-			"frame": 399,
-			"texts": [
-				"fanguinis",
-				"{Emguinis"
-			]
-		},
-		{
-			"id": "400",
-			"frame": 400,
-			"texts": [
-				"educimt,",
-				"cducunt,"
-			]
-		},
-		{
-			"id": "401",
-			"frame": 401,
-			"texts": [
-				"fecus",
-				"fccus"
-			]
-		},
-		{
-			"id": "402",
-			"frame": 402,
-			"texts": [
-				"pcr",
-				"pct"
-			]
-		},
-		{
-			"id": "403",
-			"frame": 403,
-			"texts": [
-				"venaefectionem",
-				"vcnzcfcÃ©lioncm."
-			]
-		},
-		{
-			"id": "404",
-			"frame": 404,
-			"texts": [
-				"Pluri-",
-				"Pluri_-"
-			]
-		},
-		{
-			"id": "405",
-			"frame": 405,
-			"texts": [
-				"mumque",
-				"mumquc"
-			]
-		},
-		{
-			"id": "406",
-			"frame": 406,
-			"texts": [
-				"adeo",
-				"adco"
-			]
-		},
-		{
-			"id": "407",
-			"frame": 407,
-			"texts": [
-				"dirlerunt",
-				"dilfcrunt"
-			]
-		},
-		{
-			"id": "408",
-			"frame": 408,
-			"texts": [
-				"cucurbitulis fcarificatis.",
-				"cucurbitulisfcariï¬catis."
-			]
-		},
-		{
-			"id": "409",
-			"frame": 409,
-			"texts": [
-				"Vtvero",
-				"Vt vcro"
-			]
-		},
-		{
-			"id": "410",
-			"frame": 410,
-			"texts": [
-				"doloribus",
-				"cloloribusâ€˜"
-			]
-		},
-		{
-			"id": "411",
-			"frame": 411,
-			"texts": [
-				"fiiccurrant",
-				"fitccurrant,"
-			]
-		},
-		{
-			"id": "412",
-			"frame": 412,
-			"texts": [
-				"antequam",
-				"antcquam"
-			]
-		},
-		{
-			"id": "413",
-			"frame": 413,
-			"texts": [
-				"aggrediafttur",
-				"aggrcdiaï¬‚tur,"
-			]
-		},
-		{
-			"id": "414",
-			"frame": 414,
-			"texts": [
-				"folumofriï¬ionibus,",
-				"folum friclionibus"
-			]
-		},
-		{
-			"id": "415",
-			"frame": 415,
-			"texts": [
-				"manuum",
-				"mammm"
-			]
-		},
-		{
-			"id": "416",
-			"frame": 416,
-			"texts": [
-				"verberationibus",
-				"vcrbcrationibus"
-			]
-		},
-		{
-			"id": "417",
-			"frame": 417,
-			"texts": [
-				"crebris",
-				"crcbris"
-			]
-		},
-		{
-			"id": "418",
-			"frame": 418,
-			"texts": [
-				"ituporem",
-				"ï¬‚fuporcm"
-			]
-		},
-		{
-			"id": "419",
-			"frame": 419,
-			"texts": [
-				"membris",
-				"mcmbris"
-			]
-		},
-		{
-			"id": "420",
-			"frame": 420,
-			"texts": [
-				"inferunt.",
-				"infcrunt."
-			]
-		},
-		{
-			"id": "421",
-			"frame": 421,
-			"texts": [
-				"opere",
-				"opcrc"
-			]
-		},
-		{
-			"id": "422",
-			"frame": 422,
-			"texts": [
-				"vulncra",
-				"grulncra"
-			]
-		},
-		{
-			"id": "423",
-			"frame": 423,
-			"texts": [
-				"\"aqua",
-				"aqua"
-			]
-		},
-		{
-			"id": "424",
-			"frame": 424,
-			"texts": [
-				"irrorant",
-				"irrorant,'"
-			]
-		},
-		{
-			"id": "425",
-			"frame": 425,
-			"texts": [
-				"eaque",
-				"caquc"
-			]
-		},
-		{
-			"id": "426",
-			"frame": 426,
-			"texts": [
-				"fiiccis",
-				"fuccis"
-			]
-		},
-		{
-			"id": "427",
-			"frame": 427,
-			"texts": [
-				"his folum",
-				"hisfomn"
-			]
-		},
-		{
-			"id": "428",
-			"frame": 428,
-			"texts": [
-				"plurimos",
-				"plurirnos"
-			]
-		},
-		{
-			"id": "429",
-			"frame": 429,
-			"texts": [
-				"arf eÂ£his",
-				"affccï¬us"
-			]
-		},
-		{
-			"id": "430",
-			"frame": 430,
-			"texts": [
-				"rcï¬ituunt",
-				"ref tituunt"
-			]
-		},
-		{
-			"id": "431",
-			"frame": 431,
-			"texts": [
-				"hberant.",
-				"libcrint."
-			]
-		},
-		{
-			"id": "432",
-			"frame": 432,
-			"texts": [
-				"Vidcamus",
-				"Videamus"
-			]
-		},
-		{
-			"id": "433",
-			"frame": 433,
-			"texts": [
-				"Vomitoria",
-				"Vomitorii;"
-			]
-		},
-		{
-			"id": "434",
-			"frame": 434,
-			"texts": [
-				"Sudorifera",
-				"Sudorifcra"
-			]
-		},
-		{
-			"id": "435",
-			"frame": 435,
-			"texts": [
-				"Opiata^tnimadverfione",
-				"Ofaizgzummxadvcrï¬onc"
-			]
-		},
-		{
-			"id": "436",
-			"frame": 436,
-			"texts": [
-				"di-",
-				"dj.."
-			]
-		},
-		{
-			"id": "437",
-			"frame": 437,
-			"texts": [
-				"na funt",
-				"gnafm"
-			]
-		},
-		{
-			"id": "438",
-			"frame": 438,
-			"texts": [
-				"Incolarum",
-				"Incolmrumâ€˜"
-			]
-		},
-		{
-			"id": "439",
-			"frame": 439,
-			"texts": [
-				"&Regionis",
-				"Rcgionfs"
-			]
-		},
-		{
-			"id": "440",
-			"frame": 440,
-			"texts": [
-				"temperamentum",
-				"tctnpcramcntmn"
-			]
-		},
-		{
-			"id": "441",
-			"frame": 441,
-			"texts": [
-				"humidum",
-				"lmxnidum"
-			]
-		},
-		{
-			"id": "442",
-			"frame": 442,
-			"texts": [
-				"effe",
-				"cffc"
-			]
-		},
-		{
-			"id": "443",
-			"frame": 443,
-			"texts": [
-				"perfpexcrit,",
-				"pcrfpexcrit,"
-			]
-		},
-		{
-			"id": "444",
-			"frame": 444,
-			"texts": [
-				"haud",
-				"hand"
-			]
-		},
-		{
-			"id": "445",
-			"frame": 445,
-			"texts": [
-				"difficile",
-				"difï¬cilc"
-			]
-		},
-		{
-			"id": "446",
-			"frame": 446,
-			"texts": [
-				"&quibus",
-				"Scquibus"
-			]
-		},
-		{
-			"id": "447",
-			"frame": 447,
-			"texts": [
-				"per",
-				"pct"
-			]
-		},
-		{
-			"id": "448",
-			"frame": 448,
-			"texts": [
-				"fuperiora",
-				"fupcriora"
-			]
-		},
-		{
-			"id": "449",
-			"frame": 449,
-			"texts": [
-				"vcnttcs",
-				"ventrcs"
-			]
-		},
-		{
-			"id": "450",
-			"frame": 450,
-			"texts": [
-				"exonerare",
-				"exonerate"
-			]
-		},
-		{
-			"id": "451",
-			"frame": 451,
-			"texts": [
-				"fit",
-				"Ii"
-			]
-		},
-		{
-			"id": "452",
-			"frame": 452,
-			"texts": [
-				"neceÂ£",
-				"nccdi"
-			]
-		},
-		{
-			"id": "453",
-			"frame": 453,
-			"texts": [
-				"fe.",
-				"â€˜ft."
-			]
-		},
-		{
-			"id": "454",
-			"frame": 454,
-			"texts": [
-				"-^Eftate",
-				"Eï¬atc"
-			]
-		},
-		{
-			"id": "455",
-			"frame": 455,
-			"texts": [
-				"enim ficca",
-				"cnimficca"
-			]
-		},
-		{
-			"id": "456",
-			"frame": 456,
-			"texts": [
-				"bilem",
-				"bilcm"
-			]
-		},
-		{
-			"id": "457",
-			"frame": 457,
-			"texts": [
-				"qualemcunquc , a",
-				"qu-alcmcunq'uc,:â€˜t"
-			]
-		},
-		{
-			"id": "458",
-			"frame": 458,
-			"texts": [
-				"crebro",
-				"crcbm"
-			]
-		},
-		{
-			"id": "459",
-			"frame": 459,
-			"texts": [
-				"fugacium &",
-				"fugaciumï¬c"
-			]
-		},
-		{
-			"id": "460",
-			"frame": 460,
-			"texts": [
-				"hora-",
-				"hora."
-			]
-		},
-		{
-			"id": "461",
-			"frame": 461,
-			"texts": [
-				"riorum",
-				"riomm"
-			]
-		},
-		{
-			"id": "462",
-			"frame": 462,
-			"texts": [
-				"efii",
-				"cï¬x"
-			]
-		},
-		{
-			"id": "463",
-			"frame": 463,
-			"texts": [
-				"ventriculo colle&am",
-				"vÂ¢11triculoâ€˜col1c&:a:n"
-			]
-		},
-		{
-			"id": "464",
-			"frame": 464,
-			"texts": [
-				"haud",
-				"hand"
-			]
-		},
-		{
-			"id": "465",
-			"frame": 465,
-			"texts": [
-				"exiftimant",
-				"aziï¬‚imant"
-			]
-		},
-		{
-			"id": "466",
-			"frame": 466,
-			"texts": [
-				"mferiora",
-				"hxferiom"
-			]
-		},
-		{
-			"id": "467",
-			"frame": 467,
-			"texts": [
-				"ducere",
-				"sincere"
-			]
-		},
-		{
-			"id": "468",
-			"frame": 468,
-			"texts": [
-				"prafertim",
-				"praafcrtim"
-			]
-		},
-		{
-			"id": "469",
-			"frame": 469,
-			"texts": [
-				"mKpc%ohoi",
-				"mxpÃ©xakasmâ€˜"
-			]
-		},
-		{
-			"id": "470",
-			"frame": 470,
-			"texts": [
-				"subsessik),",
-				"subsessik,"
-			]
-		},
-		{
-			"id": "471",
-			"frame": 471,
-			"texts": [
-				"di&um",
-				"dictum"
-			]
-		},
-		{
-			"id": "472",
-			"frame": 472,
-			"texts": [
-				"rem Medicam fc-",
-				"remâ€™Mcdigam'fc-"
-			]
-		},
-		{
-			"id": "473",
-			"frame": 473,
-			"texts": [
-				"\"re",
-				"re"
-			]
-		},
-		{
-			"id": "474",
-			"frame": 474,
-			"texts": [
-				"hicabfblvi",
-				"his abfolvi"
-			]
-		},
-		{
-			"id": "475",
-			"frame": 475,
-			"texts": [
-				"meris",
-				"mcris"
-			]
-		},
-		{
-			"id": "476",
-			"frame": 476,
-			"texts": [
-				"vegetabilibus",
-				"vegetabilibus,"
-			]
-		},
-		{
-			"id": "477",
-			"frame": 477,
-			"texts": [
-				"(quarum",
-				"( quarum"
-			]
-		},
-		{
-			"id": "478",
-			"frame": 478,
-			"texts": [
-				"facile",
-				"Emile"
-			]
-		},
-		{
-			"id": "479",
-			"frame": 479,
-			"texts": [
-				"mincralium",
-				"mimtralium"
-			]
-		},
-		{
-			"id": "480",
-			"frame": 480,
-			"texts": [
-				"penfat)",
-				"fcnfat)"
-			]
-		},
-		{
-			"id": "481",
-			"frame": 481,
-			"texts": [
-				"plunma",
-				"plutima"
-			]
-		},
-		{
-			"id": "482",
-			"frame": 482,
-			"texts": [
-				"caeteris",
-				"cztcris"
-			]
-		},
-		{
-			"id": "483",
-			"frame": 483,
-			"texts": [
-				"praaripiunt",
-				".pr2ripiunt"
-			]
-		},
-		{
-			"id": "484",
-			"frame": 484,
-			"texts": [
-				"cclebres",
-				"cclcbrcs"
-			]
-		},
-		{
-			"id": "485",
-			"frame": 485,
-			"texts": [
-				"radices",
-				"radiccs"
-			]
-		},
-		{
-			"id": "486",
-			"frame": 486,
-			"texts": [
-				"tyccacuanha",
-				"Qecarnnbc,"
-			]
-		},
-		{
-			"id": "487",
-			"frame": 487,
-			"texts": [
-				"intraï¬atuvfunplicium",
-				"in tractatu fimplicium"
-			]
-		},
-		{
-			"id": "488",
-			"frame": 488,
-			"texts": [
-				"delineatse.",
-				"delincat"
-			]
-		},
-		{
-			"id": "489",
-			"frame": 489,
-			"texts": [
-				"has primum",
-				"hasprimum"
-			]
-		},
-		{
-			"id": "490",
-			"frame": 490,
-			"texts": [
-				"refugiura",
-				"rcï¬gium"
-			]
-		},
-		{
-			"id": "491",
-			"frame": 491,
-			"texts": [
-				"capiunt",
-				"â€™ca}nT_unt"
-			]
-		},
-		{
-			"id": "492",
-			"frame": 492,
-			"texts": [
-				"omnes",
-				"onmÃ©s"
-			]
-		},
-		{
-			"id": "493",
-			"frame": 493,
-			"texts": [
-				"pariter Incolse,",
-				"Â«path:-er\"Incolac,"
-			]
-		},
-		{
-			"id": "494",
-			"frame": 494,
-			"texts": [
-				"utpote",
-				"utpotc"
-			]
-		},
-		{
-			"id": "495",
-			"frame": 495,
-			"texts": [
-				"tutiifimas",
-				"mdï¬‚imas"
-			]
-		},
-		{
-			"id": "496",
-			"frame": 496,
-			"texts": [
-				"exturbandum",
-				"cxtutbandum"
-			]
-		},
-		{
-			"id": "497",
-			"frame": 497,
-			"texts": [
-				"affumtum",
-				"aï¬‚iumum"
-			]
-		},
-		{
-			"id": "498",
-			"frame": 498,
-			"texts": [
-				"venc",
-				"vcnc"
-			]
-		},
-		{
-			"id": "499",
-			"frame": 499,
-			"texts": [
-				"num , five",
-				"numgï¬vc"
-			]
-		},
-		{
-			"id": "500",
-			"frame": 500,
-			"texts": [
-				"cacochymicam",
-				"cacochjnnicaxn"
-			]
-		},
-		{
-			"id": "501",
-			"frame": 501,
-			"texts": [
-				"praxordia",
-				"przcordia"
-			]
-		},
-		{
-			"id": "502",
-			"frame": 502,
-			"texts": [
-				"haerentem.",
-				"hatrcnftcm."
-			]
-		},
-		{
-			"id": "503",
-			"frame": 503,
-			"texts": [
-				"Vrx",
-				"P1-2:"
-			]
-		},
-		{
-			"id": "504",
-			"frame": 504,
-			"texts": [
-				"cseteris",
-				"cxteris"
-			]
-		},
-		{
-			"id": "505",
-			"frame": 505,
-			"texts": [
-				"exhibcntur",
-				"cxhibcnmr"
-			]
-		},
-		{
-			"id": "506",
-			"frame": 506,
-			"texts": [
-				"contmï¬‚uxus",
-				"contra fluxus"
-			]
-		},
-		{
-			"id": "507",
-			"frame": 507,
-			"texts": [
-				"vcntris,",
-				"vcntxis,"
-			]
-		},
-		{
-			"id": "508",
-			"frame": 508,
-			"texts": [
-				"familiarcs.",
-				"familiaxcs."
-			]
-		},
-		{
-			"id": "509",
-			"frame": 509,
-			"texts": [
-				"cximi-am",
-				"cximiam"
-			]
-		},
-		{
-			"id": "510",
-			"frame": 510,
-			"texts": [
-				"extollerem",
-				"cxtollcrcm"
-			]
-		},
-		{
-			"id": "511",
-			"frame": 511,
-			"texts": [
-				";fed",
-				";fcd"
-			]
-		},
-		{
-			"id": "512",
-			"frame": 512,
-			"texts": [
-				"vereor",
-				"vcrcor"
-			]
-		},
-		{
-			"id": "513",
-			"frame": 513,
-			"texts": [
-				"ne",
-				"no"
-			]
-		},
-		{
-			"id": "514",
-			"frame": 514,
-			"texts": [
-				"Satyricus",
-				"Satyticus"
-			]
-		},
-		{
-			"id": "515",
-			"frame": 515,
-			"texts": [
-				"quifpiam",
-				"quijjnfam"
-			]
-		},
-		{
-			"id": "516",
-			"frame": 516,
-			"texts": [
-				"quod",
-				"quad"
-			]
-		},
-		{
-			"id": "517",
-			"frame": 517,
-			"texts": [
-				"tempore",
-				"tcmporc"
-			]
-		},
-		{
-			"id": "518",
-			"frame": 518,
-			"texts": [
-				"Catonis",
-				"Caaonis"
-			]
-		},
-		{
-			"id": "519",
-			"frame": 519,
-			"texts": [
-				"de Braffica",
-				"dcBraï¬‚ic;a"
-			]
-		},
-		{
-			"id": "520",
-			"frame": 520,
-			"texts": [
-				"nimium laudata",
-				"mmimnlaudata"
-			]
-		},
-		{
-			"id": "521",
-			"frame": 521,
-			"texts": [
-				"dixit",
-				"dixit:"
-			]
-		},
-		{
-			"id": "522",
-			"frame": 522,
-			"texts": [
-				"BraJJt-",
-				"Baggi-"
-			]
-		},
-		{
-			"id": "523",
-			"frame": 523,
-			"texts": [
-				"fruclus",
-				"ï¬uÃ©lus"
-			]
-		},
-		{
-			"id": "524",
-			"frame": 524,
-			"texts": [
-				"vel",
-				"val"
-			]
-		},
-		{
-			"id": "525",
-			"frame": 525,
-			"texts": [
-				"herb-ac",
-				"herbx"
-			]
-		},
-		{
-			"id": "526",
-			"frame": 526,
-			"texts": [
-				"ufuales",
-				"ufualcs"
-			]
-		},
-		{
-			"id": "527",
-			"frame": 527,
-			"texts": [
-				"fuperiora",
-				"ï¬xpcxiota"
-			]
-		},
-		{
-			"id": "528",
-			"frame": 528,
-			"texts": [
-				"operan-",
-				"opggm."
-			]
-		},
-		{
-			"id": "529",
-			"frame": 529,
-			"texts": [
-				"tes,",
-				"__tâ‚¬S"
-			]
-		},
-		{
-			"id": "530",
-			"frame": 530,
-			"texts": [
-				"Ania^",
-				"Ania,"
-			]
-		},
-		{
-			"id": "531",
-			"frame": 531,
-			"texts": [
-				"RicinusAmericanusmajor&minor.",
-				"Ricmus-A usmajor Ã©cmjnor."
-			]
-		},
-		{
-			"id": "532",
-			"frame": 532,
-			"texts": [
-				"dotes",
-				"dates"
-			]
-		},
-		{
-			"id": "533",
-			"frame": 533,
-			"texts": [
-				"aliarquc",
-				"aliatquc"
+				"zone",
+				"zone"
 			]
 		}
 	]
