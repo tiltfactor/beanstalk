@@ -3,9 +3,15 @@
 # Declare binary files
 *.mp3 binary
 
+# Denote all files that are truly binary and should not be modified.
 *.png binary
 *.psd binary
 *.jpg binary
 *.ico binary
+*.ttf binary
+*.ai binary
+*.eps binary
+*.pdf binary
+*.eot binary
 
 
