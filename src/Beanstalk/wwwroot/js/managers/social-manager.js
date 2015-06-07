@@ -27,13 +27,13 @@ var SocialManager = (function () {
             method: 'feed',
             caption: this.getShareText(),
             //description: this.getShareText(),
-            link: 'http://tiltfactor.pepwuper.com/Beanstalk/',
+            link: 'http://beanstalkgame.org',
         }, function (response) {
             console.log("FB Feed response", response);
         });
     };
     SocialManager.prototype.getShareText = function () {
-        return Utils.format("Checkout my awesome {0}m high Beanstalk! http://beanstalk.com", beanstalk.user.height);
+        return Utils.format("I've transcribed {0} words for the Biodiversity Heritage Library in Beanstalk! http://beanstalkgame.org", beanstalk.user.height/10);
     };
     return SocialManager;
 })();
