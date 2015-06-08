@@ -22,7 +22,7 @@
 }
 
 #instructionsScreen .menu-container p {
-	font-size: 26px;
+	font-size: 30px;
 	text-transform: none;
 	top: 10px;
 	left: 10px;
@@ -55,15 +55,14 @@
 }
 
 #instructionsScreen button.right-arrow {
-	background-image: url("../images/UI/instructions/page_arrow.png");
+	background-image: url("../images/UI/instructions/page_arrow_right.png");
 	width: 44px;
 	height: 129px;
-	transform: scaleX(-1);
 	position: absolute;
 	top: 315px;
 	left: 583px;
 }
 
 #instructionsScreen button.right-arrow:active {
-	background-image: url("../images/UI/instructions/page_arrow_pressed.png");
+	background-image: url("../images/UI/instructions/page_arrow_right_pressed.png");
 }
