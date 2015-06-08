@@ -42,7 +42,7 @@ var InstructionsScreen = (function (_super) {
         var img = $("#instructionsScreen .instruction-img").get(0);
         img.src = "images/Instructions/" + instruction.image + ".png";
         // Update the text
-        $("#instructionsScreen .menu-container p").text(instruction.description);
+        $("#instructionsScreen .menu-container p").html(instruction.description);
         // Update the paging elements
         $("#instructionsScreen .paging img").each(function (i, e) {
             if (i == _this.selectedInstruction)
