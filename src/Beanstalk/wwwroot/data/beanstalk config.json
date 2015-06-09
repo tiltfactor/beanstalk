@@ -82,7 +82,7 @@
       "ambience": "moon_and_space_sound"
     }
   },
- 	"debug":  true,
+ 	"debug":  false,
 	"penaltyTime":  1,
 	"entriesBeforeServerSubmission":  25,
 	"PageAPIUrl": "http://tiltfactor1.dartmouth.edu:8081/api/page",
