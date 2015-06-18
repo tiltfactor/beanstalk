@@ -12,7 +12,8 @@
     {"image": "instructions11", "description": "Use the slash character, ‘/’, for fractions."},
     {"image": "instructions12", "description": "Some phrases will be impossible to type.  If you run into one of these press “pass” to skip it."},
 	{"image": "instructions13", "description": "Stay on the lookout for special characters! You'll see a new one for every stalk you grow during the game."},
-	{"image": "instructions14", "description": "Comments or suggestions about Beanstalk? We would love to hear them! Please leave us feedback <a target='_blank' href='https://docs.google.com/forms/d/14SHj9ArMmMwzZGqnPFxu3Me1ZyzcyjhWT2v0bfHlZ7o/viewform?usp=send_form'>here</a>."}
+	{"image": "instructions14", "description": "Beanstalk was made possible by these institutions.  <a target='_blank' href='http://tiltfactor.org/game/beanstalk'>More info</a> about the game and the project."},
+	{"image": "instructions15", "description": "Comments or suggestions about Beanstalk? We would love to hear them! Please leave us feedback <a target='_blank' href='https://docs.google.com/forms/d/14SHj9ArMmMwzZGqnPFxu3Me1ZyzcyjhWT2v0bfHlZ7o/viewform?usp=send_form'>here</a>."}
 ]
 
 
