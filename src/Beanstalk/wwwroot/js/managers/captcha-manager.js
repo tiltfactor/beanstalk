@@ -39,9 +39,20 @@ var CaptchaManager = (function () {
             beanstalk.audio.playSound("type_letter_simple_02_sound");
     };
     CaptchaManager.prototype.pass = function () {
+        this.markAsPassed(this.captcha.chunk);
         this.refreshCaptcha();
         //this.onCaptchaEnteredSuccessfully();
     };
+    CaptchaManager.prototype.markAsPassed = function (ocr) {
+        if (!ocr.page.isLocal) {
+            this.attemptsNotSent.push({
+                closestOcr: ocr,
+                pass: true
+            });
+            if (this.attemptsNotSent.length > beanstalk.config.entriesBeforeServerSubmission)
+                this.sendInputsToServer();
+        }
+    }
     CaptchaManager.prototype.newGameStarted = function () {
         this.captchasSucceeded = 0;
         this.attemptsNotSent = [];
@@ -74,6 +85,8 @@ var CaptchaManager = (function () {
             // If the new size of the captch is too small in either dimension then lets discard it
             if (this.captcha.getBounds().width < beanstalk.config.minCaptchaPixelSize || this.captcha.getBounds().height < beanstalk.config.minCaptchaPixelSize) {
                 console.log("Cannot use captcha, width or height is less than minimum Captcha pixel size", this.captcha.getBounds(), beanstalk.config.minCaptchaPixelSize);
+                // Because it can't be used, we should mark the captcha as passed
+                this.markAsPassed(this.captcha.chunk);
                 continue;
             }
             // Lets check the pre-scaled size of the captcha to anything too big
@@ -85,6 +98,8 @@ var CaptchaManager = (function () {
                 // If the result is less than a specific constant value then throw out this word and try another
                 if (result < beanstalk.config.captchaScaleLimitConstantN) {
                     console.log("Cannot use captcha, its too wide compared to contant! result:", result);
+                    // Because it can't be used, we should mark the captcha as passed
+                    this.markAsPassed(this.captcha.chunk);
                     continue;
                 }
                 // Else lets scale the captcha down some
@@ -94,6 +109,8 @@ var CaptchaManager = (function () {
                 // If the new size of the captch is too small in either dimension then lets discard it
                 if (this.captcha.getBounds().width < beanstalk.config.minCaptchaPixelSize || this.captcha.getBounds().height < beanstalk.config.minCaptchaPixelSize) {
                     console.log("Cannot use captcha, width or height is less than minimum Captcha pixel size", this.captcha.getBounds(), beanstalk.config.minCaptchaPixelSize);
+                    // Because it can't be used, we should mark the captcha as passed
+                    this.markAsPassed(this.captcha.chunk);
                     continue;
                 }
             }
@@ -196,7 +213,7 @@ var CaptchaManager = (function () {
         // Convert it into the format needed by the server
         var data = {
             differences: _.map(this.attemptsNotSent, function (a) {
-                return { _id: a.closestOcr._id, text: a.text };
+                return { _id: a.closestOcr._id, text: a.text || "", pass: a.pass || false};
             })
         };
         // Make a copy of the attempts not sent and reset the list ready for the next send
