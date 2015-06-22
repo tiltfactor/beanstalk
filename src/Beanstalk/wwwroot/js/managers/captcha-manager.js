@@ -127,7 +127,7 @@ var CaptchaManager = (function () {
         // Cant test if the game is not running
         //if (smorball.game.state != GameState.Playing) return;
         // Grab the text and reset it ready for the next one
-        var text = this.input.val();
+        var text = this.input.val().toLowerCase();
         if (text == null || text == "")
             return; // skip if no text entered
         this.input.val("");
