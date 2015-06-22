@@ -109,8 +109,10 @@ var CaptchaManager = (function () {
     };
     CaptchaManager.prototype.getNextChunk = function () {
         // If there arent any chunks remaining then just chunk our local store in there 
-        if (this.remoteChunks.length == 0)
+        if (this.remoteChunks.length == 0) {
+            this.loadPageFromServer();
             return Utils.randomOne(this.localChunks);
+        }
         // Else lets return back one
         var chunk = Utils.popRandomOne(this.remoteChunks);
         // If there is nothing left in there lets grab another page
