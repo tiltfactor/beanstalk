@@ -1,4 +1,12 @@
-﻿{
+﻿/**
+ * This is an example configuration file. To set up your own, copy this file to
+ *  "config.js", fill out the marked fields below, and REMOVE this entire comment.
+ *
+ * Beanstalk
+ * Tiltfactor, 2015
+ */
+
+{
 	"width": 870,
 	"height": 1160,
 	"maxPlantHeightPixels": 3800,
@@ -85,9 +93,9 @@
  	"debug":  false,
 	"penaltyTime":  1,
 	"entriesBeforeServerSubmission":  25,
-	"PageAPIUrl": "http://tiltfactor1.dartmouth.edu:8081/api/page",
-	"DifferenceAPIUrl": "http://tiltfactor1.dartmouth.edu:8081/api/difference",
+	"PageAPIUrl": /* http://[url]:8081/api/page */,
+	"DifferenceAPIUrl": /* http://[url]:8081/api/difference */,
 	"PageAPITimeout":  3000,
-	"PageAPIAccessToken":  "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJUaWx0ZmFjdG9yIiwiaWF0IjoxNDI3OTE2MTIxNDI1LCJpc3MiOiJCSExTZXJ2ZXIifQ.T19ejRiQPnVzCmh-PFKULwNQ4yhebbQac4o61NcZkvA",
-  	"fbAppId":  "849783798403345"
+	"PageAPIAccessToken": /* enter Game token here */,
+  	"fbAppId":  /* enter Facebook App ID here for sharing scores */
 }
