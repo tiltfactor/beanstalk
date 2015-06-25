@@ -1,6 +1,6 @@
 ﻿/**
  * This is an example configuration file. To set up your own, copy this file to
- *  "config.js", fill out the marked fields below, and REMOVE this entire comment.
+ *  "beanstalk config.json", fill out the marked fields below, and REMOVE this entire comment.
  *
  * Beanstalk
  * Tiltfactor, 2015
