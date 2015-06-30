@@ -80,40 +80,27 @@ var CaptchaManager = (function () {
             var nextChunk = this.getNextChunk();
             console.log("Next captcha pulled from stack, isLocal:", nextChunk.page.isLocal, nextChunk);
             // Ensure that the chunk isnt too wide
+            // Ensure that the chunk isn't too big or too small
             this.captcha.scaleX = this.captcha.scaleY = 1;
             this.captcha.setChunk(nextChunk);
-            // If the new size of the captch is too small in either dimension then lets discard it
-            if (this.captcha.getBounds().width < beanstalk.config.minCaptchaPixelSize || this.captcha.getBounds().height < beanstalk.config.minCaptchaPixelSize) {
-                console.log("Cannot use captcha, width or height is less than minimum Captcha pixel size", this.captcha.getBounds(), beanstalk.config.minCaptchaPixelSize);
-                // Because it can't be used, we should mark the captcha as passed
+            var maxWidth = beanstalk.config.maxCaptchaSize;
+            var maxHeight = maxWidth * 174/212; //this is determined from the various heights of things on the screen
+            var minHeight = beanstalk.config.minCaptchaPixelSize; //we can't show a captcha to the player if it's less than this height because it will be unreadably small
+            var minWidth = this.getSmallestTextLength(nextChunk)*beanstalk.config.minCaptchaPixelSize; //we throw out the captcha if it's less wide than 13 pixels per character in the word - in other words, VERY SMALL
+            var width = this.captcha.getBounds().width;
+            var height = this.captcha.getBounds().height;
+            var scale = Math.min(maxHeight/height, maxWidth/width, 1); //the captcha will be scaled down if the height exceeds the max height or the width exceeds the max width. Never scaled up.
+            this.captcha.scaleX = this.captcha.scaleY = scale;
+            if (scale < 1)
+            	console.log("scale factor is "+scale+", width "+width+"-->"+width*scale+", height "+height+"-->"+height*scale);
+            
+            if (scale * height < minHeight || scale * width < minWidth) {
+            	console.log("cannot use captcha; width or height is too small after scaling");
+            	// Because it can't be used, we should mark the captcha as passed
                 this.markAsPassed(this.captcha.chunk);
                 continue;
             }
-            // Lets check the pre-scaled size of the captcha to anything too big
-            var width = this.captcha.getWidth();
-            if (width > beanstalk.config.maxCaptchaSize) {
-                // If the chunk is too wide then lets see if we should scale it down or not
-                var L = this.getAverageTextLength(nextChunk);
-                var result = Math.min(width, beanstalk.config.maxCaptchaSize) / L;
-                // If the result is less than a specific constant value then throw out this word and try another
-                if (result < beanstalk.config.captchaScaleLimitConstantN) {
-                    console.log("Cannot use captcha, its too wide compared to contant! result:", result);
-                    // Because it can't be used, we should mark the captcha as passed
-                    this.markAsPassed(this.captcha.chunk);
-                    continue;
-                }
-                // Else lets scale the captcha down some
-                var scale = beanstalk.config.maxCaptchaSize / width;
-                console.log("Scaling captcha down to:", scale);
-                this.captcha.scaleX = this.captcha.scaleY = scale;
-                // If the new size of the captch is too small in either dimension then lets discard it
-                if (this.captcha.getBounds().width < beanstalk.config.minCaptchaPixelSize || this.captcha.getBounds().height < beanstalk.config.minCaptchaPixelSize) {
-                    console.log("Cannot use captcha, width or height is less than minimum Captcha pixel size", this.captcha.getBounds(), beanstalk.config.minCaptchaPixelSize);
-                    // Because it can't be used, we should mark the captcha as passed
-                    this.markAsPassed(this.captcha.chunk);
-                    continue;
-                }
-            }
+            
             // If we get here then we are done
             this.captcha.animateIn();
             break;
@@ -123,6 +110,11 @@ var CaptchaManager = (function () {
         var len = 0;
         _.each(chunk.texts, function (t) { return len += t.length; });
         return len / chunk.texts.length;
+    };
+    CaptchaManager.prototype.getSmallestTextLength = function (chunk) {
+        var len = 1000;
+        _.each(chunk.texts, function (t) { return len = Math.min(t.length, len); });
+        return len;
     };
     CaptchaManager.prototype.getNextChunk = function () {
         // If there arent any chunks remaining then just chunk our local store in there 

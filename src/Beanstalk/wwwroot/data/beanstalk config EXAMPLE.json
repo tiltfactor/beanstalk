@@ -13,8 +13,8 @@
 	"stalksBeforeLock": 4,
 	"maxSeedVel": 750,
 	"seedLandY": -100,
-	"maxCaptchaSize": 200,
-	"minCaptchaPixelSize": 10,
+	"maxCaptchaSize": 400,
+	"minCaptchaPixelSize": 15,
 	"captchaScaleLimitConstantN": 12,
 	"metersPerStalk": 10,
 	"plant": {
