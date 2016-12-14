@@ -72,12 +72,12 @@ var BeanstalkManager = (function () {
                 _this.loadingScreen.visible = false;
                 // If we are using a skipIntro debug flag then skip it now
                 if (Utils.deparam(location.href).skipIntro == "true") {
-                    _this.screens.open(_this.screens.login);
+                    _this.screens.open(_this.screens.main);
                 }
                 else {
                     _this.splashScreens.showSplashScreens(function () {
                         console.log("spash screens done, showing main menu.");
-                        _this.screens.open(_this.screens.login);
+                        _this.screens.open(_this.screens.main);
                     });
                 }
             });
